@@ -1,0 +1,79 @@
+{
+    "meta": {
+        "name": "toy",
+        "version": "3.7"
+    },
+    "containers": {
+        "frr": [
+            {
+                "name": "phynet1",
+                "interfaces": [
+                    {
+                        "network": "inet100",
+                        "ipaddr": "10.10.100.2"
+                    },
+                    {
+                        "network": "inet12",
+                        "ipaddr": "10.10.12.2"
+                    },
+                    {
+                        "network": "inet13",
+                        "ipaddr": "10.10.13.2"
+                    }
+                ]
+            },
+            {
+                "name": "phynet2",
+                "interfaces": [
+                    {
+                        "network": "inet12",
+                        "ipaddr": "10.10.12.3"
+                    },
+                    {
+                        "network": "inet23",
+                        "ipaddr": "10.10.23.2"
+                    }
+                ]
+            },
+            {
+                "name": "phynet3",
+                "interfaces": [
+                    {
+                        "network": "inet200",
+                        "ipaddr": "10.10.100.2"
+                    },
+                    {
+                        "network": "inet13",
+                        "ipaddr": "10.10.12.3"
+                    },
+                    {
+                        "network": "inet23",
+                        "ipaddr": "10.10.13.3"
+                    }
+                ]
+            }
+        ]
+    },
+    "networks": [
+        { 
+            "name": "inet100",
+            "subnet": "10.10.100/24"
+        },
+        { 
+            "name": "inet200",
+            "subnet": "10.10.200/24"
+        },
+        { 
+            "name": "inet12",
+            "subnet": "10.10.12/24"
+        },
+        { 
+            "name": "inet13",
+            "subnet": "10.10.13/24"
+        },
+        { 
+            "name": "inet23",
+            "subnet": "10.10.23/24"
+        }
+    ]
+}
