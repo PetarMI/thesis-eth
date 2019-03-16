@@ -8,6 +8,10 @@ def find_containers(topo: dict, container_type: str) -> list:
     return topo_containers.get(container_type, None)
 
 
+def find_metadata(topo: dict) -> dict:
+    return check_none(topo.get("meta", None))
+
+
 def check_none(val):
     if val is None:
         raise KeyError("Missing key")

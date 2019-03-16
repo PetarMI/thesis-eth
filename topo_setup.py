@@ -7,10 +7,12 @@ import topo_parser as tp
 
 def main(topology_file: str):
     topo: dict = import_topo(topology_file)
+    topo_meta = tp.find_metadata(topo)
     frr_containers: list = tp.find_containers(topo, "frr")
     topo_nets: list = tp.find_nets(topo)
 
     topo_compose: dict = {}
+    write_version(topo_meta, topo_compose)
     write_containers(frr_containers, topo_compose)
     write_nets(topo_nets, topo_compose)
     write_docker_compose(topo_compose)
@@ -24,6 +26,14 @@ def import_topo(topo_name: str) -> dict:
         topo = json.load(json_data)
 
     return topo
+
+
+def write_version(topo_meta: dict, topo_compose: dict) -> dict:
+    version = topo_meta.get("version", "3.7")
+
+    topo_compose.update({"version": version})
+
+    return topo_compose
 
 
 def write_containers(topo_containers: list, topo_compose: dict) -> dict:
