@@ -15,14 +15,14 @@ def main(topology_file: str):
     write_version(topo_meta, topo_compose)
     write_containers(frr_containers, topo_compose)
     write_nets(topo_nets, topo_compose)
-    write_docker_compose(topo_compose)
+    write_docker_compose(topo_meta, topo_compose)
 
 
 def import_topo(topo_name: str) -> dict:
     """ Function to load the topology encoded in json format """
-    topo_file: str = const.TOPO_DIR + topo_name + const.TOPO_EXTENSION
+    # topo_file: str = const.TOPO_DIR + topo_name + const.TOPO_EXTENSION
 
-    with open(topo_file) as json_data:
+    with open(topo_name) as json_data:
         topo = json.load(json_data)
 
     return topo
@@ -91,8 +91,13 @@ def write_nets(topo_nets: list, topo_compose: dict) -> dict:
     return topo_compose
 
 
-def write_docker_compose(topo_compose: dict):
-    print(yaml.dump(topo_compose, default_flow_style=False, sort_keys=False))
+def write_docker_compose(topo_meta: dict, topo_compose: dict):
+    topo_name = topo_meta.get("name")
+    compose_file = const.TOPO_DIR + topo_name + "/" + const.DOCKER_COMPOSE
+
+    with open(compose_file, 'w') as docker_compose:
+        yaml.dump(topo_compose, docker_compose,
+                  default_flow_style=False, sort_keys=False)
 
 
 if __name__ == '__main__':
