@@ -34,12 +34,10 @@ Configure FRR using vtysh shell commands. To be used later in scripts.
 
 #### v.0.0.1 - Docker containers in an overlay network
 
-Use an overlay network to enable two containers residing on separate Docker hosts
-to communicate.
+##### Release notes
 
-##### Setup
-
-* Docker hosts are Docker enabled local VMs
-    * NAT and Host-only adapter
+* Use an overlay network to enable two containers residing on separate Docker hosts
+    * Docker hosts are Docker enabled local VMs
+        * NAT and Host-only adapter
 
 
