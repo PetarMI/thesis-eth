@@ -16,6 +16,7 @@ Configure FRR using vtysh shell commands. To be used later in scripts.
 
 ##### Release notes 
 
+* Run Docker containers with FRR directly on host machine
 * Docker containers running Debian
     * Docker is running frr as its main process
 * Dockerfile that installs FRR via packages
