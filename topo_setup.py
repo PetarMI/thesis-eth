@@ -45,7 +45,7 @@ def write_containers(topo_containers: list, topo_compose: dict) -> dict:
         containers.update({
             c.get("name"): {
                 "image": "docker:dind",
-                "container_name": c.get("name"),
+                #"container_name": c.get("name"),
                 "privileged": True,
                 "networks": c_ifaces
             }
