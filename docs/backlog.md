@@ -2,6 +2,21 @@
 
 This document describes the progress and milestones of the network simulator project
 
+
+### v.0.1.1
+
+##### Release notes
+
+* changes to docker-compose generator
+* add volumes to Layer 2 containers 
+* simple scripts for 
+    * pulling and starting an frr container inside Layer 2
+    * pushing a config file inside an frr container
+
+##### Project state
+
+* all Layer 2 containers share the same folder containing the device configs 
+
 ### v.0.1.0
 
 ##### Release notes
