@@ -37,8 +37,9 @@ class ComposeGenerator():
 
             containers.update({
                 c.get("name"): {
-                    "image": "phynet:0.1",
+                    "image": "phynet:1.0",
                     "container_name": c_name,
+                    "hostname": c.get("name"),
                     "privileged": True,
                     "volumes": c_volumes,
                     "networks": c_ifaces
