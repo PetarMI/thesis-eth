@@ -1,8 +1,7 @@
 import json
 import yaml
 from argparse import ArgumentParser
-import constants as const
-import topo_parser as tp
+from containers.playmaker.scripts import topo_parser as tp, constants as const
 
 
 class ComposeGenerator():
