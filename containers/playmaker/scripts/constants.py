@@ -1,4 +1,4 @@
-TOPO_DIR = "topologies/"
+TOPO_DIR = "/home/topologies/"
 TOPO_EXTENSION = ".topo"
-COMPOSE_EXTEMSION = ".yaml"
+COMPOSE_EXTENSION = ".yaml"
 DOCKER_COMPOSE = "docker-compose.yaml"
