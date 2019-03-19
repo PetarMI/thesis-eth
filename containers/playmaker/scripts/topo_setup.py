@@ -1,4 +1,3 @@
-import json
 import yaml
 from argparse import ArgumentParser
 import topo_parser as tp
@@ -8,15 +7,15 @@ import constants as const
 class ComposeGenerator():
 
     def __init__(self, topology_file: str):
-        self.topo: dict = import_topo(topology_file)
+        self.topo: dict = tp.import_topo(topology_file)
         self.topo_meta = tp.find_metadata(self.topo)
-        self.frr_containers: list = tp.find_containers(self.topo, "frr")
+        self.containers: list = tp.find_containers(self.topo)
         self.topo_nets: list = tp.find_nets(self.topo)
 
     def compose(self):
         topo_compose: dict = {}
         self.write_version(topo_compose)
-        self.write_frr_containers(topo_compose)
+        self.write_containers(topo_compose)
         self.write_nets(topo_compose)
         self.write_docker_compose(topo_compose)
 
@@ -27,17 +26,18 @@ class ComposeGenerator():
 
         return topo_compose
 
-    def write_frr_containers(self, topo_compose: dict) -> dict:
+    def write_containers(self, topo_compose: dict) -> dict:
         containers = {}
 
-        for c in self.frr_containers:
+        for c in self.containers:
             c_ifaces = write_container_ifaces(c.get("interfaces"))
             c_name = self.topo_meta.get("name") + "-" + c.get("name")
             c_volumes = write_container_volumes()
+            c_image = tp.get_container_image(c.get("type"))
 
             containers.update({
                 c.get("name"): {
-                    "image": "phynet:1.0",
+                    "image": c_image,
                     "container_name": c_name,
                     "hostname": c.get("name"),
                     "privileged": True,
@@ -80,16 +80,6 @@ class ComposeGenerator():
         with open(compose_file, 'w') as docker_compose:
             yaml.dump(topo_compose, docker_compose,
                       default_flow_style=False, sort_keys=False)
-
-
-def import_topo(topo_name: str) -> dict:
-    """ Function to load the topology encoded in json format """
-    # topo_file: str = const.TOPO_DIR + topo_name + const.TOPO_EXTENSION
-
-    with open(topo_name) as json_data:
-        topo = json.load(json_data)
-
-    return topo
 
 
 def write_container_ifaces(cont_interfaces: list) -> dict:

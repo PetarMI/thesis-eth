@@ -7,6 +7,7 @@ Currently working but is not the best solution:
 
 * built from packages
 * hacky way of setting up the image through a not optimized Dockerfile
+* phynet container pulls it from dockerhub
 
 ### Build
 ```

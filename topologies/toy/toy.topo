@@ -3,57 +3,58 @@
         "name": "toy",
         "version": "3.7"
     },
-    "containers": {
-        "frr": [
-            {
-                "name": "Qphynet1",
-                "interfaces": [
-                    {
-                        "network": "Qnet100",
-                        "ipaddr": "20.10.100.2"
-                    },
-                    {
-                        "network": "Qnet12",
-                        "ipaddr": "20.10.12.2"
-                    },
-                    {
-                        "network": "Qnet13",
-                        "ipaddr": "20.10.13.2"
-                    }
-                ]
-            },
-            {
-                "name": "Qphynet2",
-                "interfaces": [
-                    {
-                        "network": "Qnet12",
-                        "ipaddr": "20.10.12.3"
-                    },
-                    {
-                        "network": "Qnet23",
-                        "ipaddr": "20.10.23.2"
-                    }
-                ]
-            },
-            {
-                "name": "Qphynet3",
-                "interfaces": [
-                    {
-                        "network": "Qnet200",
-                        "ipaddr": "20.10.200.2"
-                    },
-                    {
-                        "network": "Qnet13",
-                        "ipaddr": "20.10.13.3"
-                    },
-                    {
-                        "network": "Qnet23",
-                        "ipaddr": "20.10.23.3"
-                    }
-                ]
-            }
-        ]
-    },
+    "containers": [
+        {
+            "name": "Qphynet1",
+            "type": "frr",
+            "interfaces": [
+                {
+                    "network": "Qnet100",
+                    "ipaddr": "20.10.100.2"
+                },
+                {
+                    "network": "Qnet12",
+                    "ipaddr": "20.10.12.2"
+                },
+                {
+                    "network": "Qnet13",
+                    "ipaddr": "20.10.13.2"
+                }
+            ]
+        },
+        {
+            "name": "Qphynet2",
+            "type": "frr",
+            "interfaces": [
+                {
+                    "network": "Qnet12",
+                    "ipaddr": "20.10.12.3"
+                },
+                {
+                    "network": "Qnet23",
+                    "ipaddr": "20.10.23.2"
+                }
+            ]
+        },
+        {
+            "name": "Qphynet3",
+            "type": "frr",
+            "interfaces": [
+                {
+                    "network": "Qnet200",
+                    "ipaddr": "20.10.200.2"
+                },
+                {
+                    "network": "Qnet13",
+                    "ipaddr": "20.10.13.3"
+                },
+                {
+                    "network": "Qnet23",
+                    "ipaddr": "20.10.23.3"
+                }
+            ]
+        }
+    ],
     "networks": [
         { 
             "name": "Qnet100",
