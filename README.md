@@ -1,27 +1,26 @@
 # Network Simulator
 
-## Setting up 
+### Setting up the infrastructure 
 
-##### Build images
+1. Build the images 
+    ```bash
+    docker build --rm -t phynet:1.0 .
+    ```
+    
+    ```bash
+    docker build --rm -t playmaker:1.0 .
+    ```
 
-```bash
-docker build --rm -t phynet:1.0 .
-```
+2. Create Playmaker container 
 
-```bash
-docker build --rm -t playmaker:1.0 .
-```
+    ```bash
+    docker run -dit /
+    -v /var/run/docker.sock:/var/run/docker.sock /
+    --mount type=bind,source=<path to folder with topologies>,target=/home/topologies / 
+    --name pm playmaker:1.0
+    ``` 
 
-##### Create Playmaker container 
-
-```bash
-docker run -dit /
--v /var/run/docker.sock:/var/run/docker.sock /
---mount type=bind,source=<path to folder with topologies>,target=/home/topologies / 
---name pm playmaker:1.0
-``` 
-
-##### Script execution
+### Running on a specific topology
 
 1. Inside `Playmaker` create a `docker-compose`
 
