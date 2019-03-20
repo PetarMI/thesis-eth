@@ -4,10 +4,12 @@
 
 1. Build the images 
     ```bash
+    cd /containers/phynet 
     docker build --rm -t phynet:1.0 .
     ```
     
     ```bash
+    cd /containers/playmaker 
     docker build --rm -t playmaker:1.0 .
     ```
 
