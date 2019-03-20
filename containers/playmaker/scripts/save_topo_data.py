@@ -1,6 +1,8 @@
 import csv
+import os
 from argparse import ArgumentParser
 import topo_parser as tp
+import constants as const
 
 
 def main(topology_file: str):
@@ -25,11 +27,23 @@ def extract_data(topo_meta: dict, containers: list) -> list:
 
 
 def write_csv(container_data: list):
-    with open('person.csv', 'w') as csvFile:
+    state_dir = init_state_dir()
+    docker_state = state_dir + "/" + const.DOCKER_STATE_FILE
+
+    with open(docker_state, 'w') as csvFile:
         writer = csv.writer(csvFile)
         writer.writerows(container_data)
 
     csvFile.close()
+
+
+def init_state_dir() -> str:
+    try:
+        os.makedirs(const.PM_STATE_DIR)
+    except FileExistsError:
+        pass
+
+    return const.PM_STATE_DIR
 
 
 if __name__ == '__main__':
