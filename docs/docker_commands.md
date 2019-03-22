@@ -31,7 +31,14 @@
 * docker service ps <service name>
     * see the tasks for a specific service
 * docker stack ps <stack name> 
-    * see the tasks/contaners running on the specified stack
+    * see the tasks/containers running on the specified stack
+
+
+##### Docker Machine
+* `docker-machine create --driver virtualbox myvm1`
+* `docker-machine ls`
+* docker-machine ssh < vm> < command>
+
 
 ##### Installing stuff
 * `apt-get update
