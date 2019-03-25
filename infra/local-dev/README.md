@@ -1,5 +1,7 @@
 # Running local Simulator 
 
+**THIS INFO IS A BIT OUTDATED**
+
 ### Setting up the infrastructure 
 
 1. Build the images 

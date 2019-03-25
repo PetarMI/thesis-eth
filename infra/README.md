@@ -2,7 +2,13 @@
 
 Directory containing all infrastructure logic.
 
-### Layer 1
+### Playmaker
+
+Includes all the logic for setting up the topology
+
+* VM interactions
+
+### Layer 1 - VMs
 
 Infrastructure Layer 1 consists of Virtual Machines which host several Layer 2 container.
 
@@ -18,3 +24,12 @@ Infrastructure Layer 1 consists of Virtual Machines which host several Layer 2 c
     * `docker-compose` also supports Azure, AWS, etc.
 * Independent cloud VMs (ex. ETH machines)
     * managed through ssh
+
+
+### Layer 2 - Phynet 
+
+Logic inside the Phynet containers 
+
+* setting up FRR containers
+* configuring FRR containers 
+* changing FRR configs via `vtysh` commands
