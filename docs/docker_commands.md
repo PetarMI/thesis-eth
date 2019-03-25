@@ -11,6 +11,8 @@
 * docker network rm <network name>
 * docker network connect <net name> <container name>
 * docker network disconnect <net name> <container name>
+* docker exec --privileged host2 route add -net 10.0.0.0 netmask 255.0.0.0 gw 10.0.4.2
+    * adding a static route to a container
 
 ##### Container management
 * docker inspect <container name>
