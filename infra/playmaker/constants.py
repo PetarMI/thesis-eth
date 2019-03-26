@@ -1,0 +1,6 @@
+COMPOSE_DIR = "target"
+NET_FILE = "net-compose.csv"
+VM_NAME = "netvm"
+CREATE_FILE = "create"
+CONNECT_FILE = "connect"
+FILE_EXT = ".csv"
