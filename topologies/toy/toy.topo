@@ -7,6 +7,7 @@
         {
             "name": "Qphynet1",
             "type": "frr",
+            "vm": "vm1",
             "interfaces": [
                 {
                     "network": "Qnet100",
@@ -25,6 +26,7 @@
         {
             "name": "Qphynet2",
             "type": "frr",
+            "vm": "vm2",
             "interfaces": [
                 {
                     "network": "Qnet12",
@@ -39,6 +41,7 @@
         {
             "name": "Qphynet3",
             "type": "frr",
+            "vm": "vm2",
             "interfaces": [
                 {
                     "network": "Qnet200",
