@@ -1,4 +1,4 @@
-COMPOSE_DIR = "target"
+COMPOSE_DIR = "build_instr"
 NET_FILE = "net-compose.csv"
 VM_NAME = "netvm"
 CREATE_FILE = "create"
