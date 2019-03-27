@@ -49,7 +49,7 @@ function check_success {
 }
 
 function create_nets {
-    while read net_name
+    while IFS=, read net_name
     do
         docker network create --driver=${NET_DRIVER} --attachable ${net_name} 1>/dev/null
         check_success $? "Creating network ${net_name}"
@@ -57,7 +57,7 @@ function create_nets {
 }
 
 function create_containers {
-    while read cont_name net_name image
+    while IFS=, read -r cont_name net_name image || [ -n "${cont_name}" ]
     do
         docker run -dit --privileged --name=${cont_name} --network=${net_name} ${image} 1>/dev/null
         check_success $? "Creating container ${cont_name}"
@@ -65,7 +65,7 @@ function create_containers {
 }
 
 function create_links {
-    while read net_name cont_name
+    while IFS=, read net_name cont_name || [ -n "${net_name}" ]
     do
         docker network connect ${net_name} ${cont_name} 1>/dev/null
         check_success $? "Connecting ${cont_name} to network ${net_name}"
@@ -91,4 +91,4 @@ if [[ ${manager} == 1 ]]; then
         echo "Starting setup as WORKER"
     fi
 
-# setup
+setup
