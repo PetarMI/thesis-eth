@@ -1,6 +1,6 @@
 COMPOSE_DIR = "build_instr"
 NET_FILE = "net-compose.csv"
 VM_NAME = "netvm"
-CREATE_FILE = "create"
-CONNECT_FILE = "connect"
+CONTAINER_FILE = "containers"
+LINKS_FILE = "links"
 FILE_EXT = ".csv"

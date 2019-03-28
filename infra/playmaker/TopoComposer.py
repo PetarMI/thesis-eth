@@ -113,9 +113,9 @@ def write_containers(vms: dict, output_dir):
                 connect_commands.append(connect)
 
         create_file = "{}/{}{}_{}{}". \
-            format(output_dir, const.VM_NAME, idx, const.CREATE_FILE, const.FILE_EXT)
+            format(output_dir, const.VM_NAME, idx, const.CONTAINER_FILE, const.FILE_EXT)
         connect_file = "{}/{}{}_{}{}". \
-            format(output_dir, const.VM_NAME, idx, const.CONNECT_FILE, const.FILE_EXT)
+            format(output_dir, const.VM_NAME, idx, const.LINKS_FILE, const.FILE_EXT)
 
         write_file(create_file, create_commands)
         write_file(connect_file, connect_commands)
