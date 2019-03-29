@@ -1,30 +1,46 @@
 #!/bin/bash
+#
+# Copy all necessary files into the VMs
 
-# handle arguments
+#######################################
+# Handle script arguments
+#######################################
 usage="Script to upload all needed files on the VMs
 
 where:
-    --topology The name of the topology to be deployed
-    --help     show this help text"
+    -t  The name of the topology to be deployed
+    -a  Upload all files
+    -c  Upload compose files
+    -d  Upload docker files
+    -h  Show this help text"
 
-TOPO=
+topology="botevvratsa"
+compose_files=0
+docker_files=0
 
-while [[ "$1" != "" ]]; do
-    case $1 in
-        -t | --topology)        shift
-                                TOPO=$1
-                                ;;
-        -h | --help )           echo "$usage"
-                                exit
-                                ;;
-        *)                      echo "Unknown flag"
-                                exit
-                                ;;
+while getopts "t:acdh" option
+do
+    case "${option}" in
+        t) topology=${OPTARG};;
+        a) compose_files=1;
+           docker_files=1;;
+        c) compose_files=1;;
+        d) docker_files=1;;
+        h) echo "${usage}"; exit;;
+        *) echo "Unknown option"; exit 1;;
     esac
-    shift
 done
 
-# paths and files on VM
+# make sure a topology file has been entered
+if [[ ${topology} == "botevvratsa" ]]; then
+        echo "No topology argument provided via -f flag"
+        exit 1
+fi
+
+#######################################
+# Define all paths
+#######################################
+# VM paths
 readonly VM_WORK_DIR="/home/osboxes"
 readonly VM_COMPOSE_DIR="${VM_WORK_DIR}/compose"
 readonly VM_DOCKER_DIR="${VM_WORK_DIR}/phynet"
@@ -36,7 +52,7 @@ readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 
 # paths on localhost
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
-readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/build_instr/${TOPO}"
+readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/build_instr/${topology}"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
 
@@ -49,6 +65,12 @@ readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
+#######################################
+# Display success or failure of the last executed process
+# Arguments:
+#   exit_code: The exit code of the last process
+#   msg:       String describing the process
+#######################################
 function check_success {
     local exit_code=$1
     local msg=$2
@@ -63,6 +85,12 @@ function check_success {
     fi
 }
 
+#######################################
+# Only signal if the last executed process failed
+# Arguments:
+#   exit_code: The exit code of the last process
+#   msg:       String describing the process
+#######################################
 function signal_fail {
     local exit_code=$1
     local msg=$2
@@ -83,6 +111,12 @@ EOF
     done < ${CONF_FILE}
 }
 
+#######################################
+# Upload all files necessary to do a compose up on the VM
+#   - networks at the Swarm manager
+#   - containers to be started at each VM
+#   - links for every container
+#######################################
 function upload_compose_files {
     while IFS=, read -r idx port role #|| [ -n "${cont_name}" ]
     do
@@ -100,25 +134,42 @@ function upload_compose_files {
     done < ${CONF_FILE}
 }
 
+#######################################
+# Upload all Layer 2 related files
+#   - Phynet image Dockerfile
+#   - Scripts residing in each Layer 2 container (API)
+#######################################
 function update_docker_files {
     while IFS=, read -r idx port role
     do
-        src_scripts="${PM_DOCKER_DIR}/scripts"
+        local src_scripts="${PM_DOCKER_DIR}/scripts"
         scp -r -P ${port} ${src_scripts} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Sending Phynet scripts to VM ${idx}"
 
-        src_docker="${PM_DOCKER_DIR}/Dockerfile"
+        local src_docker="${PM_DOCKER_DIR}/Dockerfile"
         scp -P ${port} ${src_docker} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Sending Phynet Dockerfile to VM ${idx}"
     done < ${CONF_FILE}
 }
 
-echo "### Setting up directory structure on VMs ###"
+#######################################
+# Actual script logic
+#######################################
+
+if [[ ${compose_files} == 1 ]]; then
+        echo "### Sending compose files to VMs ###"
+fi
+
+if [[ ${docker_files} == 1 ]]; then
+        echo "### Sending phynet files to VMs ###"
+fi
+
+#echo "### Setting up directory structure on VMs ###"
 #setup_dir_structure
 
-echo "### Sending phynet files to VMs ###"
+#echo "### Sending phynet files to VMs ###"
 # update_docker_files
 
-echo "### Sending compose files to VMs ###"
-upload_compose_files
+#echo "### Sending compose files to VMs ###"
+#upload_compose_files
 # echo "${INPUT_DIR}"
