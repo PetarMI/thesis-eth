@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # handle arguments
-usage="Script to setup everything needed inside the VMs
+usage="Script to upload all needed files on the VMs
 
 where:
     --topology The name of the topology to be deployed
@@ -24,25 +24,27 @@ while [[ "$1" != "" ]]; do
     shift
 done
 
-# paths on VM
-readonly WORK_DIR="/home/osboxes"
-readonly COMPOSE_DIR="/compose/"
-readonly DOCKER_DIR="/phynet"
-readonly SCRIPT_DIR="/scripts/"
+# paths and files on VM
+readonly VM_WORK_DIR="/home/osboxes"
+readonly VM_COMPOSE_DIR="${VM_WORK_DIR}/compose"
+readonly VM_DOCKER_DIR="${VM_WORK_DIR}/phynet"
+readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/scripts"
 
-readonly NET_FILE="topo_networks.csv"
-readonly CONTAINERS_FILE="topo_containers.csv"
-readonly LINKS_FILE="topo_links.csv"
+readonly VM_NET_FILE="${VM_COMPOSE_DIR}/topo_networks.csv"
+readonly VM_CONTAINERS_FILE="${VM_COMPOSE_DIR}/topo_containers.csv"
+readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 
 # paths on localhost
-readonly PROJ_DIR="/home/pesho/D/thesis-repo/infra"
-readonly PHYNET_DIR="${PROJ_DIR}/phynet-layer2"
-readonly CSV_DIR="${PROJ_DIR}/playmaker/build_instr/${TOPO}"
+readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
+readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/build_instr/${TOPO}"
+readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
+readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
 
-#
+# VM info
 readonly CONF_FILE="local_vm.conf"
 readonly MACHINE="osboxes@localhost"
 
+# colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
@@ -84,16 +86,16 @@ EOF
 function upload_compose_files {
     while IFS=, read -r idx port role #|| [ -n "${cont_name}" ]
     do
-        local src_nets="${CSV_DIR}/net-compose.csv"
-        scp -P ${port} ${src_nets} "${MACHINE}:${WORK_DIR}${COMPOSE_DIR}${NET_FILE}"
+        local src_nets="${PM_COMPOSE_DIR}/net-compose.csv"
+        scp -P ${port} ${src_nets} "${MACHINE}:${VM_NET_FILE}"
         signal_fail $? "Copying networks file"
 
-        local src_conts="${CSV_DIR}/netvm${idx}_containers.csv"
-        scp -P ${port} ${src_conts} "${MACHINE}:${WORK_DIR}${COMPOSE_DIR}${CONTAINERS_FILE}"
+        local src_conts="${PM_COMPOSE_DIR}/netvm${idx}_containers.csv"
+        scp -P ${port} ${src_conts} "${MACHINE}:${VM_CONTAINERS_FILE}"
         signal_fail $? "Copying containers file"
 
-        local src_links="${CSV_DIR}/netvm${idx}_links.csv"
-        scp -P ${port} ${src_links} "${MACHINE}:${WORK_DIR}${COMPOSE_DIR}${LINKS_FILE}"
+        local src_links="${PM_COMPOSE_DIR}/netvm${idx}_links.csv"
+        scp -P ${port} ${src_links} "${MACHINE}:${VM_LINKS_FILE}"
         signal_fail $? "Copying links file"
     done < ${CONF_FILE}
 }
@@ -101,12 +103,12 @@ function upload_compose_files {
 function update_docker_files {
     while IFS=, read -r idx port role
     do
-        src_scripts="${PHYNET_DIR}/scripts"
-        scp -r -P ${port} ${src_scripts} "${MACHINE}:${WORK_DIR}${DOCKER_DIR}" 1>/dev/null
+        src_scripts="${PM_DOCKER_DIR}/scripts"
+        scp -r -P ${port} ${src_scripts} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Sending Phynet scripts to VM ${idx}"
 
-        src_docker="${PHYNET_DIR}/Dockerfile"
-        scp -P ${port} ${src_docker} "${MACHINE}:${WORK_DIR}${DOCKER_DIR}" 1>/dev/null
+        src_docker="${PM_DOCKER_DIR}/Dockerfile"
+        scp -P ${port} ${src_docker} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Sending Phynet Dockerfile to VM ${idx}"
     done < ${CONF_FILE}
 }
