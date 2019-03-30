@@ -13,30 +13,33 @@ where:
     -c  Upload compose files
     -s  Upload VM scripts
     -d  Upload docker files
+    -f  Upload device configs
     -h  Show this help text"
 
-topology="botevvratsa"
-compose_files=0
-docker_files=0
-vm_scripts=0
+FLAG_topology="botevvratsa"
+FLAG_compose_files=0
+FLAG_docker_files=0
+FLAG_vm_scripts=0
+FLAG_device_configs=0
 
-while getopts "t:acsdh" option
+while getopts "t:acsdfh" option
 do
     case "${option}" in
-        t) topology=${OPTARG};;
-        a) compose_files=1
-           docker_files=1
-           vm_scripts=1;;
-        c) compose_files=1;;
-        s) vm_scripts=1;;
-        d) docker_files=1;;
+        t) FLAG_topology=${OPTARG};;
+        a) FLAG_compose_files=1
+           FLAG_docker_files=1
+           FLAG_vm_scripts=1;;
+        c) FLAG_compose_files=1;;
+        s) FLAG_vm_scripts=1;;
+        d) FLAG_docker_files=1;;
+        f) FLAG_device_configs=1;;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
 done
 
 # make sure a topology file has been entered
-if [[ ${topology} == "botevvratsa" ]]; then
+if [[ ${FLAG_topology} == "botevvratsa" ]]; then
         echo "No topology argument provided via -f flag"
         exit 1
 fi
@@ -56,7 +59,7 @@ readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 
 # paths on localhost
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
-readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/compose_instr/${topology}"
+readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/compose_instr/${FLAG_topology}"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
 
@@ -170,20 +173,38 @@ function update_vm_scripts {
 }
 
 #######################################
+# Upload the scripts that are run on the VMs
+#   - compose_up.sh to deploy Layer 2 networks and containers
+#######################################
+function upload_device_configs {
+    while IFS=, read -r idx port role
+    do
+        local src_configs="${PM_WORK_DIR}/topologies/${FLAG_topology}/device_configs"
+        scp -r -P ${port} ${src_configs} "${MACHINE}:${VM_WORK_DIR}" 1>/dev/null
+        signal_fail $? "Sending device configs to VM ${idx}"
+    done < ${CONF_FILE}
+}
+
+#######################################
 # Actual script logic
 #######################################
 
-if [[ ${compose_files} == 1 ]]; then
+if [[ ${FLAG_compose_files} == 1 ]]; then
     echo "### Sending compose files to VMs ###"
     upload_compose_files
 fi
 
-if [[ ${docker_files} == 1 ]]; then
+if [[ ${FLAG_docker_files} == 1 ]]; then
     echo "### Sending phynet files to VMs ###"
     update_docker_files
 fi
 
-if [[ ${vm_scripts} == 1 ]]; then
+if [[ ${FLAG_vm_scripts} == 1 ]]; then
     echo "### Sending VM scripts to VMs ###"
     update_vm_scripts
+fi
+
+if [[ ${FLAG_device_configs} == 1 ]]; then
+    echo "### Sending device configs to VMs ###"
+    upload_device_configs
 fi
