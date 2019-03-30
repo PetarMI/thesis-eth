@@ -46,6 +46,7 @@ function check_success {
         printf "${GREEN}Success:${NC}\n"
     else
         printf "${RED}Failed ${NC}with exit code ${exit_code}\n"
+        exit 1
     fi
 }
 
@@ -58,7 +59,7 @@ function create_nets {
 }
 
 function create_containers {
-    while IFS=, read -r cont_name net_name image || [ -n "${cont_name}" ]
+    while IFS=, read -r cont_name net_name image
     do
         docker run -dit --privileged --name=${cont_name} --network=${net_name} ${image} 1>/dev/null
         check_success $? "Creating container ${cont_name}"
@@ -66,7 +67,7 @@ function create_containers {
 }
 
 function create_links {
-    while IFS=, read net_name cont_name || [ -n "${net_name}" ]
+    while IFS=, read net_name cont_name
     do
         docker network connect ${net_name} ${cont_name} 1>/dev/null
         check_success $? "Connecting ${cont_name} to network ${net_name}"

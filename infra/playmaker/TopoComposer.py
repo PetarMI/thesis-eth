@@ -124,8 +124,15 @@ def write_containers(vms: dict, output_dir):
 def write_file(filename: str, instr: list):
     """ Auxiliary function for writing a list of instructions to a file """
     with open(filename, 'w+', newline='') as file:
-        output = "\n".join(instr)
-        file.write(output)
+        for i in instr:
+            file.write(i+"\n")
+
+
+# def write_file2(filename: str, instr: list):
+#    Write a list of instructions to a file without an empty line at end
+#    with open(filename, 'w+', newline='') as file:
+#        output = "\n".join(instr)
+#        file.write(output)
 
 
 if __name__ == '__main__':
