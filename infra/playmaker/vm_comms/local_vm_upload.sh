@@ -187,13 +187,3 @@ if [[ ${vm_scripts} == 1 ]]; then
     echo "### Sending VM scripts to VMs ###"
     update_vm_scripts
 fi
-
-#echo "### Setting up directory structure on VMs ###"
-#setup_dir_structure
-
-#echo "### Sending phynet files to VMs ###"
-# update_docker_files
-
-#echo "### Sending compose files to VMs ###"
-#upload_compose_files
-# echo "${INPUT_DIR}"
