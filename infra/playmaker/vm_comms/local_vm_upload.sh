@@ -48,7 +48,7 @@ fi
 readonly VM_WORK_DIR="/home/osboxes"
 readonly VM_COMPOSE_DIR="${VM_WORK_DIR}/compose"
 readonly VM_DOCKER_DIR="${VM_WORK_DIR}/phynet"
-#readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/scripts"
+#readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/vms-layer1"
 
 readonly VM_NET_FILE="${VM_COMPOSE_DIR}/topo_networks.csv"
 readonly VM_CONTAINERS_FILE="${VM_COMPOSE_DIR}/topo_containers.csv"

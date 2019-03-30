@@ -7,12 +7,13 @@ where:
     --manager  indicates whether the VM is a manager (default: False)
     --help     show this help text"
 
-manager=0
+FLAG_MANAGER=0
 
 while [[ "$1" != "" ]]; do
     case $1 in
-        -m | --manager)         shift
-                                manager=1
+        -m | --manager)         FLAG_MANAGER=1
+                                ;;
+        -w | --worker)          FLAG_MANAGER=0
                                 ;;
         -h | --help )           echo "$usage"
                                 exit
@@ -72,8 +73,8 @@ function create_links {
     done < ${COMPOSE_DIR}${LINKS_FILE}
 }
 
-function setup {
-    if [[ ${manager} == 1 ]]; then
+function compose {
+    if [[ ${FLAG_MANAGER} == 1 ]]; then
         echo "Creating networks on Swarm manager..."
         create_nets
     fi
@@ -85,10 +86,10 @@ function setup {
     create_links
 }
 
-if [[ ${manager} == 1 ]]; then
-        echo "Starting setup as MANAGER"
+if [[ ${FLAG_MANAGER} == 1 ]]; then
+        echo "##### Starting setup as MANAGER #####"
     else
-        echo "Starting setup as WORKER"
+        echo "##### Starting setup as WORKER #####"
     fi
 
-setup
+compose
