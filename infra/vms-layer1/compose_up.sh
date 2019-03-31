@@ -32,7 +32,9 @@ done
 #######################################
 # Define all paths
 #######################################
-readonly COMPOSE_DIR="/home/osboxes/compose/"
+readonly WORK_DIR="/home/osboxes"
+readonly COMPOSE_DIR="${WORK_DIR}/compose/"
+readonly CONFIG_DIR="${WORK_DIR}/device_configs"
 readonly NET_FILE="topo_networks.csv"
 readonly CONTAINER_FILE="topo_containers.csv"
 readonly LINKS_FILE="topo_links.csv"
@@ -82,7 +84,10 @@ function create_nets {
 function create_containers {
     while IFS=, read -r cont_name net_name image
     do
-        docker run -dit --privileged --name=${cont_name} --network=${net_name} ${image} 1>/dev/null
+        docker run -dit --privileged --name=${cont_name} --network=${net_name} \
+            --hostname=${cont_name} \
+            --mount type=bind,source="${CONFIG_DIR}",target=/home/configs \
+            ${image} 1>/dev/null
         check_success $? "Creating container ${cont_name}"
     done < ${COMPOSE_DIR}${CONTAINER_FILE}
 }
