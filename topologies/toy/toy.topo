@@ -5,54 +5,54 @@
     },
     "containers": [
         {
-            "name": "Qphynet1",
+            "name": "r01",
             "type": "frr",
             "vm": "vm1",
             "interfaces": [
                 {
-                    "network": "Qnet100",
+                    "network": "wnet100",
                     "ipaddr": "20.10.100.2"
                 },
                 {
-                    "network": "Qnet12",
+                    "network": "wnet12",
                     "ipaddr": "20.10.12.2"
                 },
                 {
-                    "network": "Qnet13",
+                    "network": "wnet13",
                     "ipaddr": "20.10.13.2"
                 }
             ]
         },
         {
-            "name": "Qphynet2",
+            "name": "r02",
             "type": "frr",
             "vm": "vm2",
             "interfaces": [
                 {
-                    "network": "Qnet12",
+                    "network": "wnet12",
                     "ipaddr": "20.10.12.3"
                 },
                 {
-                    "network": "Qnet23",
+                    "network": "wnet23",
                     "ipaddr": "20.10.23.2"
                 }
             ]
         },
         {
-            "name": "Qphynet3",
+            "name": "r03",
             "type": "frr",
             "vm": "vm2",
             "interfaces": [
                 {
-                    "network": "Qnet200",
+                    "network": "wnet200",
                     "ipaddr": "20.10.200.2"
                 },
                 {
-                    "network": "Qnet13",
+                    "network": "wnet13",
                     "ipaddr": "20.10.13.3"
                 },
                 {
-                    "network": "Qnet23",
+                    "network": "wnet23",
                     "ipaddr": "20.10.23.3"
                 }
             ]
@@ -60,23 +60,23 @@
     ],
     "networks": [
         { 
-            "name": "Qnet100",
+            "name": "wnet100",
             "subnet": "20.10.100.0/24"
         },
         { 
-            "name": "Qnet200",
+            "name": "wnet200",
             "subnet": "20.10.200.0/24"
         },
         { 
-            "name": "Qnet12",
+            "name": "wnet12",
             "subnet": "20.10.12.0/24"
         },
         { 
-            "name": "Qnet13",
+            "name": "wnet13",
             "subnet": "20.10.13.0/24"
         },
         { 
-            "name": "Qnet23",
+            "name": "wnet23",
             "subnet": "20.10.23.0/24"
         }
     ]
