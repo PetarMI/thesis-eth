@@ -103,14 +103,14 @@ function create_links {
 #######################################
 function compose {
     if [[ ${FLAG_MANAGER} == 1 ]]; then
-        echo "Creating networks on Swarm manager..."
+        echo "## Creating networks on Swarm manager... ##"
         create_nets
     fi
 
-    echo "Creating containers..."
+    echo "## Creating containers... ##"
     create_containers
 
-    echo "Creating links"
+    echo "## Creating links ##"
     create_links
 }
 
