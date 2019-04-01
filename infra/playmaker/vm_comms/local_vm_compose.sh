@@ -3,7 +3,7 @@
 #######################################
 # Handle script arguments
 #######################################
-usage="Script to ssh into VM and call compose scripts
+usage="Script to ssh into VM and setup Layer 2
 
 where:
     -u     compose UP
