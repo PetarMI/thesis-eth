@@ -33,6 +33,9 @@ readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
+#######################################
+# Stop all containers on VM
+#######################################
 function stop_containers {
     local running_containers=$(docker ps | grep -c Up)
 
@@ -43,6 +46,9 @@ function stop_containers {
     fi
 }
 
+#######################################
+# Remove all containers on VM
+#######################################
 function rm_containers {
     stopped_containers=$(docker ps -a | grep -c Exited)
 
@@ -53,6 +59,10 @@ function rm_containers {
     fi
 }
 
+#######################################
+# Remove all networks on the VM
+#   will rmeove stuff only on the Swarm manager
+#######################################
 function rm_networks {
     num_nets=$(docker network ls | grep -c weaveworks)
 
