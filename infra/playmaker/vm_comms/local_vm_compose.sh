@@ -37,6 +37,7 @@ readonly VM_SCRIPT_DIR="vms-layer1"
 
 readonly CONF_FILE="local_vm.conf"
 readonly COMPOSE_UP="compose_up.sh"
+readonly COMPOSE_DOWN="compose_down.sh"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -56,8 +57,29 @@ EOF
     done < ${CONF_FILE}
 }
 
+#######################################
+# The main compose-down function
+#   First remove all containers and only then the networks
+#   otherwise it will fail at the networks as there will be attached containers
+#######################################
 function compose_down {
-    printf "${RED}Implement compose-down${NC}\n"
+    compose_down_aux "c"
+    compose_down_aux "n"
+}
+
+#######################################
+# Deletes either container or networks
+#######################################
+function compose_down_aux {
+    local what_to_remove=$1
+
+    while IFS=, read -r idx port role
+    do
+ssh -T -p ${port} ${MACHINE} << EOF
+    cd ${VM_SCRIPT_DIR}
+    ./${COMPOSE_DOWN} -${what_to_remove}
+EOF
+    done < ${CONF_FILE}
 }
 
 #######################################
