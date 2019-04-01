@@ -26,20 +26,20 @@ do
     esac
 done
 
-# colors for output
-readonly GREEN='\033[0;32m'
-readonly RED='\033[0;31m'
-readonly NC='\033[0m' # No Color
-
 #######################################
 # Define all constants
 #######################################
 readonly VM_SCRIPT_DIR="vms-layer1"
-readonly SETUP_DEVICES="setup_devices.sh"
+readonly SETUP_DEVICES="setup_layer3.sh"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
 readonly MACHINE="osboxes@localhost"
+
+# colors for output
+readonly GREEN='\033[0;32m'
+readonly RED='\033[0;31m'
+readonly NC='\033[0m' # No Color
 
 #######################################
 # Rebuild the Layer 2 Docker image on every VM
@@ -47,7 +47,7 @@ readonly MACHINE="osboxes@localhost"
 function rebuild_docker {
     printf "${RED}Building Layer 2 container not implemented${NC}\n"
 }
-
+# TODO needs reworking from this point down
 #######################################
 # Setup Layer 3 on all VMs
 #   delegated to Layer 2 via script inside each phynet container
@@ -55,9 +55,10 @@ function rebuild_docker {
 function setup_layer3 {
     while IFS=, read -r idx port role
     do
+        echo "### Running inside VM ${idx}"
 ssh -T -p ${port} ${MACHINE} << EOF
     cd ${VM_SCRIPT_DIR}
-    ./${SETUP_DEVICES}
+    ./${SETUP_DEVICES} -s
 EOF
     done < ${CONF_FILE}
 }
