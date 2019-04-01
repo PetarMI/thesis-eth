@@ -12,6 +12,7 @@
         * compose files, phynet files (Docker + scripts) and VM scripts
     3. Run compose on VMs
         * `./local_vm_compose.sh -u`
+3. Setup the **Layer 3** device containers
 
 ## Architecture
 
