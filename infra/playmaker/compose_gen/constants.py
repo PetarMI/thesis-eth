@@ -1,4 +1,4 @@
-COMPOSE_DIR = "compose_instr"
+COMPOSE_DIR = "compose_files"
 NET_FILE = "net-compose.csv"
 VM_NAME = "netvm"
 CONTAINER_FILE = "containers"
