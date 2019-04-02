@@ -6,21 +6,18 @@
 usage="Script that connects to VMs and does some operation on the containers
 
 where:
-    -d     rebuild the Layer 2 image
     -s     setup Layer 3 containers
     -c     configure Layer 3 network devices
     -i     save the container IP addresses
     -h     show this help text"
 
-FLAG_build_phynet=0
 FLAG_setup_devices=0
 FLAG_config_devices=0
 FLAG_save_IPs=0
 
-while getopts "dscih" option
+while getopts "scih" option
 do
     case "${option}" in
-        d) FLAG_build_phynet=1;;
         s) FLAG_setup_devices=1;;
         c) FLAG_config_devices=1;;
         i) FLAG_save_IPs=1;;
@@ -47,13 +44,6 @@ readonly PM_IP_DIR="/home/pesho/D/thesis-repo/infra/playmaker/nat/network_logs"
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
-
-#######################################
-# Rebuild the Layer 2 Docker image on every VM
-#######################################
-function rebuild_docker {
-    printf "${RED}Building Layer 2 container not implemented${NC}\n"
-}
 
 #######################################
 # Setup Layer 3 on all VMs
@@ -116,12 +106,7 @@ fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then
     echo "##### Configuring Layer 3 network devices #####"
-    configure_network_devices
-fi
-
-if [[ ${FLAG_build_phynet} == 1 ]]; then
-    echo "##### Rebuilding Layer 2 Docker images #####"
-    rebuild_docker
+    configure_devices
 fi
 
 if [[ ${FLAG_save_IPs} == 1 ]]; then

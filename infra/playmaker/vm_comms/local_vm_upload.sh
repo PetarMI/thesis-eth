@@ -53,7 +53,7 @@ readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 
 # paths on localhost
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
-readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/compose_instr/${FLAG_topology}"
+readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/compose_gen/compose_instr/${FLAG_topology}"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
 
@@ -99,17 +99,6 @@ function signal_fail {
         printf "${RED}Failed ${NC}with exit code ${exit_code}: ${msg}\n"
         exit ${exit_code}
     fi
-}
-
-function setup_dir_structure {
-    echo "TODO - Ensure VM has all necessary folders to copy into"
-
-    while IFS=, read -r idx port role
-    do
-ssh -T -p ${port} ${MACHINE} << EOF
-    rm -r compose/*
-EOF
-    done < ${CONF_FILE}
 }
 
 #######################################
