@@ -34,10 +34,14 @@ done
 #######################################
 readonly VM_SCRIPT_DIR="vms-layer1"
 readonly SETUP_DEVICES="setup_layer3.sh"
+readonly VM_STORAGE_DIR="/home/osboxes/storage"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
 readonly MACHINE="osboxes@localhost"
+
+# local paths
+readonly PM_IP_DIR="/home/pesho/D/thesis-repo/infra/playmaker/nat/network_logs"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -67,7 +71,18 @@ EOF
 }
 
 #######################################
-# Pull the IP address info from all device containers snd store it
+# Copy IP state info from VMs to local
+#######################################
+function download_IPs {
+    while IFS=, read -r idx port role
+    do
+        echo "### Copying interface data from VM ${idx} ###"
+        scp -r -P ${port} "${MACHINE}:${VM_STORAGE_DIR}" ${PM_IP_DIR} 1>/dev/null
+    done < ${CONF_FILE}
+}
+
+#######################################
+# Pull the IP address info from all device containers snd copy it to local
 #######################################
 function pull_IPs {
     while IFS=, read -r idx port role
@@ -78,6 +93,8 @@ ssh -T -p ${port} ${MACHINE} << EOF
     ./${SETUP_DEVICES} -i
 EOF
     done < ${CONF_FILE}
+
+    download_IPs
 }
 
 #######################################
@@ -109,5 +126,5 @@ fi
 
 if [[ ${FLAG_save_IPs} == 1 ]]; then
     echo "##### Pulling IP state information #####"
-    pull_IPs
+    download_IPs
 fi

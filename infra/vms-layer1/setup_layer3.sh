@@ -55,7 +55,7 @@ function check_containers {
 }
 
 #######################################
-# Initiate the setup script on all Layer 2 containers in parallel
+# Initiate the Layer3 setup script on all Layer2 containers in parallel
 #######################################
 function setup_containers {
     check_containers
@@ -80,6 +80,9 @@ function setup_containers {
     printf "${GREEN}### Done! ${NC}\n"
 }
 
+#######################################
+# Pull and store all IP info from each Layer3 container
+#######################################
 function pull_IPs {
     check_containers
 
