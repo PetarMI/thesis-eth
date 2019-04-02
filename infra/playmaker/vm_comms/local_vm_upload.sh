@@ -16,7 +16,7 @@ where:
     -f  Upload device configs
     -h  Show this help text"
 
-FLAG_topology="botevvratsa"
+FLAG_topology="youforgottopassatopologyname"
 FLAG_compose_files=0
 FLAG_docker_files=0
 FLAG_vm_scripts=0
@@ -37,12 +37,6 @@ do
         *) echo "Unknown option"; exit 1;;
     esac
 done
-
-# make sure a topology file has been entered
-if [[ ${FLAG_topology} == "botevvratsa" ]]; then
-        echo "No topology argument provided via -f flag"
-        exit 1
-fi
 
 #######################################
 # Define all paths
