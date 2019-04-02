@@ -36,6 +36,9 @@ readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
+#######################################
+# Report if there are no Layer 3 containers to deploy onto
+#######################################
 function check_containers {
     local num_containers=$(docker ps | grep -c phynet)
 
@@ -44,7 +47,10 @@ function check_containers {
     fi
 }
 
-function setup_devices {
+#######################################
+# Initiate the setup script on all Layer 2 containers in parallel
+#######################################
+function setup_containers {
     check_containers
 
     local containers=$(docker ps | grep phynet | awk '{print $NF}')
@@ -52,7 +58,7 @@ function setup_devices {
 
     while read -r name
     do
-        echo "Setting up device on container ${name}"
+        echo "Setting up device on container ${name}..."
         docker exec ${name} ${FRR_SETUP_SCRIPT} 1 >/dev/null &
         pids+=($!)
     done <<< ${containers}
@@ -63,6 +69,8 @@ function setup_devices {
     for pid in ${pids[*]}; do
         wait ${pid}
     done
+
+    printf "${GREEN}### Done! ${NC}\n"
 }
 
 function configure_devices {
@@ -74,7 +82,7 @@ function configure_devices {
 #######################################
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
-    setup_devices
+    setup_containers
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then

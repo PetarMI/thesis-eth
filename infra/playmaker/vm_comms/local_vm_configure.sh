@@ -47,12 +47,12 @@ readonly NC='\033[0m' # No Color
 function rebuild_docker {
     printf "${RED}Building Layer 2 container not implemented${NC}\n"
 }
-# TODO needs reworking from this point down
+
 #######################################
 # Setup Layer 3 on all VMs
 #   delegated to Layer 2 via script inside each phynet container
 #######################################
-function setup_layer3 {
+function setup_containers {
     while IFS=, read -r idx port role
     do
         echo "### Running inside VM ${idx}"
@@ -67,7 +67,7 @@ EOF
 # Configure all Layer 3 network devices
 #   delegated to Layer 2 via script inside each phynet container
 #######################################
-function configure_network_devices {
+function configure_devices {
     printf "${RED}Setting up Layer 3 not implemented${NC}\n"
 }
 
@@ -81,8 +81,8 @@ if [[ ${FLAG_build_phynet} == 1 ]]; then
 fi
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
-    echo "##### Setting up Layer 3 #####"
-    setup_layer3
+    echo "##### Setting up Layer 3 containers #####"
+    setup_containers
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then
