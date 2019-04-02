@@ -15,12 +15,14 @@ where:
 
 FLAG_setup_devices=0
 FLAG_config_devices=0
+FLAG_pull_IPs=0
 
-while getopts "sch" option
+while getopts "scih" option
 do
     case "${option}" in
         s) FLAG_setup_devices=1;;
         c) FLAG_config_devices=1;;
+        i) FLAG_pull_IPs=1;;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
@@ -29,7 +31,12 @@ done
 #######################################
 # Define all constants
 #######################################
+#VM paths
+readonly VM_STORAGE_DIR="/home/osboxes/storage"
+
+# Layer 3 scripts
 readonly FRR_SETUP_SCRIPT=/home/scripts/setupFRR.sh
+readonly FRR_IP_SCRIPT="/home/api/get_ips.sh"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -73,6 +80,18 @@ function setup_containers {
     printf "${GREEN}### Done! ${NC}\n"
 }
 
+function pull_IPs {
+    check_containers
+
+    local containers=$(docker ps | grep phynet | awk '{print $NF}')
+
+    while read -r name
+    do
+        echo "Saving network data of container ${name}..."
+        docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_STORAGE_DIR}/"ips_${name}.log"
+    done <<< ${containers}
+}
+
 function configure_devices {
     printf "${RED}Device configs not implemented on VMs${NC}\n"
 }
@@ -83,6 +102,10 @@ function configure_devices {
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
     setup_containers
+fi
+
+if [[ ${FLAG_pull_IPs} == 1 ]]; then
+    pull_IPs
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then

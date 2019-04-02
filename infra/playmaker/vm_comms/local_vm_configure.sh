@@ -9,18 +9,21 @@ where:
     -d     rebuild the Layer 2 image
     -s     setup Layer 3 containers
     -c     configure Layer 3 network devices
+    -i     save the container IP addresses
     -h     show this help text"
 
 FLAG_build_phynet=0
 FLAG_setup_devices=0
 FLAG_config_devices=0
+FLAG_save_IPs=0
 
-while getopts "dsch" option
+while getopts "dscih" option
 do
     case "${option}" in
         d) FLAG_build_phynet=1;;
         s) FLAG_setup_devices=1;;
         c) FLAG_config_devices=1;;
+        i) FLAG_save_IPs=1;;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
@@ -64,6 +67,20 @@ EOF
 }
 
 #######################################
+# Pull the IP address info from all device containers snd store it
+#######################################
+function pull_IPs {
+    while IFS=, read -r idx port role
+    do
+        echo "### Running inside VM ${idx}"
+ssh -T -p ${port} ${MACHINE} << EOF
+    cd ${VM_SCRIPT_DIR}
+    ./${SETUP_DEVICES} -i
+EOF
+    done < ${CONF_FILE}
+}
+
+#######################################
 # Configure all Layer 3 network devices
 #   delegated to Layer 2 via script inside each phynet container
 #######################################
@@ -75,11 +92,6 @@ function configure_devices {
 # Actual script logic
 #######################################
 
-if [[ ${FLAG_build_phynet} == 1 ]]; then
-    echo "##### Rebuilding Layer 2 Docker images #####"
-    rebuild_docker
-fi
-
 if [[ ${FLAG_setup_devices} == 1 ]]; then
     echo "##### Setting up Layer 3 containers #####"
     setup_containers
@@ -90,4 +102,12 @@ if [[ ${FLAG_config_devices} == 1 ]]; then
     configure_network_devices
 fi
 
+if [[ ${FLAG_build_phynet} == 1 ]]; then
+    echo "##### Rebuilding Layer 2 Docker images #####"
+    rebuild_docker
+fi
 
+if [[ ${FLAG_save_IPs} == 1 ]]; then
+    echo "##### Pulling IP state information #####"
+    pull_IPs
+fi
