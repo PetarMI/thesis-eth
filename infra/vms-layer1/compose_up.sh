@@ -123,6 +123,6 @@ if [[ ${FLAG_MANAGER} == 1 ]]; then
         echo "##### Starting setup as MANAGER #####"
     else
         echo "##### Starting setup as WORKER #####"
-    fi
+fi
 
 compose

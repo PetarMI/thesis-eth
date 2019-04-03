@@ -22,12 +22,18 @@ do
     esac
 done
 
+# make sure a topology file has been entered
+if [[ ${FLAG_topology} == "youforgottopassatopologyname" ]]; then
+        echo "Please topology via -t"
+        exit 1
+fi
+
 #######################################
 # Define all constants
 #######################################
 # VM paths
 readonly VM_SCRIPT_DIR="vms-layer1"
-readonly SETUP_DEVICES="setup_layer3.sh"
+readonly PULL_SCRIPT="collect_data.sh"
 readonly VM_STORAGE_DIR="/home/osboxes/storage"
 
 # Local paths
@@ -41,12 +47,12 @@ readonly MACHINE="osboxes@localhost"
 #######################################
 # Copy IP state info from VMs to local
 #######################################
-function download_IPs {
+function download_network_data {
     mkdir -p ${PM_IP_DIR}
 
     while IFS=, read -r idx port role
     do
-        echo "### Copying interface data from VM ${idx} ###"
+        echo "#### Copying interface data from VM ${idx} ####"
         scp -P ${port} "${MACHINE}:${VM_STORAGE_DIR}/*" ${PM_IP_DIR} 1>/dev/null
     done < ${CONF_FILE}
 }
@@ -54,13 +60,13 @@ function download_IPs {
 #######################################
 # Pull the IP address info from all device containers snd copy it to local
 #######################################
-function pull_IPs {
+function pull_network_data {
     while IFS=, read -r idx port role
     do
-        echo "### Running inside VM ${idx}"
+        echo "#### Pulling data from VM ${idx}"
 ssh -T -p ${port} ${MACHINE} << EOF
     cd ${VM_SCRIPT_DIR}
-    ./${SETUP_DEVICES} -i
+    ./${PULL_SCRIPT} --${role}
 EOF
     done < ${CONF_FILE}
 }
@@ -68,8 +74,8 @@ EOF
 #######################################
 # Actual script logic
 #######################################
-echo "##### Pulling IPs #####"
-pull_IPs
+echo "###### Pulling Network data ######"
+pull_network_data
 
-echo "##### Downloading IPs #####"
-download_IPs
+echo "###### Downloading Network data ######"
+download_network_data
