@@ -82,7 +82,7 @@ function pull_device_data {
     do
         echo "Saving network data of container ${name}..."
         docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_STORAGE_DIR}/"ips_${name}.log"
-        signal_fail $? "Saving network data"
+        signal_fail $? "Saving container iface data"
     done <<< ${containers}
 }
 
@@ -93,11 +93,12 @@ function pull_device_data {
 #######################################
 function pull_networks_data {
     local networks=$(docker network ls | grep weaveworks | awk '{print $2}')
-
+    local subnet=
     while read -r name
     do
-        docker network inspect ${name} >> ${VM_STORAGE_DIR}/${NET_LOGS}
-        signal_fail $? "Saving network data for network ${name}"
+        subnet=$(docker network inspect ${name} | grep Subnet \
+        | egrep -o '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/[0-9]+')
+        echo "${name},${subnet}" >> ${VM_STORAGE_DIR}/${NET_LOGS}
     done <<< ${networks}
 }
 
