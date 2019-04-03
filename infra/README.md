@@ -15,6 +15,8 @@
 3. Setup **Layer 3**
     1. Setup the device containers
         * `./local_vm_configure.sh -s`
+    2. Pull network data (IPs) of the Layer 3 containers
+        * `./local_vm_download.sh -t <topo-name>`
 
 ## Architecture
 

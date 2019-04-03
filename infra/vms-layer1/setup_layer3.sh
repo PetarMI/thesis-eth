@@ -35,7 +35,7 @@ done
 readonly VM_STORAGE_DIR="/home/osboxes/storage"
 
 # Layer 3 scripts
-readonly FRR_SETUP_SCRIPT=/home/scripts/setupFRR.sh
+readonly FRR_SETUP_SCRIPT="/home/scripts/setupFRR.sh"
 readonly FRR_IP_SCRIPT="/home/api/get_ips.sh"
 
 # colors for output
@@ -44,7 +44,22 @@ readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
 #######################################
-# Report if there are no Layer 3 containers to deploy onto
+# Only signal if the last executed process failed
+# Arguments:
+#   exit_code: The exit code of the last process
+#   msg:       String describing the process
+#######################################
+function signal_fail {
+    local exit_code=$1
+    local msg=$2
+    if [[ ${exit_code} != 0 ]]; then
+        printf "${RED}Failed ${NC}with exit code ${exit_code}: ${msg}\n"
+        exit ${exit_code}
+    fi
+}
+
+#######################################
+# Report if there are no Layer 2 containers to deploy onto
 #######################################
 function check_containers {
     local num_containers=$(docker ps | grep -c phynet)
@@ -92,6 +107,7 @@ function pull_IPs {
     do
         echo "Saving network data of container ${name}..."
         docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_STORAGE_DIR}/"ips_${name}.log"
+        signal_fail $? "Saving network data"
     done <<< ${containers}
 }
 
