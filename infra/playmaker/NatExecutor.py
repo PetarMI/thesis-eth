@@ -62,9 +62,10 @@ def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
             }
         })
 
-    return  subnets
+    return subnets
 
 
+# TODO implement sanity check
 def subnet_sanity_check(orig_subnets: dict, sim_subnets: dict) -> bool:
     return True
 

@@ -6,7 +6,8 @@ import constants as const
 
 class TopoComposer:
 
-    def __init__(self, topology_file: str):
+    def __init__(self, topo_name: str):
+        topology_file = "{0}/{1}/{1}.topo".format(const.TOPO_DIR, topo_name)
         self.topo: dict = tp.import_topo(topology_file)
         self.topo_name = tp.find_topo_name(self.topo)
 
@@ -72,7 +73,7 @@ class TopoComposer:
         :param containers: Containers used in the topology spread by VM
         :return:
         """
-        output_dir = "{}/{}".format(const.COMPOSE_DIR, self.topo_name)
+        output_dir = "{}/{}{}".format(const.TOPO_DIR, self.topo_name, const.COMPOSE_DIR)
         os.makedirs(output_dir, exist_ok=True)
 
         write_nets(nets, output_dir)
@@ -137,11 +138,11 @@ def write_file(filename: str, instr: list):
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument("-f", "--file", dest="filename",
-                        help="Topology file to be used for setup")
+    parser.add_argument("-t", "--topology", dest="topology",
+                        help="Topology to be used for setup")
     args = parser.parse_args()
 
-    topo_name: str = args.filename
+    topology_name: str = args.topology
 
-    composer = TopoComposer(topo_name)
+    composer = TopoComposer(topology_name)
     composer.gen_compose_files()
