@@ -6,11 +6,11 @@ container_types = {
 }
 
 
-def import_topo(topo_name: str) -> dict:
+def import_topo(topo_file: str) -> dict:
     """ Function to load the topology encoded in json format """
     # topo_file: str = const.TOPO_DIR + topo_name + const.TOPO_EXTENSION
 
-    with open(topo_name) as json_data:
+    with open(topo_file) as json_data:
         topo = json.load(json_data)
 
     return topo

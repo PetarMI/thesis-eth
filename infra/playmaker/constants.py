@@ -5,5 +5,8 @@ CONTAINER_FILE = "containers"
 LINKS_FILE = "links"
 FILE_EXT = ".csv"
 
-LOGS_DIR = "network_logs"
-TOPO_DIR = "/home/pesho/D/thesis-repo/topologies"
+WORK_DIR = "/home/pesho/D/thesis-repo"
+LOGS_DIR = "nat_logs"
+TOPO_DIR = "{}/topologies".format(WORK_DIR)
+NAT_DIR = "{}/infra/playmaker/nat_logs".format(WORK_DIR)
+NET_LOG_FILE = "networks.log"
