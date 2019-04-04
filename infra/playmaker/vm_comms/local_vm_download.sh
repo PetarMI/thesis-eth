@@ -38,7 +38,7 @@ readonly VM_STORAGE_DIR="/home/osboxes/storage"
 
 # Local paths
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra/playmaker"
-readonly PM_IP_DIR="${PM_WORK_DIR}/nat/network_logs/${FLAG_topology}"
+readonly PM_IP_DIR="${PM_WORK_DIR}/deployment_files/${FLAG_topology}/net_logs/"
 
 # VM connect info
 readonly CONF_FILE="local_vm.conf"
