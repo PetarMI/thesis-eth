@@ -5,11 +5,11 @@ DEPLOYER_DIR = "{}/infra/playmaker".format(WORK_DIR)
 
 # subdirectories
 DPL_FILES_DIR = "{}/deployment_files".format(DEPLOYER_DIR)
-NAT_DIR = "{}/nat_logs".format(DEPLOYER_DIR)
+NAT_DIR = "{}/net_logs".format(DEPLOYER_DIR)
 
 # leaf directories
 COMPOSE_DIR = "/compose_files"
-LOGS_DIR = "/nat_logs"
+LOGS_DIR = "/net_logs"
 
 # filenames
 NET_FILE = "net-compose.csv"
