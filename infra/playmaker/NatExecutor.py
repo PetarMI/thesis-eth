@@ -18,6 +18,7 @@ class NatExecutor:
         print(subnets)
 
     def parse_orig_subnets(self) -> dict:
+        # TODO: maybe take out path declarations from function bodies
         topo_file = "{0}/{1}/{1}.topo".format(const.TOPO_DIR, self.topo_name)
         topo_nets: list = tp.find_nets(tp.import_topo(topo_file))
         subnets = {}
@@ -31,11 +32,11 @@ class NatExecutor:
         return subnets
 
     def parse_sim_subnets(self) -> dict:
-        networks_log_file = "{}/{}/{}".format(const.NAT_DIR, self.topo_name,
-                                              const.NET_LOG_FILE)
+        nets_log_file = "{}/{}/{}".format(const.NAT_DIR, self.topo_name,
+                                          const.NET_LOG_FILE)
         subnets = {}
 
-        with open(networks_log_file, 'r') as sim_nets_file:
+        with open(nets_log_file, 'r') as sim_nets_file:
             csv_reader = csv.reader(sim_nets_file, delimiter=',')
 
             for row in csv_reader:

@@ -1,11 +1,15 @@
 # project dir
 WORK_DIR = "/home/pesho/D/thesis-repo"
+TOPO_DIR = "{}/topologies".format(WORK_DIR)
+DEPLOYER_DIR = "{}/infra/playmaker".format(WORK_DIR)
 
 # subdirectories
+DPL_FILES_DIR = "{}/deployment_files".format(DEPLOYER_DIR)
+NAT_DIR = "{}/nat_logs".format(DEPLOYER_DIR)
+
+# leaf directories
 COMPOSE_DIR = "/compose_files"
-LOGS_DIR = "nat_logs"
-TOPO_DIR = "{}/topologies".format(WORK_DIR)
-NAT_DIR = "{}/infra/playmaker/nat_logs".format(WORK_DIR)
+LOGS_DIR = "/nat_logs"
 
 # filenames
 NET_FILE = "net-compose.csv"

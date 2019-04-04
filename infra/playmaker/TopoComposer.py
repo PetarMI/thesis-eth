@@ -73,7 +73,8 @@ class TopoComposer:
         :param containers: Containers used in the topology spread by VM
         :return:
         """
-        output_dir = "{}/{}{}".format(const.TOPO_DIR, self.topo_name, const.COMPOSE_DIR)
+        output_dir = "{}/{}{}".format(const.DPL_FILES_DIR,
+                                      self.topo_name, const.COMPOSE_DIR)
         os.makedirs(output_dir, exist_ok=True)
 
         write_nets(nets, output_dir)
