@@ -64,7 +64,7 @@ function sed_subnets {
     do
         while IFS=, read -r old new
         do
-            updated_file=$(sed -i -e "s%${old}%${new}%g" ${f})
+            sed -i -e "s%${old}%${new}%g" ${f}
         done < "${SUBNETS_FILE}"
     done
 }

@@ -23,7 +23,7 @@ class NatExecutor:
         subnets_file = "{}/{}".format(self.output_dir, const.SUBNETS_FILE)
 
         with open(subnets_file, mode='w') as csv_file:
-            writer = csv.writer(csv_file, delimiter=',')
+            writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
             for s in subnets.values():
                 writer.writerow([tp.safe_get(s, "subnet"),
