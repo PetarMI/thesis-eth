@@ -17,6 +17,8 @@
         * `./local_vm_configure.sh -s`
     2. Pull network data (IPs) of the Layer 3 containers
         * `./local_vm_download.sh -t <topo-name>`
+    3. Perform NAT
+        * `./nat_configs.sh -t <topo-name>`
 
 ## Architecture
 

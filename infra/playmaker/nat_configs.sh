@@ -45,6 +45,13 @@ function copy_files {
 }
 
 #######################################
+# Invoke python script to perform subnet matching and all
+#######################################
+function match_subnets {
+    python NatExecutor.py -t ${FLAG_topology}
+}
+
+#######################################
 # Read all config files' filenames into an array
 #######################################
 config_files=()
@@ -54,7 +61,6 @@ function read_filenames {
         config_files+=( "$line" )
     done < <( find ${DPL_CONFIG_DIR} -type f )
 }
-
 
 #######################################
 # Perform the subnet substitution in every file
@@ -72,7 +78,8 @@ function sed_subnets {
 #######################################
 # Actual script logic
 #######################################
-#copy_files
+match_subnets
+copy_files
 read_filenames
 sed_subnets
 
