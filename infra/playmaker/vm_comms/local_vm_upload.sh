@@ -38,6 +38,12 @@ do
     esac
 done
 
+# make sure a topology file has been entered
+if [[ ${FLAG_topology} == "youforgottopassatopologyname" ]]; then
+        echo "Please topology via -t"
+        exit 1
+fi
+
 #######################################
 # Define all paths
 #######################################
@@ -108,7 +114,7 @@ function signal_fail {
 #   - links for every container
 #######################################
 function upload_compose_files {
-    while IFS=, read -r idx port role #|| [ -n "${cont_name}" ]
+    while IFS=, read -r idx port role
     do
         local src_nets="${PM_COMPOSE_DIR}/net-compose.csv"
         scp -P ${port} ${src_nets} "${MACHINE}:${VM_NET_FILE}" 1>/dev/null

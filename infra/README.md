@@ -29,7 +29,8 @@ Directory containing all infrastructure logic.
 Includes all the logic for setting up the topology
 
 * Generate compose files
-* VM interactions (upload files, init compose)
+* VM interactions (upload files, init compose, download Layer 2 network info)
+* Performing NAT
 
 ### Layer 1 - VMs
 
