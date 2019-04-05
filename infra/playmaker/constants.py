@@ -10,9 +10,11 @@ NAT_DIR = "{}/net_logs".format(DEPLOYER_DIR)
 # leaf directories
 COMPOSE_DIR = "/compose_files"
 LOGS_DIR = "/net_logs"
+NAT_FILES = "/nat_files"
 
 # filenames
 NET_FILE = "net-compose.csv"
+SUBNETS_FILE = "matched-subnets.csv"
 CONTAINER_FILE = "containers"
 LINKS_FILE = "links"
 NET_LOG_FILE = "networks.log"
