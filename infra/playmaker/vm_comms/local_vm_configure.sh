@@ -58,7 +58,14 @@ EOF
 #   delegated to Layer 2 via script inside each phynet container
 #######################################
 function configure_devices {
-    printf "${RED}Setting up Layer 3 not implemented${NC}\n"
+    while IFS=, read -r idx port role
+    do
+        echo "#### Running inside VM ${idx} ####"
+ssh -T -p ${port} ${MACHINE} << EOF
+    cd ${VM_SCRIPT_DIR}
+    ./${SETUP_DEVICES} -c
+EOF
+    done < ${CONF_FILE}
 }
 
 #######################################

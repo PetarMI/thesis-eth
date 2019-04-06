@@ -170,7 +170,7 @@ function upload_vm_scripts {
 function upload_device_configs {
     while IFS=, read -r idx port role
     do
-        local src_configs="${PM_WORK_DIR}/../topologies/${FLAG_topology}/device_configs"
+        local src_configs="${PM_DEPLOY_DIR}/device_configs"
         scp -r -P ${port} ${src_configs} "${MACHINE}:${VM_WORK_DIR}" 1>/dev/null
         check_success $? "Uploaded to VM ${idx}"
     done < ${CONF_FILE}

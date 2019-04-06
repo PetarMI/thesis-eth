@@ -30,6 +30,7 @@ done
 # Define all constants
 #######################################
 readonly FRR_SETUP_SCRIPT="/home/scripts/setupFRR.sh"
+readonly FRR_CONFIG_SCRIPT="/home/scripts/configFRR.sh"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -76,7 +77,17 @@ function setup_containers {
 }
 
 function configure_devices {
-    printf "${RED}Device configs not implemented on VMs${NC}\n"
+    check_containers
+
+    local containers=$(docker ps | grep phynet | awk '{print $NF}')
+
+    while read -r name
+    do
+        echo "Setting up device on container ${name}..."
+        docker exec ${name} ${FRR_CONFIG_SCRIPT}
+    done <<< ${containers}
+
+    printf "${GREEN}Done!${NC}\n"
 }
 
 #######################################

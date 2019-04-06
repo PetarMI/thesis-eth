@@ -19,6 +19,8 @@
         * `./local_vm_download.sh -t <topo-name>`
     3. Perform NAT
         * `./nat_configs.sh -t <topo-name>`
+    4. Upload device configs
+        * `./local_vm_upload.sh -t <topo_name> -f`
 
 ## Architecture
 
