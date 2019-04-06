@@ -75,6 +75,7 @@ function compose_down_aux {
 
     while IFS=, read -r idx port role
     do
+        echo "#### Working on VM ${idx} ####"
 ssh -T -p ${port} ${MACHINE} << EOF
     cd ${VM_SCRIPT_DIR}
     ./${COMPOSE_DOWN} -${what_to_remove}
@@ -88,10 +89,10 @@ EOF
 
 if [[ ${FLAG_UP} == 1 ]]
 then
-    echo "##### Compose UP #####"
+    echo "###### Compose UP ######"
     compose_up
 elif [[ ${FLAG_UP} == 0 ]]
 then
-    echo "##### Compose DOWN #####"
+    echo "###### Compose DOWN ######"
     compose_down
 fi

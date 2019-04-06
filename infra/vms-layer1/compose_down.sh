@@ -81,13 +81,13 @@ function rm_networks {
 
 if [[ ${FLAG_containers} == 1 ]]
 then
-    echo "### Stopping containers at $(hostname) ###"
+    echo "## Stopping containers ##"
     stop_containers
 
-    echo "### Removing containers at $(hostname) ###"
+    echo "## Removing containers ##"
     rm_containers
 elif [[ ${FLAG_networks} == 1 ]]
 then
-    echo "### Removing networks at $(hostname) ###"
+    echo "## Removing networks ##"
     rm_networks
 fi
