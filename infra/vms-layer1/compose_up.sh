@@ -11,23 +11,28 @@ where:
     --manager  indicates whether the VM is a manager (default: False)
     --help     show this help text"
 
-FLAG_MANAGER=0
+FLAG_manager=3
+FLAG_vm="undefined"
 
 while [[ "$1" != "" ]]; do
     case $1 in
-        -m | --manager)         FLAG_MANAGER=1
-                                ;;
-        -w | --worker)          FLAG_MANAGER=0
-                                ;;
+        -m | --manager)         FLAG_manager=1;;
+        -w | --worker)          FLAG_manager=0;;
+        -v | --vm)              shift
+                                FLAG_vm="$1";;
         -h | --help )           echo "$usage"
-                                exit
-                                ;;
+                                exit;;
         *)                      echo "Unknown flag"
-                                exit
-                                ;;
+                                exit;;
     esac
     shift
 done
+
+# make sure a topology file has been entered
+if [[ ${FLAG_manager} == 3 ]]; then
+        echo "Please specify role using --manager or --worker"
+        exit 1
+fi
 
 #######################################
 # Define all paths
@@ -55,12 +60,10 @@ function check_success {
     local exit_code=$1
     local msg=$2
 
-    printf "${msg}..."
-
     if [[ ${exit_code} == 0 ]]; then
-        printf "${GREEN}Success:${NC}\n"
+        printf "${GREEN}${msg}${NC}\n"
     else
-        printf "${RED}Failed ${NC}with exit code ${exit_code}\n"
+        printf "${RED}Failed with exit code ${exit_code}${NC} ${msg}\n"
         exit 1
     fi
 }
@@ -74,7 +77,7 @@ function create_nets {
     while IFS=, read net_name
     do
         docker network create --driver=${NET_DRIVER} --attachable ${net_name} 1>/dev/null
-        check_success $? "Creating network ${net_name}"
+        check_success $? "Created network ${net_name}"
     done < ${COMPOSE_DIR}${NET_FILE}
 }
 
@@ -88,7 +91,7 @@ function create_containers {
             --hostname=${cont_name} \
             --mount type=bind,source="${CONFIG_DIR}",target=/home/configs \
             ${image} 1>/dev/null
-        check_success $? "Creating container ${cont_name}"
+        check_success $? "Created container ${cont_name}"
     done < ${COMPOSE_DIR}${CONTAINER_FILE}
 }
 
@@ -99,15 +102,15 @@ function create_links {
     while IFS=, read net_name cont_name
     do
         docker network connect ${net_name} ${cont_name} 1>/dev/null
-        check_success $? "Connecting ${cont_name} to network ${net_name}"
+        check_success $? "Connected ${cont_name} to network ${net_name}"
     done < ${COMPOSE_DIR}${LINKS_FILE}
 }
 
 #######################################
-# Whole compose process
+# Whole compose up process
 #######################################
-function compose {
-    if [[ ${FLAG_MANAGER} == 1 ]]; then
+function compose_up {
+    if [[ ${FLAG_manager} == 1 ]]; then
         echo "## Creating networks on Swarm manager... ##"
         create_nets
     fi
@@ -115,14 +118,14 @@ function compose {
     echo "## Creating containers... ##"
     create_containers
 
-    echo "## Creating links ##"
+    echo "## Creating links... ##"
     create_links
 }
 
-if [[ ${FLAG_MANAGER} == 1 ]]; then
-        echo "##### Starting setup as MANAGER #####"
+if [[ ${FLAG_manager} == 1 ]]; then
+        echo "#### Starting VM ${FLAG_vm} setup as MANAGER ####"
     else
-        echo "##### Starting setup as WORKER #####"
+        echo "#### Starting VM ${FLAG_vm} setup as WORKER ####"
 fi
 
-compose
+compose_up

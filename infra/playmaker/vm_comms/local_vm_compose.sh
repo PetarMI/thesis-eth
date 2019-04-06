@@ -33,7 +33,7 @@ fi
 #######################################
 readonly MACHINE="osboxes@localhost"
 readonly VM_WORK_DIR="/home/osboxes"
-readonly VM_SCRIPT_DIR="vms-layer1"
+readonly VM_SCRIPT_DIR="vm_scripts"
 
 readonly CONF_FILE="local_vm.conf"
 readonly COMPOSE_UP="compose_up.sh"
@@ -45,42 +45,35 @@ readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
 #######################################
-# Initiate compose -up script on all VMs
+# Auxiliary compose function
+# Arguments:
+#   script - compose-up or compose-down
+#   only_role - execute the script only on VM with this role
 #######################################
+function compose {
+    local script=$1
+    local only_role=$2
+
+    while IFS=, read -r idx port role
+    do
+        if [[ ${only_role} == ${role} ]]
+        then
+ssh -T -p ${port} ${MACHINE} << EOF
+    cd ${VM_SCRIPT_DIR}
+    ./${script} --${role} --"vm" ${idx}
+EOF
+        fi
+    done < ${CONF_FILE}
+}
+
 function compose_up {
-    while IFS=, read -r idx port role
-    do
-ssh -T -p ${port} ${MACHINE} << EOF
-    cd ${VM_SCRIPT_DIR}
-    ./${COMPOSE_UP} --${role}
-EOF
-    done < ${CONF_FILE}
+    compose "${COMPOSE_UP}" "manager"
+    compose "${COMPOSE_UP}" "worker"
 }
 
-#######################################
-# The main compose-down function
-#   First remove all containers and only then the networks
-#   otherwise it will fail at the networks as there will be attached containers
-#######################################
 function compose_down {
-    compose_down_aux "c"
-    compose_down_aux "n"
-}
-
-#######################################
-# Deletes either container or networks
-#######################################
-function compose_down_aux {
-    local what_to_remove=$1
-
-    while IFS=, read -r idx port role
-    do
-        echo "#### Working on VM ${idx} ####"
-ssh -T -p ${port} ${MACHINE} << EOF
-    cd ${VM_SCRIPT_DIR}
-    ./${COMPOSE_DOWN} -${what_to_remove}
-EOF
-    done < ${CONF_FILE}
+    compose "${COMPOSE_DOWN}" "worker"
+    compose "${COMPOSE_DOWN}" "manager"
 }
 
 #######################################

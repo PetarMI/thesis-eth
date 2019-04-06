@@ -6,26 +6,30 @@
 usage="Compose-down on the VM this is run on
 
 where:
-    -c     stop and remove containers
-    -n     remove networks
-    -h     show this help text"
+    --manager    compose-down as manager (remove networks)
+    --worker     compose-down as worker (only remove containers)
+    --vm         which VM it is
+    --help       show this help text"
 
-FLAG_containers=0
-FLAG_networks=0
+FLAG_manager=3
+FLAG_vm="undefined"
 
-while getopts "cnh" option
-do
-    case "${option}" in
-        c) FLAG_containers=1;;
-        n) FLAG_networks=1;;
-        h) echo "${usage}"; exit;;
-        *) echo "Unknown option"; exit 1;;
+while [[ "$1" != "" ]]; do
+    case $1 in
+        -m | --manager)         FLAG_manager=1;;
+        -w | --worker)          FLAG_manager=0;;
+        -v | --vm)              shift; FLAG_vm="$1";;
+        -h | --help )           echo "$usage"
+                                exit;;
+        *)                      echo "Unknown flag"
+                                exit;;
     esac
+    shift
 done
 
-# make sure one of containers or networks has been specified
-if [[ ${FLAG_containers} == 0 ]] && [[ ${FLAG_networks} == 0 ]]; then
-        echo "Please specify containers (-c) or networks (-n)"
+# make sure a topology file has been entered
+if [[ ${FLAG_manager} == 3 ]]; then
+        echo "Please specify role using --manager or --worker"
         exit 1
 fi
 
@@ -73,21 +77,27 @@ function rm_networks {
     fi
 }
 
-
 #######################################
-# Actual script logic
-#   Remove either container or networks
+# Whole compose_down process
 #######################################
-
-if [[ ${FLAG_containers} == 1 ]]
-then
+function compose_down {
     echo "## Stopping containers ##"
     stop_containers
 
     echo "## Removing containers ##"
     rm_containers
-elif [[ ${FLAG_networks} == 1 ]]
-then
-    echo "## Removing networks ##"
-    rm_networks
+
+    if [[ ${FLAG_manager} == 1 ]]
+    then
+        echo "## Removing networks ##"
+        rm_networks
+    fi
+}
+
+if [[ ${FLAG_manager} == 1 ]]; then
+        echo "#### Starting VM ${FLAG_vm} teardown as MANAGER ####"
+    else
+        echo "#### Starting VM ${FLAG_vm} teardown as WORKER ####"
 fi
+
+compose_down
