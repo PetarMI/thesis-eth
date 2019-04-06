@@ -66,11 +66,19 @@ EOF
     done < ${CONF_FILE}
 }
 
+#######################################
+# First compose up the manager where the networks are created
+#   and only then create the other containers on worker VMs
+#######################################
 function compose_up {
     compose "${COMPOSE_UP}" "manager"
     compose "${COMPOSE_UP}" "worker"
 }
 
+#######################################
+# First remove containers on workers
+#   and only then the networks on the manager
+#######################################
 function compose_down {
     compose "${COMPOSE_DOWN}" "worker"
     compose "${COMPOSE_DOWN}" "manager"
@@ -79,7 +87,6 @@ function compose_down {
 #######################################
 # Actual script logic
 #######################################
-
 if [[ ${FLAG_UP} == 1 ]]
 then
     echo "###### Compose UP ######"

@@ -94,6 +94,9 @@ function compose_down {
     fi
 }
 
+#######################################
+# main()
+#######################################
 if [[ ${FLAG_manager} == 1 ]]; then
         echo "#### Starting VM ${FLAG_vm} teardown as MANAGER ####"
     else

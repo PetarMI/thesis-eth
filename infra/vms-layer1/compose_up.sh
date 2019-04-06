@@ -122,6 +122,9 @@ function compose_up {
     create_links
 }
 
+#######################################
+# main()
+#######################################
 if [[ ${FLAG_manager} == 1 ]]; then
         echo "#### Starting VM ${FLAG_vm} setup as MANAGER ####"
     else
