@@ -51,17 +51,19 @@ fi
 readonly VM_WORK_DIR="/home/osboxes"
 readonly VM_COMPOSE_DIR="${VM_WORK_DIR}/compose"
 readonly VM_DOCKER_DIR="${VM_WORK_DIR}/phynet"
-#readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/vms-layer1"
+readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/vm_scripts"
 
+# compose files
 readonly VM_NET_FILE="${VM_COMPOSE_DIR}/topo_networks.csv"
 readonly VM_CONTAINERS_FILE="${VM_COMPOSE_DIR}/topo_containers.csv"
 readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 
-# paths on localhost
+# Local paths
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
-readonly PM_COMPOSE_DIR="${PM_WORK_DIR}/playmaker/compose_gen/compose_instr/${FLAG_topology}"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
+readonly PM_DEPLOY_DIR="${PM_WORK_DIR}/playmaker/deployment_files/${FLAG_topology}"
+readonly PM_COMPOSE_DIR="${PM_DEPLOY_DIR}/compose_files"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
@@ -82,12 +84,10 @@ function check_success {
     local exit_code=$1
     local msg=$2
 
-    printf "${msg}..."
-
     if [[ ${exit_code} == 0 ]]; then
-        printf "${GREEN}Success${NC}\n"
+        printf "${GREEN}Success:${NC} ${msg}\n"
     else
-        printf "${RED}Failed ${NC}with exit code ${exit_code}\n"
+        printf "${RED}Failed ${NC}with exit code ${exit_code}: ${msg}\n"
         exit ${exit_code}
     fi
 }
@@ -118,15 +118,17 @@ function upload_compose_files {
     do
         local src_nets="${PM_COMPOSE_DIR}/net-compose.csv"
         scp -P ${port} ${src_nets} "${MACHINE}:${VM_NET_FILE}" 1>/dev/null
-        signal_fail $? "Copying networks file"
+        signal_fail $? "Copying networks file to VM ${idx}"
 
         local src_conts="${PM_COMPOSE_DIR}/netvm${idx}_containers.csv"
         scp -P ${port} ${src_conts} "${MACHINE}:${VM_CONTAINERS_FILE}" 1>/dev/null
-        signal_fail $? "Copying containers file"
+        signal_fail $? "Copying containers file to VM ${idx}"
 
         local src_links="${PM_COMPOSE_DIR}/netvm${idx}_links.csv"
         scp -P ${port} ${src_links} "${MACHINE}:${VM_LINKS_FILE}" 1>/dev/null
-        signal_fail $? "Copying links file"
+        signal_fail $? "Copying links file to VM ${idx}"
+
+        check_success 0 "Uploaded to VM ${idx} "
     done < ${CONF_FILE}
 }
 
@@ -135,16 +137,16 @@ function upload_compose_files {
 #   - Phynet image Dockerfile
 #   - Scripts residing in each Layer 2 container (API)
 #######################################
-function update_docker_files {
+function upload_docker_files {
     while IFS=, read -r idx port role
     do
         local src_scripts="${PM_DOCKER_DIR}/scripts"
         scp -r -P ${port} ${src_scripts} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
-        check_success $? "Sending Phynet scripts to VM ${idx}"
+        check_success $? "Uploaded Phynet scripts to VM ${idx}"
 
         local src_docker="${PM_DOCKER_DIR}/Dockerfile"
         scp -P ${port} ${src_docker} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
-        check_success $? "Sending Phynet Dockerfile to VM ${idx}"
+        check_success $? "Uploaded Phynet Dockerfile to VM ${idx}"
     done < ${CONF_FILE}
 }
 
@@ -152,12 +154,12 @@ function update_docker_files {
 # Upload the scripts that are run on the VMs
 #   - compose_up.sh to deploy Layer 2 networks and containers
 #######################################
-function update_vm_scripts {
+function upload_vm_scripts {
     while IFS=, read -r idx port role
     do
         local src_scripts="${PM_SCRIPT_DIR}"
-        scp -r -P ${port} ${src_scripts} "${MACHINE}:${VM_WORK_DIR}" 1>/dev/null
-        check_success $? "Sending VM scripts to VM ${idx}"
+        scp -P ${port} ${src_scripts}/* "${MACHINE}:${VM_SCRIPT_DIR}/" 1>/dev/null
+        check_success $? "Uploaded to VM ${idx}"
     done < ${CONF_FILE}
 }
 
@@ -170,7 +172,7 @@ function upload_device_configs {
     do
         local src_configs="${PM_WORK_DIR}/../topologies/${FLAG_topology}/device_configs"
         scp -r -P ${port} ${src_configs} "${MACHINE}:${VM_WORK_DIR}" 1>/dev/null
-        signal_fail $? "Sending device configs to VM ${idx}"
+        check_success $? "Uploaded to VM ${idx}"
     done < ${CONF_FILE}
 }
 
@@ -179,21 +181,21 @@ function upload_device_configs {
 #######################################
 
 if [[ ${FLAG_compose_files} == 1 ]]; then
-    echo "### Sending compose files to VMs ###"
+    echo "### Uploading compose files to VMs ###"
     upload_compose_files
 fi
 
 if [[ ${FLAG_docker_files} == 1 ]]; then
-    echo "### Sending phynet files to VMs ###"
-    update_docker_files
+    echo "### Uploading Layer 2 Docker files to VMs ###"
+    upload_docker_files
 fi
 
 if [[ ${FLAG_vm_scripts} == 1 ]]; then
-    echo "### Sending VM scripts to VMs ###"
-    update_vm_scripts
+    echo "### Uploading VM scripts to VMs ###"
+    upload_vm_scripts
 fi
 
 if [[ ${FLAG_device_configs} == 1 ]]; then
-    echo "### Sending device configs to VMs ###"
+    echo "### Uploading device configs to VMs ###"
     upload_device_configs
 fi
