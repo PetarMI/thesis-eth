@@ -6,7 +6,7 @@
     * define a `vm.conf` file (manager and how to ssh)
 2. Setup the **Layer 2** phynet topology
     1. Generate compose files from `.topo`
-        * `python TopoComposer.py -f <path-to-topo-file>`
+        * `python TopoComposer.py -f <topo_name>`
     2. Upload all files to VMs
         * `./local_vm_upload.sh -t <topo-name> -a`
         * compose files, phynet files (Docker + scripts) and VM scripts

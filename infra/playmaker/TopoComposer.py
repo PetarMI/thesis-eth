@@ -12,10 +12,12 @@ class TopoComposer:
         self.topo_name = tp.find_topo_name(self.topo)
 
     def gen_compose_files(self):
+        print("##### Generating compose files #####")
         nets: list = self.parse_nets()
         containers: dict = self.parse_containers()
 
         self.write_compose_files(nets, containers)
+        print("##### Done. #####")
 
     def parse_nets(self) -> list:
         """
@@ -77,6 +79,7 @@ class TopoComposer:
                                       self.topo_name, const.COMPOSE_DIR)
         os.makedirs(output_dir, exist_ok=True)
 
+        print("Writing networks file...")
         write_nets(nets, output_dir)
         write_containers(containers, output_dir)
 
@@ -101,6 +104,7 @@ def write_containers(vms: dict, output_dir):
     """
     # iterate over each VM
     for idx, containers in enumerate(vms.values()):
+        print("Writing compose files for VM {}".format(idx))
         create_commands = []
         connect_commands = []
 
