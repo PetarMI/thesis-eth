@@ -14,6 +14,7 @@ class NatExecutor:
                                            self.topo_name, const.NAT_FILES)
 
     def execute_nat(self):
+        print("Matching subnets")
         subnets = nat_subnets.perform_nat(self.topo_name)
 
         os.makedirs(self.output_dir, exist_ok=True)

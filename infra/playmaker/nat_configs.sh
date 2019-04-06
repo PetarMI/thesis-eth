@@ -37,6 +37,27 @@ readonly DPL_CONFIG_DIR="${DEPLOY_DIR}/device_configs"
 # files
 readonly SUBNETS_FILE="${DEPLOY_DIR}/nat_files/matched-subnets.csv"
 
+# colors for output
+readonly GREEN='\033[0;32m'
+readonly RED='\033[0;31m'
+readonly NC='\033[0m' # No Color
+
+
+#######################################
+# Only signal if the last executed process failed
+# Arguments:
+#   exit_code: The exit code of the last process
+#   msg:       String describing the process
+#######################################
+function signal_fail {
+    local exit_code=$1
+    local msg=$2
+    if [[ ${exit_code} != 0 ]]; then
+        printf "${RED}Failed ${NC}with exit code ${exit_code}: ${RED}${msg}${NC}\n"
+        exit ${exit_code}
+    fi
+}
+
 #######################################
 # Copy the device configs files to deployment dir
 #######################################
@@ -71,16 +92,22 @@ function sed_subnets {
         while IFS=, read -r old new
         do
             sed -i -e "s%${old}%${new}%g" ${f}
+            signal_fail $? "Sed-ing ${f}"
         done < "${SUBNETS_FILE}"
+        printf "${GREEN}Translated ${f} ${NC}\n"
     done
 }
 
 #######################################
 # Actual script logic
 #######################################
+echo "###### Updating device configurations ######"
+
+echo "#### Performing network matching ####"
 match_subnets
 copy_files
 read_filenames
+echo "#### Performing NAT ####"
 sed_subnets
 
 
