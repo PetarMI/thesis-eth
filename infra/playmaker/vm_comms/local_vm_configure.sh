@@ -26,7 +26,7 @@ done
 #######################################
 # Define all constants
 #######################################
-readonly VM_SCRIPT_DIR="vms-layer1"
+readonly VM_SCRIPT_DIR="vm_scripts"
 readonly SETUP_DEVICES="setup_layer3.sh"
 
 # VM info
@@ -45,7 +45,7 @@ readonly NC='\033[0m' # No Color
 function setup_containers {
     while IFS=, read -r idx port role
     do
-        echo "### Running inside VM ${idx}"
+        echo "#### Running inside VM ${idx} ####"
 ssh -T -p ${port} ${MACHINE} << EOF
     cd ${VM_SCRIPT_DIR}
     ./${SETUP_DEVICES} -s
@@ -66,7 +66,7 @@ function configure_devices {
 #######################################
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
-    echo "##### Setting up Layer 3 containers #####"
+    echo "###### Setting up Layer 3 containers ######"
     setup_containers
 fi
 

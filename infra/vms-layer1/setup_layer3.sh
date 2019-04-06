@@ -59,18 +59,20 @@ function setup_containers {
     while read -r name
     do
         echo "Setting up device on container ${name}..."
+        # TODO: write to a setup log dir
         docker exec ${name} ${FRR_SETUP_SCRIPT} 1 >/dev/null &
         pids+=($!)
     done <<< ${containers}
 
     echo "Processing..."
 
+    # TODO: check for success
     # wait for all containers to finish setting up
     for pid in ${pids[*]}; do
         wait ${pid}
     done
 
-    printf "${GREEN}### Done! ${NC}\n"
+    printf "${GREEN}Done!${NC}\n"
 }
 
 function configure_devices {

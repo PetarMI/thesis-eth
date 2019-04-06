@@ -27,7 +27,7 @@ while [[ "$1" != "" ]]; do
 done
 
 # make sure one of containers or networks has been specified
-if [[ ${FLAG_manager} == 2 ]]; then
+if [[ ${FLAG_manager} == 3 ]]; then
         echo "Please specify whether to run as manager or worker"
         exit 1
 fi
@@ -35,7 +35,8 @@ fi
 #######################################
 # Define all constants
 #######################################
-readonly VM_STORAGE_DIR="/home/osboxes/storage"
+readonly VM_STORAGE_DIR="/home/osboxes/logs"
+readonly VM_NET_LOGS_DIR="${VM_STORAGE_DIR}/network"
 readonly FRR_IP_SCRIPT="/home/api/get_ips.sh"
 readonly NET_LOGS="networks.log"
 
@@ -43,6 +44,24 @@ readonly NET_LOGS="networks.log"
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
+
+#######################################
+# Display success or failure of the last executed process
+# Arguments:
+#   exit_code: The exit code of the last process
+#   msg:       String describing the process
+#######################################
+function check_success {
+    local exit_code=$1
+    local msg=$2
+
+    if [[ ${exit_code} == 0 ]]; then
+        printf "${GREEN}${msg}${NC} \n"
+    else
+        printf "${RED}Failed ${NC}with exit code ${exit_code}: ${msg}\n"
+        exit ${exit_code}
+    fi
+}
 
 #######################################
 # Only signal if the last executed process failed
@@ -75,14 +94,14 @@ function check_containers {
 #######################################
 function pull_device_data {
     check_containers
+    mkdir -p ${VM_NET_LOGS_DIR}
 
     local containers=$(docker ps | grep phynet | awk '{print $NF}')
 
     while read -r name
     do
-        echo "Saving network data of container ${name}..."
-        docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_STORAGE_DIR}/"ips_${name}.log"
-        signal_fail $? "Saving container iface data"
+        docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_NET_LOGS_DIR}/"ips_${name}.log"
+        check_success $? "Saved iface data of container ${name}"
     done <<< ${containers}
 }
 
@@ -98,7 +117,9 @@ function pull_networks_data {
     do
         subnet=$(docker network inspect ${name} | grep Subnet \
         | egrep -o '[0-9]+[.][0-9]+[.][0-9]+[.][0-9]+/[0-9]+')
-        echo "${name},${subnet}" >> ${VM_STORAGE_DIR}/${NET_LOGS}
+        signal_fail $? "Extracting subnet data"
+        echo "${name},${subnet}" >> ${VM_NET_LOGS_DIR}/${NET_LOGS}
+        check_success $? "Saved ${name} subnet data"
     done <<< ${networks}
 }
 
