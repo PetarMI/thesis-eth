@@ -69,7 +69,7 @@ function copy_files {
 # Invoke python script to perform subnet matching and all
 #######################################
 function match_subnets {
-    python NatExecutor.py -t ${FLAG_topology}
+    python NatController.py -t ${FLAG_topology}
 }
 
 #######################################
@@ -102,7 +102,6 @@ function sed_subnets {
 # Actual script logic
 #######################################
 echo "###### Updating device configurations ######"
-
 echo "#### Performing network matching ####"
 match_subnets
 copy_files

@@ -3,17 +3,21 @@ import constants as const
 import topo_parser as tp
 
 
-def perform_nat(topo_name: str) -> dict:
+def match_subnets(topo_name: str) -> dict:
+    """ Main function of subnet matching functionality """
+
+    # declare paths used during subnet matching
     topo_file = "{0}/{1}/{1}.topo".format(const.TOPO_DIR, topo_name)
     topo_nets: list = tp.find_nets(tp.import_topo(topo_file))
 
     sim_subnet_log = "{}/{}/{}/{}".format(const.DPL_FILES_DIR, topo_name,
                                           const.LOGS_DIR, const.NET_LOG_FILE)
 
+    # perform matching
     orig_subnets = parse_orig_subnets(topo_name, topo_nets)
     sim_subnets = parse_sim_subnets(sim_subnet_log)
 
-    subnets = match_subnets(orig_subnets, sim_subnets)
+    subnets = match_addresses(orig_subnets, sim_subnets)
 
     return subnets
 
@@ -44,7 +48,7 @@ def parse_sim_subnets(sim_subnet_log: str) -> dict:
     return subnets
 
 
-def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
+def match_addresses(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}
 
     for net_name, o_subnet in orig_subnets.items():

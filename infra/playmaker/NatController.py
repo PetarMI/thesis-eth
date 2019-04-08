@@ -6,16 +6,22 @@ import topo_parser as tp
 import constants as const
 
 
-class NatExecutor:
+class NatController:
 
     def __init__(self, topo_name: str):
         self.topo_name = topo_name
         self.output_dir = "{}/{}{}".format(const.DPL_FILES_DIR,
                                            self.topo_name, const.NAT_FILES)
 
-    def execute_nat(self):
+    def nat_matching(self):
+        """ Main function that does NAT on all components:
+            - subnets
+            - TODO interfaces
+
+        :return: writes the results to files that are processed by bash scripts
+        """
         print("Matching subnets")
-        subnets = nat_subnets.perform_nat(self.topo_name)
+        subnets = nat_subnets.match_subnets(self.topo_name)
 
         os.makedirs(self.output_dir, exist_ok=True)
         self.write_subnets(subnets)
@@ -39,5 +45,5 @@ if __name__ == '__main__':
 
     topo_name: str = args.topology
 
-    nat_exec = NatExecutor(topo_name)
-    nat_exec.execute_nat()
+    nat_contr = NatController(topo_name)
+    nat_contr.nat_matching()
