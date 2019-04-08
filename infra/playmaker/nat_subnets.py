@@ -17,16 +17,24 @@ def match_subnets(topo_name: str) -> dict:
     orig_subnets = parse_orig_subnets(topo_name, topo_nets)
     sim_subnets = parse_sim_subnets(sim_subnet_log)
 
+    # this shouldn't really happen but check the return value anyway
+    if (not subnet_sanity_check(orig_subnets, sim_subnets)):
+        exit(1)
+
     subnets = match_addresses(orig_subnets, sim_subnets)
 
     return subnets
 
 
+# @Tested
 def parse_orig_subnets(topo_name: str, topo_nets: list) -> dict:
     subnets = {}
 
     for net in topo_nets:
         sim_name = update_net_name(topo_name, tp.safe_get(net, "name"))
+        if (sim_name in subnets.keys()):
+            raise KeyError("Duplicate subnet")
+
         subnets.update({
             sim_name: tp.safe_get(net, "subnet")
         })
@@ -48,6 +56,7 @@ def parse_sim_subnets(sim_subnet_log: str) -> dict:
     return subnets
 
 
+# @Tested
 def match_addresses(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}
 
@@ -64,10 +73,18 @@ def match_addresses(orig_subnets: dict, sim_subnets: dict) -> dict:
     return subnets
 
 
+# @Tested
 def update_net_name(topo_name, orig_net_name: str) -> str:
     return "{}-{}".format(topo_name, orig_net_name)
 
 
-# TODO implement sanity check
+# @Tested
 def subnet_sanity_check(orig_subnets: dict, sim_subnets: dict) -> bool:
+    if (len(orig_subnets) != len(sim_subnets)):
+        raise KeyError("Network number mismatch")
+
+    for o_net in orig_subnets.keys():
+        if (o_net not in sim_subnets.keys()):
+            raise KeyError("Network mismatch")
+
     return True
