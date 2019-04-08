@@ -39,33 +39,34 @@ readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
 #######################################
-# Setup Layer 3 on all VMs
-#   delegated to Layer 2 via script inside each phynet container
+# Generic function for calling L2 scripts
+#   delegates to L2 to call appropriate L3 script for every container in it
 #######################################
-function setup_containers {
+function exec_l3_command {
+    local option=$1
+
     while IFS=, read -r idx port role
     do
         echo "#### Running inside VM ${idx} ####"
 ssh -T -p ${port} ${MACHINE} << EOF
     cd ${VM_SCRIPT_DIR}
-    ./${SETUP_DEVICES} -s
+    ./${SETUP_DEVICES} -${option}
 EOF
     done < ${CONF_FILE}
 }
 
 #######################################
+# Setup Layer 3 on all VMs
+#######################################
+function setup_containers {
+    exec_l3_command "s"
+}
+
+#######################################
 # Configure all Layer 3 network devices
-#   delegated to Layer 2 via script inside each phynet container
 #######################################
 function configure_devices {
-    while IFS=, read -r idx port role
-    do
-        echo "#### Running inside VM ${idx} ####"
-ssh -T -p ${port} ${MACHINE} << EOF
-    cd ${VM_SCRIPT_DIR}
-    ./${SETUP_DEVICES} -c
-EOF
-    done < ${CONF_FILE}
+    exec_l3_command "c"
 }
 
 #######################################
