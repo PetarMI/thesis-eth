@@ -3,7 +3,7 @@
 #######################################
 # Handle script arguments
 #######################################
-usage="Script to upload all needed files on the VMs
+usage="Script to perform NAT
 
 where:
     -t  The name of the topology to be deployed
@@ -33,9 +33,11 @@ readonly WORK_DIR="/home/pesho/D/thesis-repo"
 readonly CONFIG_DIR="${WORK_DIR}/topologies/${FLAG_topology}/device_configs"
 readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly DPL_CONFIG_DIR="${DEPLOY_DIR}/device_configs"
+readonly DPL_LOG_DIR="${DEPLOY_DIR}/net_logs"
 
 # files
 readonly SUBNETS_FILE="${DEPLOY_DIR}/nat_files/matched-subnets.csv"
+readonly IFACES_SIM_FILE="${DEPLOY_DIR}/nat_files/sim_ifaces.csv"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -66,21 +68,50 @@ function copy_files {
 }
 
 #######################################
-# Invoke python script to perform subnet matching and all
+# Read all config files' filenames into an array
 #######################################
-function match_subnets {
-    python NatController.py -t ${FLAG_topology}
+config_files=()
+
+function read_config_files {
+    while IFS= read -r line; do
+        config_files+=( "$line" )
+    done < <( find ${DPL_CONFIG_DIR} -type f )
 }
 
 #######################################
 # Read all config files' filenames into an array
 #######################################
-config_files=()
+iface_files=()
 
-function read_filenames {
+function read_iface_logs {
     while IFS= read -r line; do
-        config_files+=( "$line" )
-    done < <( find ${DPL_CONFIG_DIR} -type f )
+        iface_files+=( "$line" )
+    done < <( find ${DPL_LOG_DIR} -type f -name 'ipa*')
+}
+
+#######################################
+# Pair iface and ip address of only relevant ifaces
+#######################################
+function process_iface_logs {
+    rm ${IFACES_SIM_FILE}
+
+    for f in "${iface_files[@]}"
+    do
+        # get just the filename
+        local filename=$(echo ${f##*_})
+        filename=$(echo ${filename%.*})
+        # pair every two lines
+        sed '$!N;s/\n/,/' ${f} | sed '/10.0./!d' \
+        | sed -e "s/^/${filename},/" >> ${IFACES_SIM_FILE}
+        signal_fail $? "Processing ${f}"
+    done
+}
+
+#######################################
+# Invoke python script to perform subnet matching and all
+#######################################
+function match_subnets {
+    python NatController.py -t ${FLAG_topology}
 }
 
 #######################################
@@ -102,11 +133,15 @@ function sed_subnets {
 # Actual script logic
 #######################################
 echo "###### Updating device configurations ######"
-echo "#### Performing network matching ####"
-match_subnets
+echo "#### Pre-processing logs ####"
 copy_files
-read_filenames
+read_config_files
+read_iface_logs
+process_iface_logs
+echo "#### Performing network matching ####"
+#match_subnets
 echo "#### Performing NAT ####"
-sed_subnets
+echo "## Updating subnets ##"
+#sed_subnets
 
 
