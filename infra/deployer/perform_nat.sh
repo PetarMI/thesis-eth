@@ -83,7 +83,7 @@ function read_config_files {
 #######################################
 iface_files=()
 
-function read_iface_logs {
+function read_iface_log_files {
     while IFS= read -r line; do
         iface_files+=( "$line" )
     done < <( find ${DPL_LOG_DIR} -type f -name 'ipa*')
@@ -91,8 +91,10 @@ function read_iface_logs {
 
 #######################################
 # Pair iface and ip address of only relevant ifaces
+# Output:
+#   - /nat_files/sim_ifaces.csv
 #######################################
-function process_iface_logs {
+function parse_iface_logs {
     rm ${IFACES_SIM_FILE}
 
     for f in "${iface_files[@]}"
@@ -109,6 +111,8 @@ function process_iface_logs {
 
 #######################################
 # Invoke python script to perform subnet matching and all
+# Output:
+#   - /nat_files/matched-subnets.csv
 #######################################
 function match_subnets {
     python NatController.py -t ${FLAG_topology}
@@ -116,6 +120,8 @@ function match_subnets {
 
 #######################################
 # Perform the subnet substitution in every file
+# Output:
+#   - updated /device_configs/*.conf
 #######################################
 function sed_subnets {
     for f in "${config_files[@]}"
@@ -136,8 +142,8 @@ echo "###### Updating device configurations ######"
 echo "#### Pre-processing logs ####"
 copy_files
 read_config_files
-read_iface_logs
-process_iface_logs
+read_iface_log_files
+parse_iface_logs
 echo "#### Performing network matching ####"
 #match_subnets
 echo "#### Performing NAT ####"
