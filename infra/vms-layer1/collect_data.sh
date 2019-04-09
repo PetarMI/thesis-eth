@@ -100,7 +100,8 @@ function pull_device_data {
 
     while read -r name
     do
-        docker exec ${name} ${FRR_IP_SCRIPT} > ${VM_NET_LOGS_DIR}/"ips_${name}.log"
+        docker exec ${name} ${FRR_IP_SCRIPT} | grep -E '(^Interface|inet)' \
+         | awk '{print $2}' > ${VM_NET_LOGS_DIR}/"ips_${name}.log"
         check_success $? "Saved iface data of container ${name}"
     done <<< ${containers}
 }
@@ -132,5 +133,6 @@ pull_device_data
 
 if [[ ${FLAG_manager} == 1 ]]; then
     echo "## Pulling network data from Swarm Manager ##"
+    rm ${VM_NET_LOGS_DIR}/${NET_LOGS}
     pull_networks_data
 fi
