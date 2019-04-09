@@ -6,5 +6,5 @@ RUN apk add --no-cache \
 
 WORKDIR /home
 
-COPY scripts ./scripts
+COPY api ./api
 

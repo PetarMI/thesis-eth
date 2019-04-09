@@ -29,8 +29,9 @@ done
 #######################################
 # Define all constants
 #######################################
-readonly FRR_SETUP_SCRIPT="/home/scripts/setupFRR.sh"
-readonly FRR_CONFIG_SCRIPT="/home/scripts/configFRR.sh"
+readonly SCRIPT_DIR="/home/api"
+readonly FRR_SETUP_SCRIPT="${SCRIPT_DIR}/setupFRR.sh"
+readonly FRR_CONFIG_SCRIPT="${SCRIPT_DIR}/configFRR.sh"
 
 # colors for output
 readonly GREEN='\033[0;32m'

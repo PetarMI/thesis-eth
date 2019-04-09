@@ -140,10 +140,10 @@ function upload_compose_files {
 function upload_docker_files {
     while IFS=, read -r idx port role
     do
-        local src_scripts="${PM_DOCKER_DIR}/scripts"
+        local src_scripts="${PM_DOCKER_DIR}/api"
         scp -r -P ${port} ${src_scripts} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Uploaded Phynet scripts to VM ${idx}"
-        # TODO: send api scripts as well
+
         local src_docker="${PM_DOCKER_DIR}/Dockerfile"
         scp -P ${port} ${src_docker} "${MACHINE}:${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Uploaded Phynet Dockerfile to VM ${idx}"

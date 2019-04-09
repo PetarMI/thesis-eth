@@ -85,7 +85,7 @@ EOF
     printf "${GREEN}/phynet/scripts${NC} - store the Layer 2 scripts\n"
     printf "${GREEN}/device_configs${NC} - store config files for all topology devices\n"
 }
-#ls -lR
+
 function view {
     while IFS=, read -r idx port role
     do
