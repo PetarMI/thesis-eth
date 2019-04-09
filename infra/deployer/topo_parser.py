@@ -2,7 +2,7 @@ import json
 
 
 container_types = {
-    "frr": "phynet:1.0"
+    "frr": "phynet:latest"
 }
 
 

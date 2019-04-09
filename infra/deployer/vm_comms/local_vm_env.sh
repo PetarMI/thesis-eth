@@ -42,6 +42,7 @@ readonly VM_WORK_DIR="/home/osboxes"
 readonly VM_COMPOSE_DIR="compose"
 readonly VM_DOCKER_DIR="phynet"
 readonly VM_SCRIPT_DIR="vm_scripts"
+readonly VM_CONFIG_DIR="device_configs"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
@@ -74,6 +75,7 @@ ssh -T -p ${port} ${MACHINE} << EOF
     mkdir -p ${VM_COMPOSE_DIR}
     mkdir -p ${VM_DOCKER_DIR}
     mkdir -p ${VM_SCRIPT_DIR}
+    mkdir -p ${VM_CONFIG_DIR}
 EOF
     done < ${CONF_FILE}
 
@@ -81,9 +83,9 @@ EOF
     printf "${GREEN}/${VM_COMPOSE_DIR}${NC} - store compose files for the particular VM\n"
     printf "${GREEN}/${VM_DOCKER_DIR}${NC} - store Layer 2 Dockerfile and scripts\n"
     printf "${GREEN}/${VM_SCRIPT_DIR}${NC} - store Layer 1 scripts\n"
+    printf "${GREEN}/device_configs${NC} - store config files for all topology devices\n"
     echo "## Dirs created during upload"
     printf "${GREEN}/phynet/scripts${NC} - store the Layer 2 scripts\n"
-    printf "${GREEN}/device_configs${NC} - store config files for all topology devices\n"
 }
 
 function view {

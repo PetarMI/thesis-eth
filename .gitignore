@@ -127,4 +127,4 @@ dmypy.json
 
 .yaml
 .csv
-/deployment_files
+infra/deployer/deployment_files
