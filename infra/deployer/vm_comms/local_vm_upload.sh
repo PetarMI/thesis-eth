@@ -62,7 +62,7 @@ readonly VM_LINKS_FILE="${VM_COMPOSE_DIR}/topo_links.csv"
 readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
-readonly PM_DEPLOY_DIR="${PM_WORK_DIR}/playmaker/deployment_files/${FLAG_topology}"
+readonly PM_DEPLOY_DIR="${PM_WORK_DIR}/deployer/deployment_files/${FLAG_topology}"
 readonly PM_COMPOSE_DIR="${PM_DEPLOY_DIR}/compose_files"
 
 # VM info
