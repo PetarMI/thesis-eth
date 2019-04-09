@@ -26,7 +26,7 @@
 
 Directory containing all infrastructure logic.
 
-### Playmaker
+### Deployer
 
 Includes all the logic for setting up the topology
 
