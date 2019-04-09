@@ -31,7 +31,7 @@ fi
 #######################################
 readonly WORK_DIR="/home/pesho/D/thesis-repo"
 readonly CONFIG_DIR="${WORK_DIR}/topologies/${FLAG_topology}/device_configs"
-readonly DEPLOY_DIR="${WORK_DIR}/infra/playmaker/deployment_files/${FLAG_topology}"
+readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly DPL_CONFIG_DIR="${DEPLOY_DIR}/device_configs"
 
 # files
