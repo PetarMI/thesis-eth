@@ -1,6 +1,5 @@
 import csv
 import constants as const
-import json
 
 
 def read_orig_ifaces(topo: str) -> dict:
@@ -61,6 +60,3 @@ def read_simple_csv(filepath: str):
             })
 
     return simple_dict
-
-print(json.dumps(read_orig_ifaces("toy"), indent=4))
-print(json.dumps(read_sim_ifaces("toy"), indent=4))

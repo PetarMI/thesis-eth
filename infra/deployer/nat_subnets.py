@@ -3,7 +3,7 @@ import topo_parser as tp
 import file_reader as fr
 
 
-def match_subnets(topo_name: str) -> dict:
+def perform_match(topo_name: str) -> dict:
     """ Main function of subnet matching functionality """
 
     # declare paths used during subnet matching
@@ -18,7 +18,7 @@ def match_subnets(topo_name: str) -> dict:
     if (not subnet_sanity_check(orig_subnets, sim_subnets)):
         exit(1)
 
-    subnets = match_addresses(orig_subnets, sim_subnets)
+    subnets = match_subnets(orig_subnets, sim_subnets)
 
     return subnets
 
@@ -40,7 +40,7 @@ def parse_orig_subnets(topo_name: str, topo_nets: list) -> dict:
 
 
 # @Tested
-def match_addresses(orig_subnets: dict, sim_subnets: dict) -> dict:
+def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}
 
     for net_name, o_subnet in orig_subnets.items():

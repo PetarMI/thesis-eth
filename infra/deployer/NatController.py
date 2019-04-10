@@ -21,7 +21,7 @@ class NatController:
         :return: writes the results to files that are processed by bash scripts
         """
         print("Matching subnets")
-        subnets = nat_subnets.match_subnets(self.topo_name)
+        subnets = nat_subnets.perform_match(self.topo_name)
 
         os.makedirs(self.output_dir, exist_ok=True)
         self.write_subnets(subnets)
