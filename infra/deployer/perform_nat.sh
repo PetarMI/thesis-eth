@@ -38,6 +38,7 @@ readonly DPL_LOG_DIR="${DEPLOY_DIR}/net_logs"
 # files
 readonly SUBNETS_FILE="${DEPLOY_DIR}/nat_files/matched-subnets.csv"
 readonly IFACES_SIM_FILE="${DEPLOY_DIR}/nat_files/sim_ifaces.csv"
+readonly IFACES_ORIG_FILE="${DEPLOY_DIR}/nat_files/orig_ifaces.csv"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -89,13 +90,27 @@ function read_iface_log_files {
     done < <( find ${DPL_LOG_DIR} -type f -name 'ipa*')
 }
 
+function parse_device_configs {
+    rm -f ${IFACES_ORIG_FILE}
+
+    for f in "${config_files[@]}"
+    do
+        # get just the filename
+        local filename=$(echo ${f##*/})
+        filename=$(echo ${filename%.*})
+        grep -E '(^interface|ip address)' ${f} | sed '$!N;s/\n/,/' \
+        | awk '{print $2 $5}' | sed -e "s/^/$filename,/" >> ${IFACES_ORIG_FILE}
+        signal_fail $? "Processing ${f}"
+    done
+}
+
 #######################################
 # Pair iface and ip address of only relevant ifaces
 # Output:
 #   - /nat_files/sim_ifaces.csv
 #######################################
 function parse_iface_logs {
-    rm ${IFACES_SIM_FILE}
+    rm -f ${IFACES_SIM_FILE}
 
     for f in "${iface_files[@]}"
     do
@@ -144,8 +159,9 @@ copy_files
 read_config_files
 read_iface_log_files
 parse_iface_logs
+parse_device_configs
 echo "#### Performing network matching ####"
-#match_subnets
+match_subnets
 echo "#### Performing NAT ####"
 echo "## Updating subnets ##"
 #sed_subnets
