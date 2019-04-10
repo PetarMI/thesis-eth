@@ -14,6 +14,8 @@ NAT_FILES = "/nat_files"
 # filenames
 NET_FILE = "net-compose.csv"
 SUBNETS_FILE = "matched-subnets.csv"
+ORIG_IFACES_FILE = "orig_ifaces.csv"
+SIM_IFACES_FILE = "sim_ifaces.csv"
 CONTAINER_FILE = "containers"
 LINKS_FILE = "links"
 NET_LOG_FILE = "networks.log"
