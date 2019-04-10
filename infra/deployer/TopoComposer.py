@@ -44,8 +44,7 @@ class TopoComposer:
             vm = tp.safe_get(cont, "vm")
             parsed_container = self.parse_container(cont)
 
-            vms.setdefault(vm, [])
-            vms.get(vm).append(parsed_container)
+            vms.setdefault(vm, []).append(parsed_container)
 
         return vms
 

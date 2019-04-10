@@ -1,4 +1,3 @@
-import csv
 import constants as const
 import topo_parser as tp
 import file_reader as fr
