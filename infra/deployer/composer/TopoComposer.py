@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 import os
 import topo_parser as tp
-import constants as const
+import constants_composer as const
 
 
 class TopoComposer:
@@ -117,9 +117,9 @@ def write_containers(vms: dict, output_dir):
                 connect = "{},{}".format(net, cont.get("name"))
                 connect_commands.append(connect)
 
-        create_file = "{}/{}{}_{}{}". \
+        create_file = "{}/{}{}_{}". \
             format(output_dir, const.VM_NAME, idx, const.CONTAINER_COMPOSE_FILE)
-        connect_file = "{}/{}{}_{}{}". \
+        connect_file = "{}/{}{}_{}". \
             format(output_dir, const.VM_NAME, idx, const.LINKS_COMPOSE_FILE)
 
         write_file(create_file, create_commands)
