@@ -1,8 +1,8 @@
-import csv
 import os
 from argparse import ArgumentParser
 import nat_subnets
-import topo_parser as tp
+import nat_ifaces
+import nat_writer as nw
 import constants as const
 
 
@@ -15,26 +15,24 @@ class NatController:
 
     def nat_matching(self):
         """ Main function that does NAT on all components:
-            - subnets
-            - TODO interfaces
+            - subnets / interfaces / IP addresses
 
         :return: writes the results to files that are processed by bash scripts
         """
         print("Matching subnets")
         subnets = nat_subnets.perform_match(self.topo_name)
 
+        print("Matching interfaces and IP addresses")
+        ifaces, ips = nat_ifaces.perform_match(self.topo_name)
+
+        print("Writing matches to files")
+        self.write_matched_files(subnets, ifaces, ips)
+
+    def write_matched_files(self, subnets: dict, ifaces: dict, ips: dict):
         os.makedirs(self.output_dir, exist_ok=True)
-        self.write_subnets(subnets)
-
-    def write_subnets(self, subnets: dict):
-        subnets_file = "{}/{}".format(self.output_dir, const.SUBNETS_FILE)
-
-        with open(subnets_file, mode='w') as csv_file:
-            writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
-
-            for s in subnets.values():
-                writer.writerow([tp.safe_get(s, "subnet"),
-                                 tp.safe_get(s, "sim_subnet")])
+        nw.write_subnets(self.output_dir, subnets)
+        nw.write_ifaces(self.output_dir, ifaces)
+        nw.write_ips(self.output_dir, ips)
 
 
 if __name__ == '__main__':

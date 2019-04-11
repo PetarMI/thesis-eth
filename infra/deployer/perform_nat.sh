@@ -164,6 +164,6 @@ echo "#### Performing network matching ####"
 match_subnets
 echo "#### Performing NAT ####"
 echo "## Updating subnets ##"
-#sed_subnets
+sed_subnets
 
 
