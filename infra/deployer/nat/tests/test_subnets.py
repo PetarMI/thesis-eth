@@ -19,7 +19,7 @@ def test_matching_success():
         "net5": "10.0.5.0/24"
     }
 
-    matched_subnets = nat_subnets.match_addresses(orig_subnets, sim_subnets)
+    matched_subnets = nat_subnets.match_subnets(orig_subnets, sim_subnets)
     expected_match = {
         "net1": {"subnet": "151.101.128.0/24", "sim_subnet": "10.0.1.0/24"},
         "net2": {"subnet": "151.101.140.0/24", "sim_subnet": "10.0.2.0/24"},
