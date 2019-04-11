@@ -37,6 +37,8 @@ readonly DPL_LOG_DIR="${DEPLOY_DIR}/net_logs"
 
 # files
 readonly SUBNETS_FILE="${DEPLOY_DIR}/nat_files/matched-subnets.csv"
+readonly MATCHED_IFACES="${DEPLOY_DIR}/nat_files/matched-ifaces.csv"
+readonly MATCHED_IPS="${DEPLOY_DIR}/nat_files/matched-ips.csv"
 readonly IFACES_SIM_FILE="${DEPLOY_DIR}/nat_files/sim_ifaces.csv"
 readonly IFACES_ORIG_FILE="${DEPLOY_DIR}/nat_files/orig_ifaces.csv"
 
@@ -80,7 +82,7 @@ function read_config_files {
 }
 
 #######################################
-# Read all config files' filenames into an array
+# Read all iface files' filenames into an array
 #######################################
 iface_files=()
 
@@ -98,6 +100,7 @@ function parse_device_configs {
         # get just the filename
         local filename=$(echo ${f##*/})
         filename=$(echo ${filename%.*})
+
         grep -E '(^interface|ip address)' ${f} | sed '$!N;s/\n/,/' \
         | awk '{print $2 $5}' | sed -e "s/^/$filename,/" >> ${IFACES_ORIG_FILE}
         signal_fail $? "Processing ${f}"
@@ -151,6 +154,46 @@ function sed_subnets {
 }
 
 #######################################
+# Auxiliary function for sed-ing files device by device
+#######################################
+function sed_aux {
+    local matched_file=$1
+
+    for f in "${config_files[@]}"
+    do
+        local filename=$(echo ${f##*/})
+        filename=$(echo ${filename%.*})
+
+        while IFS=, read -r dev old new
+        do
+            if [[ ${dev} == ${filename} ]]; then
+                sed -i -e "s%${old}%${new}%g" ${f}
+                signal_fail $? "Sed-ing ${f}"
+            fi
+        done < "${matched_file}"
+        printf "${GREEN}Translated ${filename} ${NC}\n"
+    done
+}
+
+#######################################
+# Perform the interface substitution in every file
+# Output:
+#   - updated /device_configs/*.conf
+#######################################
+function sed_ifaces {
+    sed_aux "${MATCHED_IFACES}"
+}
+
+#######################################
+# Perform the interface substitution in every file
+# Output:
+#   - updated /device_configs/*.conf
+#######################################
+function sed_ips {
+    sed_aux "${MATCHED_IPS}"
+}
+
+#######################################
 # Actual script logic
 #######################################
 echo "###### Updating device configurations ######"
@@ -165,5 +208,7 @@ match_subnets
 echo "#### Performing NAT ####"
 echo "## Updating subnets ##"
 sed_subnets
-
-
+echo "## Updating interfaces ##"
+sed_ifaces
+echo "## Updating IP addresses ##"
+sed_ips
