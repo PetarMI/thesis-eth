@@ -1,7 +1,7 @@
 import csv
 import constants as const
 
-
+# TODO adapt to the simpler format
 def write_subnets(output_dir: str, subnets: dict):
     subnets_file = "{}/{}".format(output_dir, const.SUBNETS_FILE)
 
@@ -21,7 +21,7 @@ def write_ips(output_dir: str, ips: dict):
     ips_file = "{}/{}".format(output_dir, const.IPS_FILE)
     write_file(ips_file, ips)
 
-
+# TODO turn to write device configs
 def write_file(output_file: str, matched_configs: dict):
     with open(output_file, mode='w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')

@@ -33,6 +33,8 @@ def parse_orig_subnets(topo_name: str, topo_nets: list) -> dict:
     return subnets
 
 
+# TODO use simpler format
+# TODO adapt tests
 # @Tested
 def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}

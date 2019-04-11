@@ -43,7 +43,7 @@ def read_matched_subnets(topo: str) -> dict:
 
     return matched_subnets
 
-
+# TODO rename to read topology config and read device config
 def read_ifaces_csv(filepath: str) -> dict:
     iface_dict = {}
 
@@ -57,7 +57,7 @@ def read_ifaces_csv(filepath: str) -> dict:
 
     return iface_dict
 
-
+# TODO up
 def read_simple_csv(filepath: str):
     simple_dict = {}
 

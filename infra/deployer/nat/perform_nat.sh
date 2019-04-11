@@ -50,9 +50,6 @@ readonly NC='\033[0m' # No Color
 
 #######################################
 # Only signal if the last executed process failed
-# Arguments:
-#   exit_code: The exit code of the last process
-#   msg:       String describing the process
 #######################################
 function signal_fail {
     local exit_code=$1
@@ -63,16 +60,13 @@ function signal_fail {
     fi
 }
 
-#######################################
-# Copy the device configs files to deployment dir
-#######################################
+##############################################################################
+######################## PARSING DATA SECTION ################################
+##############################################################################
 function copy_files {
     cp -R ${CONFIG_DIR} ${DEPLOY_DIR}
 }
 
-#######################################
-# Read all config files' filenames into an array
-#######################################
 config_files=()
 
 function read_config_files {
@@ -81,9 +75,6 @@ function read_config_files {
     done < <( find ${DPL_CONFIG_DIR} -type f )
 }
 
-#######################################
-# Read all iface files' filenames into an array
-#######################################
 iface_files=()
 
 function read_iface_log_files {
@@ -92,6 +83,9 @@ function read_iface_log_files {
     done < <( find ${DPL_LOG_DIR} -type f -name 'ipa*')
 }
 
+#######################################
+# Parse original interfaces taken from the device configs
+#######################################
 function parse_device_configs {
     rm -f ${IFACES_ORIG_FILE}
 
@@ -108,9 +102,7 @@ function parse_device_configs {
 }
 
 #######################################
-# Pair iface and ip address of only relevant ifaces
-# Output:
-#   - /nat_files/sim_ifaces.csv
+# Parse simulated interfaces data from Layer 3
 #######################################
 function parse_iface_logs {
     rm -f ${IFACES_SIM_FILE}
@@ -127,20 +119,21 @@ function parse_iface_logs {
     done
 }
 
+##############################################################################
+######################## MATCHING DATA SECTION ###############################
+##############################################################################
+
 #######################################
 # Invoke python script to perform subnet matching and all
-# Output:
-#   - /nat_files/matched-subnets.csv
+# Output: /nat_files/matched-*.csv
 #######################################
-function match_subnets {
+function perform_matching {
     python NatController.py -t ${FLAG_topology}
 }
 
-#######################################
-# Perform the subnet substitution in every file
-# Output:
-#   - updated /device_configs/*.conf
-#######################################
+##############################################################################
+######################## PERFORMING SED SECTION ##############################
+##############################################################################
 function sed_subnets {
     for f in "${config_files[@]}"
     do
@@ -175,27 +168,17 @@ function sed_aux {
     done
 }
 
-#######################################
-# Perform the interface substitution in every file
-# Output:
-#   - updated /device_configs/*.conf
-#######################################
 function sed_ifaces {
     sed_aux "${MATCHED_IFACES}"
 }
 
-#######################################
-# Perform the interface substitution in every file
-# Output:
-#   - updated /device_configs/*.conf
-#######################################
 function sed_ips {
     sed_aux "${MATCHED_IPS}"
 }
 
-#######################################
-# Actual script logic
-#######################################
+##############################################################################
+######################### ACTUAL SCRIPT LOGIC ################################
+##############################################################################
 echo "###### Updating device configurations ######"
 echo "#### Pre-processing logs ####"
 copy_files
@@ -203,8 +186,10 @@ read_config_files
 read_iface_log_files
 parse_iface_logs
 parse_device_configs
+
 echo "#### Performing network matching ####"
-match_subnets
+perform_matching
+
 echo "#### Performing NAT ####"
 echo "## Updating subnets ##"
 sed_subnets
