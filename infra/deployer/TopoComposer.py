@@ -89,7 +89,7 @@ class TopoComposer:
 
 def write_nets(nets: list, output_dir: str):
     """ Write the network as a column in a .csv file"""
-    filename = "{}/{}".format(output_dir, const.NET_FILE)
+    filename = "{}/{}".format(output_dir, const.NET_COMPOSE_FILE)
     write_file(filename, nets)
 
 
@@ -118,9 +118,9 @@ def write_containers(vms: dict, output_dir):
                 connect_commands.append(connect)
 
         create_file = "{}/{}{}_{}{}". \
-            format(output_dir, const.VM_NAME, idx, const.CONTAINER_FILE, const.FILE_EXT)
+            format(output_dir, const.VM_NAME, idx, const.CONTAINER_COMPOSE_FILE)
         connect_file = "{}/{}{}_{}{}". \
-            format(output_dir, const.VM_NAME, idx, const.LINKS_FILE, const.FILE_EXT)
+            format(output_dir, const.VM_NAME, idx, const.LINKS_COMPOSE_FILE)
 
         write_file(create_file, create_commands)
         write_file(connect_file, connect_commands)
