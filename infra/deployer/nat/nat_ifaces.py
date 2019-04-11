@@ -54,6 +54,3 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
 
 def make_sanity_checks(o_ifaces: dict, s_ifaces: dict) -> bool:
     return True
-
-
-perform_match("toy")
