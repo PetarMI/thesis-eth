@@ -1,17 +1,11 @@
-import constants as const
-import topo_parser as tp
 import file_reader as fr
 
 
 def perform_match(topo_name: str) -> dict:
-    """ Main function of subnet matching functionality """
+    """ Main function of subnet matching module """
 
-    # declare paths used during subnet matching
-    topo_file = "{0}/{1}/{1}.topo".format(const.TOPO_DIR, topo_name)
-    topo_nets: list = tp.find_nets(tp.import_topo(topo_file))
-
-    # perform matching
-    orig_subnets = parse_orig_subnets(topo_name, topo_nets)
+    topo_nets: list = fr.read_topo_nets(topo_name)
+    orig_subnets: dict = parse_orig_subnets(topo_name, topo_nets)
     sim_subnets = fr.read_sim_subnets(topo_name)
 
     # this shouldn't really happen but check the return value anyway
@@ -28,12 +22,12 @@ def parse_orig_subnets(topo_name: str, topo_nets: list) -> dict:
     subnets = {}
 
     for net in topo_nets:
-        sim_name = update_net_name(topo_name, tp.safe_get(net, "name"))
+        sim_name = update_net_name(topo_name, net["name"])
         if (sim_name in subnets.keys()):
             raise KeyError("Duplicate subnet")
 
         subnets.update({
-            sim_name: tp.safe_get(net, "subnet")
+            sim_name: net["subnet"]
         })
 
     return subnets
@@ -44,7 +38,7 @@ def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}
 
     for net_name, o_subnet in orig_subnets.items():
-        s_subnet = tp.safe_get(sim_subnets, net_name)
+        s_subnet = sim_subnets[net_name]
 
         subnets.update({
             net_name: {

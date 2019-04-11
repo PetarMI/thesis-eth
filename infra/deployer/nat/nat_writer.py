@@ -1,6 +1,5 @@
 import csv
 import constants as const
-import topo_parser as tp
 
 
 def write_subnets(output_dir: str, subnets: dict):
@@ -10,8 +9,7 @@ def write_subnets(output_dir: str, subnets: dict):
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
         for s in subnets.values():
-            writer.writerow([tp.safe_get(s, "subnet"),
-                             tp.safe_get(s, "sim_subnet")])
+            writer.writerow([s["subnet"], s["sim_subnet"]])
 
 
 def write_ifaces(output_dir: str, ifaces: dict):

@@ -1,5 +1,15 @@
 import csv
+import json
 import constants as const
+
+
+def read_topo_nets(topo_name: str) -> list:
+    topo_file = "{0}/{1}/{1}.topo".format(const.TOPO_DIR, topo_name)
+
+    with open(topo_file) as json_data:
+        topo = json.load(json_data)
+
+    return topo["networks"]
 
 
 def read_orig_ifaces(topo: str) -> dict:
