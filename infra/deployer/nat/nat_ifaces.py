@@ -56,7 +56,7 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
 
 
 def validate_input(o_ifaces: dict, s_ifaces: dict):
-    # validate IPs
+    # TODO validate IPs
     if not check_same_devices(o_ifaces, s_ifaces):
         raise KeyError("Different devices")
 
@@ -66,13 +66,23 @@ def validate_input(o_ifaces: dict, s_ifaces: dict):
 
 # @Tested
 def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
+    if len(o_ifaces.keys()) == 0:
+        raise KeyError("No devices in orig file")
+
+    if len(s_ifaces.keys()) == 0:
+        raise KeyError("No devices in sim file")
+
     return set(o_ifaces.keys()) == set(s_ifaces.keys())
 
 
+# @Tested
 def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
     for dev, o_configs in o_ifaces.items():
         num_o_ifaces = len(o_configs)
         num_s_ifaces = len(s_ifaces[dev])
+
+        if num_o_ifaces == 0 or num_s_ifaces == 0:
+            raise KeyError("No interfaces on device {}".format(dev))
 
         if num_o_ifaces != num_s_ifaces:
             return False
