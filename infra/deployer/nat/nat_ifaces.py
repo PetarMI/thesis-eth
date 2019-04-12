@@ -36,13 +36,19 @@ def match(orig_ifaces: dict, sim_ifaces: dict, matched_subnets: dict) -> Tuple[d
     return matched_ifaces, matched_ips
 
 
+# @Tested
 def find_sim_subnet(o_ip: str, matched_subnets: dict) -> str:
     orig_subnet = str(ipaddress.IPv4Interface(o_ip).network)
 
-    sim_subnet = matched_subnets.get(orig_subnet)
+    sim_subnet = matched_subnets.get(orig_subnet, None)
+
+    if sim_subnet is None:
+        raise ValueError("No sim subnet match")
+
     return sim_subnet
 
 
+# @Tested
 def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
     """ Find the simulated IP and iface of a device
 
@@ -63,6 +69,7 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
     if matches == 0:
         raise ValueError("No sim IP match")
     elif matches > 1:
+        # technically impossible to go here cause of check_repeated_subnets
         raise ValueError("Multiple sim IP match")
     else:
         return sim_iface, sim_ip
