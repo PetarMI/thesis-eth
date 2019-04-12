@@ -50,18 +50,38 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
     :param sim_config: all simulated pairs of IPs and iface for that device
     :return: simulated IP and iface for that subnet
     """
-    for sim_iface, sim_ip in sim_config.items():
-        if (ipaddress.IPv4Network(sim_subnet) == ipaddress.IPv4Interface(sim_ip).network):
-            return sim_iface, sim_ip
+    matches = 0
+    sim_iface = None
+    sim_ip = None
+
+    for s_iface, s_ip in sim_config.items():
+        if (ipaddress.IPv4Network(sim_subnet) == ipaddress.IPv4Interface(s_ip).network):
+            sim_iface = s_iface
+            sim_ip = s_ip
+            matches += 1
+
+    if matches == 0:
+        raise ValueError("No sim IP match")
+    elif matches > 1:
+        raise ValueError("Multiple sim IP match")
+    else:
+        return sim_iface, sim_ip
 
 
+# #############################################################################
+# ########################## VALIDATION #######################################
+# #############################################################################
 def validate_input(o_ifaces: dict, s_ifaces: dict):
     # TODO validate IPs
+
     if not check_same_devices(o_ifaces, s_ifaces):
         raise KeyError("Different devices")
 
     if not check_same_length(o_ifaces, s_ifaces):
         raise KeyError("Different interfaces")
+
+    check_repeated_subnets(o_ifaces)
+    check_repeated_subnets(s_ifaces)
 
 
 # @Tested
@@ -86,5 +106,19 @@ def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
 
         if num_o_ifaces != num_s_ifaces:
             return False
+
+    return True
+
+
+# @Tested
+def check_repeated_subnets(configs: dict):
+    for dev, conf in configs.items():
+        subnets = []
+        for ipaddr in conf.values():
+            subnet = str(ipaddress.IPv4Interface(ipaddr).network)
+            if subnet in subnets:
+                raise ValueError("Repeated subnets in device {}".format(dev))
+            else:
+                subnets.append(subnet)
 
     return True

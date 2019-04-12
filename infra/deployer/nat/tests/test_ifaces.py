@@ -38,3 +38,35 @@ def test_find_sim_config_weird_ifaces():
     assert (sim_ip == "85.14.4.4/24")
 
 
+def test_find_sim_config_no_match():
+    with pytest.raises(ValueError, match="No sim IP match"):
+        sim_subnet = "10.0.69.0/24"
+
+        sim_config = {
+            "eth0": "10.0.1.3/24",
+            "eth1": "10.0.2.1/24",
+            "eth2": "10.0.3.1/24",
+            "eth3": "10.0.4.4/24",
+            "eth4": "10.0.5.5/24",
+            "eth5": "10.0.6.2/24",
+            "eth6": "10.0.7.3/24"
+        }
+
+        nat_ifaces.find_sim_config(sim_subnet, sim_config)
+
+
+def test_find_sim_config_multiple_match():
+    with pytest.raises(ValueError, match="Multiple sim IP match"):
+        sim_subnet = "10.0.2.0/24"
+
+        sim_config = {
+            "eth0": "10.0.1.3/24",
+            "eth1": "10.0.2.1/24",
+            "eth2": "10.0.3.1/24",
+            "eth3": "10.0.4.4/24",
+            "eth4": "10.0.2.5/24",
+            "eth5": "10.0.6.2/24",
+            "eth6": "10.0.7.3/24"
+        }
+
+        nat_ifaces.find_sim_config(sim_subnet, sim_config)
