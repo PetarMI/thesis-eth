@@ -21,11 +21,11 @@ def test_matching_success():
 
     matched_subnets = nat_subnets.match_subnets(orig_subnets, sim_subnets)
     expected_match = {
-        "net1": {"subnet": "151.101.128.0/24", "sim_subnet": "10.0.1.0/24"},
-        "net2": {"subnet": "151.101.140.0/24", "sim_subnet": "10.0.2.0/24"},
-        "net3": {"subnet": "151.101.120.0/24", "sim_subnet": "10.0.3.0/24"},
-        "net4": {"subnet": "151.101.135.0/24", "sim_subnet": "10.0.4.0/24"},
-        "net5": {"subnet": "151.101.119.0/24", "sim_subnet": "10.0.5.0/24"}
+        "151.101.128.0/24": "10.0.1.0/24",
+        "151.101.140.0/24": "10.0.2.0/24",
+        "151.101.120.0/24": "10.0.3.0/24",
+        "151.101.135.0/24": "10.0.4.0/24",
+        "151.101.119.0/24": "10.0.5.0/24"
     }
 
     assert(matched_subnets == expected_match)
