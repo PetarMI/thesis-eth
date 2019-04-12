@@ -14,6 +14,7 @@ def perform_match(topo_name: str, matched_subnets: dict) -> Tuple[dict, dict]:
     return matched_ifaces, matched_ips
 
 
+# @Tested
 def match(orig_ifaces: dict, sim_ifaces: dict, matched_subnets: dict) -> Tuple[dict, dict]:
     matched_ifaces = {}
     matched_ips = {}
@@ -93,6 +94,7 @@ def validate_input(o_ifaces: dict, s_ifaces: dict):
 
 # @Tested
 def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
+    """ Ensure both config dicts are using the exact same set of devices """
     if len(o_ifaces.keys()) == 0:
         raise KeyError("No devices in orig file")
 
@@ -104,6 +106,7 @@ def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
 
 # @Tested
 def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
+    """ Ensure each device has the same number of ifaces before and after simulation """
     for dev, o_configs in o_ifaces.items():
         num_o_ifaces = len(o_configs)
         num_s_ifaces = len(s_ifaces[dev])
@@ -119,6 +122,7 @@ def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
 
 # @Tested
 def check_repeated_subnets(configs: dict):
+    """ Ensure devices do not have more than one IP of the same subnet """
     for dev, conf in configs.items():
         subnets = []
         for ipaddr in conf.values():

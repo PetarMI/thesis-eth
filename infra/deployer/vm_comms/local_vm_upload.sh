@@ -179,6 +179,7 @@ function upload_device_configs {
 #######################################
 # Actual script logic
 #######################################
+echo "##### Uploading files to VMs #####"
 
 if [[ ${FLAG_compose_files} == 1 ]]; then
     echo "### Uploading compose files to VMs ###"

@@ -112,7 +112,7 @@ function pull_device_data {
 #   so this function should be executed only on the manager
 #######################################
 function pull_networks_data {
-    rm ${VM_NET_LOGS_DIR}/${NET_LOGS}
+    rm -f ${VM_NET_LOGS_DIR}/${NET_LOGS}
     local networks=$(docker network ls | grep weaveworks | awk '{print $2}')
     local subnet=
 
