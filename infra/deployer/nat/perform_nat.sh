@@ -34,13 +34,14 @@ readonly CONFIG_DIR="${WORK_DIR}/topologies/${FLAG_topology}/device_configs"
 readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly DPL_CONFIG_DIR="${DEPLOY_DIR}/device_configs"
 readonly DPL_LOG_DIR="${DEPLOY_DIR}/net_logs"
+readonly DPL_NAT_DIR="${DEPLOY_DIR}/nat_files"
 
 # files
-readonly SUBNETS_FILE="${DEPLOY_DIR}/nat_files/matched-subnets.csv"
-readonly MATCHED_IFACES="${DEPLOY_DIR}/nat_files/matched-ifaces.csv"
-readonly MATCHED_IPS="${DEPLOY_DIR}/nat_files/matched-ips.csv"
-readonly IFACES_SIM_FILE="${DEPLOY_DIR}/nat_files/sim_ifaces.csv"
-readonly IFACES_ORIG_FILE="${DEPLOY_DIR}/nat_files/orig_ifaces.csv"
+readonly SUBNETS_FILE="${DPL_NAT_DIR}/matched-subnets.csv"
+readonly MATCHED_IFACES="${DPL_NAT_DIR}/matched-ifaces.csv"
+readonly MATCHED_IPS="${DPL_NAT_DIR}/matched-ips.csv"
+readonly IFACES_SIM_FILE="${DPL_NAT_DIR}/sim_ifaces.csv"
+readonly IFACES_ORIG_FILE="${DPL_NAT_DIR}/orig_ifaces.csv"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -63,7 +64,7 @@ function signal_fail {
 ##############################################################################
 ######################## PARSING DATA SECTION ################################
 ##############################################################################
-function copy_files {
+function copy_config_files {
     cp -R ${CONFIG_DIR} ${DEPLOY_DIR}
 }
 
@@ -181,9 +182,10 @@ function sed_ips {
 ##############################################################################
 echo "###### Updating device configurations ######"
 echo "#### Pre-processing logs ####"
-copy_files
+copy_config_files
 read_config_files
 read_iface_log_files
+mkdir -p ${DPL_NAT_DIR}
 parse_iface_logs
 parse_device_configs
 

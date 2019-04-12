@@ -1,15 +1,15 @@
 import csv
 import constants as const
 
-# TODO adapt to the simpler format
+
 def write_subnets(output_dir: str, subnets: dict):
     subnets_file = "{}/{}".format(output_dir, const.SUBNETS_FILE)
 
     with open(subnets_file, mode='w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
-        for s in subnets.values():
-            writer.writerow([s["subnet"], s["sim_subnet"]])
+        for o_subnet, sim_subnet in subnets.items():
+            writer.writerow([o_subnet, sim_subnet])
 
 
 def write_ifaces(output_dir: str, ifaces: dict):

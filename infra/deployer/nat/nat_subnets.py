@@ -33,8 +33,6 @@ def parse_orig_subnets(topo_name: str, topo_nets: list) -> dict:
     return subnets
 
 
-# TODO use simpler format
-# TODO adapt tests
 # @Tested
 def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
     subnets = {}
@@ -43,10 +41,7 @@ def match_subnets(orig_subnets: dict, sim_subnets: dict) -> dict:
         s_subnet = sim_subnets[net_name]
 
         subnets.update({
-            net_name: {
-                "subnet": o_subnet,
-                "sim_subnet": s_subnet
-            }
+            o_subnet: s_subnet
         })
 
     return subnets
