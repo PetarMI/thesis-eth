@@ -23,7 +23,7 @@ class NatController:
         subnets = nat_subnets.perform_match(self.topo_name)
 
         print("Matching interfaces and IP addresses")
-        ifaces, ips = nat_ifaces.perform_match(self.topo_name)
+        ifaces, ips = nat_ifaces.perform_match(self.topo_name, subnets)
 
         print("Writing matches to files")
         self.write_matched_files(subnets, ifaces, ips)

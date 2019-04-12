@@ -3,10 +3,9 @@ from typing import Tuple
 import file_reader as fr
 
 
-def perform_match(topo_name: str) -> Tuple[dict, dict]:
+def perform_match(topo_name: str, matched_subnets: dict) -> Tuple[dict, dict]:
     orig_ifaces: dict = fr.read_orig_ifaces(topo_name)
     sim_ifaces: dict = fr.read_sim_ifaces(topo_name)
-    matched_subnets: dict = fr.read_matched_subnets(topo_name)
 
     # this shouldn't really happen but check the return value anyway
     if (not make_sanity_checks(orig_ifaces, sim_ifaces)):
