@@ -16,7 +16,7 @@ def read_orig_ifaces(topo: str) -> dict:
     o_ifaces_file = "{}/{}{}/{}".format(const.DPL_FILES_DIR, topo,
                                         const.NAT_FILES, const.ORIG_IFACES_FILE)
 
-    o_ifaces = read_ifaces_csv(o_ifaces_file)
+    o_ifaces = read_dev_csv(o_ifaces_file)
     return o_ifaces
 
 
@@ -24,7 +24,7 @@ def read_sim_ifaces(topo: str) -> dict:
     s_ifaces_file = "{}/{}{}/{}".format(const.DPL_FILES_DIR, topo,
                                         const.NAT_FILES, const.SIM_IFACES_FILE)
 
-    s_ifaces = read_ifaces_csv(s_ifaces_file)
+    s_ifaces = read_dev_csv(s_ifaces_file)
     return s_ifaces
 
 
@@ -43,8 +43,10 @@ def read_matched_subnets(topo: str) -> dict:
 
     return matched_subnets
 
-# TODO rename to read topology config and read device config
-def read_ifaces_csv(filepath: str) -> dict:
+
+def read_dev_csv(filepath: str) -> dict:
+    """ For per device configs:
+        <device_name>,<old_val>,<new_val>"""
     iface_dict = {}
 
     with open(filepath, 'r') as csv_file:
@@ -57,8 +59,10 @@ def read_ifaces_csv(filepath: str) -> dict:
 
     return iface_dict
 
-# TODO up
+
 def read_simple_csv(filepath: str):
+    """ For global topology configs:
+        <old_val>,<new_val> """
     simple_dict = {}
 
     with open(filepath, 'r') as csv_file:

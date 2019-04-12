@@ -14,15 +14,17 @@ def write_subnets(output_dir: str, subnets: dict):
 
 def write_ifaces(output_dir: str, ifaces: dict):
     ifaces_file = "{}/{}".format(output_dir, const.IFACES_FILE)
-    write_file(ifaces_file, ifaces)
+    write_dev_file(ifaces_file, ifaces)
 
 
 def write_ips(output_dir: str, ips: dict):
     ips_file = "{}/{}".format(output_dir, const.IPS_FILE)
-    write_file(ips_file, ips)
+    write_dev_file(ips_file, ips)
 
-# TODO turn to write device configs
-def write_file(output_file: str, matched_configs: dict):
+
+def write_dev_file(output_file: str, matched_configs: dict):
+    """ For per device configs:
+        <device_name>,<old_val>,<new_val>"""
     with open(output_file, mode='w') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
