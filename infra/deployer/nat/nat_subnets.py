@@ -9,7 +9,7 @@ def perform_match(topo_name: str) -> dict:
     sim_subnets = fr.read_sim_subnets(topo_name)
 
     # this shouldn't really happen but check the return value anyway
-    if (not subnet_sanity_check(orig_subnets, sim_subnets)):
+    if (not subnet_sanity_checks(orig_subnets, sim_subnets)):
         exit(1)
 
     subnets = match_subnets(orig_subnets, sim_subnets)
@@ -53,7 +53,7 @@ def update_net_name(topo_name, orig_net_name: str) -> str:
 
 
 # @Tested
-def subnet_sanity_check(orig_subnets: dict, sim_subnets: dict) -> bool:
+def subnet_sanity_checks(orig_subnets: dict, sim_subnets: dict) -> bool:
     if (len(orig_subnets) != len(sim_subnets)):
         raise KeyError("Network number mismatch")
 

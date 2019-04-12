@@ -48,7 +48,7 @@ def test_matching_diff_lengths1():
             "net5": "10.0.5.0/24"
         }
 
-        nat_subnets.subnet_sanity_check(orig_subnets, sim_subnets)
+        nat_subnets.subnet_sanity_checks(orig_subnets, sim_subnets)
 
 
 def test_matching_diff_lengths2():
@@ -68,7 +68,7 @@ def test_matching_diff_lengths2():
             "net5": "10.0.5.0/24"
         }
 
-        nat_subnets.subnet_sanity_check(orig_subnets, sim_subnets)
+        nat_subnets.subnet_sanity_checks(orig_subnets, sim_subnets)
 
 
 def test_diff_subnets():
@@ -89,7 +89,7 @@ def test_diff_subnets():
             "net5": "10.0.5.0/24"
         }
 
-        nat_subnets.subnet_sanity_check(orig_subnets, sim_subnets)
+        nat_subnets.subnet_sanity_checks(orig_subnets, sim_subnets)
 
 
 def test_parse_subnets_success():

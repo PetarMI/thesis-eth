@@ -7,9 +7,7 @@ def perform_match(topo_name: str, matched_subnets: dict) -> Tuple[dict, dict]:
     orig_ifaces: dict = fr.read_orig_ifaces(topo_name)
     sim_ifaces: dict = fr.read_sim_ifaces(topo_name)
 
-    # this shouldn't really happen but check the return value anyway
-    if (not make_sanity_checks(orig_ifaces, sim_ifaces)):
-        exit(1)
+    validate_input(orig_ifaces, sim_ifaces)
 
     matched_ifaces, matched_ips = match(orig_ifaces, sim_ifaces, matched_subnets)
 
@@ -46,10 +44,37 @@ def find_sim_subnet(o_ip: str, matched_subnets: dict) -> str:
 
 
 def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
+    """ Find the simulated IP and iface of a device
+
+    :param sim_subnet: simulated subnet we care about
+    :param sim_config: all simulated pairs of IPs and iface for that device
+    :return: simulated IP and iface for that subnet
+    """
     for sim_iface, sim_ip in sim_config.items():
         if (ipaddress.IPv4Network(sim_subnet) == ipaddress.IPv4Interface(sim_ip).network):
             return sim_iface, sim_ip
 
 
-def make_sanity_checks(o_ifaces: dict, s_ifaces: dict) -> bool:
+def validate_input(o_ifaces: dict, s_ifaces: dict):
+    # validate IPs
+    if not check_same_devices(o_ifaces, s_ifaces):
+        raise KeyError("Different devices")
+
+    if not check_same_length(o_ifaces, s_ifaces):
+        raise KeyError("Different interfaces")
+
+
+# @Tested
+def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
+    return set(o_ifaces.keys()) == set(s_ifaces.keys())
+
+
+def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
+    for dev, o_configs in o_ifaces.items():
+        num_o_ifaces = len(o_configs)
+        num_s_ifaces = len(s_ifaces[dev])
+
+        if num_o_ifaces != num_s_ifaces:
+            return False
+
     return True
