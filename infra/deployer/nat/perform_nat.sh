@@ -69,6 +69,7 @@ function signal_fail {
 # TODO: may need to do some processing on the filenames
 function copy_config_files {
     cp -R ${CONFIG_DIR} ${DEPLOY_DIR}
+    signal_fail $? "Copying config files"
 }
 
 config_files=()
@@ -93,6 +94,8 @@ function read_iface_log_files {
 function validate_files {
     if [ "${#config_files[@]}" -ne "${#iface_files[@]}" ]; then
         signal_fail 1 "Simulated interface files not same number as original config files"
+    else
+        printf "${GREEN}Validated same number of config files and simulated logs${NC}\n"
     fi
 }
 
@@ -116,7 +119,7 @@ function parse_device_configs {
         signal_fail $? "Processing ${f}"
     done
 
-    printf "${GREEN}Parsed original device configurations to csv${NC}\n"
+    printf "${GREEN}Parsed original device configurations to a csv file${NC}\n"
 }
 
 #######################################
@@ -135,7 +138,7 @@ function parse_iface_logs {
         signal_fail $? "Processing ${f}"
     done
 
-    printf "${GREEN}Parsed simulated device configurations to csv${NC}\n"
+    printf "${GREEN}Parsed simulated device configurations to a csv file${NC}\n"
 }
 
 ##############################################################################
@@ -204,7 +207,6 @@ copy_config_files
 read_config_files
 read_iface_log_files
 validate_files
-printf "${GREEN}Success${NC}\n"
 
 echo "#### Parsing logs ####"
 mkdir -p ${DPL_NAT_DIR}
