@@ -46,6 +46,8 @@ readonly IFACES_ORIG_FILE="${DPL_NAT_DIR}/orig_ifaces.csv"
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly L_GREEN='\033[1;32m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 
@@ -62,8 +64,9 @@ function signal_fail {
 }
 
 ##############################################################################
-######################## PARSING DATA SECTION ################################
+######################## READING FILES SECTION ###############################
 ##############################################################################
+# TODO: may need to do some processing on the filenames
 function copy_config_files {
     cp -R ${CONFIG_DIR} ${DEPLOY_DIR}
 }
@@ -85,6 +88,19 @@ function read_iface_log_files {
 }
 
 #######################################
+# Ensure same number of original and simulated config files
+#######################################
+function validate_files {
+    if [ "${#config_files[@]}" -ne "${#iface_files[@]}" ]; then
+        signal_fail 1 "Simulated interface files not same number as original config files"
+    fi
+}
+
+##############################################################################
+######################## PARSING DATA SECTION ################################
+##############################################################################
+
+#######################################
 # Parse original interfaces taken from the device configs
 #######################################
 function parse_device_configs {
@@ -92,7 +108,6 @@ function parse_device_configs {
 
     for f in "${config_files[@]}"
     do
-        # get just the filename
         local filename=$(echo ${f##*/})
         filename=$(echo ${filename%.*})
 
@@ -100,6 +115,8 @@ function parse_device_configs {
         | awk '{print $2 $5}' | sed -e "s/^/$filename,/" >> ${IFACES_ORIG_FILE}
         signal_fail $? "Processing ${f}"
     done
+
+    printf "${GREEN}Parsed original device configurations to csv${NC}\n"
 }
 
 #######################################
@@ -110,7 +127,6 @@ function parse_iface_logs {
 
     for f in "${iface_files[@]}"
     do
-        # get just the filename
         local filename=$(echo ${f##*_})
         filename=$(echo ${filename%.*})
         # pair every two lines
@@ -118,6 +134,8 @@ function parse_iface_logs {
         | sed -e "s/^/${filename},/" >> ${IFACES_SIM_FILE}
         signal_fail $? "Processing ${f}"
     done
+
+    printf "${GREEN}Parsed simulated device configurations to csv${NC}\n"
 }
 
 ##############################################################################
@@ -180,16 +198,20 @@ function sed_ips {
 ##############################################################################
 ######################### ACTUAL SCRIPT LOGIC ################################
 ##############################################################################
-echo "###### Updating device configurations ######"
-echo "#### Pre-processing logs ####"
+printf "${L_GREEN}###### Performing NAT ######${NC}\n"
+echo "#### Reading files ####"
 copy_config_files
 read_config_files
 read_iface_log_files
-mkdir -p ${DPL_NAT_DIR}
-parse_iface_logs
-parse_device_configs
+validate_files
+printf "${GREEN}Success${NC}\n"
 
-echo "#### Performing network matching ####"
+echo "#### Parsing logs ####"
+mkdir -p ${DPL_NAT_DIR}
+parse_device_configs
+parse_iface_logs
+
+echo "#### Performing network matching (python) ####"
 perform_matching
 
 echo "#### Performing NAT ####"
