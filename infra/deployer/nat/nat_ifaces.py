@@ -80,9 +80,9 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
 # #############################################################################
 # ########################## VALIDATION #######################################
 # #############################################################################
+# @Tested units
 def validate_input(o_ifaces: dict, s_ifaces: dict):
-    net_validator.validate_interfaces(o_ifaces)
-    net_validator.validate_interfaces(s_ifaces)
+    net_validator.validate_interfaces(o_ifaces, s_ifaces)
 
     check_same_devices(o_ifaces, s_ifaces)
     check_same_length(o_ifaces, s_ifaces)

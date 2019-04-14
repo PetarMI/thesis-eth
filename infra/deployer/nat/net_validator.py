@@ -23,10 +23,11 @@ def validate_subnet(subnet: str):
         raise
 
 
-def validate_interfaces(interfaces: dict):
-    for config in interfaces.values():
-        for ip in config.values():
-            validate_interface(ip)
+def validate_interfaces(*args):
+    for interfaces in args:
+        for config in interfaces.values():
+            for ip in config.values():
+                validate_interface(ip)
 
 
 def validate_interface(interface: str):
