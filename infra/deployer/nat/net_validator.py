@@ -2,9 +2,10 @@ import ipaddress
 
 
 # @Tested
-def validate_subnets(subnets: dict):
-    for subnet in subnets.values():
-        validate_subnet(subnet)
+def validate_subnets(*args):
+    for subnets in args:
+        for subnet in subnets.values():
+            validate_subnet(subnet)
 
 
 # @Tested above

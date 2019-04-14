@@ -1,6 +1,7 @@
 import ipaddress
 from typing import Tuple
 import file_reader as fr
+import net_validator
 
 
 def perform_match(topo_name: str, matched_subnets: dict) -> Tuple[dict, dict]:
@@ -80,7 +81,8 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
 # ########################## VALIDATION #######################################
 # #############################################################################
 def validate_input(o_ifaces: dict, s_ifaces: dict):
-    # TODO validate IPs
+    net_validator.validate_interfaces(o_ifaces)
+    net_validator.validate_interfaces(s_ifaces)
 
     check_same_devices(o_ifaces, s_ifaces)
     check_same_length(o_ifaces, s_ifaces)

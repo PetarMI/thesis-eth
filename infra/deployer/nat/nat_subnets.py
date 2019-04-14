@@ -1,4 +1,5 @@
 import file_reader as fr
+import net_validator
 
 
 def perform_match(topo_name: str) -> dict:
@@ -52,6 +53,8 @@ def update_net_name(topo_name, orig_net_name: str) -> str:
 
 # @Tested
 def validate_subnets(orig_subnets: dict, sim_subnets: dict):
+    net_validator.validate_subnets(orig_subnets, sim_subnets)
+
     # validate same number of networks
     if (len(orig_subnets) != len(sim_subnets)):
         raise KeyError("Network number mismatch")

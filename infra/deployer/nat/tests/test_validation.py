@@ -122,6 +122,68 @@ def test_valid_subnets_fail_mixed():
         net_validator.validate_subnets(subnets)
 
 
+def test_valid_subnets_multiple():
+    subnets1 = {
+        "net1": "10.0.1.0/24",
+        "net2": "10.0.2.0/24",
+        "net3": "10.0.3.0/24",
+        "net4": "10.0.4.0/24",
+        "net5": "10.0.5.0/24"
+    }
+
+    subnets2 = {
+        "net1": "10.1.1.0/24",
+        "net2": "10.1.2.0/24",
+        "net3": "10.1.3.0/24",
+        "net4": "10.1.4.0/24",
+        "net5": "10.1.5.0/24"
+    }
+
+    net_validator.validate_subnets(subnets1, subnets2)
+
+
+def test_valid_subnets_multiple_fail_first():
+    with pytest.raises(ValueError, match="10.0.3.3/24 has host bits set"):
+        subnets1 = {
+            "net1": "10.0.1.0/24",
+            "net2": "10.0.2.0/24",
+            "net3": "10.0.3.3/24",
+            "net4": "10.0.4.0/24",
+            "net5": "10.0.5.0"
+        }
+
+        subnets2 = {
+            "net1": "10.1.1.0/24",
+            "net2": "10.1.2.0/24",
+            "net3": "10.1.3.0/24",
+            "net4": "10.1.4.0/24",
+            "net5": "10.1.5.0/24"
+        }
+
+        net_validator.validate_subnets(subnets1, subnets2)
+
+
+def test_valid_subnets_multiple_fail_second():
+    with pytest.raises(ipaddress.NetmaskValueError, match="Invalid netmask: 10.0.3.0/"):
+        subnets1 = {
+            "net1": "10.0.1.0/24",
+            "net2": "10.0.2.0/24",
+            "net3": "10.0.3.0/24",
+            "net4": "10.0.4.0/24",
+            "net5": "10.0.5.0/24"
+        }
+
+        subnets2 = {
+            "net1": "10.0.1.0/24",
+            "net2": "10.0.2.0/24",
+            "net3": "10.0.3.0/",
+            "net4": "10.0.4.0/224",
+            "net5": "10.0.5.0"
+        }
+
+        net_validator.validate_subnets(subnets1, subnets2)
+
+
 # #############################################################################
 # ########################## INTERFACES #######################################
 # #############################################################################
