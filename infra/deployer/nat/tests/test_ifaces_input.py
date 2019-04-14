@@ -1,6 +1,7 @@
 import nat_ifaces
 import pytest
 
+
 # #############################################################################
 # ########################## check_same_devices ###############################
 # #############################################################################
@@ -41,9 +42,7 @@ def test_same_devices():
         }
     }
 
-    res = nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
-
-    assert res
+    nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
 
 
 def test_same_devices_no_order():
@@ -83,90 +82,86 @@ def test_same_devices_no_order():
         }
     }
 
-    res = nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
-
-    assert res
+    nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
 
 
-def test_same_devices_fail1():
-    o_ifaces = {
-        "topo-r01": {
-            "eth0": "90.4.1.3/24",
-            "eth1": "231.3.2.1/24",
-            "eth2": "192.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp0": "45.2.3.1/24",
-            "enp1": "85.14.4.4/24",
-            "enp2": "122.56.2.1/24",
-            "enp3": "92.14.45.8/24",
+def test_same_devices_diff():
+    with pytest.raises(KeyError, match="Different devices"):
+        o_ifaces = {
+            "topo-r01": {
+                "eth0": "90.4.1.3/24",
+                "eth1": "231.3.2.1/24",
+                "eth2": "192.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp0": "45.2.3.1/24",
+                "enp1": "85.14.4.4/24",
+                "enp2": "122.56.2.1/24",
+                "enp3": "92.14.45.8/24",
 
-        },
-        "topo-r03": {
-            "weth0": "115.45.3.55/24",
+            },
+            "topo-r03": {
+                "weth0": "115.45.3.55/24",
+            }
         }
-    }
 
-    s_ifaces = {
-        "topo-r01": {
-            "eth10": "10.4.1.3/24",
-            "eth12": "10.3.2.1/24",
-            "eth23": "10.168.90.4/24",
-        },
-        "topo-r04": {
-            "enp01": "10.2.3.1/24",
-            "enp13": "10.14.4.4/24",
-            "enp23": "10.56.2.1/24",
-            "enp32": "10.14.45.8/24",
+        s_ifaces = {
+            "topo-r01": {
+                "eth10": "10.4.1.3/24",
+                "eth12": "10.3.2.1/24",
+                "eth23": "10.168.90.4/24",
+            },
+            "topo-r04": {
+                "enp01": "10.2.3.1/24",
+                "enp13": "10.14.4.4/24",
+                "enp23": "10.56.2.1/24",
+                "enp32": "10.14.45.8/24",
 
-        },
-        "topo-r03": {
-            "weth10": "10.45.3.55/24",
+            },
+            "topo-r03": {
+                "weth10": "10.45.3.55/24",
+            }
         }
-    }
 
-    res = nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
-
-    assert not res
+        nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
 
 
-def test_same_devices_fail2():
-    o_ifaces = {
-        "topo-r01": {
-            "eth0": "90.4.1.3/24",
-            "eth1": "231.3.2.1/24",
-            "eth2": "192.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp0": "45.2.3.1/24",
-            "enp1": "85.14.4.4/24",
-            "enp2": "122.56.2.1/24",
-            "enp3": "92.14.45.8/24",
+def test_same_devices_missing():
+    with pytest.raises(KeyError, match="Different devices"):
+        o_ifaces = {
+            "topo-r01": {
+                "eth0": "90.4.1.3/24",
+                "eth1": "231.3.2.1/24",
+                "eth2": "192.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp0": "45.2.3.1/24",
+                "enp1": "85.14.4.4/24",
+                "enp2": "122.56.2.1/24",
+                "enp3": "92.14.45.8/24",
 
+            }
         }
-    }
 
-    s_ifaces = {
-        "topo-r01": {
-            "eth10": "10.4.1.3/24",
-            "eth12": "10.3.2.1/24",
-            "eth23": "10.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp01": "10.2.3.1/24",
-            "enp13": "10.14.4.4/24",
-            "enp23": "10.56.2.1/24",
-            "enp32": "10.14.45.8/24",
+        s_ifaces = {
+            "topo-r01": {
+                "eth10": "10.4.1.3/24",
+                "eth12": "10.3.2.1/24",
+                "eth23": "10.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp01": "10.2.3.1/24",
+                "enp13": "10.14.4.4/24",
+                "enp23": "10.56.2.1/24",
+                "enp32": "10.14.45.8/24",
 
-        },
-        "topo-r03": {
-            "weth10": "10.45.3.55/24",
+            },
+            "topo-r03": {
+                "weth10": "10.45.3.55/24",
+            }
         }
-    }
 
-    res = nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
-
-    assert not res
+        nat_ifaces.check_same_devices(o_ifaces, s_ifaces)
 
 
 def test_same_devices_fail_empty_orig():
@@ -258,93 +253,89 @@ def test_same_length():
         }
     }
 
-    res = nat_ifaces.check_same_length(o_ifaces, s_ifaces)
-
-    assert res
+    nat_ifaces.check_same_length(o_ifaces, s_ifaces)
 
 
-def test_same_length_fail1():
-    o_ifaces = {
-        "topo-r01": {
-            "eth0": "90.4.1.3/24",
-            "eth1": "231.3.2.1/24",
-            "eth2": "192.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp0": "45.2.3.1/24",
-            "enp1": "85.14.4.4/24",
-            "enp2": "122.56.2.1/24",
-            "enp3": "92.14.45.8/24",
-            "enp4": "10.0.8.8/24",
-        },
-        "topo-r03": {
-            "weth0": "115.45.3.55/24",
+def test_same_length_more():
+    with pytest.raises(KeyError, match="Different number of interfaces on device topo-r02"):
+        o_ifaces = {
+            "topo-r01": {
+                "eth0": "90.4.1.3/24",
+                "eth1": "231.3.2.1/24",
+                "eth2": "192.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp0": "45.2.3.1/24",
+                "enp1": "85.14.4.4/24",
+                "enp2": "122.56.2.1/24",
+                "enp3": "92.14.45.8/24",
+                "enp4": "10.0.8.8/24",
+            },
+            "topo-r03": {
+                "weth0": "115.45.3.55/24",
+            }
         }
-    }
 
-    s_ifaces = {
-        "topo-r01": {
-            "eth10": "10.4.1.3/24",
-            "eth12": "10.3.2.1/24",
-            "eth23": "10.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp01": "10.2.3.1/24",
-            "enp13": "10.14.4.4/24",
-            "enp23": "10.56.2.1/24",
-            "enp32": "10.14.45.8/24",
+        s_ifaces = {
+            "topo-r01": {
+                "eth10": "10.4.1.3/24",
+                "eth12": "10.3.2.1/24",
+                "eth23": "10.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp01": "10.2.3.1/24",
+                "enp13": "10.14.4.4/24",
+                "enp23": "10.56.2.1/24",
+                "enp32": "10.14.45.8/24",
 
-        },
-        "topo-r03": {
-            "weth10": "10.45.3.55/24",
+            },
+            "topo-r03": {
+                "weth10": "10.45.3.55/24",
+            }
         }
-    }
 
-    res = nat_ifaces.check_same_length(o_ifaces, s_ifaces)
-
-    assert not res
+        nat_ifaces.check_same_length(o_ifaces, s_ifaces)
 
 
-def test_same_length_fail2():
-    o_ifaces = {
-        "topo-r01": {
-            "eth0": "90.4.1.3/24",
-            "eth1": "231.3.2.1/24",
-            "eth2": "192.168.90.4/24",
-        },
-        "topo-r02": {
-            "enp0": "45.2.3.1/24",
-            "enp1": "85.14.4.4/24",
-            "enp2": "122.56.2.1/24",
-            "enp3": "92.14.45.8/24",
-        },
-        "topo-r03": {
-            "weth0": "115.45.3.55/24",
+def test_same_length_more2():
+    with pytest.raises(KeyError, match="Different number of interfaces on device topo-r01"):
+        o_ifaces = {
+            "topo-r01": {
+                "eth0": "90.4.1.3/24",
+                "eth1": "231.3.2.1/24",
+                "eth2": "192.168.90.4/24",
+            },
+            "topo-r02": {
+                "enp0": "45.2.3.1/24",
+                "enp1": "85.14.4.4/24",
+                "enp2": "122.56.2.1/24",
+                "enp3": "92.14.45.8/24",
+            },
+            "topo-r03": {
+                "weth0": "115.45.3.55/24",
+            }
         }
-    }
 
-    s_ifaces = {
-        "topo-r01": {
-            "eth10": "10.4.1.3/24",
-            "eth12": "10.3.2.1/24",
-            "eth23": "10.168.90.4/24",
-            "eth13": "100.18.90.5/24",
-        },
-        "topo-r02": {
-            "enp01": "10.2.3.1/24",
-            "enp13": "10.14.4.4/24",
-            "enp23": "10.56.2.1/24",
-            "enp32": "10.14.45.8/24",
+        s_ifaces = {
+            "topo-r01": {
+                "eth10": "10.4.1.3/24",
+                "eth12": "10.3.2.1/24",
+                "eth23": "10.168.90.4/24",
+                "eth13": "100.18.90.5/24",
+            },
+            "topo-r02": {
+                "enp01": "10.2.3.1/24",
+                "enp13": "10.14.4.4/24",
+                "enp23": "10.56.2.1/24",
+                "enp32": "10.14.45.8/24",
 
-        },
-        "topo-r03": {
-            "weth10": "10.45.3.55/24",
+            },
+            "topo-r03": {
+                "weth10": "10.45.3.55/24",
+            }
         }
-    }
 
-    res = nat_ifaces.check_same_length(o_ifaces, s_ifaces)
-
-    assert not res
+        nat_ifaces.check_same_length(o_ifaces, s_ifaces)
 
 
 def test_same_length_fail_empty1():
@@ -438,9 +429,7 @@ def test_repeated_subnets():
         }
     }
 
-    res = nat_ifaces.check_repeated_subnets(configs)
-
-    assert res
+    nat_ifaces.check_repeated_subnets(configs)
 
 
 def test_repeated_subnets_weird_ips():
@@ -461,9 +450,7 @@ def test_repeated_subnets_weird_ips():
         }
     }
 
-    res = nat_ifaces.check_repeated_subnets(configs)
-
-    assert res
+    nat_ifaces.check_repeated_subnets(configs)
 
 
 def test_repeated_subnets_fail():

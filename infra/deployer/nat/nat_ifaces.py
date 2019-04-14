@@ -82,18 +82,15 @@ def find_sim_config(sim_subnet: str, sim_config: dict) -> Tuple[str, str]:
 def validate_input(o_ifaces: dict, s_ifaces: dict):
     # TODO validate IPs
 
-    if not check_same_devices(o_ifaces, s_ifaces):
-        raise KeyError("Different devices")
-
-    if not check_same_length(o_ifaces, s_ifaces):
-        raise KeyError("Different interfaces")
+    check_same_devices(o_ifaces, s_ifaces)
+    check_same_length(o_ifaces, s_ifaces)
 
     check_repeated_subnets(o_ifaces)
     check_repeated_subnets(s_ifaces)
 
 
 # @Tested
-def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
+def check_same_devices(o_ifaces: dict, s_ifaces: dict):
     """ Ensure both config dicts are using the exact same set of devices """
     if len(o_ifaces.keys()) == 0:
         raise KeyError("No devices in orig file")
@@ -101,11 +98,12 @@ def check_same_devices(o_ifaces: dict, s_ifaces: dict) -> bool:
     if len(s_ifaces.keys()) == 0:
         raise KeyError("No devices in sim file")
 
-    return set(o_ifaces.keys()) == set(s_ifaces.keys())
+    if (set(o_ifaces.keys()) != set(s_ifaces.keys())):
+        raise KeyError("Different devices")
 
 
 # @Tested
-def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
+def check_same_length(o_ifaces: dict, s_ifaces: dict):
     """ Ensure each device has the same number of ifaces before and after simulation """
     for dev, o_configs in o_ifaces.items():
         num_o_ifaces = len(o_configs)
@@ -115,9 +113,7 @@ def check_same_length(o_ifaces: dict, s_ifaces: dict) -> bool:
             raise KeyError("No interfaces on device {}".format(dev))
 
         if num_o_ifaces != num_s_ifaces:
-            return False
-
-    return True
+            raise KeyError("Different number of interfaces on device {}".format(dev))
 
 
 # @Tested
@@ -131,5 +127,3 @@ def check_repeated_subnets(configs: dict):
                 raise ValueError("Repeated subnets in device {}".format(dev))
             else:
                 subnets.append(subnet)
-
-    return True

@@ -1,5 +1,4 @@
 import ipaddress
-import file_reader as fr
 
 
 # @Tested
@@ -39,7 +38,3 @@ def validate_interface(interface: str):
     except ipaddress.NetmaskValueError as err:
         err.args = ("Invalid netmask: {}".format(interface),)
         raise
-
-
-#ifaces = fr.read_orig_ifaces("toy")
-#validate_interfaces(ifaces)
