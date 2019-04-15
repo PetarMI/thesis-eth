@@ -91,6 +91,7 @@ def validate_input(o_ifaces: dict, s_ifaces: dict):
     check_repeated_subnets(s_ifaces)
 
 
+# TODO should this go in the validator?
 # @Tested
 def check_same_devices(o_ifaces: dict, s_ifaces: dict):
     """ Ensure both config dicts are using the exact same set of devices """
