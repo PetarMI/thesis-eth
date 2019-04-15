@@ -1,0 +1,2 @@
+pytest==4.4.0
+ipaddress==1.0.22
