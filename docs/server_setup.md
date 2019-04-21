@@ -1,3 +1,17 @@
+## Setup on the server
+
+* has 10 VMs
+    * named fuzzvm0 to fuzzvm9
+* all connected to `virbr0` so that server can ssh into then
+    * ip addresses of the type `192.168.x.y` assigned through DHCP
+    * if those change the `vm.conf` that specifies how to ssh into VM has to be updated
+* all connected to each other via an internal network `fuzznet`
+    * static IP addresses via `netplan`
+    * those are the addresses used by the swarm nodes
+* one VM is already assigned as a manager and the others as workers
+
+## Setting up the server
+
 ### VM creation
 1. Install a new vm
 
