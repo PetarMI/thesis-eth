@@ -1,0 +1,1 @@
+GEN_DIR="/home/pesho/D/thesis-repo/synth/gen"

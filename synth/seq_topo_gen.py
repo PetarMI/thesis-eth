@@ -1,0 +1,139 @@
+import json
+from argparse import ArgumentParser
+import os
+import constants_synth as const
+
+
+def gen_topo_file(num_routers: int):
+    topo_dict = {}
+
+    networks: list = gen_networks(num_routers)
+
+    meta_data: dict = gen_meta(num_routers)
+    network_data: dict = gen_topo_nets(networks)
+    container_data: dict = gen_topo_containers(num_routers, networks)
+
+    topo_dict.update(meta_data)
+    topo_dict.update(network_data)
+    topo_dict.update(container_data)
+
+    write_topo_file(topo_dict)
+
+
+def gen_meta(num_routers: int) -> dict:
+    meta_dict = {}
+
+    meta_dict.update({
+        "meta": {
+            "name": get_topo_name(num_routers),
+            "version": "not really needed"
+        }
+    })
+
+    return meta_dict
+
+
+def gen_topo_containers(num_routers: int, networks: list) -> dict:
+    containers = []
+    vms = gen_vms(num_routers)
+
+    for idx, vm in enumerate(vms):
+        container = {
+            "name": "r{}".format(idx+1),
+            "type": "frr",
+            "vm": vm,
+            "interfaces": get_cont_ifaces(idx, networks)
+        }
+
+        containers.append(container)
+
+    return {"containers": containers}
+
+
+def gen_topo_nets(networks: list) -> dict:
+    topo_nets = []
+
+    for net in networks:
+        topo_nets.append({
+            "name": net["name"],
+            "subnet": net["subnet"]
+        })
+
+    return {"networks": topo_nets}
+
+
+def gen_networks(num_routers: int) -> list:
+    num_nets = num_routers + 1
+    networks = []
+
+    for i in range(1, num_nets + 1):
+        net = {
+            "name": "wnet{}".format(i),
+            "subnet": "20.10.{}.0/24".format(i),
+            "ip1": "20.10.{}.1/24".format(i),
+            "ip2": "20.10.{}.2/24".format(i)
+        }
+
+        networks.append(net)
+
+    return networks
+
+
+def gen_vms(num_routers: int) -> list:
+    vms = []
+    total_vms = 10
+    leftover = num_routers % total_vms
+
+    for i in range(1, total_vms + 1):
+        current_vm = num_routers//total_vms
+        if leftover:
+            current_vm += 1
+            leftover -= 1
+
+        vms.extend(["vm{}".format(i)] * current_vm)
+
+    return vms
+
+
+def get_cont_ifaces(idx, networks) -> list:
+    ifaces = []
+
+    for i in range(0, 2):
+        ifaces.append({
+            "network": networks[idx + i]["subnet"],
+        })
+
+    return ifaces
+
+
+def write_topo_file(topo_dict: dict):
+    topo_name = topo_dict["meta"]["name"]
+    out_dir = "{}/{}".format(const.GEN_DIR, topo_name)
+    os.makedirs(out_dir, exist_ok=True)
+
+    topo_file = "{}/{}.topo".format(out_dir, topo_name)
+
+    with open(topo_file, "w") as out_file:
+        json.dump(topo_dict, out_file, indent=4)
+
+
+def get_topo_name(num_routers: int) -> str:
+    if num_routers < 20:
+        return "seq"
+    elif 20 < num_routers < 60:
+        return "seqm"
+    else:
+        return "seql"
+
+
+if __name__ == '__main__':
+    parser = ArgumentParser()
+    parser.add_argument("-n", "--routers", dest="routers",
+                        help="Number of routers to be part of the topology")
+    args = parser.parse_args()
+
+    num_devices = int(args.routers)
+    if num_devices < 10:
+        raise ValueError("At least 10 devices needed")
+
+    gen_topo_file(num_devices)
