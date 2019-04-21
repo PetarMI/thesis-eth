@@ -1,6 +1,7 @@
 import json
 from argparse import ArgumentParser
 import os
+import csv
 import constants_synth as const
 
 
@@ -17,7 +18,10 @@ def gen_topo_file(num_routers: int):
     topo_dict.update(network_data)
     topo_dict.update(container_data)
 
+    config_data: dict = parse_config_data(meta_data, container_data, networks)
+
     write_topo_file(topo_dict)
+    write_config_data(meta_data, config_data)
 
 
 def gen_meta(num_routers: int) -> dict:
@@ -106,15 +110,43 @@ def get_cont_ifaces(idx, networks) -> list:
     return ifaces
 
 
+def parse_config_data(meta, containers, networks) -> list:
+    topo_name = meta["meta"]["name"]
+    config_data = []
+
+    for idx, container in enumerate(containers["containers"]):
+        c_name = "{}-{}.conf".format(topo_name, container["name"])
+        config_data.append({
+            "name": c_name,
+            "subnet1": networks[idx]["subnet"],
+            "subnet2": networks[idx + 1]["subnet"],
+            "ip1": networks[idx]["ip2"],
+            "ip2": networks[idx + 1]["ip1"]
+        })
+
+    return config_data
+
+
 def write_topo_file(topo_dict: dict):
     topo_name = topo_dict["meta"]["name"]
     out_dir = "{}/{}".format(const.GEN_DIR, topo_name)
     os.makedirs(out_dir, exist_ok=True)
 
-    topo_file = "{}/{}.topo".format(out_dir, topo_name)
+    out_file = "{}/{}.topo".format(out_dir, topo_name)
 
-    with open(topo_file, "w") as out_file:
-        json.dump(topo_dict, out_file, indent=4)
+    with open(out_file, "w") as topo_file:
+        json.dump(topo_dict, topo_file, indent=4)
+
+
+def write_config_data(meta_data, configs: dict):
+    output_file = "{}/{}/configs.csv".format(const.GEN_DIR, meta_data["meta"]["name"])
+
+    with open(output_file, mode='w') as csv_file:
+        writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
+
+        for config in configs:
+            writer.writerow([config["name"], config["subnet1"], config["ip1"],
+                             config["subnet2"], config["ip2"]])
 
 
 def get_topo_name(num_routers: int) -> str:

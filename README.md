@@ -2,5 +2,6 @@
 
     ├── infra                   # Network Simulator implementation
     ├── fuzzer (TODO)           # TODO
+    ├── synth                   # scripts for synthesizing test networks
     ├── topologies              # Topology files
     └── README.md
