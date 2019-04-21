@@ -29,7 +29,8 @@ def gen_meta(num_routers: int) -> dict:
 
     meta_dict.update({
         "meta": {
-            "name": get_topo_name(num_routers),
+            "name": "seq",
+            "numRouters": num_routers,
             "version": "not really needed"
         }
     })
@@ -147,15 +148,6 @@ def write_config_data(meta_data, configs: dict):
         for config in configs:
             writer.writerow([config["name"], config["subnet1"], config["ip1"],
                              config["subnet2"], config["ip2"]])
-
-
-def get_topo_name(num_routers: int) -> str:
-    if num_routers < 20:
-        return "seq"
-    elif 20 < num_routers < 60:
-        return "seqm"
-    else:
-        return "seql"
 
 
 if __name__ == '__main__':
