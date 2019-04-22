@@ -7,7 +7,7 @@
     │   ├── nat_files           # Matched addresses and interfaces
     │   ├── net_logs            # Logs downloaded from containers and VMs needed for NAT
     ├── nat                     # Python script for translating subnets, interface names and IP addresses
-    └── /vm_comms               # dir containing bash scripts that interact with VMs
+    └── vm_comms               # dir containing bash scripts that interact with VMs
     
  ## Running
  
@@ -19,6 +19,6 @@
  1. Create a virtual environment inside a dir of choice
     * `virtualenv venv`
  2. Activate environment inside `/deployer` folder
-    * `<path_to_venv>/venv/bin/activate`
+    * `. <path_to_venv>/venv/bin/activate`
  3. Install required modules
     * `pip install -r requirements.txt`
