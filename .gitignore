@@ -128,3 +128,4 @@ dmypy.json
 .yaml
 .csv
 infra/deployer/deployment_files
+synth/gen
