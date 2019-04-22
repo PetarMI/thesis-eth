@@ -105,7 +105,7 @@ def get_cont_ifaces(idx, networks) -> list:
 
     for i in range(0, 2):
         ifaces.append({
-            "network": networks[idx + i]["subnet"],
+            "network": networks[idx + i]["name"],
         })
 
     return ifaces
@@ -116,9 +116,11 @@ def parse_config_data(meta, containers, networks) -> list:
     config_data = []
 
     for idx, container in enumerate(containers["containers"]):
-        c_name = "{}-{}.conf".format(topo_name, container["name"])
+        c_name = "{}-{}".format(topo_name, container["name"])
         config_data.append({
-            "name": c_name,
+            "filename": "{}.conf".format(c_name),
+            "hostname": c_name,
+            "routerid": get_router_id(idx + 1),
             "subnet1": networks[idx]["subnet"],
             "subnet2": networks[idx + 1]["subnet"],
             "ip1": networks[idx]["ip2"],
@@ -126,6 +128,10 @@ def parse_config_data(meta, containers, networks) -> list:
         })
 
     return config_data
+
+
+def get_router_id(idx: int):
+    return "{0}.{0}.{0}.{0}".format(idx)
 
 
 def write_topo_file(topo_dict: dict):
@@ -146,7 +152,8 @@ def write_config_data(meta_data, configs: dict):
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
         for config in configs:
-            writer.writerow([config["name"], config["subnet1"], config["ip1"],
+            writer.writerow([config["filename"], config["hostname"], config["routerid"],
+                             config["subnet1"], config["ip1"],
                              config["subnet2"], config["ip2"]])
 
 
