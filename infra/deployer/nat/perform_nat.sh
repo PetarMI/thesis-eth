@@ -29,7 +29,8 @@ fi
 #######################################
 # Declare static paths
 #######################################
-readonly WORK_DIR="/home/pesho/D/thesis-repo"
+readonly HOME_DIR="${HOME}"
+readonly WORK_DIR="${HOME_DIR}/thesis-eth"
 readonly CONFIG_DIR="${WORK_DIR}/topologies/${FLAG_topology}/device_configs"
 readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly DPL_CONFIG_DIR="${DEPLOY_DIR}/device_configs"
@@ -149,7 +150,7 @@ function parse_iface_logs {
 # Invoke python script to perform subnet matching and all
 # Output: /nat_files/matched-*.csv
 #######################################
-function perform_matching {
+function py_perform_matching {
     python NatController.py -t ${FLAG_topology}
 }
 
@@ -214,7 +215,7 @@ parse_device_configs
 parse_iface_logs
 
 echo "#### Performing network matching (python) ####"
-perform_matching
+py_perform_matching
 
 echo "#### Performing NAT ####"
 echo "## Updating subnets ##"

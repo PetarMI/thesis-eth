@@ -2,7 +2,7 @@ import os
 
 # top-level dirs
 HOME_LOC = os.environ['HOME']
-WORK_DIR = "{}/D/thesis-repo".format(HOME_LOC)
+WORK_DIR = "{}/thesis-eth".format(HOME_LOC)
 TOPO_DIR = "{}/topologies".format(WORK_DIR)
 DEPLOYER_DIR = "{}/infra/deployer".format(WORK_DIR)
 
