@@ -1,5 +1,8 @@
+import os
+
 # top-level dirs
-WORK_DIR = "/home/pesho/D/thesis-repo"
+HOME_LOC = os.environ['HOME']
+WORK_DIR = "{}/D/thesis-repo".format(HOME_LOC)
 TOPO_DIR = "{}/topologies".format(WORK_DIR)
 DEPLOYER_DIR = "{}/infra/deployer".format(WORK_DIR)
 
