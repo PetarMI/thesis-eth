@@ -37,9 +37,9 @@ fi
 #######################################
 # Define all paths
 #######################################
-readonly WORK_DIR="/home/osboxes"
-readonly COMPOSE_DIR="${WORK_DIR}/compose/"
-readonly CONFIG_DIR="${WORK_DIR}/device_configs"
+readonly HOME_DIR="${HOME}"
+readonly COMPOSE_DIR="${HOME_DIR}/compose/"
+readonly CONFIG_DIR="${HOME_DIR}/device_configs"
 readonly NET_FILE="topo_networks.csv"
 readonly CONTAINER_FILE="topo_containers.csv"
 readonly LINKS_FILE="topo_links.csv"

@@ -37,7 +37,8 @@ readonly VM_NET_STORAGE_DIR="/home/osboxes/logs/network"
 readonly PULL_SCRIPT="collect_data.sh"
 
 # Local paths
-readonly PM_WORK_DIR="/home/pesho/D/thesis-repo/infra/deployer"
+readonly PM_HOME_DIR="$HOME"
+readonly PM_WORK_DIR="${PM_HOME_DIR}/thesis-eth/infra/deployer"
 readonly PM_IP_DIR="${PM_WORK_DIR}/deployment_files/${FLAG_topology}/net_logs/"
 
 # VM connect info

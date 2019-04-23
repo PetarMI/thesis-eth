@@ -35,7 +35,8 @@ fi
 #######################################
 # Define all constants
 #######################################
-readonly VM_STORAGE_DIR="/home/osboxes/logs"
+readonly VM_HOME_DIR="${HOME}"
+readonly VM_STORAGE_DIR="${VM_HOME_DIR}/logs"
 readonly VM_NET_LOGS_DIR="${VM_STORAGE_DIR}/network"
 readonly FRR_IP_SCRIPT="/home/api/get_ips.sh"
 readonly NET_LOGS="networks.log"
