@@ -31,7 +31,7 @@ readonly SETUP_DEVICES="setup_layer3.sh"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
-readonly MACHINE="osboxes@localhost"
+readonly USER="osboxes"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -45,10 +45,10 @@ readonly NC='\033[0m' # No Color
 function exec_l3_command {
     local option=$1
 
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_id role
     do
         echo "#### Running inside VM ${idx} ####"
-ssh -T -p ${port} ${MACHINE} << EOF
+ssh -T "${USER}@${vm_id}" << EOF
     cd ${VM_SCRIPT_DIR}
     ./${SETUP_DEVICES} -${option}
 EOF

@@ -43,7 +43,7 @@ readonly PM_IP_DIR="${PM_WORK_DIR}/deployment_files/${FLAG_topology}/net_logs/"
 
 # VM connect info
 readonly CONF_FILE="local_vm.conf"
-readonly MACHINE="osboxes@localhost"
+readonly USER="osboxes"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -72,10 +72,10 @@ function check_success {
 # Pull the IP address info from all device containers snd copy it to VM
 #######################################
 function collect_network_data {
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_id role
     do
         echo "#### Collecting data on ${role} VM ${idx} ####"
-ssh -T -p ${port} ${MACHINE} << EOF
+ssh -T "${USER}@${vm_id}" << EOF
     cd ${VM_SCRIPT_DIR}
     ./${PULL_SCRIPT} --${role}
 EOF
@@ -88,10 +88,10 @@ EOF
 function download_network_data {
     mkdir -p ${PM_IP_DIR}
 
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_id role
     do
         echo "#### Downloading from VM ${idx} ####"
-        scp -P ${port} "${MACHINE}:${VM_NET_STORAGE_DIR}/*" ${PM_IP_DIR} 1>/dev/null
+        scp "${USER}@${vm_id}:${VM_NET_STORAGE_DIR}/*" ${PM_IP_DIR} 1>/dev/null
         check_success $? "Downloaded"
     done < ${CONF_FILE}
 }

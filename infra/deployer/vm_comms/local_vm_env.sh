@@ -46,7 +46,7 @@ readonly VM_CONFIG_DIR="device_configs"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
-readonly MACHINE="osboxes@localhost"
+readonly USER="osboxes"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -58,9 +58,9 @@ function check_installed {
 }
 
 function clean {
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_ip role
     do
-ssh -T -p ${port} ${MACHINE} << EOF
+ssh -T "${USER}@${vm_ip}" << EOF
     cd ${VM_WORK_DIR}
     rm -rf *
 EOF
@@ -68,9 +68,9 @@ EOF
 }
 
 function setup_dir_structure {
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_ip role
     do
-ssh -T -p ${port} ${MACHINE} << EOF
+ssh -T "${USER}@${vm_ip}" << EOF
     cd ${VM_WORK_DIR}
     mkdir -p ${VM_COMPOSE_DIR}
     mkdir -p ${VM_DOCKER_DIR}
@@ -89,12 +89,12 @@ EOF
 }
 
 function view {
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_ip role
     do
         if [[ ${role} == "manager" ]]
         then
-ssh -T -p ${port} ${MACHINE} << EOF
-    cd ${VM_WORK_DIR}/${VM_DOCKER_DIR}
+ssh -T "${USER}@${vm_ip}" << EOF
+    cd ${VM_DOCKER_DIR}
     ls
 EOF
             break
@@ -106,10 +106,10 @@ EOF
 # Rebuild the Layer 2 Docker image on every VM
 #######################################
 function rebuild_docker {
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_ip role
     do
         echo "## Rebuilding L2 image on VM ${idx} ##"
-ssh -T -p ${port} ${MACHINE} <<- 'EOF'
+ssh -T "${USER}@${vm_ip}" <<- 'EOF'
     docker images | grep phynet | awk '{print $3}' | xargs docker rmi
     cd phynet/
     docker build --rm -t phynet:latest .
