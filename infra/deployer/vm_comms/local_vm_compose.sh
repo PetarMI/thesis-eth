@@ -31,8 +31,7 @@ fi
 #######################################
 # Define paths and constants
 #######################################
-readonly MACHINE="osboxes@localhost"
-readonly VM_WORK_DIR="/home/osboxes"
+readonly USER="osboxes"
 readonly VM_SCRIPT_DIR="vm_scripts"
 
 readonly CONF_FILE="local_vm.conf"
@@ -54,11 +53,11 @@ function compose {
     local script=$1
     local only_role=$2
 
-    while IFS=, read -r idx port role
+    while IFS=, read -r idx vm_id role
     do
         if [[ ${only_role} == ${role} ]]
         then
-ssh -T -p ${port} ${MACHINE} << EOF
+ssh -T "${USER}@${vm_id}" << EOF
     cd ${VM_SCRIPT_DIR}
     ./${script} --${role} --"vm" ${idx}
 EOF
