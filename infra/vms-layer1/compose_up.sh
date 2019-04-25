@@ -45,6 +45,7 @@ readonly CONTAINER_FILE="topo_containers.csv"
 readonly LINKS_FILE="topo_links.csv"
 
 readonly NET_DRIVER="store/weaveworks/net-plugin:2.5.1"
+# readonly NET_DRIVER="weaveworks/net-plugin:latest_release"
 
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
