@@ -151,7 +151,6 @@ function parse_iface_logs {
 # Output: /nat_files/matched-*.csv
 #######################################
 function py_perform_matching {
-    python -V
     python NatController.py -t ${FLAG_topology}
 }
 

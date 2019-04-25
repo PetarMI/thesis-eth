@@ -61,7 +61,6 @@ function clean {
     while IFS=, read -r idx vm_ip role
     do
 ssh -T "${USER}@${vm_ip}" << EOF
-    pwd
     rm -rf *
 EOF
     done < ${CONF_FILE}
@@ -71,7 +70,6 @@ function setup_dir_structure {
     while IFS=, read -r idx vm_ip role
     do
 ssh -T "${USER}@${vm_ip}" << EOF
-    pwd
     mkdir -p ${VM_COMPOSE_DIR}
     mkdir -p ${VM_DOCKER_DIR}
     mkdir -p ${VM_SCRIPT_DIR}
