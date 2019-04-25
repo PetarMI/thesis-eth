@@ -33,7 +33,7 @@ fi
 #######################################
 # VM paths
 readonly VM_SCRIPT_DIR="vm_scripts"
-readonly VM_NET_STORAGE_DIR="/home/osboxes/logs/network"
+readonly VM_NET_STORAGE_DIR="/logs/network"
 readonly PULL_SCRIPT="collect_data.sh"
 
 # Local paths
@@ -43,7 +43,7 @@ readonly PM_IP_DIR="${PM_WORK_DIR}/deployment_files/${FLAG_topology}/net_logs/"
 
 # VM connect info
 readonly CONF_FILE="local_vm.conf"
-readonly USER="osboxes"
+readonly USER="fuzzvm"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -91,7 +91,7 @@ function download_network_data {
     while IFS=, read -r idx vm_id role
     do
         echo "#### Downloading from VM ${idx} ####"
-        scp "${USER}@${vm_id}:${VM_NET_STORAGE_DIR}/*" ${PM_IP_DIR} 1>/dev/null
+        scp "${USER}@${vm_id}:.${VM_NET_STORAGE_DIR}/*" ${PM_IP_DIR} 1>/dev/null
         check_success $? "Downloaded"
     done < ${CONF_FILE}
 }

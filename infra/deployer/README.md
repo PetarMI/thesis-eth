@@ -18,6 +18,7 @@
  ##### To create an environment:
  1. Create a virtual environment inside a dir of choice
     * `virtualenv venv`
+    * `python3 -m venv <venv-name>`
  2. Activate environment inside `/deployer` folder
     * `. <path_to_venv>/venv/bin/activate`
  3. Install required modules

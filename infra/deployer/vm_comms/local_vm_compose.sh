@@ -31,7 +31,7 @@ fi
 #######################################
 # Define paths and constants
 #######################################
-readonly USER="osboxes"
+readonly USER="fuzzvm"
 readonly VM_SCRIPT_DIR="vm_scripts"
 
 readonly CONF_FILE="local_vm.conf"

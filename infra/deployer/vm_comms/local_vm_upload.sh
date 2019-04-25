@@ -48,10 +48,10 @@ fi
 # Define all paths
 #######################################
 # VM paths
-readonly VM_WORK_DIR="/home/osboxes"
-readonly VM_COMPOSE_DIR="${VM_WORK_DIR}/compose"
-readonly VM_DOCKER_DIR="${VM_WORK_DIR}/phynet"
-readonly VM_SCRIPT_DIR="${VM_WORK_DIR}/vm_scripts"
+# readonly VM_WORK_DIR="/home/osboxes"
+readonly VM_COMPOSE_DIR="/compose"
+readonly VM_DOCKER_DIR="/phynet"
+readonly VM_SCRIPT_DIR="/vm_scripts"
 
 # compose files
 readonly VM_NET_FILE="${VM_COMPOSE_DIR}/topo_networks.csv"
@@ -68,7 +68,7 @@ readonly PM_COMPOSE_DIR="${PM_DEPLOY_DIR}/compose_files"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
-readonly USER="osboxes"
+readonly USER="fuzzvm"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -118,15 +118,15 @@ function upload_compose_files {
     while IFS=, read -r idx vm_ip role
     do
         local src_nets="${PM_COMPOSE_DIR}/net-compose.csv"
-        scp ${src_nets} "${USER}@${vm_ip}:${VM_NET_FILE}" 1>/dev/null
+        scp ${src_nets} "${USER}@${vm_ip}:.${VM_NET_FILE}" 1>/dev/null
         signal_fail $? "Copying networks file to VM ${idx}"
 
         local src_conts="${PM_COMPOSE_DIR}/netvm${idx}_containers.csv"
-        scp ${src_conts} "${USER}@${vm_ip}:${VM_CONTAINERS_FILE}" 1>/dev/null
+        scp ${src_conts} "${USER}@${vm_ip}:.${VM_CONTAINERS_FILE}" 1>/dev/null
         signal_fail $? "Copying containers file to VM ${idx}"
 
         local src_links="${PM_COMPOSE_DIR}/netvm${idx}_links.csv"
-        scp ${src_links} "${USER}@${vm_ip}:${VM_LINKS_FILE}" 1>/dev/null
+        scp ${src_links} "${USER}@${vm_ip}:.${VM_LINKS_FILE}" 1>/dev/null
         signal_fail $? "Copying links file to VM ${idx}"
 
         check_success 0 "Uploaded to VM ${idx} "
@@ -142,11 +142,11 @@ function upload_docker_files {
     while IFS=, read -r idx vm_ip role
     do
         local src_scripts="${PM_DOCKER_DIR}/api"
-        scp -r ${src_scripts} "${USER}@${vm_ip}:${VM_DOCKER_DIR}" 1>/dev/null
+        scp -r ${src_scripts} "${USER}@${vm_ip}:.${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Uploaded Phynet scripts to VM ${idx}"
 
         local src_docker="${PM_DOCKER_DIR}/Dockerfile"
-        scp ${src_docker} "${USER}@${vm_ip}:${VM_DOCKER_DIR}" 1>/dev/null
+        scp ${src_docker} "${USER}@${vm_ip}:.${VM_DOCKER_DIR}" 1>/dev/null
         check_success $? "Uploaded Phynet Dockerfile to VM ${idx}"
     done < ${CONF_FILE}
 }
@@ -159,7 +159,7 @@ function upload_vm_scripts {
     while IFS=, read -r idx vm_ip role
     do
         local src_scripts="${PM_SCRIPT_DIR}"
-        scp ${src_scripts}/* "${USER}@${vm_ip}:${VM_SCRIPT_DIR}/" 1>/dev/null
+        scp ${src_scripts}/* "${USER}@${vm_ip}:.${VM_SCRIPT_DIR}/" 1>/dev/null
         check_success $? "Uploaded to VM ${idx}"
     done < ${CONF_FILE}
 }
@@ -172,7 +172,7 @@ function upload_device_configs {
     while IFS=, read -r idx vm_ip role
     do
         local src_configs="${PM_DEPLOY_DIR}/device_configs"
-        scp -r ${src_configs} "${USER}@${vm_ip}:${VM_WORK_DIR}" 1>/dev/null
+        scp -r ${src_configs} "${USER}@${vm_ip}:./" 1>/dev/null
         check_success $? "Uploaded to VM ${idx}"
     done < ${CONF_FILE}
 }

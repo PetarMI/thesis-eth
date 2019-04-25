@@ -31,7 +31,7 @@ readonly SETUP_DEVICES="setup_layer3.sh"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
-readonly USER="osboxes"
+readonly USER="fuzzvm"
 
 # colors for output
 readonly GREEN='\033[0;32m'

@@ -38,7 +38,7 @@ done
 # Define all paths
 #######################################
 # VM paths
-readonly VM_WORK_DIR="/home/osboxes"
+# readonly VM_WORK_DIR="/home/osboxes"
 readonly VM_COMPOSE_DIR="compose"
 readonly VM_DOCKER_DIR="phynet"
 readonly VM_SCRIPT_DIR="vm_scripts"
@@ -46,7 +46,7 @@ readonly VM_CONFIG_DIR="device_configs"
 
 # VM info
 readonly CONF_FILE="local_vm.conf"
-readonly USER="osboxes"
+readonly USER="fuzzvm"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -61,7 +61,7 @@ function clean {
     while IFS=, read -r idx vm_ip role
     do
 ssh -T "${USER}@${vm_ip}" << EOF
-    cd ${VM_WORK_DIR}
+    pwd
     rm -rf *
 EOF
     done < ${CONF_FILE}
@@ -71,7 +71,7 @@ function setup_dir_structure {
     while IFS=, read -r idx vm_ip role
     do
 ssh -T "${USER}@${vm_ip}" << EOF
-    cd ${VM_WORK_DIR}
+    pwd
     mkdir -p ${VM_COMPOSE_DIR}
     mkdir -p ${VM_DOCKER_DIR}
     mkdir -p ${VM_SCRIPT_DIR}
