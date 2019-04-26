@@ -34,7 +34,7 @@ fi
 readonly USER="fuzzvm"
 readonly VM_SCRIPT_DIR="vm_scripts"
 
-readonly CONF_FILE="local_vm.conf"
+readonly CONF_FILE="running_vms.conf"
 readonly COMPOSE_UP="compose_up.sh"
 readonly COMPOSE_DOWN="compose_down.sh"
 

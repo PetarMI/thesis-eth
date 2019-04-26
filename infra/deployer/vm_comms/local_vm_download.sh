@@ -42,7 +42,7 @@ readonly PM_WORK_DIR="${PM_HOME_DIR}/thesis-eth/infra/deployer"
 readonly PM_IP_DIR="${PM_WORK_DIR}/deployment_files/${FLAG_topology}/net_logs/"
 
 # VM connect info
-readonly CONF_FILE="local_vm.conf"
+readonly CONF_FILE="running_vms.conf"
 readonly USER="fuzzvm"
 
 # colors for output

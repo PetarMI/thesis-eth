@@ -67,7 +67,7 @@ readonly PM_DEPLOY_DIR="${PM_WORK_DIR}/deployer/deployment_files/${FLAG_topology
 readonly PM_COMPOSE_DIR="${PM_DEPLOY_DIR}/compose_files"
 
 # VM info
-readonly CONF_FILE="local_vm.conf"
+readonly CONF_FILE="running_vms.conf"
 readonly USER="fuzzvm"
 
 # colors for output

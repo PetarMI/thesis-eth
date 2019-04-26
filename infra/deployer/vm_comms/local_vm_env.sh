@@ -45,7 +45,7 @@ readonly VM_SCRIPT_DIR="vm_scripts"
 readonly VM_CONFIG_DIR="device_configs"
 
 # VM info
-readonly CONF_FILE="local_vm.conf"
+readonly CONF_FILE="running_vms.conf"
 readonly USER="fuzzvm"
 
 # colors for output
