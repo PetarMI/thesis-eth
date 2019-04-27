@@ -18,7 +18,7 @@ do
 done
 
 readonly WORK_DIR="$HOME"
-readonly SEQ_DIR="${WORK_DIR}thesis-eth/synth/gen/seq"
+readonly SEQ_DIR="${WORK_DIR}/thesis-eth/synth/gen/seq"
 readonly CONFIG_DIR="${SEQ_DIR}/device_configs"
 readonly CONFIG_FILE="${SEQ_DIR}/configs.csv"
 readonly TEMPLATE_FILE="template.conf"
