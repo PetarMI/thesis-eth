@@ -1,0 +1,125 @@
+{
+    "meta": {
+        "name": "star",
+        "version": "3.7"
+    },
+    "containers": [
+        {
+            "name": "r01",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.2"
+                },
+                {
+                    "network": "wnet13",
+                    "ipaddr": "20.10.13.2"
+                },
+                {
+                    "network": "wnet14",
+                    "ipaddr": "20.10.14.2"
+                },
+                {
+                    "network": "wnet15",
+                    "ipaddr": "20.10.15.2"
+                }
+            ]
+        },
+        {
+            "name": "r02",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.3"
+                },
+                {
+                    "network": "wnet200",
+                    "ipaddr": "30.10.102.2"
+                }
+            ]
+        },
+        {
+            "name": "r03",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet13",
+                    "ipaddr": "20.10.13.3"
+                },
+                {
+                    "network": "wnet300",
+                    "ipaddr": "30.10.103.2"
+                }
+            ]
+        },
+        {
+            "name": "r04",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet14",
+                    "ipaddr": "20.10.14.3"
+                },
+                {
+                    "network": "wnet400",
+                    "ipaddr": "30.10.104.2"
+                }
+            ]
+        },
+        {
+            "name": "r05",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet15",
+                    "ipaddr": "20.10.15.3"
+                },
+                {
+                    "network": "wnet500",
+                    "ipaddr": "30.10.105.2"
+                }
+            ]
+        }
+    ],
+    "networks": [
+        {
+            "name": "wnet12",
+            "subnet": "20.10.12.0/24"
+        },
+        {
+            "name": "wnet13",
+            "subnet": "20.10.13.0/24"
+        },
+        {
+            "name": "wnet14",
+            "subnet": "20.10.14.0/24"
+        },
+        {
+            "name": "wnet15",
+            "subnet": "20.10.15.0/24"
+        },
+        {
+            "name": "wnet200",
+            "subnet": "30.10.102.0/24"
+        },
+        {
+            "name": "wnet300",
+            "subnet": "30.10.103.0/24"
+        },
+        {
+            "name": "wnet400",
+            "subnet": "30.10.104.0/24"
+        },
+                {
+            "name": "wnet500",
+            "subnet": "30.10.105.0/24"
+        }
+    ]
+}
