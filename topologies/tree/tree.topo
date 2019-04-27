@@ -1,0 +1,163 @@
+{
+    "meta": {
+        "name": "tree",
+        "version": "3.7"
+    },
+    "containers": [
+        {
+            "name": "r01",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet10",
+                    "ipaddr": "20.10.10.1"
+                },
+                {
+                    "network": "wnet20",
+                    "ipaddr": "20.10.20.1"
+                }
+            ]
+        },
+        {
+            "name": "r02",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet10",
+                    "ipaddr": "20.10.10.2"
+                },
+                {
+                    "network": "wnet11",
+                    "ipaddr": "20.10.11.1"
+                },
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.1"
+                }
+            ]
+        },
+        {
+            "name": "r03",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet20",
+                    "ipaddr": "20.10.20.2"
+                },
+                {
+                    "network": "wnet21",
+                    "ipaddr": "20.10.21.1"
+                },
+                {
+                    "network": "wnet22",
+                    "ipaddr": "20.10.22.1"
+                }
+            ]
+        },
+        {
+            "name": "r04",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet11",
+                    "ipaddr": "20.10.11.2"
+                },
+                {
+                    "network": "wnet104",
+                    "ipaddr": "30.10.104.1"
+                }
+            ]
+        },
+        {
+            "name": "r05",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.2"
+                },
+                {
+                    "network": "wnet105",
+                    "ipaddr": "30.10.105.1"
+                }
+            ]
+        },
+        {
+            "name": "r06",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet21",
+                    "ipaddr": "20.10.21.2"
+                },
+                {
+                    "network": "wnet106",
+                    "ipaddr": "30.10.106.1"
+                }
+            ]
+        },
+        {
+            "name": "r07",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet22",
+                    "ipaddr": "20.10.22.2"
+                },
+                {
+                    "network": "wnet107",
+                    "ipaddr": "30.10.107.1"
+                }
+            ]
+        }
+    ],
+    "networks": [
+        {
+            "name": "wnet10",
+            "subnet": "20.10.10.0/24"
+        },
+        {
+            "name": "wnet11",
+            "subnet": "20.10.11.0/24"
+        },
+        {
+            "name": "wnet12",
+            "subnet": "20.10.12.0/24"
+        },
+        {
+            "name": "wnet20",
+            "subnet": "20.10.20.0/24"
+        },
+        {
+            "name": "wnet21",
+            "subnet": "20.10.21.0/24"
+        },
+        {
+            "name": "wnet22",
+            "subnet": "20.10.22.0/24"
+        },
+        {
+            "name": "wnet104",
+            "subnet": "30.10.104.0/24"
+        },
+        {
+            "name": "wnet105",
+            "subnet": "30.10.105.0/24"
+        },
+        {
+            "name": "wnet106",
+            "subnet": "30.10.106.0/24"
+        },
+        {
+            "name": "wnet107",
+            "subnet": "30.10.107.0/24"
+        }
+    ]
+}
