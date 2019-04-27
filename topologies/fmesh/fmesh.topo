@@ -1,0 +1,142 @@
+{
+    "meta": {
+        "name": "fmesh",
+        "version": "3.7"
+    },
+    "containers": [
+        {
+            "name": "r01",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet101",
+                    "ipaddr": "30.10.101.1"
+                },
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.1"
+                },
+                {
+                    "network": "wnet13",
+                    "ipaddr": "20.10.13.1"
+                },
+                {
+                    "network": "wnet14",
+                    "ipaddr": "20.10.14.1"
+                }
+            ]
+        },
+        {
+            "name": "r02",
+            "type": "frr",
+            "vm": "vm1",
+            "interfaces": [
+                {
+                    "network": "wnet102",
+                    "ipaddr": "30.10.102.1"
+                },
+                {
+                    "network": "wnet12",
+                    "ipaddr": "20.10.12.2"
+                },
+                {
+                    "network": "wnet23",
+                    "ipaddr": "20.10.23.1"
+                },
+                {
+                    "network": "wnet24",
+                    "ipaddr": "20.10.24.1"
+                }
+            ]
+        },
+        {
+            "name": "r03",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet103",
+                    "ipaddr": "30.10.103.1"
+                },
+                {
+                    "network": "wnet13",
+                    "ipaddr": "20.10.13.2"
+                },
+                {
+                    "network": "wnet23",
+                    "ipaddr": "20.10.23.2"
+                },
+                {
+                    "network": "wnet34",
+                    "ipaddr": "20.10.34.1"
+                }
+            ]
+        },
+        {
+            "name": "r04",
+            "type": "frr",
+            "vm": "vm2",
+            "interfaces": [
+                {
+                    "network": "wnet104",
+                    "ipaddr": "30.10.104.1"
+                },
+                {
+                    "network": "wnet14",
+                    "ipaddr": "20.10.14.2"
+                },
+                {
+                    "network": "wnet24",
+                    "ipaddr": "20.10.24.2"
+                },
+                {
+                    "network": "wnet34",
+                    "ipaddr": "20.10.34.2"
+                }
+            ]
+        }
+    ],
+    "networks": [
+        {
+            "name": "wnet12",
+            "subnet": "20.10.12.0/24"
+        },
+        {
+            "name": "wnet13",
+            "subnet": "20.10.13.0/24"
+        },
+        {
+            "name": "wnet14",
+            "subnet": "20.10.14.0/24"
+        },
+        {
+            "name": "wnet23",
+            "subnet": "20.10.23.0/24"
+        },
+        {
+            "name": "wnet24",
+            "subnet": "20.10.24.0/24"
+        },
+        {
+            "name": "wnet34",
+            "subnet": "20.10.34.0/24"
+        },
+        {
+            "name": "wnet101",
+            "subnet": "30.10.101.0/24"
+        },
+        {
+            "name": "wnet102",
+            "subnet": "30.10.102.0/24"
+        },
+        {
+            "name": "wnet103",
+            "subnet": "30.10.103.0/24"
+        },
+        {
+            "name": "wnet104",
+            "subnet": "30.10.104.0/24"
+        }
+    ]
+}
