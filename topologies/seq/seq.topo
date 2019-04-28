@@ -54,7 +54,7 @@
         {
             "name": "r1",
             "type": "frr",
-            "vm": "vm1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "wnet1"
@@ -67,7 +67,7 @@
         {
             "name": "r2",
             "type": "frr",
-            "vm": "vm2",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "wnet2"
@@ -80,7 +80,7 @@
         {
             "name": "r3",
             "type": "frr",
-            "vm": "vm3",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "wnet3"
@@ -93,7 +93,7 @@
         {
             "name": "r4",
             "type": "frr",
-            "vm": "vm4",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "wnet4"
@@ -106,7 +106,7 @@
         {
             "name": "r5",
             "type": "frr",
-            "vm": "vm5",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "wnet5"
@@ -119,7 +119,7 @@
         {
             "name": "r6",
             "type": "frr",
-            "vm": "vm6",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "wnet6"
@@ -132,7 +132,7 @@
         {
             "name": "r7",
             "type": "frr",
-            "vm": "vm7",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "wnet7"
@@ -145,7 +145,7 @@
         {
             "name": "r8",
             "type": "frr",
-            "vm": "vm8",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "wnet8"
@@ -158,7 +158,7 @@
         {
             "name": "r9",
             "type": "frr",
-            "vm": "vm9",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "wnet9"
@@ -171,7 +171,7 @@
         {
             "name": "r10",
             "type": "frr",
-            "vm": "vm10",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "wnet10"

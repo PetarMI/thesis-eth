@@ -95,7 +95,7 @@ def gen_vms(num_routers: int) -> list:
             current_vm += 1
             leftover -= 1
 
-        vms.extend(["vm{}".format(i)] * current_vm)
+        vms.extend([str(i)] * current_vm)
 
     return vms
 

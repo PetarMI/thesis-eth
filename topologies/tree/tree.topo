@@ -7,7 +7,7 @@
         {
             "name": "r01",
             "type": "frr",
-            "vm": "vm1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "wnet10",
@@ -22,7 +22,7 @@
         {
             "name": "r02",
             "type": "frr",
-            "vm": "vm1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "wnet10",
@@ -41,7 +41,7 @@
         {
             "name": "r03",
             "type": "frr",
-            "vm": "vm2",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "wnet20",
@@ -60,7 +60,7 @@
         {
             "name": "r04",
             "type": "frr",
-            "vm": "vm1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "wnet11",
@@ -75,7 +75,7 @@
         {
             "name": "r05",
             "type": "frr",
-            "vm": "vm1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "wnet12",
@@ -90,7 +90,7 @@
         {
             "name": "r06",
             "type": "frr",
-            "vm": "vm2",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "wnet21",
@@ -105,7 +105,7 @@
         {
             "name": "r07",
             "type": "frr",
-            "vm": "vm2",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "wnet22",

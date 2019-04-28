@@ -102,8 +102,8 @@ def write_containers(vms: dict, output_dir):
     :return:
     """
     # iterate over each VM
-    for idx, containers in enumerate(vms.values()):
-        print("Writing compose files for VM {}".format(idx))
+    for vm, containers in vms.items():
+        print("Writing compose files for VM {}".format(vm))
         create_commands = []
         connect_commands = []
 
@@ -118,9 +118,9 @@ def write_containers(vms: dict, output_dir):
                 connect_commands.append(connect)
 
         create_file = "{}/{}{}_{}". \
-            format(output_dir, const.VM_NAME, idx, const.CONTAINER_COMPOSE_FILE)
+            format(output_dir, const.VM_NAME, vm, const.CONTAINER_COMPOSE_FILE)
         connect_file = "{}/{}{}_{}". \
-            format(output_dir, const.VM_NAME, idx, const.LINKS_COMPOSE_FILE)
+            format(output_dir, const.VM_NAME, vm, const.LINKS_COMPOSE_FILE)
 
         write_file(create_file, create_commands)
         write_file(connect_file, connect_commands)
