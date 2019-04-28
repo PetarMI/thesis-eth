@@ -129,3 +129,4 @@ dmypy.json
 .csv
 infra/deployer/deployment_files
 synth/gen
+fuzzer/run_data
