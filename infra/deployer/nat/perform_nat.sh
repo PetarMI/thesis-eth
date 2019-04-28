@@ -202,22 +202,22 @@ function sed_ips {
 ##############################################################################
 ######################### ACTUAL SCRIPT LOGIC ################################
 ##############################################################################
-printf "${L_GREEN}###### Performing NAT ######${NC}\n"
-echo "#### Reading files ####"
+###### Performing NAT ######${NC}\n"
+printf "${CYAN}#### Reading files ####${NC}\n"
 copy_config_files
 read_config_files
 read_iface_log_files
 validate_files
 
-echo "#### Parsing logs ####"
+printf "${CYAN}#### Parsing logs ####${NC}\n"
 mkdir -p ${DPL_NAT_DIR}
 parse_device_configs
 parse_iface_logs
 
-echo "#### Performing network matching (python) ####"
+printf "${CYAN}#### Performing network matching (python) ####${NC}\n"
 py_perform_matching
 
-echo "#### Performing NAT ####"
+printf "${CYAN}#### Performing NAT ####"
 echo "## Updating subnets ##"
 sed_subnets
 echo "## Updating interfaces ##"

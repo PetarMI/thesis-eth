@@ -51,6 +51,7 @@ readonly USER="fuzzvm"
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 function check_installed {
@@ -119,27 +120,27 @@ EOF
 # Actual script logic
 #######################################
 if [[ ${FLAG_installed} == 1 ]]; then
-    echo "##### Verifying installation prerequisites #####"
+    printf "${CYAN}#### Verifying installation prerequisites ####${NC}\n"
     check_installed
 fi
 
 if [[ ${FLAG_clean} == 1 ]]; then
-    echo "##### Cleaning VM directories #####"
+    printf "${CYAN}#### Cleaning VM directories ####${NC}\n"
     clean
 fi
 
 if [[ ${FLAG_dirs} == 1 ]]; then
-    echo "##### Building VM dir structure #####"
+    printf "${CYAN}#### Building VM dir structure ####${NC}\n"
     setup_dir_structure
     check_installed
 fi
 
 if [[ ${FLAG_view} == 1 ]]; then
-    echo "##### View VM dir structure #####"
+    printf "${CYAN}#### View VM dir structure ####${NC}\n"
     view
 fi
 
 if [[ ${FLAG_build_phynet} == 1 ]]; then
-    echo "##### Rebuilding Layer 2 Docker images #####"
+    printf "${CYAN}#### Rebuilding Layer 2 Docker images ####${NC}\n"
     rebuild_docker
 fi

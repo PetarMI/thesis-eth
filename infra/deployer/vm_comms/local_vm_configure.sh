@@ -36,6 +36,7 @@ readonly USER="fuzzvm"
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 #######################################
@@ -47,7 +48,7 @@ function exec_l3_command {
 
     while IFS=, read -r idx vm_id role
     do
-        echo "#### Running inside VM ${idx} ####"
+        printf "${CYAN}#### Running inside VM ${idx} ####${NC}\n"
 ssh -T "${USER}@${vm_id}" << EOF
     cd ${VM_SCRIPT_DIR}
     ./${SETUP_DEVICES} -${option}
@@ -74,11 +75,9 @@ function configure_devices {
 #######################################
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
-    echo "###### Setting up Layer 3 containers ######"
     setup_containers
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then
-    echo "##### Configuring Layer 3 network devices #####"
     configure_devices
 fi

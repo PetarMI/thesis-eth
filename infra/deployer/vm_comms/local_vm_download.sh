@@ -48,6 +48,7 @@ readonly USER="fuzzvm"
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 #######################################
@@ -99,8 +100,8 @@ function download_network_data {
 #######################################
 # Actual script logic
 #######################################
-echo "###### Collecting Network data on VMs ######"
+printf "${CYAN}###### Collecting Network data on VMs ######${NC}\n"
 collect_network_data
 
-echo "###### Downloading Network data ######"
+printf "${CYAN}###### Downloading Network data ######${NC}\n"
 download_network_data

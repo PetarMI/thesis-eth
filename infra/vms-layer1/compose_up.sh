@@ -49,6 +49,7 @@ readonly NET_DRIVER="store/weaveworks/net-plugin:2.5.1"
 
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 #######################################
@@ -127,9 +128,9 @@ function compose_up {
 # main()
 #######################################
 if [[ ${FLAG_manager} == 1 ]]; then
-        echo "#### Starting VM ${FLAG_vm} setup as MANAGER ####"
+        printf "${CYAN}#### Starting VM ${FLAG_vm} setup as MANAGER ####${NC}\n"
     else
-        echo "#### Starting VM ${FLAG_vm} setup as WORKER ####"
+        printf "${CYAN}#### Starting VM ${FLAG_vm} setup as WORKER ####${NC}\n"
 fi
 
 compose_up

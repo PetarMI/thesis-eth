@@ -88,10 +88,8 @@ function compose_down {
 #######################################
 if [[ ${FLAG_UP} == 1 ]]
 then
-    echo "###### Compose UP ######"
     compose_up
 elif [[ ${FLAG_UP} == 0 ]]
 then
-    echo "###### Compose DOWN ######"
     compose_down
 fi

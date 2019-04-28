@@ -73,6 +73,7 @@ readonly USER="fuzzvm"
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
+readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 #######################################
@@ -180,24 +181,22 @@ function upload_device_configs {
 #######################################
 # Actual script logic
 #######################################
-echo "##### Uploading files to VMs #####"
-
 if [[ ${FLAG_compose_files} == 1 ]]; then
-    echo "### Uploading compose files to VMs ###"
+    printf "${CYAN}#### Uploading compose files to VMs ####${NC}\n"
     upload_compose_files
 fi
 
 if [[ ${FLAG_docker_files} == 1 ]]; then
-    echo "### Uploading Layer 2 Docker files to VMs ###"
+    printf "${CYAN}#### Uploading Layer 2 Docker files to VMs ####${NC}\n"
     upload_docker_files
 fi
 
 if [[ ${FLAG_vm_scripts} == 1 ]]; then
-    echo "### Uploading VM scripts to VMs ###"
+    printf "${CYAN}#### Uploading VM scripts to VMs ####${NC}\n"
     upload_vm_scripts
 fi
 
 if [[ ${FLAG_device_configs} == 1 ]]; then
-    echo "### Uploading device configs to VMs ###"
+    printf "${CYAN}#### Uploading device configs to VMs ####${NC}\n"
     upload_device_configs
 fi
