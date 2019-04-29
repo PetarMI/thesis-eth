@@ -31,7 +31,8 @@ fi
 #######################################
 readonly WORK_DIR="${HOME}/thesis-eth"
 readonly FUZZ_DIR="${WORK_DIR}/fuzzer"
-readonly DATA_DIR="${FUZZ_DIR}/run_data"
+readonly RUN_DATA_DIR="${FUZZ_DIR}/run_data"
+readonly FUZZ_DATA_DIR="${FUZZ_DIR}/fuzz_data"
 
 readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly TOPO_DIR="${WORK_DIR}/topologies/${FLAG_topology}"
@@ -60,13 +61,15 @@ function signal_fail {
 # Collect files related to the currently fuzzed topology
 #######################################
 function collect_running_data {
-    rm -rf "${DATA_DIR}"
-    mkdir "${DATA_DIR}"
+    rm -rf "${RUN_DATA_DIR}"
+    rm -rf "${FUZZ_DATA_DIR}"
+    mkdir "${RUN_DATA_DIR}"
+    mkdir "${FUZZ_DATA_DIR}"
 
-    cp "${TOPO_DIR}/${FLAG_topology}.topo" "${DATA_DIR}/topo.json"
-    cp "${TOPO_DIR}/properties.json" "${DATA_DIR}"
-    cp "${DEPLOY_DIR}/nat_files/matched-ips.csv" "${DATA_DIR}/nat_ips.csv"
-    cp "${WORK_DIR}/infra/deployer/vm_comms/running_vms.conf" "${DATA_DIR}"
+    cp "${TOPO_DIR}/${FLAG_topology}.topo" "${RUN_DATA_DIR}/topo.json"
+    cp "${TOPO_DIR}/properties.json" "${RUN_DATA_DIR}"
+    cp "${DEPLOY_DIR}/nat_files/matched-ips.csv" "${RUN_DATA_DIR}/nat_ips.csv"
+    cp "${WORK_DIR}/infra/deployer/vm_comms/running_vms.conf" "${RUN_DATA_DIR}"
 }
 
 collect_running_data

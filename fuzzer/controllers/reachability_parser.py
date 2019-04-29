@@ -1,5 +1,6 @@
 import ipaddress
 import file_reader as fr
+import file_writer as fw
 
 
 def main():
@@ -9,28 +10,28 @@ def main():
     nat_ips: dict = fr.read_nat_ips()
 
     properties: list = parse_properties(reach_properties, vms, topo, nat_ips)
+    fw.write_reach_file(properties)
 
 
 def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
     properties = []
 
     for raw_property in raw_properties:
-        property = {}
-        property["vm_ip"] = get_vm_ip(raw_property, topo["containers"], vms)
-        property["container_name"] = get_container_name(topo["meta"]["name"],
-                                                        raw_property["src"])
-        property["dest_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
+        prop = dict()
+        prop["vm_ip"] = get_vm_ip(raw_property, topo["containers"], vms)
+        prop["container_name"] = get_container_name(topo["meta"]["name"],
+                                                    raw_property["src"])
+        prop["dest_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
 
-        properties.append(property)
+        properties.append(prop)
 
-    print(properties)
     return properties
 
 
-def get_vm_ip(property: dict, topo_containers: dict, vms: dict) -> str:
+def get_vm_ip(prop: dict, topo_containers: dict, vms: dict) -> str:
     """ Find the VM IP on which the container is running """
 
-    src_name = property["src"]
+    src_name = prop["src"]
     vm_id = None
 
     for container in topo_containers:
