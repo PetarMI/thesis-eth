@@ -58,7 +58,8 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
         for orig_iface in cont_ips.keys():
             casted_orig_ip = orig_iface.ip
             if casted_dest_ip == casted_orig_ip:
-                return cont_ips[orig_iface]
+                sim_dest_ip = ipaddress.IPv4Interface(cont_ips[orig_iface])
+                return str(sim_dest_ip.ip)
 
     raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
 
