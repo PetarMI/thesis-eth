@@ -130,3 +130,4 @@ dmypy.json
 infra/deployer/deployment_files
 synth/gen
 fuzzer/run_data
+infra/deployer/vm_comms/running_vms.conf

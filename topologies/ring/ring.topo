@@ -11,7 +11,7 @@
             "interfaces": [
                 {
                     "network": "wnet100",
-                    "ipaddr": "20.10.100.2"
+                    "ipaddr": "20.10.100.1"
                 },
                 {
                     "network": "wnet12",
