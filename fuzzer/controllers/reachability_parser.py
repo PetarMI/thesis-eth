@@ -19,6 +19,7 @@ def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
     for raw_property in raw_properties:
         prop = dict()
         prop["vm_ip"] = get_vm_ip(raw_property, topo["containers"], vms)
+        # TODO again depends on generated topo file and container name
         prop["container_name"] = get_container_name(topo["meta"]["name"],
                                                     raw_property["src"])
         prop["dest_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
@@ -28,7 +29,7 @@ def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
     return properties
 
 
-def get_vm_ip(prop: dict, topo_containers: dict, vms: dict) -> str:
+def get_vm_ip(prop: dict, topo_containers: list, vms: dict) -> str:
     """ Find the VM IP on which the container is running """
 
     src_name = prop["src"]
@@ -39,7 +40,7 @@ def get_vm_ip(prop: dict, topo_containers: dict, vms: dict) -> str:
             vm_id = container["vm"]
 
     if vm_id is None:
-        raise ValueError("Property src container not in topo file {}".format(src_name))
+        raise ValueError("Property src container {} not in topo file".format(src_name))
 
     vm = vms.get(vm_id, None)
 
@@ -56,6 +57,7 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
     for container in nat_ips.values():
         for orig_iface in container.keys():
             casted_orig_ip = orig_iface.ip
+
             if casted_dest_ip == casted_orig_ip:
                 sim_dest_ip = container[orig_iface]
                 return str(sim_dest_ip.ip)
