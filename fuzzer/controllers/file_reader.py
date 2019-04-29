@@ -20,6 +20,7 @@ def read_properties(prop_type: str) -> dict:
 
 
 def read_nat_ips() -> dict:
+    """ Return a dict representation of the nat-ed IPs as ipaddress types """
     nat_ips_file = const.IP_NAT_FILE
 
     nat_ips = {}
@@ -29,8 +30,10 @@ def read_nat_ips() -> dict:
 
         for row in csv_reader:
             casted_orig_ip = ipaddress.IPv4Interface(row[1])
+            casted_sim_ip = ipaddress.IPv4Interface(row[2])
+
             nat_ips.setdefault(row[0], {}).update({
-                casted_orig_ip: row[2]
+                casted_orig_ip: casted_sim_ip
             })
 
     return nat_ips
@@ -50,19 +53,3 @@ def read_vm_info() -> dict:
             })
 
     return vm_dict
-
-
-def read_dev_csv(filepath: str) -> dict:
-    """ For per device configs:
-        <device_name>,<old_val>,<new_val>"""
-    iface_dict = {}
-
-    with open(filepath, 'r') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-
-        for row in csv_reader:
-            iface_dict.setdefault(row[0], {}).update({
-                row[1]: row[2]
-            })
-
-    return iface_dict

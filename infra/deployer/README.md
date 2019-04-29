@@ -23,3 +23,6 @@
     * `. <path_to_venv>/venv/bin/activate`
  3. Install required modules
     * `pip install -r requirements.txt`
+    
+##### To run tests
+    * `python -m pytest tests/ -v`

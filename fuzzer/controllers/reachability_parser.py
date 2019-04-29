@@ -50,15 +50,14 @@ def get_vm_ip(prop: dict, topo_containers: dict, vms: dict) -> str:
 
 
 # TODO this is dealing with reachability addresses specified without netmask
-# function wouldn't need to cast if the reachability address was given one
 def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
     casted_dest_ip = ipaddress.IPv4Address(dest_ip)
 
-    for cont_ips in nat_ips.values():
-        for orig_iface in cont_ips.keys():
+    for container in nat_ips.values():
+        for orig_iface in container.keys():
             casted_orig_ip = orig_iface.ip
             if casted_dest_ip == casted_orig_ip:
-                sim_dest_ip = ipaddress.IPv4Interface(cont_ips[orig_iface])
+                sim_dest_ip = container[orig_iface]
                 return str(sim_dest_ip.ip)
 
     raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
