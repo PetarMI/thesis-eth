@@ -4,9 +4,11 @@
 # Script constants
 #######################################
 readonly WORK_DIR="${HOME}/thesis-eth"
-readonly FUZZ_DIR="${WORK_DIR}/fuzzer"
-readonly FUZZ_DATA_DIR="${FUZZ_DIR}/fuzz_data"
-readonly REACH_FILE="${FUZZ_DATA_DIR}/reachability_props.csv"
+readonly FUZZ_DATA_DIR="${WORK_DIR}/fuzzer/fuzz_data"
+readonly INPUT_DATA_DIR="${FUZZ_DATA_DIR}/executor_data"
+readonly OUTPUT_DATA_DIR="${FUZZ_DATA_DIR}/verifier_data/ping_logs"
+
+readonly REACH_PROP_FILE="${INPUT_DATA_DIR}/reachability_props.csv"
 
 readonly PHY_SCRIPT_DIR="/home/api"
 readonly PING_SCRIPT="${PHY_SCRIPT_DIR}/reach_ping.sh"
@@ -20,14 +22,23 @@ readonly L_GREEN='\033[1;32m'
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
+function prepare_dir {
+    rm -rf ${OUTPUT_DATA_DIR}
+    mkdir "${OUTPUT_DATA_DIR}"
+}
+
 function exec_ping {
+    local i=1
+
     while IFS=, read -r vm_ip cont_name dest_ip
     do
         printf "${CYAN}#### Testing reachability from ${cont_name} to ${dest_ip} ####${NC}\n"
-ssh -T "${USER}@${vm_ip}" << EOF
+ssh -T "${USER}@${vm_ip}" &> "${OUTPUT_DATA_DIR}/ping_res_${i}.log" << EOF
     docker exec ${cont_name} ${PING_SCRIPT} ${dest_ip}
 EOF
-    done < ${REACH_FILE}
+        i=$(( $i + 1 ))
+    done < ${REACH_PROP_FILE}
 }
 
+prepare_dir
 exec_ping

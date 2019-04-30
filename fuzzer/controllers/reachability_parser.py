@@ -62,7 +62,9 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
                 sim_dest_ip = container[orig_iface]
                 return str(sim_dest_ip.ip)
 
-    raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
+    # raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
+    print("WARNING: Original IP {} not in NAT logs".format(dest_ip))
+    return dest_ip
 
 
 def get_container_name(topo_name: str, container: str) -> str:
