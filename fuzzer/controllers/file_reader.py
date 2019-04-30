@@ -1,7 +1,7 @@
 import csv
 import ipaddress
 import json
-import constants_controller as const
+from fuzzer.controllers import constants_controller as const
 
 
 def read_topo() -> dict:
