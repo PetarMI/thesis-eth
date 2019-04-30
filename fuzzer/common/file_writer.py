@@ -1,9 +1,9 @@
 import csv
-import constants_controller as const
+from fuzzer.common import constants_fuzzer as const
 
 
 def write_reach_file(properties: list):
-    output_file = const.REACH_FILE
+    output_file = const.REACH_PROPS_FILE
 
     with open(output_file, mode='w+') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')

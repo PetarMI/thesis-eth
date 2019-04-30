@@ -1,7 +1,7 @@
 import csv
 import ipaddress
 import json
-from fuzzer.controllers import constants_controller as const
+from fuzzer.common import constants_fuzzer as const
 
 
 def read_topo() -> dict:
@@ -12,7 +12,6 @@ def read_topo() -> dict:
 
 
 def read_properties(prop_type: str) -> dict:
-
     with open(const.PROPERTIES_FILE) as properties_file:
         properties = json.load(properties_file)
 

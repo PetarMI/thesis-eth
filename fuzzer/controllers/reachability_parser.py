@@ -1,6 +1,6 @@
 import ipaddress
-import file_reader as fr
-import file_writer as fw
+from fuzzer.common import file_reader as fr
+from fuzzer.common import file_writer as fw
 
 
 def main():

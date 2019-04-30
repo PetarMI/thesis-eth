@@ -1,9 +1,11 @@
 #import pingparsing
-from fuzzer.controllers import file_reader as fr
+from fuzzer.common import file_reader as fr
 
 
 def main():
-    print("Sirene")
+    properties = fr.read_properties("reachability")
+    print(properties)
+
 
 if __name__ == '__main__':
     main()
