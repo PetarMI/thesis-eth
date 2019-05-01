@@ -9,6 +9,8 @@ CONTROLLER_DATA_DIR = "{}/controller_data".format(FUZZ_DATA_DIR)
 EXECUTOR_DATA_DIR = "{}/executor_data".format(FUZZ_DATA_DIR)
 VERIFIER_DATA_DIR = "{}/verifier_data".format(FUZZ_DATA_DIR)
 
+PING_LOGS_DIR = "{}/ping_logs".format(VERIFIER_DATA_DIR)
+
 # running topology data files
 PROPERTIES_FILE = "{}/properties.json".format(CONTROLLER_DATA_DIR)
 TOPO_FILE = "{}/topo.json".format(CONTROLLER_DATA_DIR)
@@ -18,3 +20,5 @@ VM_FILE = "{}/running_vms.conf".format(CONTROLLER_DATA_DIR)
 # files used for fuzzing
 PARSED_PROPS_FILE = "{}/reachability_props.json".format(VERIFIER_DATA_DIR)
 REACH_PROPS_FILE = "{}/reachability_instr.csv".format(EXECUTOR_DATA_DIR)
+
+PING_FILE = "ping_res_{}.log"

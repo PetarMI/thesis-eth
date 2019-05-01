@@ -61,3 +61,13 @@ def read_reachability_properties() -> list:
         properties = json.load(json_file)
 
     return properties
+
+
+def read_ping_file(idx: int) -> str:
+    ping_file = const.PING_FILE.format(idx)
+    filepath = "{}/{}".format(const.PING_LOGS_DIR, ping_file)
+
+    with open(filepath, 'r') as txt_file:
+        ping_data = txt_file.read()
+
+    return ping_data

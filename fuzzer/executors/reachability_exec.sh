@@ -28,7 +28,7 @@ function prepare_dir {
 }
 
 function exec_ping {
-    local i=1
+    local i=0
 
     while IFS=, read -r vm_ip cont_name dest_ip
     do
