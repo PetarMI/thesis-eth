@@ -8,7 +8,7 @@ readonly FUZZ_DATA_DIR="${WORK_DIR}/fuzzer/fuzz_data"
 readonly INPUT_DATA_DIR="${FUZZ_DATA_DIR}/executor_data"
 readonly OUTPUT_DATA_DIR="${FUZZ_DATA_DIR}/verifier_data/ping_logs"
 
-readonly REACH_PROP_FILE="${INPUT_DATA_DIR}/reachability_props.csv"
+readonly REACH_PROP_FILE="${INPUT_DATA_DIR}/reachability_instr.csv"
 
 readonly PHY_SCRIPT_DIR="/home/api"
 readonly PING_SCRIPT="${PHY_SCRIPT_DIR}/reach_ping.sh"
