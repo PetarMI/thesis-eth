@@ -10,7 +10,8 @@ def main():
     nat_ips: dict = fr.read_nat_ips()
 
     properties: list = parse_properties(reach_properties, vms, topo, nat_ips)
-    fw.write_reach_file(properties)
+    fw.write_reach_instr(properties)
+    fw.write_parsed_properties(properties)
 
 
 def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
@@ -22,7 +23,8 @@ def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
         # TODO again depends on generated topo file and container name
         prop["container_name"] = get_container_name(topo["meta"]["name"],
                                                     raw_property["src"])
-        prop["dest_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
+        prop["dest_ip"] = raw_property["dest"]
+        prop["dest_sim_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
 
         properties.append(prop)
 

@@ -3,7 +3,7 @@ from fuzzer.common import file_reader as fr
 
 
 def main():
-    properties = fr.read_properties("reachability")
+    properties: list = fr.read_reachability_properties()
     print(properties)
 
 

@@ -52,3 +52,12 @@ def read_vm_info() -> dict:
             })
 
     return vm_dict
+
+
+def read_reachability_properties() -> list:
+    prop_file = const.PARSED_PROPS_FILE
+
+    with open(prop_file, 'r') as json_file:
+        properties = json.load(json_file)
+
+    return properties
