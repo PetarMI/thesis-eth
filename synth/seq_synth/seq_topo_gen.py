@@ -2,7 +2,7 @@ import json
 from argparse import ArgumentParser
 import os
 import csv
-import constants_synth as const
+from synth.common import constants_synth as const
 
 
 def gen_topo_file(num_routers: int):
