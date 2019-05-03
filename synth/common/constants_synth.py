@@ -1,4 +1,9 @@
 import os
 
 HOME_DIR = os.environ['HOME']
-GEN_DIR = "{}/thesis-eth/synth/gen".format(HOME_DIR)
+SYNTH_DIR = "{}/thesis-eth/synth".format(HOME_DIR)
+GEN_DIR = "{}/gen".format(SYNTH_DIR)
+CISCO_DIR = "{}/cisco/cisco_configs".format(SYNTH_DIR)
+
+CONFIGS_DIR = "{}/device_config"
+LINKS_FILE = "links.txt"
