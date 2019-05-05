@@ -14,7 +14,7 @@ def parse_configs(cisco_configs: dict) -> dict:
             print(parsed_configs)
         except Exception as exc:
             raise ValueError("Error in {} configs".format(hostname)) from exc
-        break
+
     return parsed_configs
 
 
@@ -29,6 +29,7 @@ def parse_host(host_cisco_config: str) -> dict:
     return parsed_configs
 
 
+# @Tested for success - fail cases covered by inner function tests
 def parse_interfaces(confparser) -> list:
     """ Main function for parsing interfaces """
     interfaces = []
@@ -57,6 +58,7 @@ def parse_router(confparser) -> dict:
     return router
 
 
+# @Tested
 def extract_ip_address(interface_cmd) -> str:
     IPv4_REGEX = r"ip\saddress\s(\S+\s+\S+)"
     ip_addr_instr = interface_cmd.re_search_children(IPv4_REGEX)
