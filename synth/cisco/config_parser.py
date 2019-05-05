@@ -30,7 +30,6 @@ def parse_host(host_cisco_config: str) -> dict:
 def parse_interfaces(confparser):
     interfaces = []
     interface_cmds = confparser.find_objects(r"^interface ")
-    validate_cisco_interfaces(interface_cmds)
 
     for interface_cmd in interface_cmds:
         interface = dict()
@@ -47,6 +46,9 @@ def parse_interfaces(confparser):
 
 def extract_ip_address(interface_cmd) -> str:
     IPv4_REGEX = r"ip\saddress\s(\S+\s+\S+)"
+    ip_addr_instr = interface_cmd.re_search_children(IPv4_REGEX)
+    validate_cisco_commands(ip_addr_instr, "ip address", strict=True)
+
     ipv4_addr_obj = interface_cmd.re_match_iter_typed(IPv4_REGEX, result_type=IPv4Obj)
     ip_iface = "{}/{}".format(ipv4_addr_obj.ip.exploded,
                               ipv4_addr_obj.netmask.exploded)
@@ -57,39 +59,57 @@ def extract_ip_address(interface_cmd) -> str:
 
 
 def extract_cost(interface_cmd):
+    cost_commands = interface_cmd.re_search_children(r"^ ip ospf cost ")
+    validate_cisco_commands(cost_commands, "ospf cost")
     cost = None
 
-    for cmd in interface_cmd.re_search_children(r"^ ip ospf cost "):
+    for cmd in cost_commands:
         cost = int(cmd.text.strip()[len("ip ospf cost "):])
 
     return str(cost)
 
 
 def extract_description(interface_cmd) -> str:
+    descr_commands = interface_cmd.re_search_children(r"^ description ")
+    validate_cisco_commands(descr_commands, "description")
     description = None
 
-    for cmd in interface_cmd.re_search_children(r"^ description "):
+    for cmd in descr_commands:
         description = cmd.text.strip()[len("description "):].strip('\"')
 
     return description
 
 
-def validate_cisco_interfaces(interface_cmds):
-    IPv4_REGEX = r"ip\saddress\s(\S+\s+\S+)"
+def validate_cisco_commands(interface_cmds, cmd_type: str, **kwargs):
+    strict = kwargs.get("strict", False)
 
-    for interface_cmd in interface_cmds:
-        description_cmds = interface_cmd.re_search_children(r"^ description ")
-        ip_addr_instr = interface_cmd.re_search_children(IPv4_REGEX)
-        cost_cmds = interface_cmd.re_search_children(r"^ ip ospf cost ")
+    if strict:
+        if len(interface_cmds) == 0:
+            raise ValueError("No {} command at interface".format(cmd_type))
 
-        if len(description_cmds) > 1:
-            raise ValueError("More than one description command found")
+        if len(interface_cmds) > 1:
+            raise ValueError("More than one {} command at interface".format(cmd_type))
+    else:
+        if len(interface_cmds) > 1:
+            raise ValueError("More than one {} command found".format(cmd_type))
 
-        if len(ip_addr_instr) == 0:
-            raise ValueError("No ip address command at interface")
 
-        if len(ip_addr_instr) > 1:
-            raise ValueError("More than one ip address command at interface")
-
-        if len(cost_cmds) > 1:
-            raise ValueError("More than one ospf cost command")
+# def validate_cisco_interfaces(interface_cmds):
+#     IPv4_REGEX = r"ip\saddress\s(\S+\s+\S+)"
+#
+#     for interface_cmd in interface_cmds:
+#         description_cmds = interface_cmd.re_search_children(r"^ description ")
+#         ip_addr_instr = interface_cmd.re_search_children(IPv4_REGEX)
+#         cost_cmds = interface_cmd.re_search_children(r"^ ip ospf cost ")
+#
+#         if len(description_cmds) > 1:
+#             raise ValueError("More than one description command found")
+#
+#         if len(ip_addr_instr) == 0:
+#             raise ValueError("No ip address command at interface")
+#
+#         if len(ip_addr_instr) > 1:
+#             raise ValueError("More than one ip address command at interface")
+#
+#         if len(cost_cmds) > 1:
+#             raise ValueError("More than one ospf cost command")
