@@ -19,7 +19,15 @@ def assign_sim_nets(raw_links) -> dict:
     return links
 
 
+# #Tested
 def get_sim_net(host: str, endpoint: str, links: dict) -> str:
+    """ Create a sim network unless one already exists for this duplex link
+
+    :param host: Starting point
+    :param endpoint: End host
+    :param links: Networks which are already created
+    :return:
+    """
     if links.get(endpoint, None):
         sim_net: str = links[endpoint][host]
     else:
@@ -32,6 +40,7 @@ def get_net_name(host: str, endpoint: str) -> str:
     return "net-{}-{}".format(host.lower(), endpoint.lower())
 
 
+# @Tested
 def validate_links(raw_links: dict):
     """ Ensure hosts have a duplex link in links file """
     for host, host_links in raw_links.items():

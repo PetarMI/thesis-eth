@@ -8,7 +8,7 @@ def read_raw_links(topo_name: str) -> dict:
     with open(links_file) as txt_file:
         for idx, link in enumerate(txt_file):
             endpoints = link.replace('\n', '').split("-")
-            validate_link_endpoints(endpoints)
+            validate_link_endpoints(endpoints, idx)
 
             links.setdefault(endpoints[0], []).append(endpoints[1])
 
@@ -35,6 +35,6 @@ def read_host_configs(topo_name: str, host: str) -> str:
     return configs
 
 
-def validate_link_endpoints(endpoints: list):
+def validate_link_endpoints(endpoints: list, idx: int):
     if len(endpoints) != 2:
-        raise ValueError("Malformed links file at line {}".format_map(idx + 1))
+        raise ValueError("Malformed links file at line {}".format(idx + 1))
