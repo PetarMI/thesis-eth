@@ -13,7 +13,6 @@ def parse_configs(cisco_configs: dict) -> dict:
             parsed_configs.update({hostname: parsed_config})
         except Exception as exc:
             raise ValueError("Error in {} configs".format(hostname)) from exc
-        break
 
     return parsed_configs
 
@@ -23,11 +22,14 @@ def parse_host(host_cisco_config: str) -> dict:
 
     parsed_configs = dict()
     parsed_configs["interfaces"] = parse_interfaces(confparser)
+    # TODO: this just checks whether a router ospf section is present
+    router: dict = parse_router(confparser)
 
     return parsed_configs
 
 
-def parse_interfaces(confparser):
+def parse_interfaces(confparser) -> list:
+    """ Main function for parsing interfaces """
     interfaces = []
     interface_cmds = confparser.find_objects(r"^interface ")
 
@@ -43,6 +45,15 @@ def parse_interfaces(confparser):
         interfaces.append(interface)
 
     return interfaces
+
+
+def parse_router(confparser) -> dict:
+    """ Main function for parsing the router section """
+    router = dict()
+    router_cmd = confparser.find_objects(r"^router ospf ")
+    validate_cisco_commands(router_cmd, "router", strict=True)
+
+    return router
 
 
 def extract_ip_address(interface_cmd) -> str:
@@ -92,17 +103,17 @@ def extract_description(interface_cmd) -> str:
     return description
 
 
-def validate_cisco_commands(interface_cmds, cmd_type: str, **kwargs):
+def validate_cisco_commands(commands, cmd_type: str, **kwargs):
     strict = kwargs.get("strict", False)
 
     if strict:
-        if len(interface_cmds) == 0:
+        if len(commands) == 0:
             raise ValueError("No {} command at interface".format(cmd_type))
 
-        if len(interface_cmds) > 1:
+        if len(commands) > 1:
             raise ValueError("More than one {} command at interface".format(cmd_type))
     else:
-        if len(interface_cmds) > 1:
+        if len(commands) > 1:
             raise ValueError("More than one {} command found".format(cmd_type))
 
 
