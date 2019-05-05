@@ -12,7 +12,7 @@ def test_interface_parsing_success():
     raw_configs = fr.read_host_configs("test_topo", "Costa_Rica")
     confparser = ciscoconfparse.CiscoConfParse(raw_configs.splitlines())
 
-    res_ifaces = cp.parse_interfaces(confparser)
+    res_ifaces = cp.parse_host_interfaces(confparser)
     expected_ifaces = [
         {
             "name": "Fa0/0",

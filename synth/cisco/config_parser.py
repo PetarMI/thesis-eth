@@ -11,7 +11,6 @@ def parse_configs(cisco_configs: dict) -> dict:
         try:
             parsed_config: dict = parse_host(cisco_config)
             parsed_configs.update({hostname: parsed_config})
-            print(parsed_configs)
         except Exception as exc:
             raise ValueError("Error in {} configs".format(hostname)) from exc
 
@@ -22,7 +21,7 @@ def parse_host(host_cisco_config: str) -> dict:
     confparser = ciscoconfparse.CiscoConfParse(host_cisco_config.splitlines())
 
     parsed_configs = dict()
-    parsed_configs["interfaces"] = parse_interfaces(confparser)
+    parsed_configs["interfaces"] = parse_host_interfaces(confparser)
     # TODO: this just checks whether a router ospf section is present
     router: dict = parse_router(confparser)
 
@@ -30,7 +29,7 @@ def parse_host(host_cisco_config: str) -> dict:
 
 
 # @Tested for success - fail cases covered by inner function tests
-def parse_interfaces(confparser) -> list:
+def parse_host_interfaces(confparser) -> list:
     """ Main function for parsing interfaces """
     interfaces = []
     interface_cmds = confparser.find_objects(r"^interface ")
