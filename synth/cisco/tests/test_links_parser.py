@@ -2,6 +2,61 @@ import pytest
 from synth.cisco import links_parser as lp
 
 
+def test_sim_net_assignment_success():
+    raw_links = {
+        "Zurich": [
+            "Madrid",
+            "Milan",
+            "Sofia",
+            "Vienna"
+        ],
+        "Milan": [
+            "Zurich",
+            "Madrid",
+            "Vienna"
+        ],
+        "Madrid": [
+            "Zurich",
+            "Milan"
+        ],
+        "Vienna": [
+            "Milan",
+            "Zurich"
+        ],
+        "Sofia": [
+            "Zurich"
+        ]
+    }
+
+    res_links = lp.parse_links(raw_links)
+    expected_links = {
+        "Zurich": {
+            "Madrid": "net-zurich-madrid",
+            "Milan": "net-zurich-milan",
+            "Sofia": "net-zurich-sofia",
+            "Vienna": "net-zurich-vienna"
+        },
+        "Milan": {
+            "Zurich": "net-zurich-milan",
+            "Madrid": "net-milan-madrid",
+            "Vienna": "net-milan-vienna"
+        },
+        "Vienna": {
+            "Zurich": "net-zurich-vienna",
+            "Milan": "net-milan-vienna"
+        },
+        "Madrid": {
+            "Milan": "net-milan-madrid",
+            "Zurich": "net-zurich-madrid"
+        },
+        "Sofia": {
+            "Zurich": "net-zurich-sofia"
+        }
+    }
+
+    assert(expected_links == res_links)
+
+
 def test_get_sim_net_empty_track():
     host = "London"
     endpoint = "Amsterdam"
@@ -131,6 +186,27 @@ def test_validate_links_fail_no_duplex2():
             "Paris": [
                 "Lyon",
                 "Kiev"
+            ]
+        }
+
+        lp.validate_links(raw_links)
+
+
+def test_validate_links_link2self():
+    with pytest.raises(ValueError, match="Host Paris has a link to itself"):
+        raw_links = {
+            "Lyon": [
+                "Paris",
+                "Kiev"
+            ],
+            "Kiev": [
+                "Lyon",
+                "Paris"
+            ],
+            "Paris": [
+                "Lyon",
+                "Kiev",
+                "Paris"
             ]
         }
 

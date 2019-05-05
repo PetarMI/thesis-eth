@@ -1,3 +1,4 @@
+# @Tested
 def parse_links(raw_links: dict) -> dict:
     """ Main function for parsing links between hosts """
     validate_links(raw_links)
@@ -5,7 +6,7 @@ def parse_links(raw_links: dict) -> dict:
 
     return links
 
-
+# @Tested composite function
 def assign_sim_nets(raw_links) -> dict:
     """ Create simulated networks and assign each link to one """
     links = dict()
@@ -44,6 +45,9 @@ def get_net_name(host: str, endpoint: str) -> str:
 def validate_links(raw_links: dict):
     """ Ensure hosts have a duplex link in links file """
     for host, host_links in raw_links.items():
+        if host in host_links:
+            raise ValueError("Host {} has a link to itself".format(host))
+
         for endpoint in host_links:
             if not raw_links.get(endpoint, None):
                 raise ValueError("Missing top-level entry for host {}".format(endpoint))
