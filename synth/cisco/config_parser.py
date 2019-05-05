@@ -37,6 +37,7 @@ def parse_interfaces(confparser):
         interface["name"] = interface_cmd.text[len("interface "):]
         interface["ip"] = extract_ip_address(interface_cmd)
         interface["cost"] = extract_cost(interface_cmd)
+        interface["area"] = extract_iface_area(interface_cmd)
         interface["description"] = extract_description(interface_cmd)
 
         interfaces.append(interface)
@@ -58,7 +59,7 @@ def extract_ip_address(interface_cmd) -> str:
     return str(ipv4_interface)
 
 
-def extract_cost(interface_cmd):
+def extract_cost(interface_cmd) -> str:
     cost_commands = interface_cmd.re_search_children(r"^ ip ospf cost ")
     validate_cisco_commands(cost_commands, "ospf cost")
     cost = None
@@ -67,6 +68,17 @@ def extract_cost(interface_cmd):
         cost = int(cmd.text.strip()[len("ip ospf cost "):])
 
     return str(cost)
+
+
+def extract_iface_area(interface_cmd) -> str:
+    area_commands = interface_cmd.re_search_children(r"^ ip ospf [0-9]* area")
+    validate_cisco_commands(area_commands, "area")
+    area = None
+
+    for cmd in area_commands:
+        area = int(cmd.text.split()[-1])
+
+    return str(area)
 
 
 def extract_description(interface_cmd) -> str:
