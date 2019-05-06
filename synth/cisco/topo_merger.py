@@ -35,16 +35,31 @@ def find_host_nets(host: str, host_ifaces: list, host_links: dict, host_neighbou
 
 
 def search_neighbours(host_network, neighbours: dict, host_links: dict) -> str:
+    """ Check what network a host's interface is connected to
+
+    :param host_network: The network we are trying to match
+    :param neighbours: All the neighbours we are searching through
+    :param host_links: The networks this host is connected to
+    :return: Name of the network this interface is connected to if it exists
+    """
     for neighbour, neighbour_ifaces in neighbours.items():
         match = search_neighbour_ifaces(host_network, neighbour_ifaces)
 
         if match:
+            sanity_check_link_exists(host_links.get(neighbour, None))
             return host_links[neighbour]
 
     return ""
 
 
+# @Tested
 def search_neighbour_ifaces(host_network, neighbour_ifaces: list) -> bool:
+    """ Check if the neighbour has an interface belonging to the same network
+
+    :param host_network: The host's iface we are matching belongs to this net
+    :param neighbour_ifaces: all interfaces of a single neighbour
+    :return: boolean indicating if the neghbour has an iface on the same net
+    """
     match = False
 
     for neighbour_iface in neighbour_ifaces:
@@ -60,7 +75,14 @@ def generate_simplex_net(host: str) -> str:
     return "net-{}".format(host.lower())
 
 
+# @Tested
 def get_neighbours_ifaces(host_neighbours, configs: dict) -> dict:
+    """ Get only the neighbouring configurations (just interfaces)
+
+    :param host_neighbours: list of neighbour names
+    :param configs: all loaded configs
+    :return: dictionary of neighbours and their interfaces
+    """
     neighbours = dict()
 
     for neighbour in host_neighbours:
@@ -68,3 +90,14 @@ def get_neighbours_ifaces(host_neighbours, configs: dict) -> dict:
         neighbours.update({neighbour: neighbour_interfaces})
 
     return neighbours
+
+
+def sanity_check_link_exists(net: str):
+    """ Just so I can sleep at night """
+    if net is None:
+        raise ValueError("Sanity check: Network match found in neighbours but "
+                         "host has no link to that neighbour")
+
+    if net == "":
+        raise ValueError("Sanity check: Network match found in neighbours but "
+                         "net name is empty")
