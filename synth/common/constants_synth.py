@@ -14,3 +14,8 @@ CMD_FRR_DEF = "frr defaults traditional"
 CMD_HOST = "hostname {}"
 CMD_INTEGRATED = "service integrated-vtysh-config"
 CMD_END_SEC = "!"
+
+CMD_IFACE = "interface {}"
+CMD_IP_ADDR = " ip address {}"
+CMD_AREA = " ip ospf area {}"
+CMD_COST = " ip ospf cost {}"

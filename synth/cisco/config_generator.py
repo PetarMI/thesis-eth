@@ -30,10 +30,27 @@ def generate_interfaces(host_interfaces: list) -> list:
 def generate_interface_instr(interface: dict) -> list:
     instr = []
 
-    instr.append("interface {}".format(interface["name"]))
+    instr.append(const.CMD_IFACE.format(interface["name"]))
+    instr.append(const.CMD_IP_ADDR.format(interface["ip"]))
+    instr.extend(parse_optional_instr(interface))
     instr.append(const.CMD_END_SEC)
 
     return instr
+
+
+# TODO: doesnt add description
+def parse_optional_instr(interface: dict) -> list:
+    opt_instr = []
+    area = interface["area"]
+    cost = interface["cost"]
+
+    if area is not None:
+        opt_instr.append(const.CMD_AREA.format(area))
+
+    if cost is not None:
+        opt_instr.append(const.CMD_COST.format(cost))
+
+    return opt_instr
 
 
 def generate_router_section() -> list:
