@@ -6,6 +6,7 @@ def parse_links(raw_links: dict) -> dict:
 
     return links
 
+
 # @Tested composite function
 def assign_sim_nets(raw_links) -> dict:
     """ Create simulated networks and assign each link to one """
