@@ -15,7 +15,16 @@ def merge_topo_data(links: dict, configs: dict) -> dict:
     return topo
 
 
+# @Tested
 def find_host_nets(host: str, host_ifaces: list, host_links: dict, host_neighbours: dict) -> list:
+    """ Assign a net to each of the host's interfaces
+
+    :param host: Hostname
+    :param host_ifaces: List of the host's interfaces (each is a dict)
+    :param host_links: The networks the host is connected to already
+    :param host_neighbours: All of the host's neighbours
+    :return: List of all the interfaces in dict format
+    """
     nets = []
 
     for host_iface in host_ifaces:
@@ -34,6 +43,7 @@ def find_host_nets(host: str, host_ifaces: list, host_links: dict, host_neighbou
     return nets
 
 
+# @Tested
 def search_neighbours(host_network, neighbours: dict, host_links: dict) -> str:
     """ Check what network a host's interface is connected to
 
