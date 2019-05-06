@@ -38,8 +38,8 @@ def generate_interface_instr(interface: dict) -> list:
     return instr
 
 
-# TODO: doesnt add description
 def parse_optional_instr(interface: dict) -> list:
+    # TODO: doesnt add description
     opt_instr = []
     area = interface["area"]
     cost = interface["cost"]
@@ -54,8 +54,10 @@ def parse_optional_instr(interface: dict) -> list:
 
 
 def generate_router_section() -> list:
-    # TODO
-    return []
+    # TODO: hardcoded as config_parser.py doesnt add any router info yet
+    # TODO: should we add a router-id anyway
+    router_instr = [const.CMD_ROUTER, const.CMD_REDISTR_CONN]
+    return router_instr
 
 
 def generate_meta(hostname) -> list:

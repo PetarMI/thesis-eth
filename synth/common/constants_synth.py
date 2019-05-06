@@ -19,3 +19,7 @@ CMD_IFACE = "interface {}"
 CMD_IP_ADDR = " ip address {}"
 CMD_AREA = " ip ospf area {}"
 CMD_COST = " ip ospf cost {}"
+
+CMD_ROUTER = "router ospf"
+CMD_ROUTER_ID = " ospf router-id {}"
+CMD_REDISTR_CONN = " redistribute connected"
