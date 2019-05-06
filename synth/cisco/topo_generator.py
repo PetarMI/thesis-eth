@@ -1,13 +1,11 @@
 import ipaddress
 from synth.common import file_writer as fw
-import json
 
 
 def generate_topo(topo_data: dict, topo_name: str) -> dict:
     networks: list = extract_networks(topo_data)
     containers: list = generate_containers(topo_data)
     meta: dict = generate_meta(topo_name)
-    # print(json.dumps(containers, indent=4))
 
     topo = dict()
     topo.update({"meta": meta})
