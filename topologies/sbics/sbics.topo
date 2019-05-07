@@ -1,0 +1,90 @@
+{
+    "meta": {
+        "name": "sbics"
+    },
+    "networks": [
+        {
+            "name": "net-lyon",
+            "subnet": "100.0.0.0/24"
+        },
+        {
+            "name": "net-lyon-milan",
+            "subnet": "10.1.0.0/31"
+        },
+        {
+            "name": "net-lyon-sofia",
+            "subnet": "10.1.0.2/31"
+        },
+        {
+            "name": "net-milan",
+            "subnet": "100.0.27.0/24"
+        },
+        {
+            "name": "net-milan-sofia",
+            "subnet": "10.1.0.76/31"
+        },
+        {
+            "name": "net-sofia",
+            "subnet": "100.0.26.0/24"
+        }
+    ],
+    "containers": [
+        {
+            "name": "lyon",
+            "type": "frr",
+            "vm": "0",
+            "interfaces": [
+                {
+                    "network": "net-lyon",
+                    "ipaddr": "100.0.0.1/24"
+                },
+                {
+                    "network": "net-lyon-milan",
+                    "ipaddr": "10.1.0.0/31"
+                },
+                {
+                    "network": "net-lyon-sofia",
+                    "ipaddr": "10.1.0.2/31"
+                }
+            ]
+        },
+        {
+            "name": "milan",
+            "type": "frr",
+            "vm": "1",
+            "interfaces": [
+                {
+                    "network": "net-milan",
+                    "ipaddr": "100.0.27.1/24"
+                },
+                {
+                    "network": "net-lyon-milan",
+                    "ipaddr": "10.1.0.1/31"
+                },
+                {
+                    "network": "net-milan-sofia",
+                    "ipaddr": "10.1.0.76/31"
+                }
+            ]
+        },
+        {
+            "name": "sofia",
+            "type": "frr",
+            "vm": "1",
+            "interfaces": [
+                {
+                    "network": "net-sofia",
+                    "ipaddr": "100.0.26.1/24"
+                },
+                {
+                    "network": "net-milan-sofia",
+                    "ipaddr": "10.1.0.77/31"
+                },
+                {
+                    "network": "net-lyon-sofia",
+                    "ipaddr": "10.1.0.3/31"
+                }
+            ]
+        }
+    ]
+}
