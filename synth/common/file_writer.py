@@ -19,7 +19,8 @@ def write_config_files(topo_name: str, frr_configs: dict):
     os.makedirs(config_dir, exist_ok=True)
 
     for hostname, host_configs in frr_configs.items():
-        config_file = "{}/{}.conf".format(config_dir, hostname)
+        filename = "{}-{}.conf".format(topo_name, hostname.lower())
+        config_file = "{}/{}".format(config_dir, filename)
 
         with open(config_file, 'w+') as conf_file:
             for instr in host_configs:
