@@ -31,6 +31,93 @@ def test_matching_success():
     assert(matched_subnets == expected_match)
 
 
+def test_matching_success_similar():
+    orig_subnets = {
+        "net1": "151.101.128.0/24",
+        "net2": "151.101.140.0/24",
+        "net3": "10.0.0.0/24",
+        "net4": "10.0.0.2/24",
+        "net5": "10.0.0.4/24"
+    }
+
+    sim_subnets = {
+        "net1": "10.0.1.0/24",
+        "net2": "10.0.2.0/24",
+        "net3": "10.0.3.0/24",
+        "net4": "10.0.4.0/24",
+        "net5": "10.0.5.0/24"
+    }
+
+    matched_subnets = nat_subnets.match_subnets(orig_subnets, sim_subnets)
+    expected_match = {
+        "151.101.128.0/24": "10.0.1.0/24",
+        "151.101.140.0/24": "10.0.2.0/24",
+        "10.0.0.0/24": "10.0.3.0/24",
+        "10.0.0.2/24": "10.0.4.0/24",
+        "10.0.0.4/24": "10.0.5.0/24"
+    }
+
+    assert(matched_subnets == expected_match)
+
+
+def test_matching_success_similar2():
+    orig_subnets = {
+        "net1": "151.101.128.0/24",
+        "net2": "151.101.140.0/24",
+        "net3": "10.0.0.0/24",
+        "net4": "10.0.0.2/24",
+        "net5": "10.0.0.4/24"
+    }
+
+    sim_subnets = {
+        "net1": "10.0.0.0/24",
+        "net2": "10.0.1.0/24",
+        "net3": "10.0.2.0/24",
+        "net4": "10.0.3.0/24",
+        "net5": "10.0.4.0/24"
+    }
+
+    matched_subnets = nat_subnets.match_subnets(orig_subnets, sim_subnets)
+    expected_match = {
+        "151.101.128.0/24": "10.0.0.0/24",
+        "151.101.140.0/24": "10.0.1.0/24",
+        "10.0.0.0/24": "10.0.2.0/24",
+        "10.0.0.2/24": "10.0.3.0/24",
+        "10.0.0.4/24": "10.0.4.0/24"
+    }
+
+    assert(matched_subnets == expected_match)
+
+
+def test_matching_success_similar3():
+    orig_subnets = {
+        "net1": "151.101.128.0/24",
+        "net2": "151.101.140.0/24",
+        "net3": "10.0.0.0/31",
+        "net4": "10.0.0.2/31",
+        "net5": "10.0.0.4/31"
+    }
+
+    sim_subnets = {
+        "net1": "10.0.0.0/24",
+        "net2": "10.0.1.0/24",
+        "net3": "10.0.2.0/24",
+        "net4": "10.0.3.0/24",
+        "net5": "10.0.4.0/24"
+    }
+
+    matched_subnets = nat_subnets.match_subnets(orig_subnets, sim_subnets)
+    expected_match = {
+        "151.101.128.0/24": "10.0.0.0/24",
+        "151.101.140.0/24": "10.0.1.0/24",
+        "10.0.0.0/31": "10.0.2.0/24",
+        "10.0.0.2/31": "10.0.3.0/24",
+        "10.0.0.4/31": "10.0.4.0/24"
+    }
+
+    assert(matched_subnets == expected_match)
+
+
 def test_matching_diff_lengths1():
     with pytest.raises(KeyError, match="Network number mismatch"):
         orig_subnets = {
@@ -116,7 +203,31 @@ def test_parse_subnets_success():
     assert(subnets == expected_subnets)
 
 
-def test_parse_subnets_duplicate():
+def test_parse_subnets_success_weirder():
+    nets = [
+        {"name": "wnet100", "subnet": "100.10.100.0/24"},
+        {"name": "wnet200", "subnet": "100.10.200.0/24"},
+        {"name": "wnet12",  "subnet": "10.0.0.0/31"},
+        {"name": "wnet13",  "subnet": "10.0.0.2/31"},
+        {"name": "wnet23",  "subnet": "10.0.0.4/31"}
+    ]
+
+    topo_name = "sirene"
+
+    subnets = nat_subnets.parse_orig_subnets(topo_name, nets)
+
+    expected_subnets = {
+        "sirene-wnet100": "100.10.100.0/24",
+        "sirene-wnet200": "100.10.200.0/24",
+        "sirene-wnet12": "10.0.0.0/31",
+        "sirene-wnet13": "10.0.0.2/31",
+        "sirene-wnet23": "10.0.0.4/31",
+    }
+
+    assert(subnets == expected_subnets)
+
+
+def test_parse_subnets_duplicate_name():
     with pytest.raises(KeyError, match="Duplicate subnet"):
         nets = [
             {"name": "wnet100", "subnet": "20.10.100.0/24"},
