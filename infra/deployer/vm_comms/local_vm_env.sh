@@ -62,7 +62,7 @@ function clean {
     while IFS=, read -r idx vm_ip role
     do
 ssh -T "${USER}@${vm_ip}" << EOF
-    rm -rf *
+    rm -rf */
 EOF
     done < ${CONF_FILE}
 }

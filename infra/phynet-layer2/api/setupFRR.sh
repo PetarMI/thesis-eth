@@ -1,7 +1,9 @@
 #!/bin/bash
 
-echo "1/2 Pulling FRR image"
-docker pull petarmi/frr:6.0.2
+readonly FRR_IMAGE="prefrr.tar"
+
+echo "1/2 Load FRR image"
+docker load -i ${FRR_IMAGE}
 
 echo "2/2 Setting up FRR container"
-docker run -itd --privileged --name frr --network host petarmi/frr:6.0.2
+docker run -itd --privileged --name frr --network host frr:6.0.2

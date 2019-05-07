@@ -66,7 +66,7 @@ cd "${COMPOSER_DIR}"
 python TopoComposer.py -t "${FLAG_topology}"
 signal_fail $?
 
-printf "${L_GREEN}######### 3/9 Uploading compose files to VMs #########${NC}\n"
+printf "${L_GREEN}######### 3/9 Uploading files to VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
 bash local_vm_upload.sh -t "${FLAG_topology}" -a
 signal_fail $?

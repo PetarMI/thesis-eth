@@ -29,6 +29,10 @@ done
 #######################################
 # Define all constants
 #######################################
+readonly HOME="$HOME"
+readonly FRR_IMAGE="prefrr.tar"
+
+# L2 constants
 readonly SCRIPT_DIR="/home/api"
 readonly FRR_SETUP_SCRIPT="${SCRIPT_DIR}/setupFRR.sh"
 readonly FRR_CONFIG_SCRIPT="${SCRIPT_DIR}/configFRR.sh"
@@ -50,11 +54,32 @@ function check_containers {
 }
 
 #######################################
+# Send FRR image to every L2 container
+#######################################
+function setup_frr_image {
+    check_containers
+
+    local containers=$(docker ps | grep phynet | awk '{print $NF}')
+    pids=()
+
+    echo "Copying FRR image file to containers..."
+    while read -r name
+    do
+        docker cp ${HOME}/${FRR_IMAGE} ${name}:/home/${FRR_IMAGE} &
+        pids+=($!)
+    done <<< ${containers}
+
+    for pid in ${pids[*]}; do
+        wait ${pid}
+    done
+
+    printf "${GREEN}Done!${NC}\n"
+}
+
+#######################################
 # Initiate the Layer3 setup script on all Layer2 containers in parallel
 #######################################
 function setup_containers {
-    check_containers
-
     local containers=$(docker ps | grep phynet | awk '{print $NF}')
     pids=()
 
@@ -62,14 +87,12 @@ function setup_containers {
     do
         echo "Setting up device on container ${name}..."
         # TODO: write to a setup log dir
-        docker exec ${name} ${FRR_SETUP_SCRIPT} 1 >/dev/null &
+        docker exec ${name} ${FRR_SETUP_SCRIPT} &
         pids+=($!)
     done <<< ${containers}
 
     echo "Processing..."
 
-    # TODO: check for success
-    # wait for all containers to finish setting up
     for pid in ${pids[*]}; do
         wait ${pid}
     done
@@ -96,6 +119,7 @@ function configure_devices {
 #######################################
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
+    setup_frr_image
     setup_containers
 fi
 
