@@ -2,6 +2,9 @@ import pytest
 import nat_ifaces
 
 
+###############################################################################
+# ############################### Big tests ###################################
+###############################################################################
 def test_match_normal():
     orig_ifaces = {
         "topo-r02": {
@@ -85,6 +88,97 @@ def test_match_normal():
     assert(matched_ips == expected_match_ips)
 
 
+def test_match_weird():
+    orig_ifaces = {
+        "topo-sofia": {
+            "ens6": "151.10.3.1/24",
+            "ens7": "10.0.0.3/31",
+            "ens8": "10.0.0.5/31"
+        },
+        "topo-zurich": {
+            "ens6": "151.10.1.2/24",
+            "ens7": "10.0.0.0/31",
+            "ens8": "10.0.0.2/31"
+        },
+        "topo-milan": {
+            "ens6": "151.10.2.1/24",
+            "ens7": "10.0.0.1/31",
+            "ens8": "10.0.0.4/31"
+        }
+    }
+
+    sim_ifaces = {
+        "topo-sofia": {
+            "ethwe0": "10.0.1.1/24",
+            "ethwe1": "10.0.2.1/24",
+            "ethwe2": "10.0.5.0/24"
+        },
+        "topo-milan": {
+            "ethwe0": "10.0.4.0/24",
+            "ethwe1": "10.0.0.1/24",
+            "ethwe2": "10.0.2.0/24"
+        },
+        "topo-zurich": {
+            "ethwe1": "10.0.3.0/24",
+            "ethwe0": "10.0.0.0/24",
+            "ethwe2": "10.0.1.0/24"
+        }
+    }
+
+    matched_subnets = {
+        "10.0.0.0/31": "10.0.0.0/24",
+        "10.0.0.2/31": "10.0.1.0/24",
+        "10.0.0.4/31": "10.0.2.0/24",
+        "151.10.1.0/24": "10.0.3.0/24",
+        "151.10.2.0/24": "10.0.4.0/24",
+        "151.10.3.0/24": "10.0.5.0/24"
+    }
+
+    matched_ifaces, matched_ips = nat_ifaces.match(orig_ifaces, sim_ifaces, matched_subnets)
+
+    expected_match_ifaces = {
+        "topo-zurich": {
+            "ens6": "ethwe1",
+            "ens7": "ethwe0",
+            "ens8": "ethwe2"
+        },
+        "topo-milan": {
+            "ens6": "ethwe0",
+            "ens7": "ethwe1",
+            "ens8": "ethwe2"
+        },
+        "topo-sofia": {
+            "ens6": "ethwe2",
+            "ens7": "ethwe0",
+            "ens8": "ethwe1"
+        }
+    }
+
+    expected_match_ips = {
+        "topo-zurich": {
+            "151.10.1.2/24": "10.0.3.0/24",
+            "10.0.0.0/31": "10.0.0.0/24",
+            "10.0.0.2/31": "10.0.1.0/24"
+        },
+        "topo-milan": {
+            "151.10.2.1/24": "10.0.4.0/24",
+            "10.0.0.1/31": "10.0.0.1/24",
+            "10.0.0.4/31": "10.0.2.0/24"
+        },
+        "topo-sofia": {
+            "151.10.3.1/24": "10.0.5.0/24",
+            "10.0.0.3/31": "10.0.1.1/24",
+            "10.0.0.5/31": "10.0.2.1/24"
+        }
+    }
+
+    assert(matched_ifaces == expected_match_ifaces)
+    assert(matched_ips == expected_match_ips)
+
+
+###############################################################################
+# ########################## Subnet finder ####################################
+###############################################################################
 def test_find_sim_subnet_normal():
     o_ip = "216.58.215.238/24"
 
@@ -99,6 +193,36 @@ def test_find_sim_subnet_normal():
     sim_subnet = nat_ifaces.find_sim_subnet(o_ip, matched_subnets)
 
     assert(sim_subnet == "10.0.2.0/24")
+
+
+def test_find_sim_subnet_weird():
+    o_ip = "10.0.0.2/31"
+
+    matched_subnets = {
+        "192.168.10.0/24": "10.0.0.0/24",
+        "10.0.0.2/31": "10.0.1.0/24",
+        "10.0.0.0/31": "10.0.2.0/24",
+        "10.0.0.4/31": "10.0.3.0/24"
+    }
+
+    sim_subnet = nat_ifaces.find_sim_subnet(o_ip, matched_subnets)
+
+    assert(sim_subnet == "10.0.1.0/24")
+
+
+def test_find_sim_subnet_weird2():
+    o_ip = "10.0.0.1/31"
+
+    matched_subnets = {
+        "192.168.10.0/24": "10.0.3.0/24",
+        "10.0.0.2/31": "10.0.1.0/24",
+        "10.0.0.0/31": "10.0.0.0/24",
+        "10.0.0.4/31": "10.0.3.0/24"
+    }
+
+    sim_subnet = nat_ifaces.find_sim_subnet(o_ip, matched_subnets)
+
+    assert(sim_subnet == "10.0.0.0/24")
 
 
 def test_find_sim_subnet_no_match():
@@ -116,7 +240,28 @@ def test_find_sim_subnet_no_match():
         nat_ifaces.find_sim_subnet(o_ip, matched_subnets)
 
 
+###############################################################################
+# ######################### Simulated config finder ###########################
+###############################################################################
 def test_find_sim_config_normal():
+    sim_subnet = "10.0.4.0/24"
+
+    sim_config = {
+        "eth0": "10.0.1.3/24",
+        "eth1": "10.0.2.1/24",
+        "eth2": "10.0.3.1/24",
+        "eth3": "10.0.4.4/24",
+        "eth4": "10.0.5.5/24",
+        "eth5": "10.0.6.2/24",
+        "eth6": "10.0.7.3/24"
+    }
+
+    sim_iface, sim_ip = nat_ifaces.find_sim_config(sim_subnet, sim_config)
+    assert (sim_iface == "eth3")
+    assert (sim_ip == "10.0.4.4/24")
+
+
+def test_find_sim_config_weird_nets():
     sim_subnet = "10.0.4.0/24"
 
     sim_config = {

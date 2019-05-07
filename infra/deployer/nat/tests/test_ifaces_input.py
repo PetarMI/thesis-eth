@@ -496,3 +496,26 @@ def test_repeated_subnets_fail2():
         }
 
         nat_ifaces.check_repeated_subnets(configs)
+
+
+def test_repeated_subnets_fail3():
+    with pytest.raises(ValueError, match="Repeated subnets in device topo-r02"):
+        configs = {
+            "topo-r01": {
+                "eth0": "10.0.1.2/24",
+                "eth1": "10.0.2.2/24",
+                "eth2": "10.0.3.2/24",
+            },
+            "topo-r02": {
+                "enp0": "10.0.0.0/31",
+                "enp1": "10.0.0.4/31",
+                "enp2": "10.0.0.2/31",
+                "enp3": "10.0.0.1/31",
+            },
+            "topo-r03": {
+                "weth0": "10.0.1.2/24",
+                "weth1": "10.0.1.3/24",
+            }
+        }
+
+        nat_ifaces.check_repeated_subnets(configs)

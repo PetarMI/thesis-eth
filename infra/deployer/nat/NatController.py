@@ -20,13 +20,13 @@ class NatController:
         :return: writes the results to files that are processed by bash scripts
         """
         print("Matching subnets")
-        subnets = nat_subnets.perform_match(self.topo_name)
+        matched_subnets = nat_subnets.perform_match(self.topo_name)
 
         print("Matching interfaces and IP addresses")
-        ifaces, ips = nat_ifaces.perform_match(self.topo_name, subnets)
+        ifaces, ips = nat_ifaces.perform_match(self.topo_name, matched_subnets)
 
         print("Writing matches to files")
-        self.write_matched_files(subnets, ifaces, ips)
+        self.write_matched_files(matched_subnets, ifaces, ips)
 
     def write_matched_files(self, subnets: dict, ifaces: dict, ips: dict):
         os.makedirs(self.output_dir, exist_ok=True)
