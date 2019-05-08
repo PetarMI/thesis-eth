@@ -89,9 +89,9 @@
             ]
         },
         {
-            "name": "0",
+            "name": "broot",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-broot",
