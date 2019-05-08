@@ -40,6 +40,7 @@ fi
 readonly HOME_DIR="${HOME}"
 readonly COMPOSE_DIR="${HOME_DIR}/compose/"
 readonly CONFIG_DIR="${HOME_DIR}/device_configs"
+readonly API_DIR="${HOME_DIR}/phynet/api"
 readonly NET_FILE="topo_networks.csv"
 readonly CONTAINER_FILE="topo_containers.csv"
 readonly LINKS_FILE="topo_links.csv"
@@ -92,6 +93,7 @@ function create_containers {
         docker run -dit --privileged --name=${cont_name} --network=${net_name} \
             --hostname=${cont_name} \
             --mount type=bind,source="${CONFIG_DIR}",target=/home/configs \
+            --mount type=bind,source="${API_DIR}",target=/home/api \
             ${image} 1>/dev/null
         check_success $? "Created container ${cont_name}"
     done < ${COMPOSE_DIR}${CONTAINER_FILE}
