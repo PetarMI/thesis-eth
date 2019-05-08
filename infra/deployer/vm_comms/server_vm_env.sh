@@ -15,9 +15,10 @@ where:
 
 FLAG_start=0
 FLAG_stop=0
+FLAG_image=0s
 FLAG_verify=0
 
-while getopts "s:zvh" option
+while getopts "s:zvih" option
 do
     case "${option}" in
         s) FLAG_start=${OPTARG}
@@ -25,12 +26,15 @@ do
         z) FLAG_start=0
            FLAG_stop=1;;
         v) FLAG_verify=1;;
+        i) FLAG_image=1;;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
 done
 
 readonly VM_NAME="fuzzvm"
+readonly CONF_FILE="running_vms.conf"
+readonly FRR_IMAGE="prefrr.tar"
 
 # colors for output
 readonly GREEN='\033[0;32m'
@@ -82,6 +86,15 @@ function setupSSHAgent {
     check_success $? "SSH key added"
 }
 
+function upload_FRR_img {
+    while IFS=, read -r idx vm_id role
+    do
+        echo "Sending image to VM ${idx}"
+        scp "${HOME}/${FRR_IMAGE}" ${VM_NAME}@${vm_id}:./
+        check_success $? "Success"
+    done < ${CONF_FILE}
+}
+
 function verifyIPs {
     echo "Follow the tutorial"
 }
@@ -101,6 +114,11 @@ if [[ ${FLAG_start} -gt 0 ]]; then
     setupSSHAgent
 fi
 
+if [[ ${FLAG_image} == 1 ]]; then
+    echo "##### Sending FRR image #####"
+    upload_FRR_img
+fi
+
 if [[ ${FLAG_verify} == 1 ]]; then
     echo "##### Verifying virbr0 IPs #####"
     verifyIPs
@@ -114,3 +132,4 @@ if [[ ${FLAG_stop} == 1 ]]; then
     get_running_vms
     stopVMs
 fi
+
