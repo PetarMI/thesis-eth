@@ -87,15 +87,15 @@ function setup_containers {
     do
         echo "Setting up device on container ${name}..."
         # TODO: write to a setup log dir
-        docker exec ${name} ${FRR_SETUP_SCRIPT} &
-        pids+=($!)
+        time docker exec ${name} ${FRR_SETUP_SCRIPT}
+        #pids+=($!)
     done <<< ${containers}
 
     echo "Processing..."
 
-    for pid in ${pids[*]}; do
-        wait ${pid}
-    done
+#    for pid in ${pids[*]}; do
+#        wait ${pid}
+#    done
 
     printf "${GREEN}Done!${NC}\n"
 }
