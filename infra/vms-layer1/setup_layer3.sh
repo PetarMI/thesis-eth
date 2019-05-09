@@ -62,7 +62,7 @@ function setup_frr_image {
     local containers=$(docker ps | grep phynet | awk '{print $NF}')
     pids=()
 
-    echo "Copying FRR image file to containers..."
+    echo "## Copying FRR image file to containers... ##"
     while read -r name
     do
         docker cp ${HOME}/${FRR_IMAGE} ${name}:/home/${FRR_IMAGE} &
@@ -85,7 +85,7 @@ function setup_containers {
 
     while read -r name
     do
-        echo "Setting up device on container ${name}..."
+        echo "## Setting up device on container ${name}... ##"
         # TODO: write to a setup log dir
         time docker exec ${name} ${FRR_SETUP_SCRIPT}
         #pids+=($!)
