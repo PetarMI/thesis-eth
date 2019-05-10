@@ -1,0 +1,1080 @@
+{
+    "meta": {
+        "name": "bics"
+    },
+    "networks": [
+        {
+            "name": "net-lyon",
+            "subnet": "100.0.0.0/24"
+        },
+        {
+            "name": "net-lyon-paris",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-lyon-marseille",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-lyon-geneva",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-kiev",
+            "subnet": "100.0.1.0/24"
+        },
+        {
+            "name": "net-kiev-bucharest",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-kiev-warsaw",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-istanbul",
+            "subnet": "100.0.2.0/24"
+        },
+        {
+            "name": "net-istanbul-bucharest",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-istanbul-athens",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-paris",
+            "subnet": "100.0.3.0/24"
+        },
+        {
+            "name": "net-paris-geneva",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-paris-madrid",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-paris-london",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-paris-brussels",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-basel",
+            "subnet": "100.0.4.0/24"
+        },
+        {
+            "name": "net-basel-strasbourg",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-basel-geneva",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-athens",
+            "subnet": "100.0.5.0/24"
+        },
+        {
+            "name": "net-athens-sofia",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-luxembourg",
+            "subnet": "100.0.6.0/24"
+        },
+        {
+            "name": "net-luxembourg-brussels",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-luxembourg-strasbourg",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-rotterdam",
+            "subnet": "100.0.9.0/24"
+        },
+        {
+            "name": "net-rotterdam-amsterdam",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-rotterdam-brussels",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-vienna",
+            "subnet": "100.0.8.0/24"
+        },
+        {
+            "name": "net-vienna-milan",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-vienna-frankfurt",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-vienna-bratislava",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-ljubjana",
+            "subnet": "100.0.7.0/24"
+        },
+        {
+            "name": "net-ljubjana-zagreb",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-geneva",
+            "subnet": "100.0.11.0/24"
+        },
+        {
+            "name": "net-geneva-zurich",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-zagreb",
+            "subnet": "100.0.12.0/24"
+        },
+        {
+            "name": "net-zagreb-budapest",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-bratislava",
+            "subnet": "100.0.13.0/24"
+        },
+        {
+            "name": "net-bratislava-budapest",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-bratislava-praha",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-brussels",
+            "subnet": "100.0.14.0/24"
+        },
+        {
+            "name": "net-brussels-london",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-brussels-amsterdam",
+            "subnet": "10.0.0.56/31"
+        },
+        {
+            "name": "net-brussels-frankfurt",
+            "subnet": "10.0.0.58/31"
+        },
+        {
+            "name": "net-strasbourg",
+            "subnet": "100.0.10.0/24"
+        },
+        {
+            "name": "net-strasbourg-frankfurt",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-budapest",
+            "subnet": "100.0.15.0/24"
+        },
+        {
+            "name": "net-budapest-bucharest",
+            "subnet": "10.0.0.60/31"
+        },
+        {
+            "name": "net-budapest-sofia",
+            "subnet": "10.0.0.62/31"
+        },
+        {
+            "name": "net-vaduz",
+            "subnet": "100.0.16.0/24"
+        },
+        {
+            "name": "net-vaduz-zurich",
+            "subnet": "10.0.0.64/31"
+        },
+        {
+            "name": "net-dublin",
+            "subnet": "100.0.17.0/24"
+        },
+        {
+            "name": "net-dublin-london",
+            "subnet": "10.0.0.66/31"
+        },
+        {
+            "name": "net-barcelona",
+            "subnet": "100.0.18.0/24"
+        },
+        {
+            "name": "net-barcelona-madrid",
+            "subnet": "10.0.0.68/31"
+        },
+        {
+            "name": "net-barcelona-marseille",
+            "subnet": "10.0.0.70/31"
+        },
+        {
+            "name": "net-stockholm",
+            "subnet": "100.0.19.0/24"
+        },
+        {
+            "name": "net-stockholm-frankfurt",
+            "subnet": "10.0.0.82/31"
+        },
+        {
+            "name": "net-roma",
+            "subnet": "100.0.20.0/24"
+        },
+        {
+            "name": "net-roma-milan",
+            "subnet": "10.0.0.72/31"
+        },
+        {
+            "name": "net-roma-zurich",
+            "subnet": "10.0.0.74/31"
+        },
+        {
+            "name": "net-marseille",
+            "subnet": "100.0.21.0/24"
+        },
+        {
+            "name": "net-marseille-milan",
+            "subnet": "10.0.0.76/31"
+        },
+        {
+            "name": "net-frankfurt",
+            "subnet": "100.0.22.0/24"
+        },
+        {
+            "name": "net-frankfurt-zurich",
+            "subnet": "10.0.0.78/31"
+        },
+        {
+            "name": "net-frankfurt-praha",
+            "subnet": "10.0.0.80/31"
+        },
+        {
+            "name": "net-frankfurt-amsterdam",
+            "subnet": "10.0.0.84/31"
+        },
+        {
+            "name": "net-frankfurt-warsaw",
+            "subnet": "10.0.0.86/31"
+        },
+        {
+            "name": "net-bucharest",
+            "subnet": "100.0.23.0/24"
+        },
+        {
+            "name": "net-zurich",
+            "subnet": "100.0.24.0/24"
+        },
+        {
+            "name": "net-zurich-milan",
+            "subnet": "10.0.0.88/31"
+        },
+        {
+            "name": "net-madrid",
+            "subnet": "100.0.25.0/24"
+        },
+        {
+            "name": "net-sofia",
+            "subnet": "100.0.26.0/24"
+        },
+        {
+            "name": "net-milan",
+            "subnet": "100.0.27.0/24"
+        },
+        {
+            "name": "net-praha",
+            "subnet": "100.0.28.0/24"
+        },
+        {
+            "name": "net-praha-warsaw",
+            "subnet": "10.0.0.90/31"
+        },
+        {
+            "name": "net-london",
+            "subnet": "100.0.29.0/24"
+        },
+        {
+            "name": "net-london-lisbon",
+            "subnet": "10.0.0.92/31"
+        },
+        {
+            "name": "net-london-amsterdam",
+            "subnet": "10.0.0.94/31"
+        },
+        {
+            "name": "net-lisbon",
+            "subnet": "100.0.30.0/24"
+        },
+        {
+            "name": "net-amsterdam",
+            "subnet": "100.0.31.0/24"
+        },
+        {
+            "name": "net-warsaw",
+            "subnet": "100.0.32.0/24"
+        }
+    ],
+    "containers": [
+        {
+            "name": "lyon",
+            "type": "frr",
+            "vm": "0",
+            "interfaces": [
+                {
+                    "network": "net-lyon",
+                    "ipaddr": "100.0.0.1/24"
+                },
+                {
+                    "network": "net-lyon-paris",
+                    "ipaddr": "10.0.0.0/31"
+                },
+                {
+                    "network": "net-lyon-marseille",
+                    "ipaddr": "10.0.0.2/31"
+                },
+                {
+                    "network": "net-lyon-geneva",
+                    "ipaddr": "10.0.0.4/31"
+                }
+            ]
+        },
+        {
+            "name": "kiev",
+            "type": "frr",
+            "vm": "0",
+            "interfaces": [
+                {
+                    "network": "net-kiev",
+                    "ipaddr": "100.0.1.1/24"
+                },
+                {
+                    "network": "net-kiev-bucharest",
+                    "ipaddr": "10.0.0.6/31"
+                },
+                {
+                    "network": "net-kiev-warsaw",
+                    "ipaddr": "10.0.0.8/31"
+                }
+            ]
+        },
+        {
+            "name": "istanbul",
+            "type": "frr",
+            "vm": "0",
+            "interfaces": [
+                {
+                    "network": "net-istanbul",
+                    "ipaddr": "100.0.2.1/24"
+                },
+                {
+                    "network": "net-istanbul-bucharest",
+                    "ipaddr": "10.0.0.10/31"
+                },
+                {
+                    "network": "net-istanbul-athens",
+                    "ipaddr": "10.0.0.12/31"
+                }
+            ]
+        },
+        {
+            "name": "paris",
+            "type": "frr",
+            "vm": "1",
+            "interfaces": [
+                {
+                    "network": "net-paris",
+                    "ipaddr": "100.0.3.1/24"
+                },
+                {
+                    "network": "net-lyon-paris",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-paris-geneva",
+                    "ipaddr": "10.0.0.14/31"
+                },
+                {
+                    "network": "net-paris-madrid",
+                    "ipaddr": "10.0.0.16/31"
+                },
+                {
+                    "network": "net-paris-london",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-paris-brussels",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "basel",
+            "type": "frr",
+            "vm": "1",
+            "interfaces": [
+                {
+                    "network": "net-basel",
+                    "ipaddr": "100.0.4.1/24"
+                },
+                {
+                    "network": "net-basel-strasbourg",
+                    "ipaddr": "10.0.0.22/31"
+                },
+                {
+                    "network": "net-basel-geneva",
+                    "ipaddr": "10.0.0.24/31"
+                }
+            ]
+        },
+        {
+            "name": "athens",
+            "type": "frr",
+            "vm": "1",
+            "interfaces": [
+                {
+                    "network": "net-athens",
+                    "ipaddr": "100.0.5.1/24"
+                },
+                {
+                    "network": "net-athens-sofia",
+                    "ipaddr": "10.0.0.26/31"
+                },
+                {
+                    "network": "net-istanbul-athens",
+                    "ipaddr": "10.0.0.13/31"
+                }
+            ]
+        },
+        {
+            "name": "luxembourg",
+            "type": "frr",
+            "vm": "2",
+            "interfaces": [
+                {
+                    "network": "net-luxembourg",
+                    "ipaddr": "100.0.6.1/24"
+                },
+                {
+                    "network": "net-luxembourg-brussels",
+                    "ipaddr": "10.0.0.28/31"
+                },
+                {
+                    "network": "net-luxembourg-strasbourg",
+                    "ipaddr": "10.0.0.30/31"
+                }
+            ]
+        },
+        {
+            "name": "rotterdam",
+            "type": "frr",
+            "vm": "2",
+            "interfaces": [
+                {
+                    "network": "net-rotterdam",
+                    "ipaddr": "100.0.9.1/24"
+                },
+                {
+                    "network": "net-rotterdam-amsterdam",
+                    "ipaddr": "10.0.0.32/31"
+                },
+                {
+                    "network": "net-rotterdam-brussels",
+                    "ipaddr": "10.0.0.34/31"
+                }
+            ]
+        },
+        {
+            "name": "vienna",
+            "type": "frr",
+            "vm": "2",
+            "interfaces": [
+                {
+                    "network": "net-vienna",
+                    "ipaddr": "100.0.8.1/24"
+                },
+                {
+                    "network": "net-vienna-milan",
+                    "ipaddr": "10.0.0.42/31"
+                },
+                {
+                    "network": "net-vienna-frankfurt",
+                    "ipaddr": "10.0.0.44/31"
+                },
+                {
+                    "network": "net-vienna-bratislava",
+                    "ipaddr": "10.0.0.41/31"
+                }
+            ]
+        },
+        {
+            "name": "ljubjana",
+            "type": "frr",
+            "vm": "3",
+            "interfaces": [
+                {
+                    "network": "net-ljubjana",
+                    "ipaddr": "100.0.7.1/24"
+                },
+                {
+                    "network": "net-ljubjana-zagreb",
+                    "ipaddr": "10.0.0.53/31"
+                }
+            ]
+        },
+        {
+            "name": "geneva",
+            "type": "frr",
+            "vm": "3",
+            "interfaces": [
+                {
+                    "network": "net-geneva",
+                    "ipaddr": "100.0.11.1/24"
+                },
+                {
+                    "network": "net-paris-geneva",
+                    "ipaddr": "10.0.0.15/31"
+                },
+                {
+                    "network": "net-lyon-geneva",
+                    "ipaddr": "10.0.0.5/31"
+                },
+                {
+                    "network": "net-basel-geneva",
+                    "ipaddr": "10.0.0.25/31"
+                },
+                {
+                    "network": "net-geneva-zurich",
+                    "ipaddr": "10.0.0.48/31"
+                }
+            ]
+        },
+        {
+            "name": "zagreb",
+            "type": "frr",
+            "vm": "3",
+            "interfaces": [
+                {
+                    "network": "net-zagreb",
+                    "ipaddr": "100.0.12.1/24"
+                },
+                {
+                    "network": "net-zagreb-budapest",
+                    "ipaddr": "10.0.0.50/31"
+                },
+                {
+                    "network": "net-ljubjana-zagreb",
+                    "ipaddr": "10.0.0.52/31"
+                }
+            ]
+        },
+        {
+            "name": "bratislava",
+            "type": "frr",
+            "vm": "4",
+            "interfaces": [
+                {
+                    "network": "net-bratislava",
+                    "ipaddr": "100.0.13.1/24"
+                },
+                {
+                    "network": "net-bratislava-budapest",
+                    "ipaddr": "10.0.0.36/31"
+                },
+                {
+                    "network": "net-bratislava-praha",
+                    "ipaddr": "10.0.0.38/31"
+                },
+                {
+                    "network": "net-vienna-bratislava",
+                    "ipaddr": "10.0.0.40/31"
+                }
+            ]
+        },
+        {
+            "name": "brussels",
+            "type": "frr",
+            "vm": "4",
+            "interfaces": [
+                {
+                    "network": "net-brussels",
+                    "ipaddr": "100.0.14.1/24"
+                },
+                {
+                    "network": "net-paris-brussels",
+                    "ipaddr": "10.0.0.21/31"
+                },
+                {
+                    "network": "net-luxembourg-brussels",
+                    "ipaddr": "10.0.0.29/31"
+                },
+                {
+                    "network": "net-brussels-london",
+                    "ipaddr": "10.0.0.54/31"
+                },
+                {
+                    "network": "net-brussels-amsterdam",
+                    "ipaddr": "10.0.0.56/31"
+                },
+                {
+                    "network": "net-rotterdam-brussels",
+                    "ipaddr": "10.0.0.35/31"
+                },
+                {
+                    "network": "net-brussels-frankfurt",
+                    "ipaddr": "10.0.0.58/31"
+                }
+            ]
+        },
+        {
+            "name": "strasbourg",
+            "type": "frr",
+            "vm": "4",
+            "interfaces": [
+                {
+                    "network": "net-strasbourg",
+                    "ipaddr": "100.0.10.1/24"
+                },
+                {
+                    "network": "net-strasbourg-frankfurt",
+                    "ipaddr": "10.0.0.46/31"
+                },
+                {
+                    "network": "net-basel-strasbourg",
+                    "ipaddr": "10.0.0.23/31"
+                },
+                {
+                    "network": "net-luxembourg-strasbourg",
+                    "ipaddr": "10.0.0.31/31"
+                }
+            ]
+        },
+        {
+            "name": "budapest",
+            "type": "frr",
+            "vm": "5",
+            "interfaces": [
+                {
+                    "network": "net-budapest",
+                    "ipaddr": "100.0.15.1/24"
+                },
+                {
+                    "network": "net-budapest-bucharest",
+                    "ipaddr": "10.0.0.60/31"
+                },
+                {
+                    "network": "net-budapest-sofia",
+                    "ipaddr": "10.0.0.62/31"
+                },
+                {
+                    "network": "net-bratislava-budapest",
+                    "ipaddr": "10.0.0.37/31"
+                },
+                {
+                    "network": "net-zagreb-budapest",
+                    "ipaddr": "10.0.0.51/31"
+                }
+            ]
+        },
+        {
+            "name": "vaduz",
+            "type": "frr",
+            "vm": "5",
+            "interfaces": [
+                {
+                    "network": "net-vaduz",
+                    "ipaddr": "100.0.16.1/24"
+                },
+                {
+                    "network": "net-vaduz-zurich",
+                    "ipaddr": "10.0.0.64/31"
+                }
+            ]
+        },
+        {
+            "name": "dublin",
+            "type": "frr",
+            "vm": "5",
+            "interfaces": [
+                {
+                    "network": "net-dublin",
+                    "ipaddr": "100.0.17.1/24"
+                },
+                {
+                    "network": "net-dublin-london",
+                    "ipaddr": "10.0.0.66/31"
+                }
+            ]
+        },
+        {
+            "name": "barcelona",
+            "type": "frr",
+            "vm": "6",
+            "interfaces": [
+                {
+                    "network": "net-barcelona",
+                    "ipaddr": "100.0.18.1/24"
+                },
+                {
+                    "network": "net-barcelona-madrid",
+                    "ipaddr": "10.0.0.68/31"
+                },
+                {
+                    "network": "net-barcelona-marseille",
+                    "ipaddr": "10.0.0.70/31"
+                }
+            ]
+        },
+        {
+            "name": "stockholm",
+            "type": "frr",
+            "vm": "6",
+            "interfaces": [
+                {
+                    "network": "net-stockholm",
+                    "ipaddr": "100.0.19.1/24"
+                },
+                {
+                    "network": "net-stockholm-frankfurt",
+                    "ipaddr": "10.0.0.83/31"
+                }
+            ]
+        },
+        {
+            "name": "roma",
+            "type": "frr",
+            "vm": "6",
+            "interfaces": [
+                {
+                    "network": "net-roma",
+                    "ipaddr": "100.0.20.1/24"
+                },
+                {
+                    "network": "net-roma-milan",
+                    "ipaddr": "10.0.0.72/31"
+                },
+                {
+                    "network": "net-roma-zurich",
+                    "ipaddr": "10.0.0.74/31"
+                }
+            ]
+        },
+        {
+            "name": "marseille",
+            "type": "frr",
+            "vm": "7",
+            "interfaces": [
+                {
+                    "network": "net-marseille",
+                    "ipaddr": "100.0.21.1/24"
+                },
+                {
+                    "network": "net-marseille-milan",
+                    "ipaddr": "10.0.0.76/31"
+                },
+                {
+                    "network": "net-lyon-marseille",
+                    "ipaddr": "10.0.0.3/31"
+                },
+                {
+                    "network": "net-barcelona-marseille",
+                    "ipaddr": "10.0.0.71/31"
+                }
+            ]
+        },
+        {
+            "name": "frankfurt",
+            "type": "frr",
+            "vm": "7",
+            "interfaces": [
+                {
+                    "network": "net-frankfurt",
+                    "ipaddr": "100.0.22.1/24"
+                },
+                {
+                    "network": "net-strasbourg-frankfurt",
+                    "ipaddr": "10.0.0.47/31"
+                },
+                {
+                    "network": "net-frankfurt-zurich",
+                    "ipaddr": "10.0.0.78/31"
+                },
+                {
+                    "network": "net-frankfurt-praha",
+                    "ipaddr": "10.0.0.80/31"
+                },
+                {
+                    "network": "net-stockholm-frankfurt",
+                    "ipaddr": "10.0.0.82/31"
+                },
+                {
+                    "network": "net-frankfurt-amsterdam",
+                    "ipaddr": "10.0.0.84/31"
+                },
+                {
+                    "network": "net-brussels-frankfurt",
+                    "ipaddr": "10.0.0.59/31"
+                },
+                {
+                    "network": "net-vienna-frankfurt",
+                    "ipaddr": "10.0.0.45/31"
+                },
+                {
+                    "network": "net-frankfurt-warsaw",
+                    "ipaddr": "10.0.0.86/31"
+                }
+            ]
+        },
+        {
+            "name": "bucharest",
+            "type": "frr",
+            "vm": "7",
+            "interfaces": [
+                {
+                    "network": "net-bucharest",
+                    "ipaddr": "100.0.23.1/24"
+                },
+                {
+                    "network": "net-budapest-bucharest",
+                    "ipaddr": "10.0.0.61/31"
+                },
+                {
+                    "network": "net-kiev-bucharest",
+                    "ipaddr": "10.0.0.7/31"
+                },
+                {
+                    "network": "net-istanbul-bucharest",
+                    "ipaddr": "10.0.0.11/31"
+                }
+            ]
+        },
+        {
+            "name": "zurich",
+            "type": "frr",
+            "vm": "7",
+            "interfaces": [
+                {
+                    "network": "net-zurich",
+                    "ipaddr": "100.0.24.1/24"
+                },
+                {
+                    "network": "net-geneva-zurich",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-vaduz-zurich",
+                    "ipaddr": "10.0.0.65/31"
+                },
+                {
+                    "network": "net-zurich-milan",
+                    "ipaddr": "10.0.0.88/31"
+                },
+                {
+                    "network": "net-roma-zurich",
+                    "ipaddr": "10.0.0.75/31"
+                },
+                {
+                    "network": "net-frankfurt-zurich",
+                    "ipaddr": "10.0.0.79/31"
+                }
+            ]
+        },
+        {
+            "name": "madrid",
+            "type": "frr",
+            "vm": "8",
+            "interfaces": [
+                {
+                    "network": "net-madrid",
+                    "ipaddr": "100.0.25.1/24"
+                },
+                {
+                    "network": "net-paris-madrid",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-barcelona-madrid",
+                    "ipaddr": "10.0.0.69/31"
+                }
+            ]
+        },
+        {
+            "name": "sofia",
+            "type": "frr",
+            "vm": "8",
+            "interfaces": [
+                {
+                    "network": "net-sofia",
+                    "ipaddr": "100.0.26.1/24"
+                },
+                {
+                    "network": "net-budapest-sofia",
+                    "ipaddr": "10.0.0.63/31"
+                },
+                {
+                    "network": "net-athens-sofia",
+                    "ipaddr": "10.0.0.27/31"
+                }
+            ]
+        },
+        {
+            "name": "milan",
+            "type": "frr",
+            "vm": "8",
+            "interfaces": [
+                {
+                    "network": "net-milan",
+                    "ipaddr": "100.0.27.1/24"
+                },
+                {
+                    "network": "net-roma-milan",
+                    "ipaddr": "10.0.0.73/31"
+                },
+                {
+                    "network": "net-marseille-milan",
+                    "ipaddr": "10.0.0.77/31"
+                },
+                {
+                    "network": "net-vienna-milan",
+                    "ipaddr": "10.0.0.43/31"
+                },
+                {
+                    "network": "net-zurich-milan",
+                    "ipaddr": "10.0.0.89/31"
+                }
+            ]
+        },
+        {
+            "name": "praha",
+            "type": "frr",
+            "vm": "8",
+            "interfaces": [
+                {
+                    "network": "net-praha",
+                    "ipaddr": "100.0.28.1/24"
+                },
+                {
+                    "network": "net-praha-warsaw",
+                    "ipaddr": "10.0.0.90/31"
+                },
+                {
+                    "network": "net-frankfurt-praha",
+                    "ipaddr": "10.0.0.81/31"
+                },
+                {
+                    "network": "net-bratislava-praha",
+                    "ipaddr": "10.0.0.39/31"
+                }
+            ]
+        },
+        {
+            "name": "london",
+            "type": "frr",
+            "vm": "9",
+            "interfaces": [
+                {
+                    "network": "net-london",
+                    "ipaddr": "100.0.29.1/24"
+                },
+                {
+                    "network": "net-paris-london",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-dublin-london",
+                    "ipaddr": "10.0.0.67/31"
+                },
+                {
+                    "network": "net-london-lisbon",
+                    "ipaddr": "10.0.0.92/31"
+                },
+                {
+                    "network": "net-london-amsterdam",
+                    "ipaddr": "10.0.0.94/31"
+                },
+                {
+                    "network": "net-brussels-london",
+                    "ipaddr": "10.0.0.55/31"
+                }
+            ]
+        },
+        {
+            "name": "lisbon",
+            "type": "frr",
+            "vm": "9",
+            "interfaces": [
+                {
+                    "network": "net-lisbon",
+                    "ipaddr": "100.0.30.1/24"
+                },
+                {
+                    "network": "net-london-lisbon",
+                    "ipaddr": "10.0.0.93/31"
+                }
+            ]
+        },
+        {
+            "name": "amsterdam",
+            "type": "frr",
+            "vm": "9",
+            "interfaces": [
+                {
+                    "network": "net-amsterdam",
+                    "ipaddr": "100.0.31.1/24"
+                },
+                {
+                    "network": "net-london-amsterdam",
+                    "ipaddr": "10.0.0.95/31"
+                },
+                {
+                    "network": "net-brussels-amsterdam",
+                    "ipaddr": "10.0.0.57/31"
+                },
+                {
+                    "network": "net-rotterdam-amsterdam",
+                    "ipaddr": "10.0.0.33/31"
+                },
+                {
+                    "network": "net-frankfurt-amsterdam",
+                    "ipaddr": "10.0.0.85/31"
+                }
+            ]
+        },
+        {
+            "name": "warsaw",
+            "type": "frr",
+            "vm": "9",
+            "interfaces": [
+                {
+                    "network": "net-warsaw",
+                    "ipaddr": "100.0.32.1/24"
+                },
+                {
+                    "network": "net-praha-warsaw",
+                    "ipaddr": "10.0.0.91/31"
+                },
+                {
+                    "network": "net-frankfurt-warsaw",
+                    "ipaddr": "10.0.0.87/31"
+                },
+                {
+                    "network": "net-kiev-warsaw",
+                    "ipaddr": "10.0.0.9/31"
+                }
+            ]
+        }
+    ]
+}

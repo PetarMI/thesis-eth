@@ -55,7 +55,11 @@ readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 function check_installed {
-    printf "${RED}Checking prerequisites not implemented${NC}\n"
+    while IFS=, read -r idx vm_ip role
+    do
+	echo "${idx}"
+        ssh -n -T "${USER}@${vm_ip}" "sysctl net.ipv4.conf.all.rp_filter"
+    done < ${CONF_FILE}
 }
 
 function clean {

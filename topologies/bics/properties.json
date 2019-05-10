@@ -1,0 +1,73 @@
+{
+    "reachability": [
+        {
+            "src": "lisbon",
+            "dest": "10.0.0.66"
+        },
+        {
+            "src": "zagreb",
+            "dest": "100.0.17.1"
+        },
+        {
+            "src": "zurich",
+            "dest": "100.0.9.1"
+        },
+        {
+            "src": "barcelona",
+            "dest": "10.0.0.83"
+        },
+        {
+            "src": "london",
+            "dest": "100.0.20.1"
+        },
+        {
+            "src": "paris",
+            "dest": "10.0.0.7"
+        },
+        {
+            "src": "bucharest",
+            "dest": "10.0.0.9"
+        },
+        {
+            "src": "warsaw",
+            "dest": "10.0.0.0"
+        },
+        {
+            "src": "lyon",
+            "dest": "10.0.0.57"
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.21.1"
+        },
+        {
+            "src": "marseille",
+            "dest": "10.0.0.64"
+        },
+        {
+            "src": "vaduz",
+            "dest": "10.0.0.77"
+        },
+        {
+            "src": "milan",
+            "dest": "10.0.0.53"
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.14.1"
+        },
+        {
+            "src": "brussels",
+            "dest": "10.0.0.10"
+        },
+        {
+            "src": "istanbul",
+            "dest": "100.0.25.1"
+        },
+        {
+            "src": "madrid",
+            "dest": "100.0.10.1"
+        }
+    ]
+}
+

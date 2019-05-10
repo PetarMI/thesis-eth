@@ -4,16 +4,18 @@ from synth.common import file_writer as fw
 
 def generate_config_files(cisco_configs, topo_name):
     frr_configs = dict()
+    idx = 1
 
     for hostname, host_configs in cisco_configs.items():
         host_instr = []
 
         host_instr.extend(generate_meta(hostname))
         host_instr.extend(generate_interfaces(host_configs["interfaces"]))
-        host_instr.extend(generate_router_section())
+        host_instr.extend(generate_router_section(idx))
         host_instr.extend(generate_file_end())
 
         frr_configs.update({hostname: host_instr})
+        idx += 1
 
     fw.write_config_files(topo_name, frr_configs)
 
@@ -53,10 +55,10 @@ def parse_optional_instr(interface: dict) -> list:
     return opt_instr
 
 
-def generate_router_section() -> list:
+def generate_router_section(idx: int) -> list:
     # TODO: hardcoded as config_parser.py doesnt add any router info yet
-    # TODO: should we add a router-id anyway
-    router_instr = [const.CMD_ROUTER, const.CMD_REDISTR_CONN]
+    router_id = get_router_id(idx)
+    router_instr = [const.CMD_ROUTER, router_id, const.CMD_REDISTR_CONN]
     return router_instr
 
 
@@ -69,3 +71,9 @@ def generate_meta(hostname) -> list:
 
 def generate_file_end() -> list:
     return ["line vty", "!"]
+
+
+def get_router_id(idx: int):
+    r_id = "{0}.{0}.{0}.{0}".format(idx)
+    return const.CMD_ROUTER_ID.format(r_id)
+
