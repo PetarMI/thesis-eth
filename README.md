@@ -1,5 +1,7 @@
 # Master Thesis at ETH Zurich SS2019
 
+## Project structure
+
     ├── infra                   # Network Simulator implementation
     ├── fuzzer                  # Logic for fuzzer
     ├── synth                   # Scripts for synthesizing test networks
