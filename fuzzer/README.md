@@ -1,7 +1,5 @@
 # Fuzzer
 
-## Dir structure 
-
     ├── common                  # File reading and writing, constants
     ├── controllers             # Fuzzing logic
     ├── executors               # Scripts for interacting with the running containers
