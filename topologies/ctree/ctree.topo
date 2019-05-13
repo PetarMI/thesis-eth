@@ -66,6 +66,30 @@
         {
             "name": "net-soton",
             "subnet": "100.0.80.0/24"
+        },
+        {
+            "name": "net-croot",
+            "subnet": "100.0.90.0/24"
+        },
+        {
+            "name": "net-praha",
+            "subnet": "100.0.100.0/24"
+        },
+        {
+            "name": "net-vienna",
+            "subnet": "100.0.110.0/24"
+        },
+        {
+            "name": "net-croot-praha",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-croot-vienna",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-praha-vienna",
+            "subnet": "10.0.0.20/31"
         }
     ],
     "containers": [
@@ -218,6 +242,63 @@
                 {
                     "network": "net-london-soton",
                     "ipaddr": "10.0.0.15/31"
+                }
+            ]
+        },
+        {
+            "name": "croot",
+            "type": "frr",
+            "vm": "0",
+            "interfaces": [
+                {
+                    "network": "net-croot",
+                    "ipaddr": "100.0.90.1/24"
+                },
+                {
+                    "network": "net-croot-praha",
+                    "ipaddr": "10.0.0.16/31"
+                },
+                {
+                    "network": "net-croot-vienna",
+                    "ipaddr": "10.0.0.18/31"
+                }
+            ]
+        },
+        {
+            "name": "praha",
+            "type": "frr",
+            "vm": "3",
+            "interfaces": [
+                {
+                    "network": "net-praha",
+                    "ipaddr": "100.0.100.1/24"
+                },
+                {
+                    "network": "net-croot-praha",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-praha-vienna",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "vienna",
+            "type": "frr",
+            "vm": "3",
+            "interfaces": [
+                {
+                    "network": "net-soton",
+                    "ipaddr": "100.0.110.1/24"
+                },
+                {
+                    "network": "net-croot-vienna",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-praha-vienna",
+                    "ipaddr": "10.0.0.21/31"
                 }
             ]
         }
