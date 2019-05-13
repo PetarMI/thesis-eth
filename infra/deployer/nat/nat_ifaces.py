@@ -26,8 +26,11 @@ def match(orig_ifaces: dict, sim_ifaces: dict, matched_subnets: dict) -> Tuple[d
         dev_ips = {}
 
         for o_iface, o_ip in orig_config.items():
-            sim_subnet = find_sim_subnet(o_ip, matched_subnets)
-            sim_iface, sim_ip = find_sim_config(sim_subnet, sim_config)
+            try:
+                sim_subnet = find_sim_subnet(o_ip, matched_subnets)
+                sim_iface, sim_ip = find_sim_config(sim_subnet, sim_config)
+            except ValueError as exc:
+                raise ValueError("Error while matching {}".format(dev)) from exc
 
             dev_ifaces.update({o_iface: sim_iface})
             dev_ips.update({o_ip: sim_ip})

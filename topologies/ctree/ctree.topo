@@ -289,7 +289,7 @@
             "vm": "3",
             "interfaces": [
                 {
-                    "network": "net-soton",
+                    "network": "net-vienna",
                     "ipaddr": "100.0.110.1/24"
                 },
                 {
