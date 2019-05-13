@@ -58,7 +58,7 @@ signal_fail $?
 
 printf "${L_GREEN}######### 1/9 Setting up VM directories #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash ${VM_COMMS_DIR}/local_vm_env.sh -cd
+bash ${VM_COMMS_DIR}/vm_env.sh -cd
 signal_fail $?
 
 printf "${L_GREEN}######### 2/9 Generating compose files #########${NC}\n"
@@ -68,19 +68,19 @@ signal_fail $?
 
 printf "${L_GREEN}######### 3/9 Uploading files to VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash local_vm_upload.sh -t "${FLAG_topology}" -a
+bash vm_upload.sh -t "${FLAG_topology}" -a
 signal_fail $?
 
 printf "${L_GREEN}######### 4/9 Building Layer 2 on VMs #########${NC}\n"
-bash local_vm_compose.sh -u
+bash vm_compose.sh -u
 signal_fail $?
 
 printf "${L_GREEN}######### 5/9 Setup L3 device containers #########${NC}\n"
-bash local_vm_configure.sh -s
+bash vm_configure.sh -s
 signal_fail $?
 
 printf "${L_GREEN}######### 6/9 Downloading data #########${NC}\n"
-bash local_vm_download.sh -t "${FLAG_topology}"
+bash vm_download.sh -t "${FLAG_topology}"
 signal_fail $?
 
 printf "${L_GREEN}######### 7/9 Performing NAT #########${NC}\n"
@@ -90,9 +90,9 @@ signal_fail $?
 
 printf "${L_GREEN}######### 8/9 Building Layer 2 on VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash local_vm_upload.sh -t "${FLAG_topology}" -f
+bash vm_upload.sh -t "${FLAG_topology}" -f
 signal_fail $?
 
 printf "${L_GREEN}######### 9/9 Building Layer 2 on VMs #########${NC}\n"
-bash local_vm_configure.sh -c
+bash vm_configure.sh -c
 signal_fail $?
