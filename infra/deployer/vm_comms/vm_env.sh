@@ -55,11 +55,25 @@ readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
 function check_installed {
+    local flag_correct=1
+    local num_VMs=0
+
     while IFS=, read -r idx vm_ip role
     do
-	echo "${idx}"
-        ssh -n -T "${USER}@${vm_ip}" "sysctl net.ipv4.conf.all.rp_filter"
+        local ssh_out=$(ssh -n -T "${USER}@${vm_ip}" "sysctl net.ipv4.conf.all.rp_filter")
+        local rp_flag=$(echo ${ssh_out: -1})
+        num_VMs=$((num_VMs + 1))
+
+        if [[ ${rp_flag} -ne "2" ]]; then
+            flag_correct=0
+            printf "${RED}WARNING:${NC} VM ${idx} has rp_filter set to ${rp_flag}\n"
+        fi
+
     done < ${CONF_FILE}
+
+    if [[ "${flag_correct}" -eq "1" ]]; then
+        printf "${GREEN}All ${num_VMs} VMs with rp_filter=2${NC}\n"
+    fi
 }
 
 function clean {
