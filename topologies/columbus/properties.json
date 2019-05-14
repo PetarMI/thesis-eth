@@ -1,0 +1,45 @@
+{
+    "reachability": [
+        {
+            "src": "caymanislands",
+            "dest": "100.0.40.1"
+        },
+        {
+            "src": "nodeid28",
+            "dest": "10.0.0.130"
+        },
+        {
+            "src": "stmartin",
+            "dest": "10.0.0.152"
+        },
+        {
+            "src": "turksandcaicos",
+            "dest": "100.0.41.1"
+        },
+        {
+            "src": "bonaire",
+            "dest": "10.0.0.52"
+        },
+        {
+            "src": "jamaica",
+            "dest": "10.0.0.141"
+        },
+        {
+            "src": "costarica",
+            "dest": "10.0.0.47"
+        },
+        {
+            "src": "puertorico",
+            "dest": "100.0.12.1"
+        },
+        {
+            "src": "ecuador",
+            "dest": "100.0.12.1"
+        },
+        {
+            "src": "nodeid9",
+            "dest": "10.0.0.21"
+        }
+    ]
+}
+
