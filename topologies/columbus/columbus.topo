@@ -1,0 +1,2079 @@
+{
+    "meta": {
+        "name": "columbus"
+    },
+    "networks": [
+        {
+            "name": "net-nodeid13",
+            "subnet": "100.0.0.0/24"
+        },
+        {
+            "name": "net-nodeid13-nodeid29",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-nodeid13-nodeid14",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-nodeid13-nodeid31",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-nodeid41",
+            "subnet": "100.0.57.0/24"
+        },
+        {
+            "name": "net-nodeid41-jamaica",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-nodeid41-nodeid38",
+            "subnet": "10.0.0.56/31"
+        },
+        {
+            "name": "net-usa",
+            "subnet": "100.0.2.0/24"
+        },
+        {
+            "name": "net-usa-nodeid33",
+            "subnet": "10.0.0.100/31"
+        },
+        {
+            "name": "net-usa-nodeid38",
+            "subnet": "10.0.0.74/31"
+        },
+        {
+            "name": "net-nodeid22",
+            "subnet": "100.0.3.0/24"
+        },
+        {
+            "name": "net-nodeid22-martinique",
+            "subnet": "10.0.0.120/31"
+        },
+        {
+            "name": "net-nodeid22-nodeid24",
+            "subnet": "10.0.0.122/31"
+        },
+        {
+            "name": "net-nodeid22-barbados",
+            "subnet": "10.0.0.124/31"
+        },
+        {
+            "name": "net-nodeid22-stcroix",
+            "subnet": "10.0.0.126/31"
+        },
+        {
+            "name": "net-nodeid58",
+            "subnet": "100.0.4.0/24"
+        },
+        {
+            "name": "net-nodeid58-nodeid59",
+            "subnet": "10.0.0.150/31"
+        },
+        {
+            "name": "net-nodeid58-nodeid17",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-panama",
+            "subnet": "100.0.5.0/24"
+        },
+        {
+            "name": "net-panama-nodeid34",
+            "subnet": "10.0.0.88/31"
+        },
+        {
+            "name": "net-panama-nodeid27",
+            "subnet": "10.0.0.138/31"
+        },
+        {
+            "name": "net-panama-costarica",
+            "subnet": "10.0.0.140/31"
+        },
+        {
+            "name": "net-nodeid59",
+            "subnet": "100.0.23.0/24"
+        },
+        {
+            "name": "net-nodeid59-bahamas",
+            "subnet": "10.0.0.144/31"
+        },
+        {
+            "name": "net-nodeid59-nodeid44",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-nodeid59-nodeid32",
+            "subnet": "10.0.0.96/31"
+        },
+        {
+            "name": "net-bahamas",
+            "subnet": "100.0.7.0/24"
+        },
+        {
+            "name": "net-bahamas-nodeid45",
+            "subnet": "10.0.0.142/31"
+        },
+        {
+            "name": "net-suriname",
+            "subnet": "100.0.8.0/24"
+        },
+        {
+            "name": "net-suriname-nodeid35",
+            "subnet": "10.0.0.92/31"
+        },
+        {
+            "name": "net-nodeid31",
+            "subnet": "100.0.9.0/24"
+        },
+        {
+            "name": "net-nodeid31-nodeid44",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-nodeid31-nodeid49",
+            "subnet": "10.0.0.70/31"
+        },
+        {
+            "name": "net-nodeid31-nodeid26",
+            "subnet": "10.0.0.102/31"
+        },
+        {
+            "name": "net-venezuela",
+            "subnet": "100.0.10.0/24"
+        },
+        {
+            "name": "net-venezuela-nodeid7",
+            "subnet": "10.0.0.104/31"
+        },
+        {
+            "name": "net-venezuela-curacao",
+            "subnet": "10.0.0.162/31"
+        },
+        {
+            "name": "net-stcroix",
+            "subnet": "100.0.11.0/24"
+        },
+        {
+            "name": "net-stcroix-nodeid50",
+            "subnet": "10.0.0.148/31"
+        },
+        {
+            "name": "net-stcroix-nodeid8",
+            "subnet": "10.0.0.62/31"
+        },
+        {
+            "name": "net-ecuador",
+            "subnet": "100.0.12.0/24"
+        },
+        {
+            "name": "net-ecuador-nodeid37",
+            "subnet": "10.0.0.84/31"
+        },
+        {
+            "name": "net-curacao",
+            "subnet": "100.0.1.0/24"
+        },
+        {
+            "name": "net-curacao-puertorico",
+            "subnet": "10.0.0.82/31"
+        },
+        {
+            "name": "net-curacao-stvincent",
+            "subnet": "10.0.0.72/31"
+        },
+        {
+            "name": "net-curacao-bonaire",
+            "subnet": "10.0.0.156/31"
+        },
+        {
+            "name": "net-nodeid33",
+            "subnet": "100.0.6.0/24"
+        },
+        {
+            "name": "net-nodeid33-nodeid45",
+            "subnet": "10.0.0.98/31"
+        },
+        {
+            "name": "net-nodeid33-nodeid49",
+            "subnet": "10.0.0.68/31"
+        },
+        {
+            "name": "net-nodeid56",
+            "subnet": "100.0.13.0/24"
+        },
+        {
+            "name": "net-nodeid56-puertorico",
+            "subnet": "10.0.0.78/31"
+        },
+        {
+            "name": "net-nodeid56-dominicanrepublic",
+            "subnet": "10.0.0.146/31"
+        },
+        {
+            "name": "net-stvincent",
+            "subnet": "100.0.14.0/24"
+        },
+        {
+            "name": "net-stvincent-trinidadandtobago",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-columbia",
+            "subnet": "100.0.15.0/24"
+        },
+        {
+            "name": "net-columbia-nodeid38",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-columbia-nodeid1",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-nodeid38",
+            "subnet": "100.0.16.0/24"
+        },
+        {
+            "name": "net-elsalvador",
+            "subnet": "100.0.17.0/24"
+        },
+        {
+            "name": "net-elsalvador-nodeid63",
+            "subnet": "10.0.0.76/31"
+        },
+        {
+            "name": "net-puertorico",
+            "subnet": "100.0.18.0/24"
+        },
+        {
+            "name": "net-puertorico-stmartin",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-puertorico-nodeid50",
+            "subnet": "10.0.0.80/31"
+        },
+        {
+            "name": "net-nodeid37",
+            "subnet": "100.0.19.0/24"
+        },
+        {
+            "name": "net-nodeid37-nodeid1",
+            "subnet": "10.0.0.86/31"
+        },
+        {
+            "name": "net-nodeid34",
+            "subnet": "100.0.20.0/24"
+        },
+        {
+            "name": "net-nodeid34-nodeid1",
+            "subnet": "10.0.0.90/31"
+        },
+        {
+            "name": "net-nodeid35",
+            "subnet": "100.0.21.0/24"
+        },
+        {
+            "name": "net-nodeid35-trinidadandtobago",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-nodeid35-guyana",
+            "subnet": "10.0.0.94/31"
+        },
+        {
+            "name": "net-nodeid32",
+            "subnet": "100.0.22.0/24"
+        },
+        {
+            "name": "net-nodeid32-nodeid44",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-nodeid15",
+            "subnet": "100.0.68.0/24"
+        },
+        {
+            "name": "net-nodeid15-nodeid26",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-nodeid15-mexico",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-nodeid17",
+            "subnet": "100.0.24.0/24"
+        },
+        {
+            "name": "net-nodeid17-turksandcaicos",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-nodeid7",
+            "subnet": "100.0.25.0/24"
+        },
+        {
+            "name": "net-nodeid7-nodeid1",
+            "subnet": "10.0.0.106/31"
+        },
+        {
+            "name": "net-guatemala",
+            "subnet": "100.0.26.0/24"
+        },
+        {
+            "name": "net-guatemala-nodeid28",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-guatemala-nodeid63",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-nodeid0",
+            "subnet": "100.0.27.0/24"
+        },
+        {
+            "name": "net-nodeid0-nodeid27",
+            "subnet": "10.0.0.108/31"
+        },
+        {
+            "name": "net-nodeid0-nodeid1",
+            "subnet": "10.0.0.110/31"
+        },
+        {
+            "name": "net-martinique",
+            "subnet": "100.0.28.0/24"
+        },
+        {
+            "name": "net-martinique-dominica",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-stkittsnevis",
+            "subnet": "100.0.29.0/24"
+        },
+        {
+            "name": "net-stkittsnevis-stmartin",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-stkittsnevis-dominica",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-stkittsnevis-antigua",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-belize",
+            "subnet": "100.0.30.0/24"
+        },
+        {
+            "name": "net-belize-nodeid28",
+            "subnet": "10.0.0.134/31"
+        },
+        {
+            "name": "net-belize-mexico",
+            "subnet": "10.0.0.154/31"
+        },
+        {
+            "name": "net-dominica",
+            "subnet": "100.0.31.0/24"
+        },
+        {
+            "name": "net-dominica-guadeloupe",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-nodeid9",
+            "subnet": "100.0.32.0/24"
+        },
+        {
+            "name": "net-nodeid9-nodeid46",
+            "subnet": "10.0.0.112/31"
+        },
+        {
+            "name": "net-nodeid9-nodeid27",
+            "subnet": "10.0.0.114/31"
+        },
+        {
+            "name": "net-nodeid9-costarica",
+            "subnet": "10.0.0.116/31"
+        },
+        {
+            "name": "net-dominicanrepublic",
+            "subnet": "100.0.33.0/24"
+        },
+        {
+            "name": "net-dominicanrepublic-turksandcaicos",
+            "subnet": "10.0.0.118/31"
+        },
+        {
+            "name": "net-dominicanrepublic-nodeid39",
+            "subnet": "10.0.0.58/31"
+        },
+        {
+            "name": "net-nodeid50",
+            "subnet": "100.0.34.0/24"
+        },
+        {
+            "name": "net-nodeid50-nodeid8",
+            "subnet": "10.0.0.60/31"
+        },
+        {
+            "name": "net-trinidadandtobago",
+            "subnet": "100.0.35.0/24"
+        },
+        {
+            "name": "net-trinidadandtobago-grenada",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-costarica",
+            "subnet": "100.0.36.0/24"
+        },
+        {
+            "name": "net-costarica-nicaragua",
+            "subnet": "10.0.0.160/31"
+        },
+        {
+            "name": "net-jamaica",
+            "subnet": "100.0.37.0/24"
+        },
+        {
+            "name": "net-jamaica-nodeid39",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-nodeid1",
+            "subnet": "100.0.38.0/24"
+        },
+        {
+            "name": "net-turksandcaicos",
+            "subnet": "100.0.39.0/24"
+        },
+        {
+            "name": "net-bonaire",
+            "subnet": "100.0.41.0/24"
+        },
+        {
+            "name": "net-nodeid69",
+            "subnet": "100.0.42.0/24"
+        },
+        {
+            "name": "net-nodeid69-nicaragua",
+            "subnet": "10.0.0.158/31"
+        },
+        {
+            "name": "net-nodeid69-nodeid60",
+            "subnet": "10.0.0.164/31"
+        },
+        {
+            "name": "net-antigua",
+            "subnet": "100.0.43.0/24"
+        },
+        {
+            "name": "net-antigua-guadeloupe",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-guyana",
+            "subnet": "100.0.44.0/24"
+        },
+        {
+            "name": "net-grenada",
+            "subnet": "100.0.45.0/24"
+        },
+        {
+            "name": "net-grenada-nodeid24",
+            "subnet": "10.0.0.128/31"
+        },
+        {
+            "name": "net-nodeid67",
+            "subnet": "100.0.46.0/24"
+        },
+        {
+            "name": "net-nodeid67-nodeid29",
+            "subnet": "10.0.0.132/31"
+        },
+        {
+            "name": "net-nodeid67-honduras",
+            "subnet": "10.0.0.166/31"
+        },
+        {
+            "name": "net-nodeid67-nodeid28",
+            "subnet": "10.0.0.136/31"
+        },
+        {
+            "name": "net-guadeloupe",
+            "subnet": "100.0.47.0/24"
+        },
+        {
+            "name": "net-nodeid60",
+            "subnet": "100.0.48.0/24"
+        },
+        {
+            "name": "net-nodeid60-honduras",
+            "subnet": "10.0.0.168/31"
+        },
+        {
+            "name": "net-nodeid63",
+            "subnet": "100.0.49.0/24"
+        },
+        {
+            "name": "net-nodeid63-nodeid62",
+            "subnet": "10.0.0.152/31"
+        },
+        {
+            "name": "net-nodeid62",
+            "subnet": "100.0.50.0/24"
+        },
+        {
+            "name": "net-stmartin",
+            "subnet": "100.0.51.0/24"
+        },
+        {
+            "name": "net-stmartin-nodeid8",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-nodeid46",
+            "subnet": "100.0.52.0/24"
+        },
+        {
+            "name": "net-nodeid46-nodeid29",
+            "subnet": "10.0.0.130/31"
+        },
+        {
+            "name": "net-nodeid46-caymanislands",
+            "subnet": "10.0.0.64/31"
+        },
+        {
+            "name": "net-nodeid45",
+            "subnet": "100.0.53.0/24"
+        },
+        {
+            "name": "net-nodeid45-nodeid44",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-nodeid45-nodeid49",
+            "subnet": "10.0.0.66/31"
+        },
+        {
+            "name": "net-nodeid44",
+            "subnet": "100.0.54.0/24"
+        },
+        {
+            "name": "net-honduras",
+            "subnet": "100.0.55.0/24"
+        },
+        {
+            "name": "net-nodeid24",
+            "subnet": "100.0.56.0/24"
+        },
+        {
+            "name": "net-nodeid27",
+            "subnet": "100.0.62.0/24"
+        },
+        {
+            "name": "net-nodeid26",
+            "subnet": "100.0.58.0/24"
+        },
+        {
+            "name": "net-nodeid29",
+            "subnet": "100.0.59.0/24"
+        },
+        {
+            "name": "net-nodeid28",
+            "subnet": "100.0.60.0/24"
+        },
+        {
+            "name": "net-mexico",
+            "subnet": "100.0.40.0/24"
+        },
+        {
+            "name": "net-nodeid39",
+            "subnet": "100.0.61.0/24"
+        },
+        {
+            "name": "net-nodeid49",
+            "subnet": "100.0.63.0/24"
+        },
+        {
+            "name": "net-nodeid14",
+            "subnet": "100.0.64.0/24"
+        },
+        {
+            "name": "net-nodeid8",
+            "subnet": "100.0.65.0/24"
+        },
+        {
+            "name": "net-caymanislands",
+            "subnet": "100.0.66.0/24"
+        },
+        {
+            "name": "net-nicaragua",
+            "subnet": "100.0.67.0/24"
+        },
+        {
+            "name": "net-barbados",
+            "subnet": "100.0.69.0/24"
+        }
+    ],
+    "containers": [
+        {
+            "name": "nodeid13",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid13",
+                    "ipaddr": "100.0.0.1/24"
+                },
+                {
+                    "network": "net-nodeid13-nodeid29",
+                    "ipaddr": "10.0.0.4/31"
+                },
+                {
+                    "network": "net-nodeid13-nodeid14",
+                    "ipaddr": "10.0.0.6/31"
+                },
+                {
+                    "network": "net-nodeid13-nodeid31",
+                    "ipaddr": "10.0.0.8/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid41",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid41",
+                    "ipaddr": "100.0.57.1/24"
+                },
+                {
+                    "network": "net-nodeid41-jamaica",
+                    "ipaddr": "10.0.0.53/31"
+                },
+                {
+                    "network": "net-nodeid41-nodeid38",
+                    "ipaddr": "10.0.0.56/31"
+                }
+            ]
+        },
+        {
+            "name": "usa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-usa",
+                    "ipaddr": "100.0.2.1/24"
+                },
+                {
+                    "network": "net-usa-nodeid33",
+                    "ipaddr": "10.0.0.101/31"
+                },
+                {
+                    "network": "net-usa-nodeid38",
+                    "ipaddr": "10.0.0.75/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid22",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid22",
+                    "ipaddr": "100.0.3.1/24"
+                },
+                {
+                    "network": "net-nodeid22-martinique",
+                    "ipaddr": "10.0.0.120/31"
+                },
+                {
+                    "network": "net-nodeid22-nodeid24",
+                    "ipaddr": "10.0.0.122/31"
+                },
+                {
+                    "network": "net-nodeid22-barbados",
+                    "ipaddr": "10.0.0.124/31"
+                },
+                {
+                    "network": "net-nodeid22-stcroix",
+                    "ipaddr": "10.0.0.126/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid58",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid58",
+                    "ipaddr": "100.0.4.1/24"
+                },
+                {
+                    "network": "net-nodeid58-nodeid59",
+                    "ipaddr": "10.0.0.150/31"
+                },
+                {
+                    "network": "net-nodeid58-nodeid17",
+                    "ipaddr": "10.0.0.17/31"
+                }
+            ]
+        },
+        {
+            "name": "panama",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-panama",
+                    "ipaddr": "100.0.5.1/24"
+                },
+                {
+                    "network": "net-panama-nodeid34",
+                    "ipaddr": "10.0.0.89/31"
+                },
+                {
+                    "network": "net-panama-nodeid27",
+                    "ipaddr": "10.0.0.138/31"
+                },
+                {
+                    "network": "net-panama-costarica",
+                    "ipaddr": "10.0.0.140/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid59",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid59",
+                    "ipaddr": "100.0.23.1/24"
+                },
+                {
+                    "network": "net-nodeid59-bahamas",
+                    "ipaddr": "10.0.0.145/31"
+                },
+                {
+                    "network": "net-nodeid59-nodeid44",
+                    "ipaddr": "10.0.0.39/31"
+                },
+                {
+                    "network": "net-nodeid58-nodeid59",
+                    "ipaddr": "10.0.0.151/31"
+                },
+                {
+                    "network": "net-nodeid59-nodeid32",
+                    "ipaddr": "10.0.0.97/31"
+                }
+            ]
+        },
+        {
+            "name": "bahamas",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bahamas",
+                    "ipaddr": "100.0.7.1/24"
+                },
+                {
+                    "network": "net-bahamas-nodeid45",
+                    "ipaddr": "10.0.0.142/31"
+                },
+                {
+                    "network": "net-nodeid59-bahamas",
+                    "ipaddr": "10.0.0.144/31"
+                }
+            ]
+        },
+        {
+            "name": "suriname",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-suriname",
+                    "ipaddr": "100.0.8.1/24"
+                },
+                {
+                    "network": "net-suriname-nodeid35",
+                    "ipaddr": "10.0.0.93/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid31",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid31",
+                    "ipaddr": "100.0.9.1/24"
+                },
+                {
+                    "network": "net-nodeid31-nodeid44",
+                    "ipaddr": "10.0.0.41/31"
+                },
+                {
+                    "network": "net-nodeid13-nodeid31",
+                    "ipaddr": "10.0.0.9/31"
+                },
+                {
+                    "network": "net-nodeid31-nodeid49",
+                    "ipaddr": "10.0.0.71/31"
+                },
+                {
+                    "network": "net-nodeid31-nodeid26",
+                    "ipaddr": "10.0.0.102/31"
+                }
+            ]
+        },
+        {
+            "name": "venezuela",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-venezuela",
+                    "ipaddr": "100.0.10.1/24"
+                },
+                {
+                    "network": "net-venezuela-nodeid7",
+                    "ipaddr": "10.0.0.105/31"
+                },
+                {
+                    "network": "net-venezuela-curacao",
+                    "ipaddr": "10.0.0.163/31"
+                }
+            ]
+        },
+        {
+            "name": "stcroix",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stcroix",
+                    "ipaddr": "100.0.11.1/24"
+                },
+                {
+                    "network": "net-nodeid22-stcroix",
+                    "ipaddr": "10.0.0.127/31"
+                },
+                {
+                    "network": "net-stcroix-nodeid50",
+                    "ipaddr": "10.0.0.149/31"
+                },
+                {
+                    "network": "net-stcroix-nodeid8",
+                    "ipaddr": "10.0.0.63/31"
+                }
+            ]
+        },
+        {
+            "name": "ecuador",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ecuador",
+                    "ipaddr": "100.0.12.1/24"
+                },
+                {
+                    "network": "net-ecuador-nodeid37",
+                    "ipaddr": "10.0.0.85/31"
+                }
+            ]
+        },
+        {
+            "name": "curacao",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-curacao",
+                    "ipaddr": "100.0.1.1/24"
+                },
+                {
+                    "network": "net-curacao-puertorico",
+                    "ipaddr": "10.0.0.83/31"
+                },
+                {
+                    "network": "net-curacao-stvincent",
+                    "ipaddr": "10.0.0.73/31"
+                },
+                {
+                    "network": "net-venezuela-curacao",
+                    "ipaddr": "10.0.0.162/31"
+                },
+                {
+                    "network": "net-curacao-bonaire",
+                    "ipaddr": "10.0.0.157/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid33",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid33",
+                    "ipaddr": "100.0.6.1/24"
+                },
+                {
+                    "network": "net-nodeid33-nodeid45",
+                    "ipaddr": "10.0.0.98/31"
+                },
+                {
+                    "network": "net-nodeid33-nodeid49",
+                    "ipaddr": "10.0.0.69/31"
+                },
+                {
+                    "network": "net-usa-nodeid33",
+                    "ipaddr": "10.0.0.100/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid56",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid56",
+                    "ipaddr": "100.0.13.1/24"
+                },
+                {
+                    "network": "net-nodeid56-puertorico",
+                    "ipaddr": "10.0.0.79/31"
+                },
+                {
+                    "network": "net-nodeid56-dominicanrepublic",
+                    "ipaddr": "10.0.0.146/31"
+                }
+            ]
+        },
+        {
+            "name": "stvincent",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stvincent",
+                    "ipaddr": "100.0.14.1/24"
+                },
+                {
+                    "network": "net-curacao-stvincent",
+                    "ipaddr": "10.0.0.72/31"
+                },
+                {
+                    "network": "net-stvincent-trinidadandtobago",
+                    "ipaddr": "10.0.0.33/31"
+                }
+            ]
+        },
+        {
+            "name": "columbia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-columbia",
+                    "ipaddr": "100.0.15.1/24"
+                },
+                {
+                    "network": "net-columbia-nodeid38",
+                    "ipaddr": "10.0.0.0/31"
+                },
+                {
+                    "network": "net-columbia-nodeid1",
+                    "ipaddr": "10.0.0.2/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid38",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid38",
+                    "ipaddr": "100.0.16.1/24"
+                },
+                {
+                    "network": "net-columbia-nodeid38",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-usa-nodeid38",
+                    "ipaddr": "10.0.0.74/31"
+                },
+                {
+                    "network": "net-nodeid41-nodeid38",
+                    "ipaddr": "10.0.0.57/31"
+                }
+            ]
+        },
+        {
+            "name": "elsalvador",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-elsalvador",
+                    "ipaddr": "100.0.17.1/24"
+                },
+                {
+                    "network": "net-elsalvador-nodeid63",
+                    "ipaddr": "10.0.0.76/31"
+                }
+            ]
+        },
+        {
+            "name": "puertorico",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-puertorico",
+                    "ipaddr": "100.0.18.1/24"
+                },
+                {
+                    "network": "net-puertorico-stmartin",
+                    "ipaddr": "10.0.0.47/31"
+                },
+                {
+                    "network": "net-nodeid56-puertorico",
+                    "ipaddr": "10.0.0.78/31"
+                },
+                {
+                    "network": "net-puertorico-nodeid50",
+                    "ipaddr": "10.0.0.80/31"
+                },
+                {
+                    "network": "net-curacao-puertorico",
+                    "ipaddr": "10.0.0.82/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid37",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid37",
+                    "ipaddr": "100.0.19.1/24"
+                },
+                {
+                    "network": "net-ecuador-nodeid37",
+                    "ipaddr": "10.0.0.84/31"
+                },
+                {
+                    "network": "net-nodeid37-nodeid1",
+                    "ipaddr": "10.0.0.86/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid34",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid34",
+                    "ipaddr": "100.0.20.1/24"
+                },
+                {
+                    "network": "net-panama-nodeid34",
+                    "ipaddr": "10.0.0.88/31"
+                },
+                {
+                    "network": "net-nodeid34-nodeid1",
+                    "ipaddr": "10.0.0.90/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid35",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid35",
+                    "ipaddr": "100.0.21.1/24"
+                },
+                {
+                    "network": "net-nodeid35-trinidadandtobago",
+                    "ipaddr": "10.0.0.31/31"
+                },
+                {
+                    "network": "net-suriname-nodeid35",
+                    "ipaddr": "10.0.0.92/31"
+                },
+                {
+                    "network": "net-nodeid35-guyana",
+                    "ipaddr": "10.0.0.94/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid32",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid32",
+                    "ipaddr": "100.0.22.1/24"
+                },
+                {
+                    "network": "net-nodeid32-nodeid44",
+                    "ipaddr": "10.0.0.37/31"
+                },
+                {
+                    "network": "net-nodeid59-nodeid32",
+                    "ipaddr": "10.0.0.96/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid15",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid15",
+                    "ipaddr": "100.0.68.1/24"
+                },
+                {
+                    "network": "net-nodeid15-nodeid26",
+                    "ipaddr": "10.0.0.10/31"
+                },
+                {
+                    "network": "net-nodeid15-mexico",
+                    "ipaddr": "10.0.0.12/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid17",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid17",
+                    "ipaddr": "100.0.24.1/24"
+                },
+                {
+                    "network": "net-nodeid17-turksandcaicos",
+                    "ipaddr": "10.0.0.14/31"
+                },
+                {
+                    "network": "net-nodeid58-nodeid17",
+                    "ipaddr": "10.0.0.16/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid7",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid7",
+                    "ipaddr": "100.0.25.1/24"
+                },
+                {
+                    "network": "net-venezuela-nodeid7",
+                    "ipaddr": "10.0.0.104/31"
+                },
+                {
+                    "network": "net-nodeid7-nodeid1",
+                    "ipaddr": "10.0.0.106/31"
+                }
+            ]
+        },
+        {
+            "name": "guatemala",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-guatemala",
+                    "ipaddr": "100.0.26.1/24"
+                },
+                {
+                    "network": "net-guatemala-nodeid28",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-guatemala-nodeid63",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid0",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid0",
+                    "ipaddr": "100.0.27.1/24"
+                },
+                {
+                    "network": "net-nodeid0-nodeid27",
+                    "ipaddr": "10.0.0.108/31"
+                },
+                {
+                    "network": "net-nodeid0-nodeid1",
+                    "ipaddr": "10.0.0.110/31"
+                }
+            ]
+        },
+        {
+            "name": "martinique",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-martinique",
+                    "ipaddr": "100.0.28.1/24"
+                },
+                {
+                    "network": "net-nodeid22-martinique",
+                    "ipaddr": "10.0.0.121/31"
+                },
+                {
+                    "network": "net-martinique-dominica",
+                    "ipaddr": "10.0.0.27/31"
+                }
+            ]
+        },
+        {
+            "name": "stkittsnevis",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stkittsnevis",
+                    "ipaddr": "100.0.29.1/24"
+                },
+                {
+                    "network": "net-stkittsnevis-stmartin",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-stkittsnevis-dominica",
+                    "ipaddr": "10.0.0.23/31"
+                },
+                {
+                    "network": "net-stkittsnevis-antigua",
+                    "ipaddr": "10.0.0.43/31"
+                }
+            ]
+        },
+        {
+            "name": "belize",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-belize",
+                    "ipaddr": "100.0.30.1/24"
+                },
+                {
+                    "network": "net-belize-nodeid28",
+                    "ipaddr": "10.0.0.135/31"
+                },
+                {
+                    "network": "net-belize-mexico",
+                    "ipaddr": "10.0.0.154/31"
+                }
+            ]
+        },
+        {
+            "name": "dominica",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-dominica",
+                    "ipaddr": "100.0.31.1/24"
+                },
+                {
+                    "network": "net-stkittsnevis-dominica",
+                    "ipaddr": "10.0.0.22/31"
+                },
+                {
+                    "network": "net-dominica-guadeloupe",
+                    "ipaddr": "10.0.0.24/31"
+                },
+                {
+                    "network": "net-martinique-dominica",
+                    "ipaddr": "10.0.0.26/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid9",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid9",
+                    "ipaddr": "100.0.32.1/24"
+                },
+                {
+                    "network": "net-nodeid9-nodeid46",
+                    "ipaddr": "10.0.0.112/31"
+                },
+                {
+                    "network": "net-nodeid9-nodeid27",
+                    "ipaddr": "10.0.0.114/31"
+                },
+                {
+                    "network": "net-nodeid9-costarica",
+                    "ipaddr": "10.0.0.116/31"
+                }
+            ]
+        },
+        {
+            "name": "dominicanrepublic",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-dominicanrepublic",
+                    "ipaddr": "100.0.33.1/24"
+                },
+                {
+                    "network": "net-dominicanrepublic-turksandcaicos",
+                    "ipaddr": "10.0.0.119/31"
+                },
+                {
+                    "network": "net-nodeid56-dominicanrepublic",
+                    "ipaddr": "10.0.0.147/31"
+                },
+                {
+                    "network": "net-dominicanrepublic-nodeid39",
+                    "ipaddr": "10.0.0.59/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid50",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid50",
+                    "ipaddr": "100.0.34.1/24"
+                },
+                {
+                    "network": "net-puertorico-nodeid50",
+                    "ipaddr": "10.0.0.81/31"
+                },
+                {
+                    "network": "net-stcroix-nodeid50",
+                    "ipaddr": "10.0.0.148/31"
+                },
+                {
+                    "network": "net-nodeid50-nodeid8",
+                    "ipaddr": "10.0.0.61/31"
+                }
+            ]
+        },
+        {
+            "name": "trinidadandtobago",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-trinidadandtobago",
+                    "ipaddr": "100.0.35.1/24"
+                },
+                {
+                    "network": "net-trinidadandtobago-grenada",
+                    "ipaddr": "10.0.0.28/31"
+                },
+                {
+                    "network": "net-nodeid35-trinidadandtobago",
+                    "ipaddr": "10.0.0.30/31"
+                },
+                {
+                    "network": "net-stvincent-trinidadandtobago",
+                    "ipaddr": "10.0.0.32/31"
+                }
+            ]
+        },
+        {
+            "name": "costarica",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-costarica",
+                    "ipaddr": "100.0.36.1/24"
+                },
+                {
+                    "network": "net-panama-costarica",
+                    "ipaddr": "10.0.0.141/31"
+                },
+                {
+                    "network": "net-costarica-nicaragua",
+                    "ipaddr": "10.0.0.161/31"
+                },
+                {
+                    "network": "net-nodeid9-costarica",
+                    "ipaddr": "10.0.0.117/31"
+                }
+            ]
+        },
+        {
+            "name": "jamaica",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jamaica",
+                    "ipaddr": "100.0.37.1/24"
+                },
+                {
+                    "network": "net-nodeid41-jamaica",
+                    "ipaddr": "10.0.0.52/31"
+                },
+                {
+                    "network": "net-jamaica-nodeid39",
+                    "ipaddr": "10.0.0.54/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid1",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid1",
+                    "ipaddr": "100.0.38.1/24"
+                },
+                {
+                    "network": "net-columbia-nodeid1",
+                    "ipaddr": "10.0.0.3/31"
+                },
+                {
+                    "network": "net-nodeid37-nodeid1",
+                    "ipaddr": "10.0.0.87/31"
+                },
+                {
+                    "network": "net-nodeid34-nodeid1",
+                    "ipaddr": "10.0.0.91/31"
+                },
+                {
+                    "network": "net-nodeid7-nodeid1",
+                    "ipaddr": "10.0.0.107/31"
+                },
+                {
+                    "network": "net-nodeid0-nodeid1",
+                    "ipaddr": "10.0.0.111/31"
+                }
+            ]
+        },
+        {
+            "name": "turksandcaicos",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-turksandcaicos",
+                    "ipaddr": "100.0.39.1/24"
+                },
+                {
+                    "network": "net-dominicanrepublic-turksandcaicos",
+                    "ipaddr": "10.0.0.118/31"
+                },
+                {
+                    "network": "net-nodeid17-turksandcaicos",
+                    "ipaddr": "10.0.0.15/31"
+                }
+            ]
+        },
+        {
+            "name": "bonaire",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bonaire",
+                    "ipaddr": "100.0.41.1/24"
+                },
+                {
+                    "network": "net-curacao-bonaire",
+                    "ipaddr": "10.0.0.156/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid69",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid69",
+                    "ipaddr": "100.0.42.1/24"
+                },
+                {
+                    "network": "net-nodeid69-nicaragua",
+                    "ipaddr": "10.0.0.159/31"
+                },
+                {
+                    "network": "net-nodeid69-nodeid60",
+                    "ipaddr": "10.0.0.164/31"
+                }
+            ]
+        },
+        {
+            "name": "antigua",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-antigua",
+                    "ipaddr": "100.0.43.1/24"
+                },
+                {
+                    "network": "net-stkittsnevis-antigua",
+                    "ipaddr": "10.0.0.42/31"
+                },
+                {
+                    "network": "net-antigua-guadeloupe",
+                    "ipaddr": "10.0.0.44/31"
+                }
+            ]
+        },
+        {
+            "name": "guyana",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-guyana",
+                    "ipaddr": "100.0.44.1/24"
+                },
+                {
+                    "network": "net-nodeid35-guyana",
+                    "ipaddr": "10.0.0.95/31"
+                }
+            ]
+        },
+        {
+            "name": "grenada",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-grenada",
+                    "ipaddr": "100.0.45.1/24"
+                },
+                {
+                    "network": "net-grenada-nodeid24",
+                    "ipaddr": "10.0.0.129/31"
+                },
+                {
+                    "network": "net-trinidadandtobago-grenada",
+                    "ipaddr": "10.0.0.29/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid67",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid67",
+                    "ipaddr": "100.0.46.1/24"
+                },
+                {
+                    "network": "net-nodeid67-nodeid29",
+                    "ipaddr": "10.0.0.133/31"
+                },
+                {
+                    "network": "net-nodeid67-honduras",
+                    "ipaddr": "10.0.0.166/31"
+                },
+                {
+                    "network": "net-nodeid67-nodeid28",
+                    "ipaddr": "10.0.0.137/31"
+                }
+            ]
+        },
+        {
+            "name": "guadeloupe",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-guadeloupe",
+                    "ipaddr": "100.0.47.1/24"
+                },
+                {
+                    "network": "net-dominica-guadeloupe",
+                    "ipaddr": "10.0.0.25/31"
+                },
+                {
+                    "network": "net-antigua-guadeloupe",
+                    "ipaddr": "10.0.0.45/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid60",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid60",
+                    "ipaddr": "100.0.48.1/24"
+                },
+                {
+                    "network": "net-nodeid60-honduras",
+                    "ipaddr": "10.0.0.168/31"
+                },
+                {
+                    "network": "net-nodeid69-nodeid60",
+                    "ipaddr": "10.0.0.165/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid63",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid63",
+                    "ipaddr": "100.0.49.1/24"
+                },
+                {
+                    "network": "net-guatemala-nodeid63",
+                    "ipaddr": "10.0.0.21/31"
+                },
+                {
+                    "network": "net-nodeid63-nodeid62",
+                    "ipaddr": "10.0.0.152/31"
+                },
+                {
+                    "network": "net-elsalvador-nodeid63",
+                    "ipaddr": "10.0.0.77/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid62",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid62",
+                    "ipaddr": "100.0.50.1/24"
+                },
+                {
+                    "network": "net-nodeid63-nodeid62",
+                    "ipaddr": "10.0.0.153/31"
+                }
+            ]
+        },
+        {
+            "name": "stmartin",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stmartin",
+                    "ipaddr": "100.0.51.1/24"
+                },
+                {
+                    "network": "net-puertorico-stmartin",
+                    "ipaddr": "10.0.0.46/31"
+                },
+                {
+                    "network": "net-stkittsnevis-stmartin",
+                    "ipaddr": "10.0.0.48/31"
+                },
+                {
+                    "network": "net-stmartin-nodeid8",
+                    "ipaddr": "10.0.0.50/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid46",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid46",
+                    "ipaddr": "100.0.52.1/24"
+                },
+                {
+                    "network": "net-nodeid46-nodeid29",
+                    "ipaddr": "10.0.0.131/31"
+                },
+                {
+                    "network": "net-nodeid46-caymanislands",
+                    "ipaddr": "10.0.0.65/31"
+                },
+                {
+                    "network": "net-nodeid9-nodeid46",
+                    "ipaddr": "10.0.0.113/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid45",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid45",
+                    "ipaddr": "100.0.53.1/24"
+                },
+                {
+                    "network": "net-bahamas-nodeid45",
+                    "ipaddr": "10.0.0.143/31"
+                },
+                {
+                    "network": "net-nodeid45-nodeid44",
+                    "ipaddr": "10.0.0.35/31"
+                },
+                {
+                    "network": "net-nodeid33-nodeid45",
+                    "ipaddr": "10.0.0.99/31"
+                },
+                {
+                    "network": "net-nodeid45-nodeid49",
+                    "ipaddr": "10.0.0.67/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid44",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid44",
+                    "ipaddr": "100.0.54.1/24"
+                },
+                {
+                    "network": "net-nodeid45-nodeid44",
+                    "ipaddr": "10.0.0.34/31"
+                },
+                {
+                    "network": "net-nodeid32-nodeid44",
+                    "ipaddr": "10.0.0.36/31"
+                },
+                {
+                    "network": "net-nodeid59-nodeid44",
+                    "ipaddr": "10.0.0.38/31"
+                },
+                {
+                    "network": "net-nodeid31-nodeid44",
+                    "ipaddr": "10.0.0.40/31"
+                }
+            ]
+        },
+        {
+            "name": "honduras",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-honduras",
+                    "ipaddr": "100.0.55.1/24"
+                },
+                {
+                    "network": "net-nodeid67-honduras",
+                    "ipaddr": "10.0.0.167/31"
+                },
+                {
+                    "network": "net-nodeid60-honduras",
+                    "ipaddr": "10.0.0.169/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid24",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid24",
+                    "ipaddr": "100.0.56.1/24"
+                },
+                {
+                    "network": "net-grenada-nodeid24",
+                    "ipaddr": "10.0.0.128/31"
+                },
+                {
+                    "network": "net-nodeid22-nodeid24",
+                    "ipaddr": "10.0.0.123/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid27",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid27",
+                    "ipaddr": "100.0.62.1/24"
+                },
+                {
+                    "network": "net-panama-nodeid27",
+                    "ipaddr": "10.0.0.139/31"
+                },
+                {
+                    "network": "net-nodeid0-nodeid27",
+                    "ipaddr": "10.0.0.109/31"
+                },
+                {
+                    "network": "net-nodeid9-nodeid27",
+                    "ipaddr": "10.0.0.115/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid26",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid26",
+                    "ipaddr": "100.0.58.1/24"
+                },
+                {
+                    "network": "net-nodeid15-nodeid26",
+                    "ipaddr": "10.0.0.11/31"
+                },
+                {
+                    "network": "net-nodeid31-nodeid26",
+                    "ipaddr": "10.0.0.103/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid29",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid29",
+                    "ipaddr": "100.0.59.1/24"
+                },
+                {
+                    "network": "net-nodeid46-nodeid29",
+                    "ipaddr": "10.0.0.130/31"
+                },
+                {
+                    "network": "net-nodeid67-nodeid29",
+                    "ipaddr": "10.0.0.132/31"
+                },
+                {
+                    "network": "net-nodeid13-nodeid29",
+                    "ipaddr": "10.0.0.5/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid28",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid28",
+                    "ipaddr": "100.0.60.1/24"
+                },
+                {
+                    "network": "net-guatemala-nodeid28",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-belize-nodeid28",
+                    "ipaddr": "10.0.0.134/31"
+                },
+                {
+                    "network": "net-nodeid67-nodeid28",
+                    "ipaddr": "10.0.0.136/31"
+                }
+            ]
+        },
+        {
+            "name": "mexico",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mexico",
+                    "ipaddr": "100.0.40.1/24"
+                },
+                {
+                    "network": "net-belize-mexico",
+                    "ipaddr": "10.0.0.155/31"
+                },
+                {
+                    "network": "net-nodeid15-mexico",
+                    "ipaddr": "10.0.0.13/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid39",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid39",
+                    "ipaddr": "100.0.61.1/24"
+                },
+                {
+                    "network": "net-jamaica-nodeid39",
+                    "ipaddr": "10.0.0.55/31"
+                },
+                {
+                    "network": "net-dominicanrepublic-nodeid39",
+                    "ipaddr": "10.0.0.58/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid49",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid49",
+                    "ipaddr": "100.0.63.1/24"
+                },
+                {
+                    "network": "net-nodeid45-nodeid49",
+                    "ipaddr": "10.0.0.66/31"
+                },
+                {
+                    "network": "net-nodeid33-nodeid49",
+                    "ipaddr": "10.0.0.68/31"
+                },
+                {
+                    "network": "net-nodeid31-nodeid49",
+                    "ipaddr": "10.0.0.70/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid14",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid14",
+                    "ipaddr": "100.0.64.1/24"
+                },
+                {
+                    "network": "net-nodeid13-nodeid14",
+                    "ipaddr": "10.0.0.7/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid8",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid8",
+                    "ipaddr": "100.0.65.1/24"
+                },
+                {
+                    "network": "net-stmartin-nodeid8",
+                    "ipaddr": "10.0.0.51/31"
+                },
+                {
+                    "network": "net-nodeid50-nodeid8",
+                    "ipaddr": "10.0.0.60/31"
+                },
+                {
+                    "network": "net-stcroix-nodeid8",
+                    "ipaddr": "10.0.0.62/31"
+                }
+            ]
+        },
+        {
+            "name": "caymanislands",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-caymanislands",
+                    "ipaddr": "100.0.66.1/24"
+                },
+                {
+                    "network": "net-nodeid46-caymanislands",
+                    "ipaddr": "10.0.0.64/31"
+                }
+            ]
+        },
+        {
+            "name": "nicaragua",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nicaragua",
+                    "ipaddr": "100.0.67.1/24"
+                },
+                {
+                    "network": "net-nodeid69-nicaragua",
+                    "ipaddr": "10.0.0.158/31"
+                },
+                {
+                    "network": "net-costarica-nicaragua",
+                    "ipaddr": "10.0.0.160/31"
+                }
+            ]
+        },
+        {
+            "name": "barbados",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-barbados",
+                    "ipaddr": "100.0.69.1/24"
+                },
+                {
+                    "network": "net-nodeid22-barbados",
+                    "ipaddr": "10.0.0.125/31"
+                }
+            ]
+        }
+    ]
+}
