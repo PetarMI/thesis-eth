@@ -107,7 +107,7 @@ function configure_devices {
 
     while read -r name
     do
-        echo "Setting up device on container ${name}..."
+        echo "Configuring device on container ${name}..."
         docker exec ${name} ${FRR_CONFIG_SCRIPT}
     done <<< ${containers}
 

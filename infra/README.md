@@ -26,6 +26,9 @@ Infrastructure Layer 1 consists of Virtual Machines which host several Layer 2 c
 * Running Docker
 * `weavenet` driver
 * `rp_filter` set to 2
+    * change two flags to 2 in `/etc/sysctl.conf` to make changes permanent
+* prebuilt FRR image in home directory
+    * `.tar` file produced after `docker save`
 
 ### Layer 2 - Phynet 
 

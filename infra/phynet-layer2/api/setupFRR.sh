@@ -2,6 +2,7 @@
 
 readonly FRR_IMAGE="prefrr.tar"
 readonly RED='\033[0;31m'
+readonly NC='\033[0m' # No Color
 
 function signal_fail {
     local exit_code=$1
