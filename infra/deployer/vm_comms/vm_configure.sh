@@ -45,15 +45,18 @@ readonly NC='\033[0m' # No Color
 #######################################
 function exec_l3_command {
     local option=$1
+    pids=()
 
     while IFS=, read -r idx vm_id role
     do
         printf "${CYAN}#### Running inside VM ${idx} ####${NC}\n"
-ssh -T "${USER}@${vm_id}" << EOF
-    cd ${VM_SCRIPT_DIR}
-    ./${SETUP_DEVICES} -${option}
-EOF
+        ssh -T "${USER}@${vm_id}" "cd ${VM_SCRIPT_DIR}; ./${SETUP_DEVICES} -${option}" &
+        pids+=($!)
     done < ${CONF_FILE}
+
+    for pid in ${pids[*]}; do
+        wait ${pid}
+    done
 }
 
 #######################################

@@ -73,7 +73,7 @@ function setup_frr_image {
         wait ${pid}
     done
 
-    printf "${GREEN}Done!${NC}\n"
+    printf "${GREEN}Uplaoded image to all containers on VM!${NC}\n"
 }
 
 #######################################
@@ -87,31 +87,30 @@ function setup_containers {
     do
         echo "## Setting up device on container ${name}... ##"
         # TODO: write to a setup log dir
-        time docker exec ${name} ${FRR_SETUP_SCRIPT}
-        #pids+=($!)
+        docker exec ${name} ${FRR_SETUP_SCRIPT}
     done <<< ${containers}
 
-    echo "Processing..."
-
-#    for pid in ${pids[*]}; do
-#        wait ${pid}
-#    done
-
-    printf "${GREEN}Done!${NC}\n"
+    printf "${GREEN}Started all L2 containers on VM!${NC}\n"
 }
 
 function configure_devices {
     check_containers
 
     local containers=$(docker ps | grep phynet | awk '{print $NF}')
+    pids=()
 
     while read -r name
     do
         echo "Configuring device on container ${name}..."
-        docker exec ${name} ${FRR_CONFIG_SCRIPT}
+        docker exec ${name} ${FRR_CONFIG_SCRIPT} &
+        pids+=($!)
     done <<< ${containers}
 
-    printf "${GREEN}Done!${NC}\n"
+    for pid in ${pids[*]}; do
+        wait ${pid}
+    done
+
+    printf "${GREEN}Restarted all L3 cotnainers on VM!${NC}\n"
 }
 
 #######################################
@@ -119,10 +118,10 @@ function configure_devices {
 #######################################
 
 if [[ ${FLAG_setup_devices} == 1 ]]; then
-    setup_frr_image
-    setup_containers
+    time setup_frr_image
+    time setup_containers
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then
-    configure_devices
+    time configure_devices
 fi

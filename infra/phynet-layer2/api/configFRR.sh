@@ -8,4 +8,4 @@ echo "2/3 Setting configs to frr.conf"
 docker exec frr bash -c "cp /home/device-config.conf /etc/frr/frr.conf"
 
 echo "3/3 Restart FRR container to load new configs"
-docker restart frr
+docker restart frr 1>/dev/null

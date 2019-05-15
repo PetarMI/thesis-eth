@@ -219,7 +219,7 @@ py_perform_matching
 
 printf "${CYAN}#### Performing NAT ####"
 #echo "## Updating subnets ##"
-#sed_subnets
+sed_subnets
 echo "## Updating interfaces ##"
 sed_ifaces
 echo "## Updating IP addresses ##"
