@@ -14,9 +14,9 @@ function signal_fail {
 }
 
 echo "1/2 Load FRR image"
-docker load -i ${FRR_IMAGE} 1>/dev/null
+time docker load -i ${FRR_IMAGE}
 signal_fail $? "Loading FRR image"
 
 echo "2/2 Setting up FRR container"
-docker run -itd --privileged --name frr --network host frr:6.0.2 1>/dev/null
+time docker run -itd --privileged --name frr --network host frr:6.0.2
 signal_fail $? "Running an FRR container"

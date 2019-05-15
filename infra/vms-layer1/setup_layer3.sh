@@ -31,6 +31,7 @@ done
 #######################################
 readonly HOME="$HOME"
 readonly FRR_IMAGE="prefrr.tar"
+readonly LOG_FILE="${HOME}/logs/setup.log"
 
 # L2 constants
 readonly SCRIPT_DIR="/home/api"
@@ -86,8 +87,7 @@ function setup_containers {
     while read -r name
     do
         echo "## Setting up device on container ${name}... ##"
-        # TODO: write to a setup log dir
-        docker exec ${name} ${FRR_SETUP_SCRIPT}
+        docker exec ${name} ${FRR_SETUP_SCRIPT} >> ${LOG_FILE}
     done <<< ${containers}
 
     printf "${GREEN}Started all L2 containers on VM!${NC}\n"
@@ -102,7 +102,7 @@ function configure_devices {
     while read -r name
     do
         echo "Configuring device on container ${name}..."
-        docker exec ${name} ${FRR_CONFIG_SCRIPT} &
+        docker exec ${name} ${FRR_CONFIG_SCRIPT} >> ${LOG_FILE} &
         pids+=($!)
     done <<< ${containers}
 
@@ -123,5 +123,5 @@ if [[ ${FLAG_setup_devices} == 1 ]]; then
 fi
 
 if [[ ${FLAG_config_devices} == 1 ]]; then
-    time configure_devices
+    configure_devices
 fi
