@@ -58,41 +58,41 @@ signal_fail $?
 
 printf "${L_GREEN}######### 1/9 Setting up VM directories #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash ${VM_COMMS_DIR}/vm_env.sh -cd
+time bash ${VM_COMMS_DIR}/vm_env.sh -cd
 signal_fail $?
 
 printf "${L_GREEN}######### 2/9 Generating compose files #########${NC}\n"
 cd "${COMPOSER_DIR}"
-python TopoComposer.py -t "${FLAG_topology}"
+time python TopoComposer.py -t "${FLAG_topology}"
 signal_fail $?
 
 printf "${L_GREEN}######### 3/9 Uploading files to VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash vm_upload.sh -t "${FLAG_topology}" -a
+time bash vm_upload.sh -t "${FLAG_topology}" -a
 signal_fail $?
 
 printf "${L_GREEN}######### 4/9 Building Layer 2 on VMs #########${NC}\n"
-bash vm_compose.sh -u
+time bash vm_compose.sh -u
 signal_fail $?
 
 printf "${L_GREEN}######### 5/9 Setup L3 device containers #########${NC}\n"
-bash vm_configure.sh -s
+time bash vm_configure.sh -s
 signal_fail $?
 
 printf "${L_GREEN}######### 6/9 Downloading data #########${NC}\n"
-bash vm_download.sh -t "${FLAG_topology}"
+time bash vm_download.sh -t "${FLAG_topology}"
 signal_fail $?
 
 printf "${L_GREEN}######### 7/9 Performing NAT #########${NC}\n"
 cd "${NAT_DIR}"
-bash perform_nat.sh -t "${FLAG_topology}"
+time bash perform_nat.sh -t "${FLAG_topology}"
 signal_fail $?
 
 printf "${L_GREEN}######### 8/9 Building Layer 2 on VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-bash vm_upload.sh -t "${FLAG_topology}" -f
+time bash vm_upload.sh -t "${FLAG_topology}" -f
 signal_fail $?
 
 printf "${L_GREEN}######### 9/9 Building Layer 2 on VMs #########${NC}\n"
-bash vm_configure.sh -c
+time bash vm_configure.sh -c
 signal_fail $?

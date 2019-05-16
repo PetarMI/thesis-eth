@@ -15,18 +15,20 @@ where:
     -v     view Dir structure
     -h     show this help text"
 
-FLAG_installed=0
+FLAG_env=0
 FLAG_clean=0
 FLAG_dirs=0
+FLAG_volumes=0
 FLAG_build_phynet=0
 FLAG_view=0
 
-while getopts "icdpvh" option
+while getopts "ecdfpvh" option
 do
     case "${option}" in
-        i) FLAG_installed=1;;
+        e) FLAG_env=1;;
         c) FLAG_clean=1;;
         d) FLAG_dirs=1;;
+        f) FLAG_volumes=1;;
         p) FLAG_build_phynet=1;;
         v) FLAG_view=1;;
         h) echo "${usage}"; exit;;
@@ -55,10 +57,11 @@ readonly RED='\033[0;31m'
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
-function check_installed {
+function check_rp {
     local flag_correct=1
     local num_VMs=0
 
+    echo "## Checking Reverse Path Filtering"
     while IFS=, read -r idx vm_ip role
     do
         local ssh_out=$(ssh -n -T "${USER}@${vm_ip}" "sysctl net.ipv4.conf.all.rp_filter")
@@ -75,6 +78,22 @@ function check_installed {
     if [[ "${flag_correct}" -eq "1" ]]; then
         printf "${GREEN}All ${num_VMs} VMs with rp_filter=2${NC}\n"
     fi
+}
+
+function check_space {
+    echo "## Checking disk space on VMs ##"
+
+    while IFS=, read -r idx vm_ip role
+    do
+        local available=$(ssh -n -T "${USER}@${vm_ip}" "df -H | grep \"sda\"")
+        echo "${vm_ip} - ${available}"
+
+    done < ${CONF_FILE}
+}
+
+function check_env {
+    check_rp
+    check_space
 }
 
 function clean {
@@ -122,6 +141,20 @@ EOF
     done < ${CONF_FILE}
 }
 
+function free_volumes {
+    check_space
+
+    while IFS=, read -r idx vm_ip role
+    do
+        echo "## Freeing volumes on VM ${idx} ##"
+        command="docker volume ls -qf dangling=true | xargs -r docker volume rm"
+        ssh -n -T "${USER}@${vm_ip}" "${command}"
+
+    done < ${CONF_FILE}
+
+    check_space
+}
+
 #######################################
 # Rebuild the Layer 2 Docker image on every VM
 #######################################
@@ -140,9 +173,9 @@ EOF
 #######################################
 # Actual script logic
 #######################################
-if [[ ${FLAG_installed} == 1 ]]; then
-    printf "${CYAN}#### Verifying installation prerequisites ####${NC}\n"
-    check_installed
+if [[ ${FLAG_env} == 1 ]]; then
+    printf "${CYAN}#### Verifying VM environment ####${NC}\n"
+    check_env
 fi
 
 if [[ ${FLAG_clean} == 1 ]]; then
@@ -153,7 +186,7 @@ fi
 if [[ ${FLAG_dirs} == 1 ]]; then
     printf "${CYAN}#### Building VM dir structure ####${NC}\n"
     setup_dir_structure
-    check_installed
+    check_env
 fi
 
 if [[ ${FLAG_view} == 1 ]]; then
@@ -161,7 +194,13 @@ if [[ ${FLAG_view} == 1 ]]; then
     view
 fi
 
+if [[ ${FLAG_volumes} == 1 ]]; then
+    printf "${CYAN}#### Cleaning VM dangling volumes ####${NC}\n"
+    free_volumes
+fi
+
 if [[ ${FLAG_build_phynet} == 1 ]]; then
     printf "${CYAN}#### Rebuilding Layer 2 Docker images ####${NC}\n"
     rebuild_docker
 fi
+

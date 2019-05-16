@@ -39,6 +39,30 @@
         {
             "src": "nodeid9",
             "dest": "10.0.0.21"
+        },
+        {
+            "src": "nodeid13",
+            "dest": "10.0.0.22"
+        },
+        {
+            "src": "belize",
+            "dest": "100.0.2.1"
+        },
+        {
+            "src": "stcroix",
+            "dest": "10.0.0.11"
+        },
+        {
+            "src": "nodeid14",
+            "dest": "10.0.0.49"
+        },
+        {
+            "src": "martinique",
+            "dest": "10.0.0.57"
+        },
+        {
+            "src": "grenada",
+            "dest": "10.0.0.3"
         }
     ]
 }

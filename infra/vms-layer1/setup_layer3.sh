@@ -97,7 +97,7 @@ function setup_containers {
     while read -r name
     do
         echo "## Setting up device on container ${name}... ##"
-        time docker exec ${name} ${FRR_SETUP_SCRIPT} >> ${LOG_FILE}
+        docker exec ${name} ${FRR_SETUP_SCRIPT} >> ${LOG_FILE}
         check_success $? "Setting up device ${name}"
     done <<< ${containers}
 
