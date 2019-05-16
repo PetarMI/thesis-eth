@@ -1,7 +1,5 @@
 #!/bin/bash
 
-# TODO: This script works only with FRR containers for now
-
 #######################################
 # Handle script arguments
 #######################################
@@ -43,6 +41,18 @@ readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
 readonly NC='\033[0m' # No Color
 
+function check_success {
+    local exit_code=$1
+    local msg=$2
+
+    if [[ ${exit_code} == 0 ]]; then
+        printf "${GREEN}Successfully ${msg}${NC}\n"
+    else
+        printf "${RED}Failed ${NC}to ${msg} with exit code ${exit_code}\n"
+        exit ${exit_code}
+    fi
+}
+
 #######################################
 # Report if there are no Layer 2 containers to deploy onto
 #######################################
@@ -74,7 +84,7 @@ function setup_frr_image {
         wait ${pid}
     done
 
-    printf "${GREEN}Uplaoded image to all containers on VM!${NC}\n"
+    printf "${GREEN}Uploaded image to all containers on VM!${NC}\n"
 }
 
 #######################################
@@ -87,7 +97,8 @@ function setup_containers {
     while read -r name
     do
         echo "## Setting up device on container ${name}... ##"
-        docker exec ${name} ${FRR_SETUP_SCRIPT} >> ${LOG_FILE}
+        time docker exec ${name} ${FRR_SETUP_SCRIPT} >> ${LOG_FILE}
+        check_success $? "Setting up device ${name}"
     done <<< ${containers}
 
     printf "${GREEN}Started all L2 containers on VM!${NC}\n"
@@ -110,7 +121,7 @@ function configure_devices {
         wait ${pid}
     done
 
-    printf "${GREEN}Restarted all L3 cotnainers on VM!${NC}\n"
+    printf "${GREEN}Restarted all L3 containers on VM!${NC}\n"
 }
 
 #######################################
