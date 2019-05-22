@@ -71,3 +71,13 @@ def read_ping_file(idx: int) -> str:
         ping_data = txt_file.read()
 
     return ping_data
+
+
+def get_networks() -> list:
+    nets = []
+    topo_nets: list = read_topo()["networks"]
+
+    for net in topo_nets:
+        nets.append(net["name"])
+
+    return nets
