@@ -1,3 +1,11 @@
+""" Cisco Translator
+
+Entry point script for translating cisco configs to FRR.
+
+Public functions:
+    * parse_topology - simply glues together all necessary calls
+"""
+
 from argparse import ArgumentParser
 from synth.common import file_reader as fr
 from synth.cisco import links_parser as lp

@@ -1,3 +1,15 @@
+""" Link Parser
+
+This scripts parser the file containing all the links in the topology.
+
+* It is kinda unnecessary as this information could be inferred from the
+  config files themselves.
+* Intended to be called from cisco_translator.py
+
+Public functions:
+    * parse_links - obvious
+"""
+
 # @Tested
 def parse_links(raw_links: dict) -> dict:
     """ Main function for parsing links between hosts """
