@@ -8,9 +8,10 @@
 usage="Script for checking and setting up the VM environment
 
 where:
-    -i     check if everything is installed
+    -e    check if everything is installed
     -c     clean VM dirs
     -d     setup dir structure
+    -f     free dangling volumes
     -p     rebuild the Layer 2 image
     -v     view Dir structure
     -h     show this help text"

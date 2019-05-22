@@ -152,6 +152,7 @@ function parse_iface_logs {
 #######################################
 function py_perform_matching {
     python NatController.py -t ${FLAG_topology}
+    signal_fail $? "Python scripts blew up while performing NAT"
 }
 
 ##############################################################################
