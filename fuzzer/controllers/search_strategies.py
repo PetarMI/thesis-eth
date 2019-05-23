@@ -18,6 +18,7 @@ Public functions:
 from itertools import combinations
 
 
+# @Tested
 def bfs(depth: int, nets: list):
     """ Makes a search plan based on BFS algo """
     search_plan = []
