@@ -1,5 +1,5 @@
 import pytest
-from search_plan import SearchPlan
+from SearchPlan import SearchPlan
 
 
 def test_stats_short():
