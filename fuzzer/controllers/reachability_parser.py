@@ -1,27 +1,29 @@
 import ipaddress
 from fuzzer.common import file_reader as fr
 from fuzzer.common import file_writer as fw
+from fuzzer.common.FuzzData import FuzzData
+from fuzzer.common import fuzz_data_ops as fdata_ops
 
 
-def main():
+def main(fuzz_data: FuzzData):
     reach_properties: dict = fr.read_properties("reachability")
-    vms: dict = fr.read_vm_info()
-    topo: dict = fr.read_topo()
     nat_ips: dict = fr.read_nat_ips()
 
-    properties: list = parse_properties(reach_properties, vms, topo, nat_ips)
+    properties: list = parse_properties(reach_properties, fuzz_data.topo_name,
+                                        fuzz_data.containers, fuzz_data.vms,
+                                        nat_ips)
     fw.write_reach_instr(properties)
     fw.write_parsed_properties(properties)
 
 
-def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
+def parse_properties(raw_properties, topo_name, containers, vms, nat_ips) -> list:
     properties = []
 
     for raw_property in raw_properties:
         prop = dict()
-        prop["vm_ip"] = get_vm_ip(raw_property, topo["containers"], vms)
-        # TODO again depends on generated topo file and container name
-        prop["container_name"] = get_container_name(topo["meta"]["name"],
+        prop["vm_ip"] = fdata_ops.find_container_vm(raw_property["src"],
+                                                    containers, vms)
+        prop["container_name"] = get_container_name(topo_name,
                                                     raw_property["src"])
         prop["dest_ip"] = raw_property["dest"]
         prop["dest_sim_ip"] = get_nat_ip(raw_property["dest"], nat_ips)
@@ -31,28 +33,8 @@ def parse_properties(raw_properties, vms, topo, nat_ips) -> list:
     return properties
 
 
-def get_vm_ip(prop: dict, topo_containers: list, vms: dict) -> str:
-    """ Find the VM IP on which the container is running """
-
-    src_name = prop["src"]
-    vm_id = None
-
-    for container in topo_containers:
-        if src_name == container["name"]:
-            vm_id = container["vm"]
-
-    if vm_id is None:
-        raise ValueError("Property src container {} not in topo file".format(src_name))
-
-    vm = vms.get(vm_id, None)
-
-    if vm is None:
-        raise ValueError("No running VM with ID {}".format(vm_id))
-
-    return vm["ip"]
-
-
 # TODO this is dealing with reachability addresses specified without netmask
+# TODO improve this to not go over all the containers
 def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
     casted_dest_ip = ipaddress.IPv4Address(dest_ip)
 
@@ -71,7 +53,3 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
 
 def get_container_name(topo_name: str, container: str) -> str:
     return "{}-{}".format(topo_name, container)
-
-
-if __name__ == '__main__':
-    main()

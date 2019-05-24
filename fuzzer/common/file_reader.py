@@ -11,13 +11,6 @@ def read_topo() -> dict:
     return topo
 
 
-def read_properties(prop_type: str) -> dict:
-    with open(const.PROPERTIES_FILE) as properties_file:
-        properties = json.load(properties_file)
-
-    return properties[prop_type]
-
-
 def read_nat_ips() -> dict:
     """ Return a dict representation of the nat-ed IPs as ipaddress types """
     nat_ips_file = const.IP_NAT_FILE
@@ -54,6 +47,13 @@ def read_vm_info() -> dict:
     return vm_dict
 
 
+def read_properties(prop_type: str) -> dict:
+    with open(const.PROPERTIES_FILE) as properties_file:
+        properties = json.load(properties_file)
+
+    return properties[prop_type]
+
+
 def read_reachability_properties() -> list:
     prop_file = const.PARSED_PROPS_FILE
 
@@ -71,13 +71,3 @@ def read_ping_file(idx: int) -> str:
         ping_data = txt_file.read()
 
     return ping_data
-
-
-def get_networks() -> list:
-    nets = []
-    topo_nets: list = read_topo()["networks"]
-
-    for net in topo_nets:
-        nets.append(net["name"])
-
-    return nets

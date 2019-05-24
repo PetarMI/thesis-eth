@@ -1,11 +1,14 @@
 from argparse import ArgumentParser
 from fuzzer.controllers.SearchPlan import SearchPlan
-from fuzzer.common import file_reader as fr
+from fuzzer.common.FuzzData import FuzzData
+from fuzzer.common import fuzz_data_ops as fdata_ops
 import json
 
 
 def main(depth: int, algo: str):
-    nets: list = fr.get_networks()
+    # reads all data for running devices and containers during fuzzing
+    fuzz_data = FuzzData()
+    nets: list = fdata_ops.get_networks(fuzz_data.networks)
     planner = SearchPlan(depth, nets)
 
     search_plan = planner.get_search_plan(algo)
