@@ -1,5 +1,6 @@
 from argparse import ArgumentParser
 from fuzzer.controllers.SearchPlan import SearchPlan
+from fuzzer.controllers import reachability_parser as rp
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import fuzz_data_ops as fdata_ops
 import json
@@ -8,14 +9,24 @@ import json
 def main(depth: int, algo: str):
     # reads all data for running devices and containers during fuzzing
     fuzz_data = FuzzData()
-    nets: list = fdata_ops.get_networks(fuzz_data.networks)
-    planner = SearchPlan(depth, nets)
+    search_plan: list = prepare_fuzzing(fuzz_data, depth, algo)
 
+    # execute fuzzing according to generated search plan
+    fuzz(search_plan)
+
+
+def prepare_fuzzing(fuzz_data: FuzzData, depth: int, algo: str) -> list:
+    # parse the properties we will be checking during fuzzing
+    rp.parse_properties(fuzz_data)
+
+    # generate a search strategy
+    nets: list = fdata_ops.get_network_names(fuzz_data.get_networks())
+    planner = SearchPlan(depth, nets)
     search_plan = planner.get_search_plan(algo)
     search_stats = planner.get_fuzzing_stats()
     print(json.dumps(search_stats, indent=4))
 
-    fuzz(search_plan)
+    return search_plan
 
 
 def fuzz(statespace: list):

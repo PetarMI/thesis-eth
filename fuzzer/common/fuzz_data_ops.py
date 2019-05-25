@@ -7,8 +7,9 @@ How to use: All functions are implemented to work on the data format
             stored in the fuzzer.common.FuzzData class
 """
 
+import ipaddress
 
-def get_networks(topo_networks: list) -> list:
+def get_network_names(topo_networks: list) -> list:
     """ Get a list of all network names """
     nets = []
 
@@ -18,6 +19,7 @@ def get_networks(topo_networks: list) -> list:
     return nets
 
 
+# @Tested
 def find_container_vm(container: str, containers: dict, vms: dict) -> str:
     """ Returns the IP address of the VM running the specified container """
     container_info = containers.get(container, None)
@@ -32,3 +34,22 @@ def find_container_vm(container: str, containers: dict, vms: dict) -> str:
         raise ValueError("No running VM with ID {}".format(vm_id))
 
     return vm["ip"]
+
+
+def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
+    """ Check every container for the original IP and return the simulated one.
+    Works with dest_ip which has no netmask specified
+    """
+    casted_dest_ip = ipaddress.IPv4Address(dest_ip)
+
+    for container in nat_ips.values():
+        for orig_iface in container.keys():
+            casted_orig_ip = orig_iface.ip
+
+            if casted_dest_ip == casted_orig_ip:
+                sim_dest_ip = container[orig_iface]
+                return str(sim_dest_ip.ip)
+
+    # raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
+    print("WARNING: Original IP {} not in NAT logs".format(dest_ip))
+    return dest_ip
