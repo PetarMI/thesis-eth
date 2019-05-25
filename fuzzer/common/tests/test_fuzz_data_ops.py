@@ -1,7 +1,9 @@
 import pytest
 import fuzz_data_ops as fdata_ops
 
-
+###############################################################################
+# ############################## VM IP SEARCH #################################
+###############################################################################
 def test_get_vm_ip_success():
     containers = {
         'r01': {
@@ -149,3 +151,40 @@ def test_get_vm_ip_no_vm_with_id():
         }
 
         fdata_ops.find_container_vm('r01', containers, vms)
+
+
+###############################################################################
+# ######################## NETWORK DEVICES SEARCH #############################
+###############################################################################
+def test_net_devices_success():
+    network = "topo-wnet20"
+
+    net2dev = {
+        "topo-wnet10": ["topo-r01", "topo-r02"],
+        "topo-wnet20": ["topo-r01", "topo-r03"],
+        "topo-wnet11": ["topo-r02"],
+        "topo-wnet12": ["topo-r02"],
+        "topo-wnet21": ["topo-r03"],
+        "topo-wnet22": ["topo-r03"]
+    }
+
+    res_net_devices = fdata_ops.find_network_devices(network, net2dev)
+    expected_net_devices = ["topo-r01", "topo-r03"]
+
+    assert(res_net_devices == expected_net_devices)
+
+
+def test_net_devices_no_match():
+    with pytest.raises(ValueError, match="Network potato does not exist in fuzzing data logs"):
+        network = "potato"
+
+        net2dev = {
+            "topo-wnet10": ["topo-r01", "topo-r02"],
+            "topo-wnet20": ["topo-r01", "topo-r03"],
+            "topo-wnet11": ["topo-r02"],
+            "topo-wnet12": ["topo-r02"],
+            "topo-wnet21": ["topo-r03"],
+            "topo-wnet22": ["topo-r03"]
+        }
+
+        fdata_ops.find_network_devices(network, net2dev)

@@ -6,13 +6,14 @@ from fuzzer.common import fuzz_data_ops as fdata_ops
 import json
 
 
+# TODO: potentially will become a class if more variables are introduced
 def main(depth: int, algo: str):
     # reads all data for running devices and containers during fuzzing
     fuzz_data = FuzzData()
     search_plan: list = prepare_fuzzing(fuzz_data, depth, algo)
 
     # execute fuzzing according to generated search plan
-    fuzz(search_plan)
+    fuzz(fuzz_data, search_plan)
 
 
 def prepare_fuzzing(fuzz_data: FuzzData, depth: int, algo: str) -> list:
@@ -20,7 +21,7 @@ def prepare_fuzzing(fuzz_data: FuzzData, depth: int, algo: str) -> list:
     rp.parse_properties(fuzz_data)
 
     # generate a search strategy
-    nets: list = fdata_ops.get_network_names(fuzz_data.get_networks())
+    nets: list = fdata_ops.get_network_names(fuzz_data.get_topo_networks())
     planner = SearchPlan(depth, nets)
     search_plan = planner.get_search_plan(algo)
     search_stats = planner.get_fuzzing_stats()
@@ -29,19 +30,23 @@ def prepare_fuzzing(fuzz_data: FuzzData, depth: int, algo: str) -> list:
     return search_plan
 
 
-def fuzz(statespace: list):
+def fuzz(fuzz_data: FuzzData, statespace: list):
     dropped_links = []
 
     for state in statespace:
         print("STATE: {}".format(state))
-        state_changes: dict = find_state_changes(dropped_links, state)
-        exec_state_change(state_changes)
+
+        link_changes: dict = find_link_changes(dropped_links, state)
+        state_change_instr = gen_state_change(fuzz_data, link_changes)
+        pretty_print_instr(state_change_instr)
+        # exec_state_changes(state_change_instr)
         dropped_links = state
+
         print("===================================")
 
 
 # @Tested
-def find_state_changes(dropped_links: list, next_state: tuple) -> dict:
+def find_link_changes(dropped_links: list, next_state: tuple) -> dict:
     links_to_restore = state_diff(dropped_links, next_state)
     links_to_drop = state_diff(next_state, dropped_links)
 
@@ -49,6 +54,28 @@ def find_state_changes(dropped_links: list, next_state: tuple) -> dict:
         "restore": links_to_restore,
         "drop": links_to_drop
     }
+
+
+def gen_state_change(fuzz_data: FuzzData, link_changes: dict) -> list:
+    instructions = []
+
+    for op_type, links in link_changes.items():
+        for link in links:
+            iface_instructions: list = get_iface_instructions(op_type, link, fuzz_data)
+            instructions.extend(iface_instructions)
+
+    return instructions
+
+
+def exec_state_change(instructions: list):
+    """ Call an executor script to execute each change
+    Either pass params directly OR write to file where script reads from
+    """
+    raise ValueError("Not implemented")
+
+
+# def get_iface_instructions(op_type: str, link: str, fuzz_data: FuzzData) -> list:
+#     devices: list =
 
 
 # @Tested composite `find_state_changes`
@@ -66,19 +93,9 @@ def state_diff(stateA, stateB) -> list:
     return diff
 
 
-def exec_state_change(state_changes: dict):
-    exec_restore(state_changes["restore"])
-    exec_drop(state_changes["drop"])
-
-
-def exec_drop(links: list):
-    for link in links:
-        print("Dropped link: {}".format(link))
-
-
-def exec_restore(links: list):
-    for link in links:
-        print("Restored link: {}".format(link))
+def pretty_print_instr(instrcutions: list):
+    for instr in instrcutions:
+        print("{} link: {}".format(instr["type"], instr["link"]))
 
 
 if __name__ == '__main__':

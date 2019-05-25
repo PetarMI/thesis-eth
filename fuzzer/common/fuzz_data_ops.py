@@ -9,6 +9,7 @@ How to use: All functions are implemented to work on the data format
 
 import ipaddress
 
+
 def get_network_names(topo_networks: list) -> list:
     """ Get a list of all network names """
     nets = []
@@ -34,6 +35,16 @@ def find_container_vm(container: str, containers: dict, vms: dict) -> str:
         raise ValueError("No running VM with ID {}".format(vm_id))
 
     return vm["ip"]
+
+
+# @Tested
+def find_network_devices(network: str, net2dev: dict) -> list:
+    net_devices: list = net2dev.get(network, None)
+
+    if net_devices is None:
+        raise ValueError("Network {} does not exist in fuzzing data logs".format(network))
+
+    return net_devices
 
 
 def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:

@@ -73,6 +73,8 @@ function collect_running_data {
     cp "${TOPO_DIR}/${FLAG_topology}.topo" "${CONTROLLER_DATA_DIR}/topo.json"
     cp "${TOPO_DIR}/properties.json" "${CONTROLLER_DATA_DIR}"
     cp "${DEPLOY_DIR}/nat_files/matched-ips.csv" "${CONTROLLER_DATA_DIR}/nat_ips.csv"
+    cp "${DEPLOY_DIR}/nat_files/sim_ifaces.csv" "${CONTROLLER_DATA_DIR}/sim_ifaces.csv"
+    cp "${DEPLOY_DIR}/net_logs/networks.log" "${CONTROLLER_DATA_DIR}/networks.csv"
     cp "${WORK_DIR}/infra/deployer/vm_comms/running_vms.conf" "${CONTROLLER_DATA_DIR}"
 }
 

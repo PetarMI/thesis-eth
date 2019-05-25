@@ -47,6 +47,38 @@ def read_vm_info() -> dict:
     return vm_dict
 
 
+def read_sim_networks() -> dict:
+    networks_file = const.NETS_FILE
+
+    networks = {}
+
+    with open(networks_file, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+            networks.update({
+                row[0]: row[1]
+            })
+
+    return networks
+
+
+def read_sim_ifaces() -> dict:
+    sim_ifaces_file = const.SIM_IFACES_FILE
+
+    iface_dict = {}
+
+    with open(sim_ifaces_file, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+            iface_dict.setdefault(row[0], {}).update({
+                row[1]: row[2]
+            })
+
+    return iface_dict
+
+
 def read_properties(prop_type: str) -> dict:
     with open(const.PROPERTIES_FILE) as properties_file:
         properties = json.load(properties_file)

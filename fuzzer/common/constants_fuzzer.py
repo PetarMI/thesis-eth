@@ -16,6 +16,8 @@ PROPERTIES_FILE = "{}/properties.json".format(CONTROLLER_DATA_DIR)
 TOPO_FILE = "{}/topo.json".format(CONTROLLER_DATA_DIR)
 IP_NAT_FILE = "{}/nat_ips.csv".format(CONTROLLER_DATA_DIR)
 VM_FILE = "{}/running_vms.conf".format(CONTROLLER_DATA_DIR)
+NETS_FILE = "{}/networks.csv".format(CONTROLLER_DATA_DIR)
+SIM_IFACES_FILE = "{}/sim_ifaces.csv".format(CONTROLLER_DATA_DIR)
 
 # files used for fuzzing
 PARSED_PROPS_FILE = "{}/reachability_props.json".format(VERIFIER_DATA_DIR)
