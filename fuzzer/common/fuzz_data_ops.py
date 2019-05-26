@@ -20,6 +20,7 @@ def get_network_names(topo_networks: list) -> list:
     return nets
 
 
+# TODO refactor as no it requires every time to read from the running VMs file to get the IP
 # @Tested
 def find_container_vm(container: str, containers: dict, vms: dict) -> str:
     """ Returns the IP address of the VM running the specified container """
@@ -50,6 +51,7 @@ def find_network_devices(network: str, net2dev: dict) -> list:
 def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
     """ Check every container for the original IP and return the simulated one.
     Works with dest_ip which has no netmask specified
+    Called just once during property parsing.
     """
     casted_dest_ip = ipaddress.IPv4Address(dest_ip)
 

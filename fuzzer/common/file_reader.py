@@ -1,3 +1,14 @@
+""" Fuzzer file reader
+
+Implements functions for reading all data which is generated
+during deployment and later used by the fuzzer.
+
+How to use: * Only the FuzzData class should read raw data using
+            the file reader as it provides a wrapper.
+            * Exception is the Property parser which can call ONLY
+            the functions related to reading property data
+"""
+
 import csv
 import ipaddress
 import json
@@ -57,7 +68,7 @@ def read_sim_networks() -> dict:
 
         for row in csv_reader:
             networks.update({
-                row[0]: row[1]
+                row[1]: row[0]
             })
 
     return networks
@@ -73,7 +84,7 @@ def read_sim_ifaces() -> dict:
 
         for row in csv_reader:
             iface_dict.setdefault(row[0], {}).update({
-                row[1]: row[2]
+                row[2]: row[1]
             })
 
     return iface_dict
