@@ -20,30 +20,24 @@ def get_network_names(topo_networks: list) -> list:
     return nets
 
 
-# TODO refactor as no it requires every time to read from the running VMs file to get the IP
 # @Tested
-def find_container_vm(container: str, containers: dict, vms: dict) -> str:
+def find_container_vm(container: str, dev2vm: dict) -> str:
     """ Returns the IP address of the VM running the specified container """
-    container_info = containers.get(container, None)
+    vm_ip: str = dev2vm.get(container, None)
 
-    if container_info is None:
-        raise ValueError("Property src container {} not in topo file".format(container))
+    if not vm_ip:
+        raise ValueError("Container {} does not exist in dev2vm logs".format(container))
 
-    vm_id = container_info["vm"]
-    vm = vms.get(vm_id, None)
-
-    if vm is None:
-        raise ValueError("No running VM with ID {}".format(vm_id))
-
-    return vm["ip"]
+    return vm_ip
 
 
 # @Tested
 def find_network_devices(network: str, net2dev: dict) -> list:
+    """ Find the devices attached to the specified network """
     net_devices: list = net2dev.get(network, None)
 
     if net_devices is None:
-        raise ValueError("Network {} does not exist in fuzzing data logs".format(network))
+        raise ValueError("Network {} does not exist in net2dev logs".format(network))
 
     return net_devices
 

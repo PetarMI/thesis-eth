@@ -128,18 +128,9 @@ def test_net2dev_many_conns():
 ###############################################################################
 def test_dev2vm_exact():
     containers = [
-            {
-                "name": "r01",
-                "vm": "0"
-            },
-            {
-                "name": "r02",
-                "vm": "1"
-            },
-            {
-                "name": "r03",
-                "vm": "2"
-            }
+            {"name": "r01", "vm": "0"},
+            {"name": "r02", "vm": "1"},
+            {"name": "r03", "vm": "2"}
         ]
 
     vms = {
@@ -160,18 +151,9 @@ def test_dev2vm_exact():
 
 def test_dev2vm_more_vms():
     containers = [
-            {
-                "name": "r01",
-                "vm": "0"
-            },
-            {
-                "name": "r02",
-                "vm": "5"
-            },
-            {
-                "name": "r03",
-                "vm": "4"
-            }
+            {"name": "r01", "vm": "0"},
+            {"name": "r02", "vm": "5"},
+            {"name": "r03", "vm": "4"}
         ]
 
     vms = {
@@ -194,24 +176,35 @@ def test_dev2vm_more_vms():
     assert(res_dev2vm == expected_dev2vm)
 
 
+def test_dev2vm_less_vms():
+    containers = [
+            {"name": "r01", "vm": "0"},
+            {"name": "r02", "vm": "0"},
+            {"name": "r03", "vm": "1"}
+        ]
+
+    vms = {
+        "0": {"ip": "10.0.0.1"},
+        "1": {"ip": "10.0.0.2"}
+
+    }
+
+    res_dev2vm = fd.parse_dev2vm(containers, vms)
+    expected_dev2vm = {
+        "r01": "10.0.0.1",
+        "r02": "10.0.0.1",
+        "r03": "10.0.0.2"
+    }
+
+    assert(res_dev2vm == expected_dev2vm)
+
+
 def test_dev2vm_repeated():
     containers = [
-            {
-                "name": "r01",
-                "vm": "3"
-            },
-            {
-                "name": "r02",
-                "vm": "2"
-            },
-            {
-                "name": "r03",
-                "vm": "4"
-            },
-            {
-                "name": "r04",
-                "vm": "2"
-            }
+            {"name": "r01", "vm": "3"},
+            {"name": "r02", "vm": "2"},
+            {"name": "r03", "vm": "4"},
+            {"name": "r04", "vm": "2"}
         ]
 
     vms = {
@@ -235,14 +228,8 @@ def test_dev2vm_repeated():
 def test_dev2vm_no_vm():
     with pytest.raises(ValueError, match="No running vm with id 4"):
         containers = [
-                {
-                    "name": "r01",
-                    "vm": "0"
-                },
-                {
-                    "name": "r02",
-                    "vm": "4"
-                }
+                {"name": "r01", "vm": "0"},
+                {"name": "r02", "vm": "4"}
             ]
 
         vms = {
@@ -250,6 +237,18 @@ def test_dev2vm_no_vm():
             "1": {"ip": "10.0.0.2"},
             "2": {"ip": "10.0.0.3"}
         }
+
+        fd.parse_dev2vm(containers, vms)
+
+
+def test_dev2vm_no_vm_empty():
+    with pytest.raises(ValueError, match="No running vm with id 0"):
+        containers = [
+                {"name": "r01", "vm": "0"},
+                {"name": "r02", "vm": "4"}
+            ]
+
+        vms = {}
 
         fd.parse_dev2vm(containers, vms)
 
