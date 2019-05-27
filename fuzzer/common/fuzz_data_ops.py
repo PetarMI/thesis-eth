@@ -10,23 +10,12 @@ How to use: All functions are implemented to work on the data format
 import ipaddress
 
 
-def get_network_names(topo_networks: list) -> list:
-    """ Get a list of all network names """
-    nets = []
-
-    for net in topo_networks:
-        nets.append(net["name"])
-
-    return nets
-
-
 # @Tested
 def find_container_vm(container: str, dev2vm: dict) -> str:
     """ Returns the IP address of the VM running the specified container """
     vm_ip: str = dev2vm.get(container, None)
-
-    if not vm_ip:
-        raise ValueError("Container {} does not exist in dev2vm logs".format(container))
+    check_none(vm_ip, "Container {} does not exist in dev2vm logs"
+               .format(container))
 
     return vm_ip
 
@@ -35,11 +24,26 @@ def find_container_vm(container: str, dev2vm: dict) -> str:
 def find_network_devices(network: str, net2dev: dict) -> list:
     """ Find the devices attached to the specified network """
     net_devices: list = net2dev.get(network, None)
-
-    if net_devices is None:
-        raise ValueError("Network {} does not exist in net2dev logs".format(network))
+    check_none(net_devices, "Network {} does not exist in net2dev logs"
+               .format(network))
 
     return net_devices
+
+
+# @Tested
+def find_network_interface(container: str, network: str, dev_net2iface) -> str:
+    """ Find the interface through which a device is connected to a
+        specific network.
+    """
+    container_networks: dict = dev_net2iface.get(container, None)
+    check_none(container_networks, "Problem with container {} in dev_net2iface logs"
+               .format(container))
+
+    network_interface: str = container_networks.get(network, None)
+    check_none(network_interface, "Problem with network {} on container {} in dev_net2iface logs"
+               .format(network, container))
+
+    return network_interface
 
 
 def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
@@ -60,3 +64,9 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
     # raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
     print("WARNING: Original IP {} not in NAT logs".format(dest_ip))
     return dest_ip
+
+
+# @Tested in FuzzData.py tests
+def check_none(item, msg: str):
+    if not item:
+        raise ValueError(msg)

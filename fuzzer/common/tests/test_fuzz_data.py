@@ -37,7 +37,7 @@ def test_net2dev_exact():
         }
     ]
 
-    res_net2dev = fd.parse_net2devices("topo", containers)
+    res_net2dev = fd.parse_net2devices(containers, "topo")
     expected_net2dev = {
         "topo-wnet10": ["topo-r01"],
         "topo-wnet20": ["topo-r02"],
@@ -75,7 +75,7 @@ def test_net2dev_part():
         }
     ]
 
-    res_net2dev = fd.parse_net2devices("topo", containers)
+    res_net2dev = fd.parse_net2devices(containers, "topo")
     expected_net2dev = {
         "topo-wnet10": ["topo-r01", "topo-r02"],
         "topo-wnet20": ["topo-r01", "topo-r03"],
@@ -91,7 +91,7 @@ def test_net2dev_part():
 def test_net2dev_empty():
     containers: list = []
 
-    res_net2dev = fd.parse_net2devices("topo", containers)
+    res_net2dev = fd.parse_net2devices(containers, "topo")
     expected_net2dev = {}
 
     assert(res_net2dev == expected_net2dev)
@@ -120,7 +120,7 @@ def test_net2dev_many_conns():
             }
         ]
 
-        fd.parse_net2devices("topo", containers)
+        fd.parse_net2devices(containers, "topo")
 
 
 ###############################################################################
@@ -139,11 +139,11 @@ def test_dev2vm_exact():
         "2": {"ip": "10.0.0.3"}
     }
 
-    res_dev2vm = fd.parse_dev2vm(containers, vms)
+    res_dev2vm = fd.parse_dev2vm(containers, vms, "topo")
     expected_dev2vm = {
-        "r01": "10.0.0.1",
-        "r02": "10.0.0.2",
-        "r03": "10.0.0.3",
+        "topo-r01": "10.0.0.1",
+        "topo-r02": "10.0.0.2",
+        "topo-r03": "10.0.0.3",
     }
 
     assert(res_dev2vm == expected_dev2vm)
@@ -166,11 +166,11 @@ def test_dev2vm_more_vms():
 
     }
 
-    res_dev2vm = fd.parse_dev2vm(containers, vms)
+    res_dev2vm = fd.parse_dev2vm(containers, vms, "topo")
     expected_dev2vm = {
-        "r01": "10.0.0.1",
-        "r02": "10.0.0.6",
-        "r03": "10.0.0.5"
+        "topo-r01": "10.0.0.1",
+        "topo-r02": "10.0.0.6",
+        "topo-r03": "10.0.0.5"
     }
 
     assert(res_dev2vm == expected_dev2vm)
@@ -189,11 +189,11 @@ def test_dev2vm_less_vms():
 
     }
 
-    res_dev2vm = fd.parse_dev2vm(containers, vms)
+    res_dev2vm = fd.parse_dev2vm(containers, vms, "topo")
     expected_dev2vm = {
-        "r01": "10.0.0.1",
-        "r02": "10.0.0.1",
-        "r03": "10.0.0.2"
+        "topo-r01": "10.0.0.1",
+        "topo-r02": "10.0.0.1",
+        "topo-r03": "10.0.0.2"
     }
 
     assert(res_dev2vm == expected_dev2vm)
@@ -214,12 +214,12 @@ def test_dev2vm_repeated():
 
     }
 
-    res_dev2vm = fd.parse_dev2vm(containers, vms)
+    res_dev2vm = fd.parse_dev2vm(containers, vms, "topo")
     expected_dev2vm = {
-        "r01": "10.0.0.3",
-        "r02": "10.0.0.2",
-        "r03": "10.0.0.4",
-        "r04": "10.0.0.2"
+        "topo-r01": "10.0.0.3",
+        "topo-r02": "10.0.0.2",
+        "topo-r03": "10.0.0.4",
+        "topo-r04": "10.0.0.2"
     }
 
     assert(res_dev2vm == expected_dev2vm)
@@ -238,7 +238,7 @@ def test_dev2vm_no_vm():
             "2": {"ip": "10.0.0.3"}
         }
 
-        fd.parse_dev2vm(containers, vms)
+        fd.parse_dev2vm(containers, vms, "topo")
 
 
 def test_dev2vm_no_vm_empty():
@@ -250,40 +250,13 @@ def test_dev2vm_no_vm_empty():
 
         vms = {}
 
-        fd.parse_dev2vm(containers, vms)
+        fd.parse_dev2vm(containers, vms, "topo")
 
 
 ###############################################################################
-# ################$$$$$#### Parse nets to ifaces ###$##########################
+# ######################### Parse nets to ifaces ##############################
 ###############################################################################
 def test_net2iface():
-    topo_containers = [
-            {
-                "name": "r01",
-                "interfaces": [
-                    {"network": "wnet10"},
-                    {"network": "wnet12"}
-                ]
-            },
-            {
-                "name": "r02",
-                "interfaces": [
-                    {"network": "wnet20"},
-                    {"network": "wnet12"},
-                    {"network": "wnet23"},
-                    {"network": "wnet24"}
-                ]
-            },
-            {
-                "name": "r03",
-                "interfaces": [
-                    {"network": "wnet30"},
-                    {"network": "wnet23"},
-                    {"network": "wnet34"}
-                ]
-            }
-        ]
-
     sim_ifaces = {
         "r01": {
             "10.0.10.5/24": "eth0",
@@ -313,7 +286,7 @@ def test_net2iface():
         "10.0.34.0/24": "net7"
     }
 
-    res_parse = fd.parse_nets2ifaces(topo_containers, sim_nets, sim_ifaces)
+    res_parse = fd.parse_nets2ifaces(sim_ifaces, sim_nets)
     expected_parse = {
         "r01": {
             "net1": "eth0",
@@ -395,6 +368,18 @@ def test_match_ifaces_no_net():
             "10.0.0.0/24": "net1",
             "10.0.1.0/24": "net2"
         }
+
+        fd.match_dev_net2iface(dev_sim_ifaces, sim_nets)
+
+
+def test_match_ifaces_empty_nets():
+    with pytest.raises(ValueError, match="Network 10.0.1.0/24 does not exist"):
+        dev_sim_ifaces = {
+            "10.0.1.5/24": "eth0",
+            "10.0.2.6/24": "eth1"
+        }
+
+        sim_nets = {}
 
         fd.match_dev_net2iface(dev_sim_ifaces, sim_nets)
 

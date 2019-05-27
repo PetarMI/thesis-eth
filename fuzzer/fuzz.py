@@ -2,7 +2,6 @@ from argparse import ArgumentParser
 from fuzzer.controllers.SearchPlan import SearchPlan
 from fuzzer.controllers import reachability_parser as rp
 from fuzzer.common.FuzzData import FuzzData
-from fuzzer.common import fuzz_data_ops as fdata_ops
 import json
 
 
@@ -21,7 +20,7 @@ def prepare_fuzzing(fuzz_data: FuzzData, depth: int, algo: str) -> list:
     rp.parse_properties(fuzz_data)
 
     # generate a search strategy
-    nets: list = fdata_ops.get_network_names(fuzz_data.get_topo_networks())
+    nets: list = fuzz_data.get_networks()
     planner = SearchPlan(depth, nets)
     search_plan = planner.get_search_plan(algo)
     search_stats = planner.get_fuzzing_stats()
@@ -61,8 +60,8 @@ def gen_state_change(fuzz_data: FuzzData, link_changes: dict) -> list:
 
     for op_type, links in link_changes.items():
         for link in links:
-            iface_instructions: list = get_iface_instructions(op_type, link, fuzz_data)
-            instructions.extend(iface_instructions)
+            link_instructions: list = get_link_instructions(fuzz_data, op_type, link)
+            instructions.extend(link_instructions)
 
     return instructions
 
@@ -74,28 +73,44 @@ def exec_state_change(instructions: list):
     raise ValueError("Not implemented")
 
 
-# def get_iface_instructions(op_type: str, link: str, fuzz_data: FuzzData) -> list:
-#     devices: list =
+def get_link_instructions(fuzz_data: FuzzData, op_type: str, link: str) -> list:
+    instructions = []
+    link_containers: list = fuzz_data.find_network_devices(link)
+
+    for dev in link_containers:
+        dev_instr = dict()
+
+        dev_instr["link"] = link
+        dev_instr["op_type"] = op_type
+        dev_instr["vm"] = fuzz_data.find_container_vm(dev)
+        dev_instr["container"] = dev
+        dev_instr["iface"] = fuzz_data.find_network_interface(dev, link)
+
+        instructions.append(dev_instr)
+
+    return instructions
 
 
 # @Tested composite `find_state_changes`
-def state_diff(stateA, stateB) -> list:
+def state_diff(state_a, state_b) -> list:
     """ Difference between two lists/tuples (elements that are in A but not B)
     Preferred to setA.difference(setB) since the later is non-deterministic
     Later may be asymptotically faster but here we will only diff lists of 2-3 elements
     """
     diff = []
 
-    for state in stateA:
-        if state not in stateB:
+    for state in state_a:
+        if state not in state_b:
             diff.append(state)
 
     return diff
 
 
-def pretty_print_instr(instrcutions: list):
-    for instr in instrcutions:
-        print("{} link: {}".format(instr["type"], instr["link"]))
+def pretty_print_instr(instructions: list):
+    for instr in instructions:
+        print("{} link: {}, VM: {}, DEV: {}, IFACE: {}".
+              format(instr["op_type"], instr["link"], instr["vm"],
+                     instr["container"], instr["iface"]))
 
 
 if __name__ == '__main__':
