@@ -28,6 +28,10 @@
             "subnet": "10.0.0.6/31"
         },
         {
+            "name": "net-broot-croot",
+            "subnet": "10.0.0.22/31"
+        },
+        {
             "name": "net-milan",
             "subnet": "100.0.30.0/24"
         },
@@ -128,6 +132,10 @@
                 {
                     "network": "net-broot-london",
                     "ipaddr": "10.0.0.6/31"
+                },
+                {
+                    "network": "net-broot-croot",
+                    "ipaddr": "10.0.0.22/31"
                 }
             ]
         },
@@ -261,6 +269,10 @@
                 {
                     "network": "net-croot-vienna",
                     "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-broot-croot",
+                    "ipaddr": "10.0.0.23/31"
                 }
             ]
         },
