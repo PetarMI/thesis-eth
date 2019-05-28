@@ -24,3 +24,7 @@ PARSED_PROPS_FILE = "{}/reachability_props.json".format(VERIFIER_DATA_DIR)
 REACH_PROPS_FILE = "{}/reachability_instr.csv".format(EXECUTOR_DATA_DIR)
 
 PING_FILE = "ping_res_{}.log"
+
+# Executor scripts
+CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
+LINK_STATE_SH = "{}/executors/exec_link_change.sh".format(FUZZ_DIR)

@@ -23,7 +23,7 @@ def bfs(depth: int, nets: list):
     """ Makes a search plan based on BFS algo """
     search_plan = []
 
-    for k in range(1, depth + 1):
+    for k in range(0, depth + 1):
         depth_k_search = list(combinations(nets, k))
         search_plan.extend(depth_k_search)
 

@@ -3,3 +3,4 @@ ipaddress==1.0.22
 pingparsing==0.16.0
 ciscoconfparse==1.3.36
 scipy==1.3.0
+termcolor==1.1.0
