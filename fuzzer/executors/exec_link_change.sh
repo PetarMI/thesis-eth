@@ -41,7 +41,7 @@ function signal_fail {
 # For now only interface shutdown is supported
 if [[ "${FLAG_failure}" == "iface" ]]; then
     command="docker exec ${ARG_container} ${L2_iface_sh} -i ${ARG_iface} -s ${ARG_state}"
-    #ssh -T "${USER}@${ARG_vm}"
+    ssh -T "${USER}@${ARG_vm}" "${command}"
     signal_fail $?
 else
     printf "${RED}Unimplemented failure type${NC}\n"

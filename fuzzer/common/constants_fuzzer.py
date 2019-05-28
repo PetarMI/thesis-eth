@@ -28,3 +28,4 @@ PING_FILE = "ping_res_{}.log"
 # Executor scripts
 CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
 LINK_STATE_SH = "{}/executors/exec_link_change.sh".format(FUZZ_DIR)
+VERIFICATION_SH = "{}/executors/reachability_exec.sh".format(FUZZ_DIR)

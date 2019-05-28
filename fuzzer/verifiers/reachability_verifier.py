@@ -2,11 +2,6 @@ import pingparsing
 from fuzzer.common import file_reader as fr
 
 
-def main():
-    properties: list = fr.read_reachability_properties()
-    verify_reachability(properties)
-
-
 def verify_reachability(properties: list):
     for idx, prop in enumerate(properties):
         ping_msg = fr.read_ping_file(idx)
@@ -41,7 +36,3 @@ def check_ping(ping_msg: str, dest_sim_ip) -> (bool, str):
         return True, "WARNING: Some packets lost"
     else:
         return False, "ERROR: Fuckup, check file"
-
-
-if __name__ == '__main__':
-    main()

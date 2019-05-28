@@ -1,11 +1,12 @@
 from argparse import ArgumentParser
 from subprocess import call
+from termcolor import colored as clr
+import json
 from fuzzer.controllers.SearchPlan import SearchPlan
 from fuzzer.controllers import reachability_parser as rp
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
-from termcolor import colored as clr
-import json
+from fuzzer.verifiers import reachability_verifier as rv
 
 
 class Fuzzer:
@@ -14,11 +15,12 @@ class Fuzzer:
         self.fuzz_data = FuzzData()
         self.search_plan: list = None
         self.search_stats: dict = None
+        self.properties: list = None
         # potentially to be used in gen_state_change
         # self.fail_type = "iface"
 
     def prepare_fuzzing(self, depth: int, algo: str):
-        rp.parse_properties(self.fuzz_data)
+        self.properties = rp.parse_properties(self.fuzz_data)
 
         # generate the search strategy/statespace
         nets: list = self.fuzz_data.get_networks()
@@ -42,8 +44,11 @@ class Fuzzer:
             print(clr("## Waiting for fib convergence", 'cyan', attrs=['bold']))
             exec_convergence_wait()
 
-            print(clr("## Testing properties", 'cyan', attrs=['bold']))
-            # exec_property_verification
+            print(clr("## Testing reachability", 'cyan', attrs=['bold']))
+            exec_reachability_testing()
+
+            print(clr("## Verifying properties", 'cyan', attrs=['bold']))
+            exec_reachability_testing()
 
             dropped_links = state
 
@@ -87,6 +92,9 @@ class Fuzzer:
 
         return instructions
 
+    def verify_properties(self):
+        rv.verify_reachability(self.properties)
+
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
@@ -103,12 +111,16 @@ def exec_state_change(instructions: list):
                                  "-i", instr["iface"], "-s", instr["op_type"]])
         signal_script_fail(return_code)
 
-    input("Press Enter to continue...")
-
 
 def exec_convergence_wait():
-    # TODO do some error catching here
-    returncode: int = call([const.CONVERGENCE_SH])
+    input("Press Enter to continue...")
+    return_code: int = call([const.CONVERGENCE_SH])
+    signal_script_fail(return_code)
+
+
+def exec_reachability_testing():
+    return_code: int = call([const.VERIFICATION_SH])
+    signal_script_fail(return_code)
 
 
 # @Tested composite `find_state_changes`
@@ -136,7 +148,7 @@ def pretty_print_instr(instr: dict, n, t):
 
 def signal_script_fail(return_code: int, die=False):
     if return_code:
-        print(clr("## Failed", 'red'))
+        print(clr("Failed", 'red'))
         if die:
             exit(return_code)
 

@@ -6,8 +6,8 @@ ARG_interface="undefined"
 while getopts "s:i:" option
 do
     case "${option}" in
-        s) FLAG_state="$OPTARG";;
-        i) FLAG_interface="$OPTARG";;
+        s) ARG_state="$OPTARG";;
+        i) ARG_interface="$OPTARG";;
         *) echo "Unknown option"; exit 1;;
     esac
 done
@@ -36,10 +36,10 @@ function signal_fail {
 
 if [[ ${ARG_state} == "drop" ]]
 then
-    docker exec frr vtysh -c "configure terminal" -c "interface ${FLAG_interface}" -c "shutdown"
+    docker exec frr vtysh -c "configure terminal" -c "interface ${ARG_interface}" -c "shutdown"
 elif [[ ${ARG_state} == "restore" ]]
 then
-    docker exec frr vtysh -c "configure terminal" -c "interface ${FLAG_interface}" -c "no shutdown"
+    docker exec frr vtysh -c "configure terminal" -c "interface ${ARG_interface}" -c "no shutdown"
 else
     signal_fail 1 "Unknown link state"
 fi
