@@ -32,7 +32,6 @@ readonly NC='\033[0m' # No Color
 function signal_fail {
     local exit_code=$1
     if [[ ${exit_code} != 0 ]]; then
-        printf "${RED}Failed with exit code ${exit_code}${NC}\n"
         exit ${exit_code}
     fi
 }

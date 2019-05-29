@@ -29,7 +29,7 @@ function signal_fail {
     local exit_code=$1
     local msg=$2
     if [[ ${exit_code} != 0 ]]; then
-        printf "${RED}Failed with exit code ${exit_code} ${msg}${NC}\n"
+        printf "(L2) - ${RED}Failed to ${msg} with exit code ${exit_code}${NC}\n"
         exit ${exit_code}
     fi
 }
@@ -37,9 +37,11 @@ function signal_fail {
 if [[ ${ARG_state} == "drop" ]]
 then
     docker exec frr vtysh -c "configure terminal" -c "interface ${ARG_interface}" -c "shutdown"
+    signal_fail $? "Shutdown interface ${ARG_interface} at ${HOSTNAME}"
 elif [[ ${ARG_state} == "restore" ]]
 then
     docker exec frr vtysh -c "configure terminal" -c "interface ${ARG_interface}" -c "no shutdown"
+    signal_fail $? "Start up interface ${ARG_interface} at ${HOSTNAME}"
 else
     signal_fail 1 "Unknown link state"
 fi

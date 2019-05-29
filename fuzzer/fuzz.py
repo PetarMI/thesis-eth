@@ -126,7 +126,8 @@ def exec_state_change(instructions: list):
         return_code: int = call([const.LINK_STATE_SH, "-f", "iface",
                                  "-v", instr["vm"], "-d", instr["container"],
                                  "-i", instr["iface"], "-s", instr["op_type"]])
-        signal_script_fail(return_code)
+        signal_script_fail(return_code, "{} interface {}".
+                           format(instr["op_type"], instr["iface"]))
 
 
 def exec_convergence_wait():
@@ -174,18 +175,20 @@ def pretty_print_failure(pid: int, verification_res: dict):
         return 'grey', "Property {} ERROR: {}".format(pid, verification_res["desc"])
 
 
-def signal_script_fail(return_code: int, die=False):
+def signal_script_fail(return_code: int, msg="", die=False):
     if return_code:
-        print(clr("Failed", 'red'))
+        err_msg = "Failed to ".format(msg) if msg else "Fail"
+        print(clr(err_msg, 'red'))
+
         if die:
             exit(return_code)
 
 
 if __name__ == '__main__':
     parser = ArgumentParser()
-    parser.add_argument("-d", "--depth", dest="depth", required=True,
+    parser.add_argument("-d", "--depth", dest="depth", required=False,
                         help="The max depth we are checking for failed links")
-    parser.add_argument("-a", "--algo", dest="algo", required=True,
+    parser.add_argument("-a", "--algo", dest="algo", required=False,
                         help="Search algorithm to use")
     args = parser.parse_args()
 
