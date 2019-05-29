@@ -32,7 +32,7 @@ function exec_ping {
 
     while IFS=, read -r vm_ip cont_name dest_ip
     do
-        echo "Testing reachability from ${cont_name} to ${dest_ip}"
+        echo "(${i}) Testing reachability from ${cont_name} to ${dest_ip}"
 ssh -T "${USER}@${vm_ip}" &> "${OUTPUT_DATA_DIR}/ping_res_${i}.log" << EOF
     docker exec ${cont_name} ${PING_SCRIPT} ${dest_ip}
 EOF

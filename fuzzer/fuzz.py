@@ -101,7 +101,7 @@ class Fuzzer:
             if ver_res["status"] == 0:
                 continue
 
-            col, desc = pretty_print_failure(ver_res)
+            col, desc = pretty_print_failure(property_id, ver_res)
             failures.append({
                 "pid": property_id,
                 "state": state,
@@ -110,7 +110,7 @@ class Fuzzer:
 
             print(clr(desc, col))
 
-        fw.write(failures)
+        fw.write_state_failures(failures)
 
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
@@ -159,19 +159,19 @@ def pretty_print_instr(instr: dict, n, t):
     progress = "({}/{})".format(n, t)
     op = "Dropping" if instr["op_type"] == "drop" else "Restoring"
 
-    print("{} {} link: {} on device: {}".
+    print("{} {} link {} on device {}".
           format(progress, op, instr["link"], instr["container"]))
 
 
-def pretty_print_failure(verification_res: dict):
+def pretty_print_failure(pid: int, verification_res: dict):
     ver_status = verification_res["status"]
 
     if ver_status == 1:
-        return 'red', "ERROR: {}".format(verification_res["desc"])
+        return 'red', "Property {} FAILED: {}".format(pid, verification_res["desc"])
     if ver_status == 2:
-        return 'yellow', "WARNING: {}".format(verification_res["desc"])
+        return 'yellow', "Property {} WARNING: {}".format(pid, verification_res["desc"])
     if ver_status == 3:
-        return 'grey', "ERROR: {}".format(verification_res["desc"])
+        return 'grey', "Property {} ERROR: {}".format(pid, verification_res["desc"])
 
 
 def signal_script_fail(return_code: int, die=False):

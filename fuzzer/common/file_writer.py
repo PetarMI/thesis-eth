@@ -28,4 +28,5 @@ def write_state_failures(failures: list):
         for f in failures:
             log_file.write("Failed property {}\n".format(f["pid"]))
             log_file.write("\tState: {}\n".format(f["state"]))
-            log_file.write("\tDescription: {}\n".format(f["text"]))
+            log_file.write("\tDescription: {}\n".format(f["desc"]))
+            log_file.write("===========================\n")
