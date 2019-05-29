@@ -7,6 +7,7 @@ from fuzzer.controllers import reachability_parser as rp
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.verifiers import reachability_verifier as rv
+from fuzzer.common import file_writer as fw
 
 
 class Fuzzer:
@@ -48,7 +49,7 @@ class Fuzzer:
             exec_reachability_testing()
 
             print(clr("## Verifying properties", 'cyan', attrs=['bold']))
-            exec_reachability_testing()
+            self.verify_properties(state)
 
             dropped_links = state
 
@@ -92,8 +93,24 @@ class Fuzzer:
 
         return instructions
 
-    def verify_properties(self):
-        rv.verify_reachability(self.properties)
+    def verify_properties(self, state: tuple):
+        ver_results: dict = rv.verify_reachability(self.properties)
+        failures = []
+
+        for property_id, ver_res in ver_results.items():
+            if ver_res["status"] == 0:
+                continue
+
+            col, desc = pretty_print_failure(ver_res)
+            failures.append({
+                "pid": property_id,
+                "state": state,
+                "desc": desc,
+            })
+
+            print(clr(desc, col))
+
+        fw.write(failures)
 
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
@@ -119,7 +136,7 @@ def exec_convergence_wait():
 
 
 def exec_reachability_testing():
-    return_code: int = call([const.VERIFICATION_SH])
+    return_code: int = call([const.PING_SH])
     signal_script_fail(return_code)
 
 
@@ -146,6 +163,17 @@ def pretty_print_instr(instr: dict, n, t):
           format(progress, op, instr["link"], instr["container"]))
 
 
+def pretty_print_failure(verification_res: dict):
+    ver_status = verification_res["status"]
+
+    if ver_status == 1:
+        return 'red', "ERROR: {}".format(verification_res["desc"])
+    if ver_status == 2:
+        return 'yellow', "WARNING: {}".format(verification_res["desc"])
+    if ver_status == 3:
+        return 'grey', "ERROR: {}".format(verification_res["desc"])
+
+
 def signal_script_fail(return_code: int, die=False):
     if return_code:
         print(clr("Failed", 'red'))
@@ -162,6 +190,6 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     fuzzer = Fuzzer()
-    fuzzer.prepare_fuzzing(int(args.depth), args.algo)
+    fuzzer.prepare_fuzzing(3, "bfs")
     fuzzer.print_search_strategy()
     fuzzer.fuzz()

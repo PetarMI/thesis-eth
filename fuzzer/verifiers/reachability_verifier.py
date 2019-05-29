@@ -2,25 +2,30 @@ import pingparsing
 from fuzzer.common import file_reader as fr
 
 
-def verify_reachability(properties: list):
+def verify_reachability(properties: list) -> dict:
+    results = dict()
+
     for idx, prop in enumerate(properties):
         ping_msg = fr.read_ping_file(idx)
-        success, ver_res = check_ping(ping_msg, prop["dest_sim_ip"])
+        res: dict = check_ping(ping_msg, prop["dest_sim_ip"])
 
-        print("Reachability Property {}:".format(idx))
+        results.update({idx: res})
 
-        if success:
-            print("Success: {}".format(ver_res))
-        else:
-            print("Failed: {}".format(ver_res))
+    return results
 
 
-def check_ping(ping_msg: str, dest_sim_ip) -> (bool, str):
+def check_ping(ping_msg: str, dest_sim_ip) -> dict:
     parser = pingparsing.PingParsing()
     stats = parser.parse(ping_msg)
 
     if stats is None:
-        return False, "ERROR: pinparsing couldn't parse ping results"
+        res_status = 3
+        res_text = "pingparsing couldn't parse ping results"
+
+        return {
+            "status": res_status,
+            "text": res_text
+        }
 
     ping_stats = stats.as_dict()
 
@@ -29,10 +34,19 @@ def check_ping(ping_msg: str, dest_sim_ip) -> (bool, str):
             ping_stats["destination"], dest_sim_ip))
 
     if ping_stats["packet_transmit"] == ping_stats["packet_receive"]:
-        return True, "INFO: All packets received"
+        res_status = 0
+        res_text = "All packets received"
     elif ping_stats["packet_transmit"] == ping_stats["packet_loss_count"]:
-        return False, "ERROR: All packets lost"
+        res_status = 1
+        res_text = "All packets lost"
     elif 0 < ping_stats["packet_receive"] < ping_stats["packet_transmit"]:
-        return True, "WARNING: Some packets lost"
+        res_status = 2
+        res_text = "Some packets lost"
     else:
-        return False, "ERROR: Fuckup, check file"
+        res_status = 3
+        res_text = "Unknown fuckup, check file"
+
+    return {
+        "status": res_status,
+        "desc": res_text
+    }
