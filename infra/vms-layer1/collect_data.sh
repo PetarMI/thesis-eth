@@ -38,7 +38,7 @@ fi
 readonly VM_HOME_DIR="${HOME}"
 readonly VM_STORAGE_DIR="${VM_HOME_DIR}/logs"
 readonly VM_NET_LOGS_DIR="${VM_STORAGE_DIR}/network"
-readonly FRR_IP_SCRIPT="/home/api/get_ips.sh"
+readonly FRR_INFO_SCRIPT="/home/api/device_info.sh"
 readonly NET_LOGS="networks.log"
 
 # colors for output
@@ -101,7 +101,7 @@ function pull_device_data {
 
     while read -r name
     do
-        docker exec ${name} ${FRR_IP_SCRIPT} | grep -E '(^Interface|inet)' \
+        docker exec ${name} ${FRR_INFO_SCRIPT} -i | grep -E '(^Interface|inet)' \
          | awk '{print $2}' > ${VM_NET_LOGS_DIR}/"ipa_${name}.log"
         check_success $? "Saved iface data of container ${name}"
     done <<< ${containers}
