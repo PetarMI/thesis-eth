@@ -8,8 +8,8 @@ readonly NC='\033[0m' # No Color
 readonly FRR_INFO_SH="/home/api/device_info.sh"
 readonly IP_regex="([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 
-readonly MAX_ATTEMPTS=2
-readonly WAIT_INTERVAL=1
+readonly MAX_ATTEMPTS=30
+readonly WAIT_INTERVAL=2
 
 # collect all running container names
 containers=$(docker ps | grep phynet | awk '{print $NF}')

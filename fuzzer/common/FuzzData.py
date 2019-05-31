@@ -24,14 +24,16 @@ class FuzzData:
         topo: dict = fr.read_topo()
         topo_containers: list = topo["containers"]
         topo_name = topo["meta"]["name"]
-        sim_nets: dict = fr.read_sim_networks()
+        inverted_sim_nets: dict = fr.read_sim_networks(swap=True)
         sim_ifaces: dict = fr.read_sim_ifaces()
         vms: dict = fr.read_vm_info()
 
-        # in-memory data
+        # in-memory data for fuzzing
         self.dev2vm: dict = parse_dev2vm(topo_containers, vms, topo_name)
         self.net2dev: dict = parse_net2devices(topo_containers, topo_name)
-        self.dev_net2iface = parse_nets2ifaces(sim_ifaces, sim_nets)
+        self.dev_net2iface = parse_nets2ifaces(sim_ifaces, inverted_sim_nets)
+        # in-memory data for clearer output
+        self.sim_nets: dict = fr.read_sim_networks()
 
     # in-memory data operations
     def find_container_vm(self, container: str) -> str:
@@ -50,7 +52,7 @@ class FuzzData:
 
     def get_networks(self) -> list:
         topo_networks: list = fr.read_topo()["networks"]
-        sim_networks: list = fr.read_sim_networks().values()
+        sim_networks: list = fr.read_sim_networks().keys()
         post_validation_networks(topo_networks, sim_networks)
 
         return sim_networks
@@ -58,6 +60,11 @@ class FuzzData:
     def get_nat_ip(self, dest_ip: str) -> str:
         nat_ips: dict = fr.read_nat_ips()
         return fdata_ops.get_nat_ip(dest_ip, nat_ips)
+
+    def get_sim_net_ip(self, net_name: str) -> str:
+        net_ip: str = self.sim_nets.get(net_name, None)
+        check_none(net_ip, "Network name does not exist in networks.log")
+        return net_ip
 
 
 # TODO fix tests

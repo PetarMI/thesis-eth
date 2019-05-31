@@ -35,6 +35,8 @@ class Fuzzer:
         for n, state in enumerate(self.search_plan):
             print(clr("State {}/{}: {}".format(n, self.search_stats["total"], state),
                       'green', attrs=['bold']))
+            print(clr("Failed networks: {}".format(self.get_network_ips(state)),
+                      'magenta'))
 
             link_changes: dict = self.find_link_changes(dropped_links, state)
             state_change_instr = self.gen_state_change(link_changes)
@@ -95,11 +97,14 @@ class Fuzzer:
 
     def verify_properties(self, state: tuple):
         ver_results: dict = rv.verify_reachability(self.properties)
+        all_successful: bool = True
         failures = []
 
         for property_id, ver_res in ver_results.items():
             if ver_res["status"] == 0:
                 continue
+            else:
+                all_successful = False
 
             col, desc = pretty_print_failure(property_id, ver_res)
             failures.append({
@@ -110,11 +115,22 @@ class Fuzzer:
 
             print(clr(desc, col))
 
+        if all_successful:
+            print(clr("All properties HOLD", 'green'))
+
         fw.write_state_failures(failures)
 
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
+
+    def get_network_ips(self, nets):
+        ips = []
+
+        for net in nets:
+            ips.append(self.fuzz_data.get_sim_net_ip(net))
+
+        return ips
 
 
 def exec_state_change(instructions: list):
@@ -131,7 +147,7 @@ def exec_state_change(instructions: list):
 
 
 def exec_convergence_wait():
-    input("Press Enter to continue...")
+    #input("Press Enter to continue...")
     return_code: int = call([const.CONVERGENCE_SH])
     signal_script_fail(return_code)
 

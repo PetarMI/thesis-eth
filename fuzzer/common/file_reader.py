@@ -58,7 +58,12 @@ def read_vm_info() -> dict:
     return vm_dict
 
 
-def read_sim_networks() -> dict:
+def read_sim_networks(swap=False) -> dict:
+    """ Reads a file with two columns into a dictionary
+
+    :param order: False to swap column key-value order
+    :return: Network names to IPs if `order` and vice-versa otherwise
+    """
     networks_file = const.NETS_FILE
 
     networks = {}
@@ -67,8 +72,10 @@ def read_sim_networks() -> dict:
         csv_reader = csv.reader(csv_file, delimiter=',')
 
         for row in csv_reader:
+            dict_key, dict_val = swap_order(row[0], row[1], swap)
+
             networks.update({
-                row[1]: row[0]
+                dict_key: dict_val
             })
 
     return networks
@@ -114,3 +121,11 @@ def read_ping_file(idx: int) -> str:
         ping_data = txt_file.read()
 
     return ping_data
+
+
+def swap_order(val_a, val_b, swap: bool):
+    """ Return the two vals in the specified order """
+    if swap:
+        return val_b, val_a
+    else:
+        return val_a, val_b
