@@ -6,7 +6,7 @@ def test_bfs_short():
 
     res_plan = ss.bfs(2, nets)
     expected_plan = [
-        ("a", ), ("b", ), ("a", "b")
+        (), ("a", ), ("b", ), ("a", "b")
     ]
 
     assert(res_plan == expected_plan)
@@ -17,6 +17,7 @@ def test_bfs():
 
     res_plan = ss.bfs(3, nets)
     expected_plan = [
+        (),
         ('a', ), ('b', ), ('c', ), ('d', ),
         ('a', 'b'), ('a', 'c'),  ('a', 'd'),
         ('b', 'c'), ('b', 'd'), ('c', 'd'),
@@ -32,6 +33,7 @@ def test_bfs_max():
 
     res_plan = ss.bfs(4, nets)
     expected_plan = [
+        (),
         ('a', ), ('b', ), ('c', ), ('d', ),
         ('a', 'b'), ('a', 'c'),  ('a', 'd'),
         ('b', 'c'), ('b', 'd'), ('c', 'd'),
@@ -42,11 +44,13 @@ def test_bfs_max():
 
     assert(res_plan == expected_plan)
 
+
 def test_bfs_higher_depth():
     nets = ['a', 'b', 'c']
 
     res_plan = ss.bfs(33, nets)
     expected_plan = [
+        (),
         ('a',), ('b',), ('c',),
         ('a', 'b'), ('a', 'c'), ('b', 'c'),
         ('a', 'b', 'c')

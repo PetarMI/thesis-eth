@@ -61,7 +61,7 @@ def read_vm_info() -> dict:
 def read_sim_networks(swap=False) -> dict:
     """ Reads a file with two columns into a dictionary
 
-    :param order: False to swap column key-value order
+    :param swap: False to swap column key-value order
     :return: Network names to IPs if `order` and vice-versa otherwise
     """
     networks_file = const.NETS_FILE

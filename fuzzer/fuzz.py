@@ -157,7 +157,7 @@ def exec_reachability_testing():
     signal_script_fail(return_code)
 
 
-# @Tested composite `find_state_changes`
+# @Tested composite `find_link_changes`
 def state_diff(state_a, state_b) -> list:
     """ Difference between two lists/tuples (elements that are in A but not B)
     Preferred to setA.difference(setB) since the later is non-deterministic

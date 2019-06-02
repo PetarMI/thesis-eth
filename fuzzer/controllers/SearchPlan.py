@@ -36,7 +36,7 @@ class SearchPlan:
         total = 0
         N = len(self.nets)
 
-        for k in range(1, self.depth + 1):
+        for k in range(0, self.depth + 1):
             num_combs = comb(N, k, exact=True)
             depth_key = "depth{}".format(k)
             stats.update({depth_key: num_combs})

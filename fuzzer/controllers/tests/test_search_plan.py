@@ -10,9 +10,10 @@ def test_stats_short():
     res_stats = planner.get_fuzzing_stats()
 
     expected_stats = {
+        "depth0": 1,
         "depth1": 2,
         "depth2": 1,
-        "total": 3
+        "total": 4
     }
 
     assert(res_stats == expected_stats)
@@ -27,10 +28,11 @@ def test_stats():
     res_stats = planner.get_fuzzing_stats()
 
     expected_stats = {
+        "depth0": 1,
         "depth1": 4,
         "depth2": 6,
         "depth3": 4,
-        "total": 14
+        "total": 15
     }
 
     assert(res_stats == expected_stats)
@@ -47,11 +49,12 @@ def test_stats_large():
     res_stats = planner.get_fuzzing_stats()
 
     expected_stats = {
+        "depth0": 1,
         "depth1": 180,
         "depth2": 16110,
         "depth3": 955860,
         "depth4": 42296805,
-        "total": 43268955
+        "total": 43268956
     }
 
     assert(res_stats == expected_stats)
@@ -66,11 +69,12 @@ def test_stats_max():
     res_stats = planner.get_fuzzing_stats()
 
     expected_stats = {
+        "depth0": 1,
         "depth1": 4,
         "depth2": 6,
         "depth3": 4,
         "depth4": 1,
-        "total": 15
+        "total": 16
     }
 
     assert(res_stats == expected_stats)
