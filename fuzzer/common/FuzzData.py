@@ -67,7 +67,6 @@ class FuzzData:
         return net_ip
 
 
-# TODO fix tests
 # @Tested
 def parse_dev2vm(topo_containers: list, vms: dict, topo_name: str) -> dict:
     """ Return a dict of container names to IP of the VM they run on

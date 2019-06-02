@@ -123,6 +123,7 @@ def read_ping_file(idx: int) -> str:
     return ping_data
 
 
+# @Tested
 def swap_order(val_a, val_b, swap: bool):
     """ Return the two vals in the specified order """
     if swap:
