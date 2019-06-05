@@ -41,16 +41,16 @@ class Fuzzer:
             link_changes: dict = self.find_link_changes(dropped_links, state)
             state_change_instr = self.gen_state_change(link_changes)
 
-            print(clr("## Executing link changes", 'cyan', attrs=['bold']))
+            print(clr("#### Executing link changes", 'cyan', attrs=['bold']))
             exec_state_change(state_change_instr)
 
-            print(clr("## Waiting for fib convergence", 'cyan', attrs=['bold']))
-            exec_convergence_wait()
+            print(clr("#### Waiting for FIB convergence", 'cyan', attrs=['bold']))
+            exec_convergence_wait(link_changes)
 
-            print(clr("## Testing reachability", 'cyan', attrs=['bold']))
+            print(clr("#### Testing reachability", 'cyan', attrs=['bold']))
             exec_reachability_testing()
 
-            print(clr("## Verifying properties", 'cyan', attrs=['bold']))
+            print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
             self.verify_properties(state)
 
             dropped_links = state
@@ -146,9 +146,11 @@ def exec_state_change(instructions: list):
                            format(instr["op_type"], instr["iface"]))
 
 
-def exec_convergence_wait():
-    #input("Press Enter to continue...")
-    return_code: int = call([const.CONVERGENCE_SH])
+def exec_convergence_wait(link_changes: dict):
+    command = [const.CONVERGENCE_SH]
+    command.extend(parse_convergence_links(link_changes))
+
+    return_code: int = call(command)
     signal_script_fail(return_code)
 
 
@@ -170,6 +172,22 @@ def state_diff(state_a, state_b) -> list:
             diff.append(state)
 
     return diff
+
+
+# @Tested
+def parse_convergence_links(link_changes: dict) -> list:
+    params = []
+
+    for op, links in link_changes.items():
+        if links:
+            if op == "drop":
+                params.append("-d")
+            elif op == "restore":
+                params.append("-r")
+
+            params.append(','.join(links))
+
+    return params
 
 
 def pretty_print_instr(instr: dict, n, t):

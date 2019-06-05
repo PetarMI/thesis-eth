@@ -2,13 +2,13 @@
 
 # colors for output
 readonly GREEN='\033[0;32m'
-readonly RED='\033[0;31m'
+readonly YELLOW='\033[0;33m'
 readonly NC='\033[0m' # No Color
 
 readonly FRR_INFO_SH="/home/api/device_info.sh"
 readonly IP_regex="([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 
-readonly MAX_ATTEMPTS=30
+readonly MAX_ATTEMPTS=50
 readonly WAIT_INTERVAL=2
 
 # collect all running container names
@@ -42,17 +42,18 @@ function double_check_neighbours {
 
         local attempts=0
         while true ; do
-            if [[ "${slow_containers[$cont]}" -eq "$full_neighbors" ]]; then
+            if [[ "${slow_containers[$cont]}" -le "$full_neighbors" ]]; then
                 echo "INFO: Container ${cont} converged on attempt ${attempts}"
                 break
             elif [[ "$attempts" -ge "$MAX_ATTEMPTS" ]]; then
+                echo "INFO: Container ${cont} on VM ${HOSTNAME} has non-ready adjacencies"
                 non_converged=$(( non_converged + 1 ))
                 break
             fi
 
             sleep ${WAIT_INTERVAL}
-            full_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "Full" | wc -l)
             attempts=$(( $attempts + 1 ))
+            full_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "Full" | wc -l)
         done
     done
 
@@ -70,10 +71,10 @@ if [[ "$failed" -gt 0 ]]; then
     failed=$?
 
     if [[ "$failed" -gt 0 ]]; then
-        printf "${RED}VM: ${HOSTNAME} - ${failed} OSPF neighbors may have failed to converge${NC} \n"
+        printf "${YELLOW}VM: ${HOSTNAME} - ${failed} OSPF neighbors may have failed to converge${NC}\n"
     else
-        printf "${GREEN}VM: ${HOSTNAME} - OSPF neighbours converged after double checking${NC} \n"
+        printf "${GREEN}VM: ${HOSTNAME} - OSPF neighbours converged after double checking${NC}\n"
     fi
 else
-    printf "${GREEN}VM: ${HOSTNAME} - OSPF neighbours converged on first pass${NC} \n"
+    printf "${GREEN}VM: ${HOSTNAME} - OSPF neighbours converged on first pass${NC}\n"
 fi
