@@ -2,7 +2,7 @@ import pingparsing
 from fuzzer.common import file_reader as fr
 
 
-def verify_reachability(properties: list) -> dict:
+def verify_ping_reachability(properties: list) -> dict:
     results = dict()
 
     for idx, prop in enumerate(properties):
