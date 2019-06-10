@@ -1,4 +1,4 @@
-from fuzzer.controllers import Transition as t
+from fuzzer.controllers import StateTransition as t
 
 
 ###############################################################################
@@ -132,3 +132,73 @@ def test_partial_random4():
     }
 
     assert(res_changes == expected_changes)
+
+
+###############################################################################
+# ################################ OTHER ######################################
+###############################################################################
+def test_conv_param_parse_dropped():
+    op = "drop"
+    networks = ["10.0.1.0/24", "10.0.2.0/24"]
+
+    res_params = t.parse_convergence_params(op, networks, False)
+    expected_params = ["-d", "10.0.1.0/24,10.0.2.0/24"]
+
+    assert(res_params == expected_params)
+
+
+def test_conv_param_parse_restored():
+    op = "restore"
+    networks = ["10.0.1.0/24", "10.0.4.0/24"]
+
+    res_params = t.parse_convergence_params(op, networks, False)
+    expected_params = ["-r", "10.0.1.0/24,10.0.4.0/24"]
+
+    assert(res_params == expected_params)
+
+
+def test_conv_param_parse_strict():
+    op = "restore"
+    networks = ["10.0.1.0/24", "10.0.4.0/24"]
+
+    res_params = t.parse_convergence_params(op, networks, True)
+    expected_params = ["-r", "10.0.1.0/24,10.0.4.0/24", "-s"]
+
+    assert(res_params == expected_params)
+
+
+def test_conv_param_parse_no_restored():
+    link_changes = {
+        "drop": ["10.0.1.0/24", "10.0.2.0/24"],
+        "restore": []
+    }
+
+    res_params = t.parse_convergence_params(link_changes)
+    expected_params = ["-d", "10.0.1.0/24,10.0.2.0/24"]
+
+    assert(res_params == expected_params)
+
+
+def test_conv_param_parse_no_dropped():
+    link_changes = {
+        "restore": ["10.0.1.0/24", "10.0.2.0/24"],
+        "drop": []
+    }
+
+    res_params = t.parse_convergence_params(link_changes)
+    expected_params = ["-r", "10.0.1.0/24,10.0.2.0/24"]
+
+    assert(res_params == expected_params)
+
+
+def test_conv_param_parse_no_changes():
+    link_changes = {
+        "restore": [],
+        "drop": []
+    }
+
+    res_params = t.parse_convergence_params(link_changes)
+    expected_params = []
+
+    assert(res_params == expected_params)
+

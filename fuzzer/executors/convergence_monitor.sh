@@ -8,16 +8,19 @@ usage="Script to ssh into VM and setup Layer 2
 where:
     -d     Dropped links
     -r     Restored links
+    -s     Strict convergence
     -h     show this help text"
 
 ARG_dropped=""
 ARG_restored=""
+FLAG_strict=0
 
-while getopts "d:r:h" option
+while getopts "d:r:sh" option
 do
     case "${option}" in
         d) ARG_dropped=${OPTARG};;
         r) ARG_restored=${OPTARG};;
+        s) FLAG_strict=1;;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
@@ -30,7 +33,7 @@ readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_
 readonly VM_SCRIPT_DIR="vm_scripts"
 readonly DROPPED_CONV_SH="fuzz_conv_dropped.sh"
 readonly NEIGHBORS_CONV_SH="fuzz_conv_neighbors.sh"
-readonly RESTORED_CONV_SH="fuzz_conv_restored.sh"
+readonly RESTORED_CONV_SH="fuzz_conv_restored_strict.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
@@ -67,12 +70,18 @@ function restored_convergence {
     vm_convergence "${cmd}"
 }
 
+# TODO take into account the strict flag
+if [[ ${ARG_restored} != "" ]]; then
+    printf "${CYAN}## Checking Neighbors convergence${NC}\n"
+    time neighbors_convergence
 
-printf "${CYAN}## Checking Dropped links convergence${NC}\n"
-time dropped_convergence
+    printf "${CYAN}## Checking Restored links convergence${NC}\n"
+    if [[ ${FLAG_strict} == 1 ]]; then
+        time restored_convergence
+    fi
+fi
 
-printf "${CYAN}## Checking Neighbors convergence${NC}\n"
-time neighbors_convergence
-
-#printf "${CYAN}## Checking Restored links convergence${NC}\n"
-#time restored_convergence
+if [[ ${ARG_dropped} != "" ]]; then
+    printf "${CYAN}## Checking Dropped links convergence${NC}\n"
+    time dropped_convergence
+fi

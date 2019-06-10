@@ -3,7 +3,7 @@ from termcolor import colored as clr
 import json
 from fuzzer.controllers import reachability_parser as rp
 from fuzzer.controllers.SearchPlan import SearchPlan
-from fuzzer.controllers import Transition
+from fuzzer.controllers import StateTransition
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common import file_writer as fw
@@ -12,8 +12,10 @@ from fuzzer.verifiers import reachability_verifier as rv
 
 class Fuzzer:
     def __init__(self):
-        # reads all data for running devices and containers during fuzzing
+        # reads all data for running devices during fuzzing
         self.fuzz_data = FuzzData()
+
+        # declare all state variables used during fuzzing
         self.search_plan: list = None
         self.search_stats: dict = None
         self.transition = None
@@ -31,24 +33,7 @@ class Fuzzer:
         self.search_stats = planner.get_fuzzing_stats()
 
         # set fuzzing approach state variables
-        self.transition = Transition.PartialRevert()
-
-    # def verify_deployment(self) -> bool:
-    #     exec_ping_reachability()
-    #
-    #     # verify ping results
-    #     ping_results: dict = rv.verify_ping_reachability(self.properties)
-    #     all_successful = True
-    #
-    #     for property_id, ping_res in ping_results.items():
-    #         if ping_res["status"] == 0:
-    #             continue
-    #         else:
-    #             all_successful = False
-    #
-    #         col, desc = pretty_print_failure(property_id, ver_res)
-    #
-    #     return all_successful
+        self.transition = StateTransition.FullRevert()
 
     def fuzz(self):
         dropped_links = []
@@ -60,13 +45,11 @@ class Fuzzer:
                       'magenta'))
 
             link_changes: dict = self.transition.find_link_changes(dropped_links, state)
-            state_change_instr: list = self.gen_state_change(link_changes)
+            transition_instr: dict = self.gen_transition_instructions(link_changes)
 
-            print(clr("#### Executing link changes", 'cyan', attrs=['bold']))
-            exec_state_change(state_change_instr)
-
-            print(clr("#### Waiting for FIB convergence", 'cyan', attrs=['bold']))
-            exec_convergence_wait(link_changes)
+            print(clr("#### Executing state transition", 'cyan', attrs=['bold']))
+            net_changes: dict = self.get_link_change_ips(link_changes)
+            self.transition.exec_state_transition(transition_instr, net_changes)
 
             print(clr("#### Testing reachability", 'cyan', attrs=['bold']))
             exec_ping_reachability()
@@ -78,13 +61,15 @@ class Fuzzer:
 
             print("===================================")
 
-    def gen_state_change(self, link_changes: dict) -> list:
-        instructions = []
+    def gen_transition_instructions(self, link_changes: dict) -> dict:
+        instructions = {}
+        instructions.update({"restore": []})
+        instructions.update({"drop": []})
 
         for op_type, links in link_changes.items():
             for link in links:
                 link_instructions: list = self.get_link_instructions(op_type, link)
-                instructions.extend(link_instructions)
+                instructions.setdefault(op_type, []).extend(link_instructions)
 
         return instructions
 
@@ -134,7 +119,19 @@ class Fuzzer:
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
 
-    def get_network_ips(self, nets):
+    def get_link_change_ips(self, link_changes: dict):
+        """ Take the link changes and return same format but with IPs
+        instead of names """
+        ip_changes = {}
+
+        for op_type in link_changes.keys():
+            links_ips: list = self.get_network_ips(link_changes.get(op_type))
+            ip_changes.update({op_type: links_ips})
+
+        return ip_changes
+
+    def get_network_ips(self, nets) -> list:
+        """ Get the IPs of a list of network names """
         ips = []
 
         for net in nets:
@@ -143,54 +140,9 @@ class Fuzzer:
         return ips
 
 
-def exec_state_change(instructions: list):
-    """ Call an executor script to execute each change
-    Either pass params directly OR write to file where script reads from
-    """
-    for n, instr in enumerate(instructions, start=1):
-        pretty_print_instr(instr, n, len(instructions))
-        return_code: int = call([const.LINK_STATE_SH, "-f", "iface",
-                                 "-v", instr["vm"], "-d", instr["container"],
-                                 "-i", instr["iface"], "-s", instr["op_type"]])
-        signal_script_fail(return_code, "{} interface {}".
-                           format(instr["op_type"], instr["iface"]))
-
-
-def exec_convergence_wait(link_changes: dict):
-    command = [const.CONVERGENCE_SH]
-    command.extend(parse_convergence_links(link_changes))
-
-    return_code: int = call(command)
-    signal_script_fail(return_code)
-
-
 def exec_ping_reachability():
     return_code: int = call([const.PING_SH])
     signal_script_fail(return_code)
-
-
-# @Tested
-def parse_convergence_links(link_changes: dict) -> list:
-    params = []
-
-    for op, links in link_changes.items():
-        if links:
-            if op == "drop":
-                params.append("-d")
-            elif op == "restore":
-                params.append("-r")
-
-            params.append(','.join(links))
-
-    return params
-
-
-def pretty_print_instr(instr: dict, n, t):
-    progress = "({}/{})".format(n, t)
-    op = "Dropping" if instr["op_type"] == "drop" else "Restoring"
-
-    print("{} {} link {} on device {}".
-          format(progress, op, instr["link"], instr["container"]))
 
 
 def pretty_print_failure(pid: int, verification_res: dict):

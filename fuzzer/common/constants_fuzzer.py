@@ -30,3 +30,6 @@ FAILURES_LOG = "{}/failures.log".format(VERIFIER_DATA_DIR)
 CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
 LINK_STATE_SH = "{}/executors/exec_link_change.sh".format(FUZZ_DIR)
 PING_SH = "{}/executors/reachability_exec.sh".format(FUZZ_DIR)
+
+RESTORE="restore"
+DROP="drop"
