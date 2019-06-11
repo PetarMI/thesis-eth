@@ -1,13 +1,13 @@
 from subprocess import call
 from termcolor import colored as clr
 import json
-from fuzzer.controllers import reachability_parser as rp
-from fuzzer.controllers.SearchPlan import SearchPlan
+from fuzzer.controllers import property_parser as pp
+from fuzzer.controllers.Statespace import Statespace
 from fuzzer.controllers import StateTransition
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common import file_writer as fw
-from fuzzer.verifiers import reachability_verifier as rv
+from fuzzer.verifiers import Verification as Ver
 
 
 class Fuzzer:
@@ -19,21 +19,21 @@ class Fuzzer:
         self.search_plan: list = None
         self.search_stats: dict = None
         self.transition = None
-        self.properties: list = None
+        self.verification = None
         # potentially to be used in gen_state_change
         # self.fail_type = "iface"
 
     def prepare_fuzzing(self, depth: int, algo: str):
-        self.properties = rp.parse_properties(self.fuzz_data)
-
         # generate the search strategy/statespace
         nets: list = self.fuzz_data.get_networks()
-        planner = SearchPlan(depth, nets)
-        self.search_plan = planner.get_search_plan(algo)
-        self.search_stats = planner.get_fuzzing_stats()
+        statespace = Statespace(depth, nets)
+        self.search_plan = statespace.get_search_plan(algo)
+        self.search_stats = statespace.get_fuzzing_stats()
 
         # set fuzzing approach state variables
         self.transition = StateTransition.FullRevert()
+        properties: list = pp.parse_properties(self.fuzz_data)
+        self.verification = Ver.Verification(properties)
 
     def fuzz(self):
         dropped_links = []
@@ -91,7 +91,7 @@ class Fuzzer:
         return instructions
 
     def verify_properties(self, state: tuple):
-        ver_results: dict = rv.verify_ping_reachability(self.properties)
+        ver_results: dict = self.verification.verify_ping_reachability()
         all_successful: bool = True
         failures = []
 

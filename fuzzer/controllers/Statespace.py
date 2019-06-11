@@ -14,7 +14,7 @@ from scipy.special import comb
 from fuzzer.controllers import search_strategies as strategies
 
 
-class SearchPlan:
+class Statespace:
     def __init__(self, depth: int, nets: list):
         self.depth = depth
         self.nets = nets

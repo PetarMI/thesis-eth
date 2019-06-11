@@ -46,7 +46,7 @@ def find_network_interface(container: str, network: str, dev_net2iface) -> str:
     return network_interface
 
 
-def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
+def get_nat_iface(dest_ip: str, nat_ips: dict) -> ipaddress.IPv4Interface:
     """ Check every container for the original IP and return the simulated one.
     Works with dest_ip which has no netmask specified
     Called just once during property parsing.
@@ -59,11 +59,11 @@ def get_nat_ip(dest_ip: str, nat_ips: dict) -> str:
 
             if casted_dest_ip == casted_orig_ip:
                 sim_dest_ip = container[orig_iface]
-                return str(sim_dest_ip.ip)
+                return sim_dest_ip
 
-    # raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
-    print("WARNING: Original IP {} not in NAT logs".format(dest_ip))
-    return dest_ip
+    raise ValueError("Original IP {} not in NAT logs".format(dest_ip))
+    # print("WARNING: Original IP {} not in NAT logs".format(dest_ip))
+    # return dest_ip
 
 
 # @Tested in FuzzData.py tests

@@ -57,9 +57,13 @@ class FuzzData:
 
         return sim_networks
 
-    def get_nat_ip(self, dest_ip: str) -> str:
+    # TODO maybe refactor
+    def get_nat_ip(self, dest_ip: str):
+        """ Return the simulated IP and the network it belongs to
+            Used one-time for property parsing """
         nat_ips: dict = fr.read_nat_ips()
-        return fdata_ops.get_nat_ip(dest_ip, nat_ips)
+        nat_iface = fdata_ops.get_nat_iface(dest_ip, nat_ips)
+        return str(nat_iface.ip), str(nat_iface.network)
 
     def get_sim_net_ip(self, net_name: str) -> str:
         net_ip: str = self.sim_nets.get(net_name, None)

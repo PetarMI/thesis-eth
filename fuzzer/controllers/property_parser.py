@@ -12,6 +12,7 @@ from fuzzer.common.FuzzData import FuzzData
 
 
 def parse_properties(fuzz_data: FuzzData) -> list:
+    # TODO make this read all properties
     raw_reach_props: dict = fr.read_properties("reachability")
     reach_props: list = parse_reachability_props(raw_reach_props, fuzz_data)
 
@@ -28,10 +29,12 @@ def parse_reachability_props(raw_properties, fuzz_data) -> list:
     for raw_property in raw_properties:
         prop = dict()
         container_name = get_container_name(topo_name, raw_property["src"])
+        dest_sim_ip, dest_sim_net = fuzz_data.get_nat_ip(raw_property["dest"])
 
         prop["vm_ip"] = fuzz_data.find_container_vm(container_name)
         prop["container_name"] = container_name
-        prop["dest_sim_ip"] = fuzz_data.get_nat_ip(raw_property["dest"])
+        prop["dest_sim_ip"] = dest_sim_ip
+        prop["dest_sim_net"] = dest_sim_net
         prop["dest_ip"] = raw_property["dest"]
 
         properties.append(prop)
