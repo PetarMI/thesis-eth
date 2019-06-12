@@ -46,6 +46,12 @@ def find_network_interface(container: str, network: str, dev_net2iface) -> str:
     return network_interface
 
 
+# @Tested
+def find_ip_dev(ip: str, ip2dev: dict) -> str:
+    """ Return the device to which has the specified IP """
+    return ip2dev.get(ip, None)
+
+
 def get_nat_iface(dest_ip: str, nat_ips: dict) -> ipaddress.IPv4Interface:
     """ Check every container for the original IP and return the simulated one.
     Works with dest_ip which has no netmask specified

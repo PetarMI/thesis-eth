@@ -20,8 +20,6 @@ class Fuzzer:
         self.search_stats: dict = None
         self.transition = None
         self.verification = None
-        # potentially to be used in gen_state_change
-        # self.fail_type = "iface"
 
     def prepare_fuzzing(self, depth: int, algo: str):
         # generate the search strategy/statespace
@@ -33,7 +31,7 @@ class Fuzzer:
         # set fuzzing approach state variables
         self.transition = StateTransition.FullRevert()
         properties: list = pp.parse_properties(self.fuzz_data)
-        self.verification = Ver.Verification(properties)
+        self.verification = Ver.Verification(properties, self.fuzz_data)
 
     def fuzz(self):
         dropped_links = []
@@ -51,8 +49,8 @@ class Fuzzer:
             net_changes: dict = self.get_link_change_ips(link_changes)
             self.transition.exec_state_transition(transition_instr, net_changes)
 
-            print(clr("#### Testing reachability", 'cyan', attrs=['bold']))
-            exec_ping_reachability()
+            #print(clr("#### Testing reachability", 'cyan', attrs=['bold']))
+            #exec_ping_reachability()
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
             self.verify_properties(state)
@@ -91,7 +89,7 @@ class Fuzzer:
         return instructions
 
     def verify_properties(self, state: tuple):
-        ver_results: dict = self.verification.verify_ping_reachability()
+        ver_results: dict = self.verification.verify_fib_reachability()
         all_successful: bool = True
         failures = []
 
@@ -112,8 +110,6 @@ class Fuzzer:
 
         if all_successful:
             print(clr("All properties HOLD", 'green'))
-
-        fw.write_state_failures(failures)
 
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
@@ -149,11 +145,11 @@ def pretty_print_failure(pid: int, verification_res: dict):
     ver_status = verification_res["status"]
 
     if ver_status == 1:
-        return 'red', "Property {} FAILED: {}".format(pid, verification_res["desc"])
+        return 'red', "Property {} FAILED".format(pid)
     if ver_status == 2:
-        return 'yellow', "Property {} WARNING: {}".format(pid, verification_res["desc"])
+        return 'yellow', "Property {} WARNING".format(pid)
     if ver_status == 3:
-        return 'grey', "Property {} ERROR: {}".format(pid, verification_res["desc"])
+        return 'grey', "Property {} ERROR".format(pid)
 
 
 def signal_script_fail(return_code: int, msg="", die=False):

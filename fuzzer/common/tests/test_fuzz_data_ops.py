@@ -115,3 +115,30 @@ def test_find_iface_no_net():
         }
 
         fdata_ops.find_network_interface("r01", "potato", dev_net2iface)
+
+
+###############################################################################
+# ############################# SEARCH DEV BY IP ##############################
+###############################################################################
+def test_find_ip_dev_match():
+    ip2dev = {
+        "10.0.1.3": "r01",
+        "10.0.2.3": "r01",
+        "10.0.3.3": "r01",
+        "10.0.1.4": "r02",
+        "10.0.1.5": "r03",
+        "10.0.3.4": "r03"
+    }
+
+    res_dev = fdata_ops.find_ip_dev("10.0.3.3", ip2dev)
+    assert(res_dev == "r01")
+
+
+def test_find_ip_dev_no_match():
+    ip2dev = {
+        "10.0.1.3": "r01",
+        "10.0.3.4": "r03"
+    }
+
+    res_dev = fdata_ops.find_ip_dev("10.0.3.3", ip2dev)
+    assert(res_dev == None)

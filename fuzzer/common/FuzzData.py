@@ -32,6 +32,7 @@ class FuzzData:
         self.dev2vm: dict = parse_dev2vm(topo_containers, vms, topo_name)
         self.net2dev: dict = parse_net2devices(topo_containers, topo_name)
         self.dev_net2iface = parse_nets2ifaces(sim_ifaces, inverted_sim_nets)
+        self.ip2dev = parse_ip2dev(sim_ifaces)
         # in-memory data for clearer output
         self.sim_nets: dict = fr.read_sim_networks()
 
@@ -44,6 +45,9 @@ class FuzzData:
 
     def find_network_interface(self, container: str, network: str) -> str:
         return fdata_ops.find_network_interface(container, network, self.dev_net2iface)
+
+    def find_ip_device(self, ip: str) -> str:
+        return fdata_ops.find_ip_dev(ip, self.ip2dev)
 
     # wrapper methods
     def get_topo_name(self) -> dict:
@@ -107,6 +111,20 @@ def parse_net2devices(topo_containers: list, topo_name: str) -> dict:
     return net2dev
 
 
+# @Tested
+def parse_ip2dev(sim_ifaces: dict) -> dict:
+    ip2dev = dict()
+
+    for dev_name, dev_ifaces in sim_ifaces.items():
+        for iface_ip in dev_ifaces.keys():
+            ip = str(ipaddress.IPv4Interface(iface_ip).ip)
+            ip2dev.update({ip: dev_name})
+
+    post_validation_ip2dev(ip2dev, sim_ifaces)
+
+    return ip2dev
+
+
 # @Tested (just one)
 def parse_nets2ifaces(sim_ifaces: dict, sim_nets: dict) -> dict:
     """ Parse the containers and match each interface to a network """
@@ -142,6 +160,18 @@ def post_validation_net2dev(net2dev: dict):
         if len(containers) > 2:
             raise ValueError("More than two containers connected to network {}"
                              .format(net))
+
+
+# @Tested as part of calling function
+def post_validation_ip2dev(ip2dev: dict, sim_ifaces: dict):
+    parsed_ips = len(ip2dev.keys())
+    topo_ips = 0
+
+    for dev_ifaces in sim_ifaces.values():
+        topo_ips += len(dev_ifaces.keys())
+
+    if parsed_ips != topo_ips:
+        raise ValueError("Suspected repeated IP addresses in topology")
 
 
 def post_validation_networks(topo_networks: list, sim_networks: list):
