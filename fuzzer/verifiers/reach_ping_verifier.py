@@ -1,4 +1,5 @@
 import pingparsing
+from termcolor import colored as clr
 from fuzzer.common import file_reader as fr
 
 
@@ -50,3 +51,29 @@ def check_ping(ping_msg: str, dest_sim_ip) -> dict:
         "status": res_status,
         "desc": res_text
     }
+
+
+def interpret_verification_results(ping_results: dict):
+    all_successful: bool = True
+
+    for property_id, ver_res in ping_results.items():
+        if ver_res["status"] == 0:
+            continue
+        else:
+            all_successful = False
+
+        pretty_print_failure(property_id, ver_res)
+
+    if all_successful:
+        print(clr("All properties HOLD", 'green'))
+
+
+def pretty_print_failure(pid: int, verification_res: dict):
+    ver_status = verification_res["status"]
+
+    if ver_status == 1:
+        print(clr("Property {} FAILED: {}".format(pid, verification_res["desc"]), 'red'))
+    if ver_status == 2:
+        print(clr("Property {} WARNING: {}".format(pid, verification_res["desc"]), 'yellow'))
+    if ver_status == 3:
+        print(clr("Property {} ERROR: {}".format(pid, verification_res["desc"]), 'grey'))

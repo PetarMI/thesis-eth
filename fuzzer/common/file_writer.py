@@ -21,12 +21,13 @@ def write_parsed_properties(properties: list):
         json.dump(properties, json_file, indent=4)
 
 
-def write_state_failures(failures: list):
+def write_state_failures(state: tuple, failures: list):
     output_file = const.FAILURES_LOG
 
     with open(output_file, mode='a+') as log_file:
+        log_file.write("State: {}\n".format(state))
+
         for f in failures:
-            log_file.write("Failed property {}\n".format(f["pid"]))
-            log_file.write("\tState: {}\n".format(f["state"]))
+            log_file.write("\tFailed property {}\n".format(f["pid"]))
             log_file.write("\tDescription: {}\n".format(f["desc"]))
             log_file.write("===========================\n")

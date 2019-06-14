@@ -13,7 +13,7 @@ def main():
     fuzzer = Fuzzer()
     fuzzer.prepare_fuzzing(3, "bfs")
     fuzzer.print_search_strategy()
-    # fuzzer.verify_deployment()
+    fuzzer.verify_deployment()
     fuzzer.fuzz()
 
 

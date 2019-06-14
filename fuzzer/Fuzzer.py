@@ -6,7 +6,6 @@ from fuzzer.controllers.Statespace import Statespace
 from fuzzer.controllers import StateTransition
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
-from fuzzer.common import file_writer as fw
 from fuzzer.verifiers import Verification as Ver
 
 
@@ -33,6 +32,12 @@ class Fuzzer:
         properties: list = pp.parse_properties(self.fuzz_data)
         self.verification = Ver.Verification(properties, self.fuzz_data)
 
+    def verify_deployment(self):
+        print(clr("#### Verifying deployment", 'cyan', attrs=['bold']))
+        exec_ping_reachability()
+        ping_results: dict = self.verification.verify_ping_reachability()
+        self.verification.interpret_ping_results(ping_results)
+
     def fuzz(self):
         dropped_links = []
 
@@ -49,11 +54,9 @@ class Fuzzer:
             net_changes: dict = self.get_link_change_ips(link_changes)
             self.transition.exec_state_transition(transition_instr, net_changes)
 
-            #print(clr("#### Testing reachability", 'cyan', attrs=['bold']))
-            #exec_ping_reachability()
-
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
-            self.verify_properties(state)
+            fib_results: dict = self.verification.verify_fib_reachability()
+            self.verification.interpret_fib_results(state, fib_results)
 
             dropped_links = state
 
@@ -88,29 +91,6 @@ class Fuzzer:
 
         return instructions
 
-    def verify_properties(self, state: tuple):
-        ver_results: dict = self.verification.verify_fib_reachability()
-        all_successful: bool = True
-        failures = []
-
-        for property_id, ver_res in ver_results.items():
-            if ver_res["status"] == 0:
-                continue
-            else:
-                all_successful = False
-
-            col, desc = pretty_print_failure(property_id, ver_res)
-            failures.append({
-                "pid": property_id,
-                "state": state,
-                "desc": desc,
-            })
-
-            print(clr(desc, col))
-
-        if all_successful:
-            print(clr("All properties HOLD", 'green'))
-
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
@@ -139,17 +119,6 @@ class Fuzzer:
 def exec_ping_reachability():
     return_code: int = call([const.PING_SH])
     signal_script_fail(return_code)
-
-
-def pretty_print_failure(pid: int, verification_res: dict):
-    ver_status = verification_res["status"]
-
-    if ver_status == 1:
-        return 'red', "Property {} FAILED".format(pid)
-    if ver_status == 2:
-        return 'yellow', "Property {} WARNING".format(pid)
-    if ver_status == 3:
-        return 'grey', "Property {} ERROR".format(pid)
 
 
 def signal_script_fail(return_code: int, msg="", die=False):
