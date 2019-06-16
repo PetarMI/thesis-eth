@@ -1,15 +1,16 @@
 #!/bin/bash
 #
 # Executor script which prepares the VMs for fuzzing
+# by saving the initial state of the containers right after deployment
 
 readonly USER="fuzzvm"
 readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_vms.conf"
 
 readonly VM_SCRIPT_DIR="vm_scripts"
-readonly LOG_NEIGHBORS_SH="log_neighbors.sh"
+readonly SAVE_STATE_SH="fuzz_save_state.sh"
 
 function vm_prepare {
-    local command="cd ${VM_SCRIPT_DIR}; ./${LOG_NEIGHBORS_SH}"
+    local command="cd ${VM_SCRIPT_DIR}; ./${SAVE_STATE_SH}"
 
     local pids=()
 
