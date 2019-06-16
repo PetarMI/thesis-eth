@@ -7,20 +7,17 @@ usage="Script to ssh into VM and setup Layer 2
 
 where:
     -d     Dropped links
-    -r     Restored links
-    -s     Strict convergence
+    -f     Full revert links
     -h     show this help text"
 
 ARG_dropped=""
-ARG_restored=""
-FLAG_strict=0
+ARG_full_revert=""
 
-while getopts "d:r:sh" option
+while getopts "d:f:h" option
 do
     case "${option}" in
         d) ARG_dropped=${OPTARG};;
-        r) ARG_restored=${OPTARG};;
-        s) FLAG_strict=1;;
+        f) ARG_full_revert=${OPTARG};;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
@@ -32,8 +29,9 @@ readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_
 # convergence checking scripts at the VMs
 readonly VM_SCRIPT_DIR="vm_scripts"
 readonly DROPPED_CONV_SH="fuzz_conv_dropped.sh"
-readonly NEIGHBORS_CONV_SH="fuzz_conv_neighbors.sh"
-readonly RESTORED_CONV_SH="fuzz_conv_restored_strict.sh"
+readonly NEIGHBORS_UP_SH="fuzz_neighbors_up.sh"
+readonly NEIGHBORS_ADJ_SH="fuzz_neighbor_adj.sh"
+readonly FULL_RESTORE_CONV_SH="fuzz_conv_restored_full.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
@@ -54,31 +52,34 @@ function vm_convergence {
     done
 }
 
+function neighbors_up {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_UP_SH}"
+    vm_convergence "${cmd}"
+}
+
+function neighbors_adjacency {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_ADJ_SH}"
+    vm_convergence "${cmd}"
+}
+
+function full_revert_convergence {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${FULL_RESTORE_CONV_SH} ${ARG_full_revert}"
+    vm_convergence "${cmd}"
+}
 
 function dropped_convergence {
     local cmd="cd ${VM_SCRIPT_DIR}; ./${DROPPED_CONV_SH} ${ARG_dropped}"
     vm_convergence "${cmd}"
 }
 
-function neighbors_convergence {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_CONV_SH}"
-    vm_convergence "${cmd}"
-}
 
-function restored_convergence {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${RESTORED_CONV_SH} ${ARG_restored}"
-    vm_convergence "${cmd}"
-}
-
-# TODO take into account the strict flag
-if [[ ${ARG_restored} != "" ]]; then
-    printf "${CYAN}## Checking Neighbors convergence${NC}\n"
-    time neighbors_convergence
+if [[ ${ARG_full_revert} != "" ]]; then
+    printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
+    time neighbors_up
+    time neighbors_adjacency
 
     printf "${CYAN}## Checking Restored links convergence${NC}\n"
-    if [[ ${FLAG_strict} == 1 ]]; then
-        time restored_convergence
-    fi
+    time full_revert_convergence
 fi
 
 if [[ ${ARG_dropped} != "" ]]; then

@@ -9,6 +9,7 @@ Each class then has its own implementation of the "interface" method
 from subprocess import call
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
+from fuzzer.controllers import convergence
 
 
 class FullRevert:
@@ -27,12 +28,12 @@ class FullRevert:
     @staticmethod
     def exec_state_transition(transition_instr: dict, net_changes: dict):
         print(clr("## Reverting to initial state", 'cyan'))
-        exec_link_changes(transition_instr.get(const.RESTORE))
-        exec_convergence_wait(const.RESTORE, net_changes, strict=True)
+        exec_link_changes(transition_instr[const.RESTORE])
+        convergence.converge_full_revert(net_changes[const.RESTORE])
 
         print(clr("## Dropping failed links", 'cyan'))
         exec_link_changes(transition_instr.get(const.DROP))
-        exec_convergence_wait(const.DROP, net_changes)
+        convergence.converge_drop(net_changes[const.DROP])
 
     @staticmethod
     def exec_prepare_vms():
@@ -71,31 +72,6 @@ def exec_link_changes(instructions: list):
                                  "-i", instr["iface"], "-s", instr["op_type"]])
         signal_script_fail(return_code, "{} interface {}".
                            format(instr["op_type"], instr["iface"]))
-
-
-def exec_convergence_wait(op: str, net_changes: dict, strict=True):
-    command = [const.CONVERGENCE_SH]
-    command.extend(parse_convergence_params(op, net_changes.get(op), strict))
-
-    return_code: int = call(command)
-    signal_script_fail(return_code)
-
-
-# TODO see what to do with empty lists
-def parse_convergence_params(op: str, networks: list, strict: bool) -> list:
-    params = []
-
-    if op == const.DROP:
-        params.append("-d")
-    elif op == const.RESTORE:
-        params.append("-r")
-
-    params.append(','.join(networks))
-
-    if strict:
-        params.append("-s")
-
-    return params
 
 
 def pretty_print_instr(instr: dict, n, t):

@@ -5,8 +5,6 @@ readonly GREEN='\033[0;32m'
 readonly YELLOW='\033[0;33m'
 readonly NC='\033[0m' # No Color
 
-readonly HOME_DIR="${HOME}"
-readonly NEIGHBOR_LOGS="${HOME}/logs/neighbors.log"
 readonly FRR_INFO_SH="/home/api/device_info.sh"
 readonly IP_regex="([0-9]{1,3}[\.]){3}[0-9]{1,3}"
 
@@ -16,19 +14,6 @@ readonly WAIT_INTERVAL=2
 # collect all running container names
 containers=$(docker ps | grep phynet | awk '{print $NF}')
 declare -A slow_containers
-
-function check_neighbor_discovery {
-    while read -r cont
-    do
-        local real_neighbors=$(cat ${NEIGHBOR_LOGS} | grep ${cont} | awk '{print $2}')
-        local num_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "${IP_regex}" | wc -l)
-
-        while [[ "real_neighbors" -gt "num_neighbors" ]]; do
-            sleep 1
-            num_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "${IP_regex}" | wc -l)
-        done
-    done <<< ${containers}
-}
 
 function check_neighbour_adjacency {
     local non_converged=0
@@ -78,7 +63,6 @@ function double_check_neighbours {
 # do a one pass over every container's neighbours and store the ones who
 # don't have state Full/*
 # double check every container for a MAX number of retries
-check_neighbor_discovery
 check_neighbour_adjacency
 failed=$?
 
