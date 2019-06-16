@@ -14,7 +14,7 @@ done
 
 # make sure an option has been entered
 if [[ "${ARG_state}" == "undefined" ]]; then
-    echo "Please specify up (-srestore) or down (-d)"
+    echo "Please specify up (-s restore) or down (-s down)"
     exit 1
 fi
 

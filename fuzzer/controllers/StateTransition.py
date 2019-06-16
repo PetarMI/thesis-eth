@@ -12,7 +12,10 @@ from fuzzer.common import constants_fuzzer as const
 
 
 class FullRevert:
-    """ Restores ALL dropped links between every state transition"""
+    """ Reverts the topology to its initial state between state transitions """
+    def __init__(self):
+        self.exec_prepare_vms()
+
     # TODO tests
     @staticmethod
     def find_link_changes(dropped_links: list, next_state: tuple) -> dict:
@@ -23,7 +26,18 @@ class FullRevert:
 
     @staticmethod
     def exec_state_transition(transition_instr: dict, net_changes: dict):
-        _exec_state_transition(transition_instr, net_changes, strict=True)
+        print(clr("## Reverting to initial state", 'cyan'))
+        exec_link_changes(transition_instr.get(const.RESTORE))
+        exec_convergence_wait(const.RESTORE, net_changes, strict=True)
+
+        print(clr("## Dropping failed links", 'cyan'))
+        exec_link_changes(transition_instr.get(const.DROP))
+        exec_convergence_wait(const.DROP, net_changes)
+
+    @staticmethod
+    def exec_prepare_vms():
+        return_code: int = call([const.VM_PREP_SH])
+        signal_script_fail(return_code, "Preparing VMs for fuzzing")
 
 
 # TODO: not finished
@@ -42,22 +56,12 @@ class PartialRevert:
 
     @staticmethod
     def exec_state_transition(transition_instr: dict, net_changes: dict):
-        _exec_state_transition(transition_instr, net_changes, strict=False)
+        raise ValueError("Not Implemented")
 
 
 ###############################################################################
 # ############### Common functions between the two classes ####################
 ###############################################################################
-def _exec_state_transition(transition_instr: dict, net_changes: dict, strict: bool):
-    print(clr("## Restoring dropped links", 'cyan'))
-    exec_link_changes(transition_instr.get(const.RESTORE))
-    exec_convergence_wait(const.RESTORE, net_changes, strict)
-
-    print(clr("## Dropping failed links", 'cyan'))
-    exec_link_changes(transition_instr.get(const.DROP))
-    exec_convergence_wait(const.DROP, net_changes)
-
-
 def exec_link_changes(instructions: list):
     """ Call an executor script to execute each change """
     for n, instr in enumerate(instructions, start=1):
