@@ -28,11 +28,12 @@ def verify_fib_property(prop: dict, fuzz_data: FuzzData):
         if next_hop == "connected":
             ver_status = 0
             ver_msg = "Found path to network {}".format(dest_network)
+            ver_info = ""
             break
         elif not next_hop:
-            print(next_hop)
             ver_status = 1
-            ver_msg = "No path to network {} at device {}".format(dest_network, src_dev)
+            ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
+            ver_info = "No path to network {} at device {}".format(dest_network, src_dev)
             break
         else:
             src_dev = fuzz_data.find_ip_device(next_hop)
@@ -40,12 +41,14 @@ def verify_fib_property(prop: dict, fuzz_data: FuzzData):
 
             if not src_dev or not vm_ip:
                 ver_status = 2
-                ver_msg = "Next hop {} on {} not present".format(src_dev, vm_ip)
+                ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
+                ver_info = "Next hop {} on {} not present".format(src_dev, vm_ip)
                 break
 
     return {
         "status": ver_status,
-        "desc": ver_msg
+        "desc": ver_msg,
+        "info": ver_info
     }
 
 
@@ -72,6 +75,7 @@ def interpret_verification_results(state: tuple, fib_results: dict):
         failures.append({
             "pid": property_id,
             "desc": ver_res["desc"],
+            "info": ver_res["info"]
         })
 
     if all_successful:
@@ -87,3 +91,5 @@ def pretty_print_failure(pid: int, verification_res: dict):
         print(clr("Property {} FAILED: {}".format(pid, verification_res["desc"]), 'red'))
     elif ver_status == 2:
         print(clr("Property {} ERROR: {}".format(pid, verification_res["desc"]), 'grey'))
+
+    print(clr("\tInfo:".format(pid, verification_res["info"]), 'yellow'))

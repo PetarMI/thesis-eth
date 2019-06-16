@@ -30,4 +30,5 @@ def write_state_failures(state: tuple, failures: list):
         for f in failures:
             log_file.write("\tFailed property {}\n".format(f["pid"]))
             log_file.write("\tDescription: {}\n".format(f["desc"]))
+            log_file.write("\tExtra Info: {}\n".format(f["info"]))
             log_file.write("===========================\n")
