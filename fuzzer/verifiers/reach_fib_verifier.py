@@ -92,4 +92,4 @@ def pretty_print_failure(pid: int, verification_res: dict):
     elif ver_status == 2:
         print(clr("Property {} ERROR: {}".format(pid, verification_res["desc"]), 'grey'))
 
-    print(clr("\tInfo:".format(pid, verification_res["info"]), 'yellow'))
+    print(clr("\tInfo: {}".format(pid, verification_res["info"]), 'yellow'))

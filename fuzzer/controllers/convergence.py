@@ -12,7 +12,11 @@ def converge_full_revert(restored_nets: list):
 
 
 def converge_drop(dropped_nets: list):
-    raise ValueError("Not Implemented")
+    command = [const.CONVERGENCE_SH, "-d"]
+    command.append(parse_convergence_params(dropped_nets))
+
+    return_code: int = call(command)
+    signal_script_fail(return_code)
 
 
 # TODO see what to do with empty lists

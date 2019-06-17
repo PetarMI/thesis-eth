@@ -32,6 +32,7 @@ readonly DROPPED_CONV_SH="fuzz_conv_dropped.sh"
 readonly NEIGHBORS_UP_SH="fuzz_neighbors_up.sh"
 readonly NEIGHBORS_ADJ_SH="fuzz_neighbor_adj.sh"
 readonly FULL_RESTORE_CONV_SH="fuzz_conv_restored_full.sh"
+readonly ROUTES_UP_SH="fuzz_routes_up.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
@@ -67,6 +68,11 @@ function full_revert_convergence {
     vm_convergence "${cmd}"
 }
 
+function routes_up {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${ROUTES_UP_SH}"
+    vm_convergence "${cmd}"
+}
+
 function dropped_convergence {
     local cmd="cd ${VM_SCRIPT_DIR}; ./${DROPPED_CONV_SH} ${ARG_dropped}"
     vm_convergence "${cmd}"
@@ -80,6 +86,9 @@ if [[ ${ARG_full_revert} != "" ]]; then
 
     printf "${CYAN}## Checking Restored links convergence${NC}\n"
     time full_revert_convergence
+
+    printf "${CYAN}## Checking Routes restore${NC}\n"
+    time routes_up
 fi
 
 if [[ ${ARG_dropped} != "" ]]; then
