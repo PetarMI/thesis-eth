@@ -8,16 +8,19 @@ usage="Script to ssh into VM and setup Layer 2
 where:
     -d     Dropped links
     -f     Full revert links
+    -p     Partial revert links
     -h     show this help text"
 
 ARG_dropped=""
 ARG_full_revert=""
+ARG_partial_revert=""
 
-while getopts "d:f:h" option
+while getopts "d:f:p:h" option
 do
     case "${option}" in
         d) ARG_dropped=${OPTARG};;
         f) ARG_full_revert=${OPTARG};;
+        p) ARG_partial_revert=${OPTARG};;
         h) echo "${usage}"; exit;;
         *) echo "Unknown option"; exit 1;;
     esac
@@ -78,8 +81,14 @@ function dropped_convergence {
     vm_convergence "${cmd}"
 }
 
+if [[ ${ARG_dropped} != "" ]]; then
+    printf "${CYAN}## Checking Dropped links convergence${NC}\n"
+    time dropped_convergence
 
-if [[ ${ARG_full_revert} != "" ]]; then
+elif [[ ${ARG_partial_revert} != "" ]]; then
+    exit 1
+
+elif [[ ${ARG_full_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
     time neighbors_up
     time neighbors_adjacency
@@ -91,7 +100,6 @@ if [[ ${ARG_full_revert} != "" ]]; then
     time routes_up
 fi
 
-if [[ ${ARG_dropped} != "" ]]; then
-    printf "${CYAN}## Checking Dropped links convergence${NC}\n"
-    time dropped_convergence
-fi
+
+
+

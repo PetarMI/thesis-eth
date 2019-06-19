@@ -57,7 +57,13 @@ class PartialRevert:
 
     @staticmethod
     def exec_state_transition(transition_instr: dict, net_changes: dict):
-        raise ValueError("Not Implemented")
+        print(clr("## Dropping failed links", 'cyan'))
+        exec_link_changes(transition_instr.get(const.DROP))
+        convergence.converge_drop(net_changes[const.DROP])
+
+        print(clr("## Restoring non-overlapping links", 'cyan'))
+        exec_link_changes(transition_instr[const.RESTORE])
+        convergence.converge_partial_revert(net_changes[const.RESTORE])
 
 
 ###############################################################################

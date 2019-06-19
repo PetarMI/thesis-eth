@@ -4,16 +4,20 @@ from fuzzer.common import constants_fuzzer as const
 
 
 def converge_full_revert(restored_nets: list):
-    command = [const.CONVERGENCE_SH, "-f"]
-    command.append(parse_convergence_params(restored_nets))
+    exec_convergence_monitor("-f", restored_nets)
 
-    return_code: int = call(command)
-    signal_script_fail(return_code)
+
+def converge_partial_revert(restored_nets: list):
+    exec_convergence_monitor("-p", restored_nets)
 
 
 def converge_drop(dropped_nets: list):
-    command = [const.CONVERGENCE_SH, "-d"]
-    command.append(parse_convergence_params(dropped_nets))
+    exec_convergence_monitor("-d", dropped_nets)
+
+
+def exec_convergence_monitor(option: str, changed_nets: list):
+    command = [const.CONVERGENCE_SH, option]
+    command.append(parse_convergence_params(changed_nets))
 
     return_code: int = call(command)
     signal_script_fail(return_code)
