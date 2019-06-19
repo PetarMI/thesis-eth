@@ -24,6 +24,8 @@ class Statespace:
         """ Function that calls the correct search algorithm """
         if algo == "bfs":
             search_plan = strategies.bfs(self.depth, self.nets)
+        elif algo == "dfs":
+            search_plan = strategies.dfs(self.depth, self.nets)
         else:
             raise ValueError("Unknown search algorithm {}".format(algo))
 

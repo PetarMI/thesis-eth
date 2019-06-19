@@ -1,11 +1,14 @@
 import pytest
-from Statespace import SearchPlan
+from Statespace import Statespace
 
 
-def test_stats_short():
+###############################################################################
+# ############################## BFS ##########################################
+###############################################################################
+def test_bfs_stats_short():
     nets = ["a", "b"]
 
-    planner = SearchPlan(2, nets)
+    planner = Statespace(2, nets)
     search_plan = planner.get_search_plan("bfs")
     res_stats = planner.get_fuzzing_stats()
 
@@ -20,10 +23,10 @@ def test_stats_short():
     assert(len(search_plan) == res_stats["total"])
 
 
-def test_stats():
+def test_bfs_stats():
     nets = ['a', 'b', 'c', 'd']
 
-    planner = SearchPlan(3, nets)
+    planner = Statespace(3, nets)
     search_plan = planner.get_search_plan("bfs")
     res_stats = planner.get_fuzzing_stats()
 
@@ -39,12 +42,12 @@ def test_stats():
     assert (len(search_plan) == res_stats["total"])
 
 
-# def test_stats_large():
+# def test_bfs_stats_large():
 #     nets = []
 #     for i in range(0, 180):
 #         nets.append(str(i))
 #
-#     planner = SearchPlan(4, nets)
+#     planner = Statespace(4, nets)
 #     search_plan = planner.get_search_plan("bfs")
 #     res_stats = planner.get_fuzzing_stats()
 #
@@ -61,10 +64,10 @@ def test_stats():
 #     assert (len(search_plan) == res_stats["total"])
 
 
-def test_stats_max():
+def test_bfs_stats_max():
     nets = ['a', 'b', 'c', 'd']
 
-    planner = SearchPlan(4, nets)
+    planner = Statespace(4, nets)
     search_plan = planner.get_search_plan("bfs")
     res_stats = planner.get_fuzzing_stats()
 
@@ -81,14 +84,65 @@ def test_stats_max():
     assert (len(search_plan) == res_stats["total"])
 
 
+###############################################################################
+# ############################## DFS ##########################################
+###############################################################################
+def test_dfs_stats_short():
+    nets = ["a", "b"]
+
+    planner = Statespace(2, nets)
+    search_plan = planner.get_search_plan("dfs")
+    res_stats = planner.get_fuzzing_stats()
+
+    assert (len(search_plan) == 4)
+    assert(len(search_plan) == res_stats["total"])
+
+
+def test_dfs_stats():
+    nets = ['a', 'b', 'c', 'd']
+
+    planner = Statespace(3, nets)
+    search_plan = planner.get_search_plan("dfs")
+    res_stats = planner.get_fuzzing_stats()
+
+    assert (len(search_plan) == 15)
+    assert (len(search_plan) == res_stats["total"])
+
+
+def test_dfs_stats_max():
+    nets = ['a', 'b', 'c', 'd']
+
+    planner = Statespace(4, nets)
+    search_plan = planner.get_search_plan("dfs")
+    res_stats = planner.get_fuzzing_stats()
+
+    assert(len(search_plan) == 16)
+    assert (len(search_plan) == res_stats["total"])
+
+
+def test_dfs_stats_large():
+    nets = []
+    for i in range(0, 100):
+        nets.append(str(i))
+
+    planner = Statespace(4, nets)
+    search_plan = planner.get_search_plan("dfs")
+    res_stats = planner.get_fuzzing_stats()
+
+    assert (len(search_plan) == res_stats["total"])
+
+
+###############################################################################
+# ############################# COMMON ########################################
+###############################################################################
 def test_stats_high_k():
     with pytest.raises(ValueError, match="Depth is higher than number of nets"):
         nets = ['a', 'b', 'c', 'd']
-        SearchPlan(5, nets)
+        Statespace(5, nets)
 
 
 def test_stats_unknown_algo():
     with pytest.raises(ValueError, match="Unknown search algorithm potato"):
         nets = ['a', 'b', 'c', 'd']
-        planner = SearchPlan(3, nets)
+        planner = Statespace(3, nets)
         planner.get_search_plan("potato")
