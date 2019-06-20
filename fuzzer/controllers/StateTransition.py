@@ -37,7 +37,7 @@ class FullRevert:
 
     @staticmethod
     def exec_prepare_vms():
-        return_code: int = call([const.VM_PREP_SH])
+        return_code: int = call([const.VM_STATE_SH, "-d"])
         signal_script_fail(return_code, "Preparing VMs for fuzzing")
 
 
@@ -55,15 +55,20 @@ class PartialRevert:
             "drop": links_to_drop
         }
 
-    @staticmethod
-    def exec_state_transition(transition_instr: dict, net_changes: dict):
+    def exec_state_transition(self, transition_instr: dict, net_changes: dict):
         print(clr("## Dropping failed links", 'cyan'))
         exec_link_changes(transition_instr.get(const.DROP))
         convergence.converge_drop(net_changes[const.DROP])
+        self.exec_state_save()
 
         print(clr("## Restoring non-overlapping links", 'cyan'))
         exec_link_changes(transition_instr[const.RESTORE])
         convergence.converge_partial_revert(net_changes[const.RESTORE])
+
+    @staticmethod
+    def exec_state_save():
+        return_code: int = call([const.VM_STATE_SH, "-r"])
+        signal_script_fail(return_code, "Saving running state")
 
 
 ###############################################################################

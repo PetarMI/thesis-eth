@@ -86,7 +86,11 @@ if [[ ${ARG_dropped} != "" ]]; then
     time dropped_convergence
 
 elif [[ ${ARG_partial_revert} != "" ]]; then
-    exit 1
+    printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
+    time neighbors_adjacency
+
+    printf "${CYAN}## Checking Routes restore${NC}\n"
+    time routes_up
 
 elif [[ ${ARG_full_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"

@@ -56,7 +56,7 @@ class FuzzData:
 
     def get_networks(self) -> list:
         topo_networks: list = fr.read_topo()["networks"]
-        sim_networks: list = fr.read_sim_networks().keys()
+        sim_networks: list = list(fr.read_sim_networks().keys())
         post_validation_networks(topo_networks, sim_networks)
 
         return sim_networks

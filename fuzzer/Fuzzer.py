@@ -28,7 +28,7 @@ class Fuzzer:
         self.search_stats = statespace.get_fuzzing_stats()
 
         # set fuzzing approach state variables
-        self.transition = StateTransition.FullRevert()
+        self.transition = StateTransition.PartialRevert()
         properties: list = pp.parse_properties(self.fuzz_data)
         self.verification = Ver.Verification(properties, self.fuzz_data)
 
