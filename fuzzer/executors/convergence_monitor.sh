@@ -32,12 +32,13 @@ readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_
 # convergence checking scripts at the VMs
 readonly VM_SCRIPT_DIR="fuzz_scripts"
 readonly DROPPED_CONV_SH="conv_dropped.sh"
-readonly FULL_RESTORE_CONV_SH="conv_restored_full.sh"
+readonly RESTORE_CONV_FULL_SH="conv_restored_full.sh"
 readonly NEIGHBORS_UP_FULL_SH="neighbors_up_full.sh"
 readonly NEIGHBORS_UP_PARTIAL_SH="neighbors_up_partial.sh"
 readonly NEIGHBORS_ADJ_SH="neighbor_adj.sh"
 readonly ROUTES_UP_FULL_SH="routes_up_full.sh"
 readonly ROUTES_UP_PARTIAL_SH="routes_up_partial.sh"
+readonly ROUTE_CHANGES_SH="route_changes.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
@@ -63,8 +64,8 @@ function dropped_convergence {
     vm_convergence "${cmd}"
 }
 
-function full_revert_convergence {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${FULL_RESTORE_CONV_SH} ${ARG_full_revert}"
+function revert_convergence_full {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${RESTORE_CONV_FULL_SH} ${ARG_full_revert}"
     vm_convergence "${cmd}"
 }
 
@@ -93,6 +94,11 @@ function routes_up_partial {
     vm_convergence "${cmd}"
 }
 
+function route_changes {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${ROUTE_CHANGES_SH}"
+    vm_convergence "${cmd}"
+}
+
 
 if [[ ${ARG_dropped} != "" ]]; then
     printf "${CYAN}## Checking Dropped links convergence${NC}\n"
@@ -103,8 +109,8 @@ elif [[ ${ARG_partial_revert} != "" ]]; then
     time neighbors_up_partial
     time neighbors_adjacency
 
-    printf "${CYAN}## Checking Routes restore${NC}\n"
-    time routes_up_partial
+    printf "${CYAN}## Checking Routes changes${NC}\n"
+    time route_changes
 
 elif [[ ${ARG_full_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
@@ -112,12 +118,8 @@ elif [[ ${ARG_full_revert} != "" ]]; then
     time neighbors_adjacency
 
     printf "${CYAN}## Checking Restored links convergence${NC}\n"
-    time full_revert_convergence
+    time revert_convergence_full
 
     printf "${CYAN}## Checking Routes restore${NC}\n"
     time routes_up_full
 fi
-
-
-
-

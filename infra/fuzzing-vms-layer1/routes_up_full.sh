@@ -13,7 +13,7 @@ function check_routes_up {
         local real_routes=$(cat ${ROUTES_LOGS} | grep ${cont} | awk '{print $2}')
         local num_routes=$(docker exec ${cont} ${FRR_INFO_SH} -r | grep "Totals" | awk '{print $2}')
 
-        while [[ "real_routes" -gt "num_routes" ]]; do
+        while [[ "$real_routes" -gt "$num_routes" ]]; do
             sleep 1
             num_routes=$(docker exec ${cont} ${FRR_INFO_SH} -r | grep "Totals" | awk '{print $2}')
         done

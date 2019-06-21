@@ -46,7 +46,7 @@ def parse_container_params(networks: list, fuzz_data: FuzzData) -> str:
     affected_containers = list(set(affected_containers))
 
     parsed_containers = ','.join(affected_containers)
-    print(parsed_containers)
+
     return parsed_containers
 
 
