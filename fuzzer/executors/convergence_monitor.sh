@@ -30,12 +30,12 @@ readonly USER="fuzzvm"
 readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_vms.conf"
 
 # convergence checking scripts at the VMs
-readonly VM_SCRIPT_DIR="vm_scripts"
-readonly DROPPED_CONV_SH="fuzz_conv_dropped.sh"
-readonly NEIGHBORS_UP_SH="fuzz_neighbors_up.sh"
-readonly NEIGHBORS_ADJ_SH="fuzz_neighbor_adj.sh"
-readonly FULL_RESTORE_CONV_SH="fuzz_conv_restored_full.sh"
-readonly ROUTES_UP_SH="fuzz_routes_up.sh"
+readonly VM_SCRIPT_DIR="fuzz_scripts"
+readonly DROPPED_CONV_SH="conv_dropped.sh"
+readonly NEIGHBORS_UP_SH="neighbors_up.sh"
+readonly NEIGHBORS_ADJ_SH="neighbor_adj.sh"
+readonly FULL_RESTORE_CONV_SH="conv_restored_full.sh"
+readonly ROUTES_UP_SH="routes_up.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color

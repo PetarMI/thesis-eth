@@ -29,9 +29,9 @@ done
 readonly USER="fuzzvm"
 readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_vms.conf"
 
-readonly VM_SCRIPT_DIR="vm_scripts"
-readonly SAVE_DEPL_STATE_SH="fuzz_save_depl_state.sh"
-readonly SAVE_RUN_STATE_SH="fuzz_save_run_state.sh"
+readonly VM_SCRIPT_DIR="fuzz_scripts"
+readonly SAVE_DEPL_STATE_SH="save_depl_state.sh"
+readonly SAVE_RUN_STATE_SH="save_run_state.sh"
 
 function exec_vm_command {
     local command="$1"

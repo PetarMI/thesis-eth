@@ -52,6 +52,7 @@ fi
 readonly VM_COMPOSE_DIR="/compose"
 readonly VM_DOCKER_DIR="/phynet"
 readonly VM_SCRIPT_DIR="/vm_scripts"
+readonly VM_FUZZ_DIR="/fuzz_scripts"
 
 # compose files
 readonly VM_NET_FILE="${VM_COMPOSE_DIR}/topo_networks.csv"
@@ -63,6 +64,7 @@ readonly PM_HOME_DIR="$HOME"
 readonly PM_WORK_DIR="${PM_HOME_DIR}/thesis-eth/infra"
 readonly PM_DOCKER_DIR="${PM_WORK_DIR}/phynet-layer2"
 readonly PM_SCRIPT_DIR="${PM_WORK_DIR}/vms-layer1"
+readonly PM_FUZZ_DIR="${PM_WORK_DIR}/fuzzing-vms-layer1"
 readonly PM_DEPLOY_DIR="${PM_WORK_DIR}/deployer/deployment_files/${FLAG_topology}"
 readonly PM_COMPOSE_DIR="${PM_DEPLOY_DIR}/compose_files"
 
@@ -159,9 +161,13 @@ function upload_docker_files {
 function upload_vm_scripts {
     while IFS=, read -r idx vm_ip role
     do
-        local src_scripts="${PM_SCRIPT_DIR}"
-        scp ${src_scripts}/* "${USER}@${vm_ip}:.${VM_SCRIPT_DIR}/" 1>/dev/null
-        check_success $? "Uploaded to VM ${idx}"
+        local src_vm_scripts="${PM_SCRIPT_DIR}"
+        scp ${src_vm_scripts}/* "${USER}@${vm_ip}:.${VM_SCRIPT_DIR}/" 1>/dev/null
+        check_success $? "Uploaded VM scripts to VM ${idx}"
+
+        local src_fuzz_scripts="${PM_FUZZ_DIR}"
+        scp ${src_fuzz_scripts}/* "${USER}@${vm_ip}:.${VM_FUZZ_DIR}/" 1>/dev/null
+        check_success $? "Uploaded fuzzing scripts to VM ${idx}"
     done < ${CONF_FILE}
 }
 
