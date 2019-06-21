@@ -32,10 +32,12 @@ readonly CONF_FILE="${HOME}/thesis-eth/fuzzer/fuzz_data/controller_data/running_
 # convergence checking scripts at the VMs
 readonly VM_SCRIPT_DIR="fuzz_scripts"
 readonly DROPPED_CONV_SH="conv_dropped.sh"
-readonly NEIGHBORS_UP_SH="neighbors_up.sh"
-readonly NEIGHBORS_ADJ_SH="neighbor_adj.sh"
 readonly FULL_RESTORE_CONV_SH="conv_restored_full.sh"
-readonly ROUTES_UP_SH="routes_up.sh"
+readonly NEIGHBORS_UP_FULL_SH="neighbors_up_full.sh"
+readonly NEIGHBORS_UP_PARTIAL_SH="neighbors_up_partial.sh"
+readonly NEIGHBORS_ADJ_SH="neighbor_adj.sh"
+readonly ROUTES_UP_FULL_SH="routes_up_full.sh"
+readonly ROUTES_UP_PARTIAL_SH="routes_up_partial.sh"
 
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
@@ -56,13 +58,8 @@ function vm_convergence {
     done
 }
 
-function neighbors_up {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_UP_SH}"
-    vm_convergence "${cmd}"
-}
-
-function neighbors_adjacency {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_ADJ_SH}"
+function dropped_convergence {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${DROPPED_CONV_SH} ${ARG_dropped}"
     vm_convergence "${cmd}"
 }
 
@@ -71,15 +68,31 @@ function full_revert_convergence {
     vm_convergence "${cmd}"
 }
 
-function routes_up {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${ROUTES_UP_SH}"
+function neighbors_up_full {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_UP_FULL_SH}"
     vm_convergence "${cmd}"
 }
 
-function dropped_convergence {
-    local cmd="cd ${VM_SCRIPT_DIR}; ./${DROPPED_CONV_SH} ${ARG_dropped}"
+function neighbors_up_partial {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_UP_PARTIAL_SH} ${ARG_partial_revert}"
     vm_convergence "${cmd}"
 }
+
+function neighbors_adjacency {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${NEIGHBORS_ADJ_SH}"
+    vm_convergence "${cmd}"
+}
+
+function routes_up_full {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${ROUTES_UP_FULL_SH}"
+    vm_convergence "${cmd}"
+}
+
+function routes_up_partial {
+    local cmd="cd ${VM_SCRIPT_DIR}; ./${ROUTES_UP_PARTIAL_SH}"
+    vm_convergence "${cmd}"
+}
+
 
 if [[ ${ARG_dropped} != "" ]]; then
     printf "${CYAN}## Checking Dropped links convergence${NC}\n"
@@ -87,21 +100,22 @@ if [[ ${ARG_dropped} != "" ]]; then
 
 elif [[ ${ARG_partial_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
+    time neighbors_up_partial
     time neighbors_adjacency
 
     printf "${CYAN}## Checking Routes restore${NC}\n"
-    time routes_up
+    time routes_up_partial
 
 elif [[ ${ARG_full_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
-    time neighbors_up
+    time neighbors_up_full
     time neighbors_adjacency
 
     printf "${CYAN}## Checking Restored links convergence${NC}\n"
     time full_revert_convergence
 
     printf "${CYAN}## Checking Routes restore${NC}\n"
-    time routes_up
+    time routes_up_full
 fi
 
 

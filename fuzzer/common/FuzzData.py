@@ -35,6 +35,7 @@ class FuzzData:
         self.ip2dev = parse_ip2dev(sim_ifaces)
         # in-memory data for clearer output
         self.sim_nets: dict = fr.read_sim_networks()
+        self.sim_nets_inverted: dict = fr.read_sim_networks(swap=True)
 
     # in-memory data operations
     def find_container_vm(self, container: str) -> str:
@@ -73,6 +74,11 @@ class FuzzData:
         net_ip: str = self.sim_nets.get(net_name, None)
         check_none(net_ip, "Network name does not exist in networks.log")
         return net_ip
+
+    def get_sim_net_name(self, net_ip: str) -> str:
+        net_name: str = self.sim_nets_inverted.get(net_ip, None)
+        check_none(net_name, "Network IP does not exist in networks.log")
+        return net_name
 
 
 # @Tested

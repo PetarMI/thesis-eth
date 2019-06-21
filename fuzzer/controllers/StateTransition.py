@@ -9,6 +9,7 @@ Each class then has its own implementation of the "interface" method
 from subprocess import call
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
+from fuzzer.common.FuzzData import FuzzData
 from fuzzer.controllers import convergence
 
 
@@ -41,9 +42,11 @@ class FullRevert:
         signal_script_fail(return_code, "Preparing VMs for fuzzing")
 
 
-# TODO: not finished
 class PartialRevert:
     """ Restore only non-overlapping links between state transitions"""
+    def __init__(self, fuzz_data: FuzzData):
+        self.fuzz_data = fuzz_data
+
     # @Tested
     @staticmethod
     def find_link_changes(dropped_links: list, next_state: tuple) -> dict:
@@ -63,7 +66,7 @@ class PartialRevert:
 
         print(clr("## Restoring non-overlapping links", 'cyan'))
         exec_link_changes(transition_instr[const.RESTORE])
-        convergence.converge_partial_revert(net_changes[const.RESTORE])
+        convergence.converge_partial_revert(net_changes[const.RESTORE], self.fuzz_data)
 
     @staticmethod
     def exec_state_save():
