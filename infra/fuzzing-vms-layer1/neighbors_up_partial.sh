@@ -19,7 +19,7 @@ function check_neighbor_discovery {
 
         local num_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "${IP_regex}" | wc -l)
 
-        while [[ "real_neighbors" -ge "num_neighbors" ]]; do
+        while [[ "$prev_neighbors" -ge "$num_neighbors" ]]; do
             sleep 1
             num_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "${IP_regex}" | wc -l)
         done

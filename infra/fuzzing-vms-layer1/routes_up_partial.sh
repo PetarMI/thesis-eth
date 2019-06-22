@@ -19,7 +19,7 @@ function check_routes_up {
         local attempts=0
 
         while true ; do
-            if [[ "num_routes" -ge "prev_routes" ]]; then
+            if [[ "$num_routes" -ge "$prev_routes" ]]; then
                 break
             elif [[ "$attempts" -ge "$MAX_ATTEMPTS" ]]; then
                 echo "INFO: Container ${cont} on VM ${HOSTNAME} timed out"

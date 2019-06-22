@@ -62,6 +62,7 @@ class PartialRevert:
         print(clr("## Dropping failed links", 'cyan'))
         exec_link_changes(transition_instr.get(const.DROP))
         convergence.converge_drop(net_changes[const.DROP])
+        # save the state so that we check the number of neighbors after the restore is increased
         self.exec_state_save()
 
         print(clr("## Restoring non-overlapping links", 'cyan'))
