@@ -36,6 +36,7 @@ readonly WAIT_INTERVAL=1
 readonly REDUCED_ITERATIONS=4
 attempts=0
 
+# TODO called after drop so here I believe it is not actually necessary
 log_routes
 
 while [[ "$MAX_ITERATIONS" -gt "$attempts" ]]; do

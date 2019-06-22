@@ -15,6 +15,8 @@ def converge_full_revert(restored_nets: list):
 
 
 def converge_partial_revert(restored_nets: list, fuzz_data: FuzzData):
+    """ Call the convergence script with a list of containers which will have
+        an increased number of neighbors after restoring some links """
     arg_containers: str = parse_container_params(restored_nets, fuzz_data)
     exec_convergence_monitor("-p", arg_containers)
 
@@ -28,12 +30,14 @@ def exec_convergence_monitor(option: str, args: str):
 
 # TODO see what to do with empty lists
 def parse_network_params(networks: list) -> str:
+    """ Parse the network IPs that need to be passed as a script argument """
     parsed_nets = ','.join(networks)
 
     return parsed_nets
 
 
 def parse_container_params(networks: list, fuzz_data: FuzzData) -> str:
+    """ Translate network IPs to a list of devices attached to those nets """
     affected_containers = []
 
     for net_ip in networks:
