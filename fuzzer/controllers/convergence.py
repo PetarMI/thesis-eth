@@ -21,6 +21,7 @@ def converge_partial_revert(restored_nets: list, fuzz_data: FuzzData):
     exec_convergence_monitor("-p", arg_containers)
 
 
+# TODO does it make sense to call with empty param list
 def exec_convergence_monitor(option: str, args: str):
     command = [const.CONVERGENCE_SH, option, args]
 
