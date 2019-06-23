@@ -20,16 +20,16 @@ class Fuzzer:
         self.transition = None
         self.verification = None
 
-    def prepare_fuzzing(self, depth: int, algo: str):
-        # generate the search strategy/statespace
+    def prepare_fuzzing(self, depth: int):
+        # define necessary variables
         nets: list = self.fuzz_data.get_networks()
         statespace = Statespace(depth, nets)
-        self.search_plan = statespace.get_search_plan(algo)
-        self.search_stats = statespace.get_fuzzing_stats()
+        properties: list = pp.parse_properties(self.fuzz_data)
 
         # set fuzzing approach state variables
+        self.search_plan = statespace.get_dfs_plan()
+        self.search_stats = statespace.get_fuzzing_stats()
         self.transition = StateTransition.PartialRevert(self.fuzz_data)
-        properties: list = pp.parse_properties(self.fuzz_data)
         self.verification = Ver.Verification(properties, self.fuzz_data)
 
     def verify_deployment(self):

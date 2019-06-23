@@ -37,6 +37,11 @@ def dfs(max_depth: int, nets: list) -> list:
     return statespace
 
 
+def heuristic(max_depth: int, links: list, property_links: list) -> list:
+    """ Makes a search plan based on a heuristic """
+    raise ValueError("Not implemented")
+
+
 # @Tested as part of calling function
 def dfs_aux(parent_state: tuple, nets: list, depth: int, max_depth: int) -> list:
     search_plan = []
@@ -58,24 +63,3 @@ def dfs_aux(parent_state: tuple, nets: list, depth: int, max_depth: int) -> list
         search_plan.extend(child_plan)
 
     return search_plan
-
-
-# class BFSPlanner:
-#
-#     def __init__(self, depth: int, nets: list):
-#         self.depth = depth
-#         self.nets = nets
-#         self.search_plan = []
-#
-#     def bfs(self) -> list:
-#         last_level_count = 0
-#
-#         for k in range(1, self.depth):
-#             depth_k_search = self.search_level(k, last_level_count)
-#             last_level_count = len(depth_k_search)
-#             self.search_plan.extend(depth_k_search)
-#
-#         return self.search_plan
-#
-#     def search_level(self, k: int, last_level_count: int) -> list:
-#         return []

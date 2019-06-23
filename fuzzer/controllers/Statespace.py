@@ -15,28 +15,27 @@ from fuzzer.controllers import search_strategies as strategies
 
 
 class Statespace:
-    def __init__(self, depth: int, nets: list):
+    def __init__(self, depth: int, links: list):
         self.depth = depth
-        self.nets = nets
+        self.links = links
         self.verify_input()
 
-    def get_search_plan(self, algo: str) -> list:
-        """ Function that calls the correct search algorithm """
-        if algo == "bfs":
-            search_plan = strategies.bfs(self.depth, self.nets)
-        elif algo == "dfs":
-            search_plan = strategies.dfs(self.depth, self.nets)
-        else:
-            raise ValueError("Unknown search algorithm {}".format(algo))
+    def get_bfs_plan(self) -> list:
+        return strategies.bfs(self.depth, self.links)
 
-        return search_plan
+    def get_dfs_plan(self) -> list:
+        return strategies.dfs(self.depth, self.links)
+
+    def get_heuristic_plan(self, properties: list) -> list:
+        property_links: list = find_property_links(properties)
+        return strategies.heuristic(self.depth, self.links, property_links)
 
     # @Tested
     def get_fuzzing_stats(self) -> dict:
         """ Get info about the possible failures for each depth """
         stats = {}
         total = 0
-        N = len(self.nets)
+        N = len(self.links)
 
         for k in range(0, self.depth + 1):
             num_combs = comb(N, k, exact=True)
@@ -51,15 +50,19 @@ class Statespace:
     # @Tested
     def verify_input(self):
         """ Function that collects all checks on the class input """
-        verify_depth(self.depth, self.nets)
+        verify_depth(self.depth, self.links)
+
+
+def find_property_links(properties: list) -> list:
+    raise ValueError("Not implemented")
 
 
 # @Tested composite
-def verify_depth(depth: int, nets: list):
+def verify_depth(depth: int, links: list):
     """ Verify depth is not greater than the number of elements in the list
     In that case the underlying combinations algorithm would just give
     all combinations as if (depth == len(nets)) but we choose to raise
     an exception as this is likely indicative of an error somewhere
     """
-    if depth > len(nets):
-        raise ValueError("Depth is higher than number of nets")
+    if depth > len(links):
+        raise ValueError("Depth is higher than number of links")
