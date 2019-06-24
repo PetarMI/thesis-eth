@@ -4,9 +4,9 @@ import json
 from fuzzer.controllers import property_parser as pp
 from fuzzer.controllers.Statespace import Statespace
 from fuzzer.controllers import StateTransition
+from fuzzer.controllers import Verification as Ver
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import constants_fuzzer as const
-from fuzzer.verifiers import Verification as Ver
 
 
 class Fuzzer:

@@ -1,134 +1,5 @@
 import pytest
-import search_strategies as ss
-
-
-###############################################################################
-# ############################## BFS ##########################################
-###############################################################################
-def test_bfs_short():
-    nets = ["a", "b"]
-
-    res_plan = ss.bfs(2, nets)
-    expected_plan = [
-        (), ("a", ), ("b", ), ("a", "b")
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_bfs():
-    nets = ['a', 'b', 'c', 'd']
-
-    res_plan = ss.bfs(3, nets)
-    expected_plan = [
-        (),
-        ('a', ), ('b', ), ('c', ), ('d', ),
-        ('a', 'b'), ('a', 'c'),  ('a', 'd'),
-        ('b', 'c'), ('b', 'd'), ('c', 'd'),
-        ('a', 'b', 'c'), ('a', 'b', 'd'),
-        ('a', 'c', 'd',), ('b', 'c', 'd')
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_bfs_max():
-    nets = ['a', 'b', 'c', 'd']
-
-    res_plan = ss.bfs(4, nets)
-    expected_plan = [
-        (),
-        ('a', ), ('b', ), ('c', ), ('d', ),
-        ('a', 'b'), ('a', 'c'),  ('a', 'd'),
-        ('b', 'c'), ('b', 'd'), ('c', 'd'),
-        ('a', 'b', 'c'), ('a', 'b', 'd'),
-        ('a', 'c', 'd',), ('b', 'c', 'd'),
-        ('a', 'b', 'c', 'd')
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_bfs_higher_depth():
-    nets = ['a', 'b', 'c']
-
-    res_plan = ss.bfs(33, nets)
-    expected_plan = [
-        (),
-        ('a',), ('b',), ('c',),
-        ('a', 'b'), ('a', 'c'), ('b', 'c'),
-        ('a', 'b', 'c')
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-###############################################################################
-# ############################## DFS ##########################################
-###############################################################################
-def test_dfs_min_depth():
-    nets = ['a', 'b', 'c']
-
-    res_plan = ss.dfs(1, nets)
-    expected_plan = [
-        (), ('a',), ('b',), ('c',)
-    ]
-
-    assert (res_plan == expected_plan)
-
-
-def test_dfs_short():
-    nets = ['a', 'b']
-
-    res_plan = ss.dfs(2, nets)
-    expected_plan = [
-        (), ('a',), ('a', 'b'), ('b',)
-    ]
-
-    assert (res_plan == expected_plan)
-
-
-def test_dfs():
-    nets = ['a', 'b', 'c', 'd']
-
-    res_plan = ss.dfs(3, nets)
-    expected_plan = [
-        (),
-        ('a', ), ('a', 'b'), ('a', 'b', 'c'), ('a', 'b', 'd'),
-        ('a', 'c'), ('a', 'c', 'd'), ('a', 'd'),
-        ('b', ), ('b', 'c'), ('b', 'c', 'd'), ('b', 'd'),
-        ('c', ), ('c', 'd'),  ('d', )
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_dfs_max():
-    nets = ['a', 'b', 'c', 'd']
-
-    res_plan = ss.dfs(4, nets)
-    expected_plan = [
-        (),
-        ('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'b', 'c', 'd'), ('a', 'b', 'd'),
-        ('a', 'c'), ('a', 'c', 'd'), ('a', 'd'),
-        ('b',), ('b', 'c'), ('b', 'c', 'd'), ('b', 'd'),
-        ('c',), ('c', 'd'), ('d',)
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_dfs_higher_depth():
-    nets = ['a', 'b', 'c']
-
-    res_plan = ss.dfs(33, nets)
-    expected_plan = [
-        (),
-        ('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'),
-        ('b',), ('b', 'c'), ('c',)
-    ]
-
-    assert(res_plan == expected_plan)
+import heuristic_strategy as hs
 
 
 ###############################################################################
@@ -138,7 +9,7 @@ def test_complete_heuristic():
     property_links = ['b', 'd']
     all_links = ['a', 'b', 'c', 'd']
 
-    res_plan = ss.heuristic(3, all_links, property_links)
+    res_plan = hs.heuristic(3, all_links, property_links)
     expected_plan = [
         (), ('b',), ('b', 'd'), ('d',),
         ('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'b', 'd'),
@@ -153,7 +24,7 @@ def test_complete_heuristic_longer():
     property_links = ['a', 'b', 'd']
     all_links = ['a', 'b', 'c', 'd']
 
-    res_plan = ss.heuristic(3, all_links, property_links)
+    res_plan = hs.heuristic(3, all_links, property_links)
     expected_plan = [
         (), ('a',), ('a', 'b'), ('a', 'b', 'd'),
         ('a', 'd'), ('b',), ('b', 'd'), ('d',),
@@ -168,7 +39,7 @@ def test_complete_heuristic_even_longer():
     property_links = ['a', 'c', 'd']
     all_links = ['a', 'b', 'c', 'd']
 
-    res_plan = ss.heuristic(4, all_links, property_links)
+    res_plan = hs.heuristic(4, all_links, property_links)
     expected_plan = [
         (), ('a',), ('a', 'c'), ('a', 'c', 'd'), ('a', 'd'), ('c',),
         ('c', 'd'), ('d',), ('a', 'b'), ('a', 'b', 'c'),
@@ -185,7 +56,7 @@ def test_gen_full_heuristic():
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
                  ('b', 'c'), ('c',)]
 
-    res_plan = ss.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.gen_full_heuristic(subplan, full_plan)
     expected_plan = [('a',), ('a', 'b'), ('b',),
                      ('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
@@ -196,7 +67,7 @@ def test_gen_full_heuristic_no_overlap():
     subplan = [('a',), ('a', 'b'), ('b',)]
     full_plan = [('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
-    res_plan = ss.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.gen_full_heuristic(subplan, full_plan)
     expected_plan = [('a',), ('a', 'b'), ('b',),
                      ('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
@@ -207,7 +78,7 @@ def test_gen_full_heuristic_full_overlap():
     subplan = [('a', 'c'), ('a',), ('a', 'b', 'c'), ('a', 'b'), ('b',)]
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',)]
 
-    res_plan = ss.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.gen_full_heuristic(subplan, full_plan)
     expected_plan = [('a', 'c'), ('a',), ('a', 'b', 'c'), ('a', 'b'), ('b',)]
 
     assert(res_plan == expected_plan)
@@ -221,7 +92,7 @@ def test_heuristic_pre_validation():
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
                  ('b', 'c'), ('c',)]
 
-    ss.pre_validate_heuristic_gen(subplan, full_plan)
+    hs.pre_validate_heuristic_gen(subplan, full_plan)
 
 
 def test_heuristic_pre_validation_not_subset():
@@ -230,7 +101,7 @@ def test_heuristic_pre_validation_not_subset():
         full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
                      ('b', 'c'), ('c',)]
 
-        ss.pre_validate_heuristic_gen(subplan, full_plan)
+        hs.pre_validate_heuristic_gen(subplan, full_plan)
 
 
 def test_heuristic_pre_validation_empty_plan():
@@ -239,14 +110,14 @@ def test_heuristic_pre_validation_empty_plan():
         full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
                      ('b', 'c'), ('c',)]
 
-        ss.pre_validate_heuristic_gen(subplan, full_plan)
+        hs.pre_validate_heuristic_gen(subplan, full_plan)
 
 
 def test_heuristic_pos_validation_ok():
     heuristic_plan = [('a',), ('a', 'b'), ('b',)]
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c')]
 
-    ss.post_validate_heuristic_gen(heuristic_plan, full_plan)
+    hs.post_validate_heuristic_gen(heuristic_plan, full_plan)
 
 
 def test_heuristic_pos_validation_not_ok():
@@ -254,4 +125,4 @@ def test_heuristic_pos_validation_not_ok():
         heuristic_plan = [('a',), ('a', 'b')]
         full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c')]
 
-        ss.post_validate_heuristic_gen(heuristic_plan, full_plan)
+        hs.post_validate_heuristic_gen(heuristic_plan, full_plan)
