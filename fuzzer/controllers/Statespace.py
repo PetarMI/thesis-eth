@@ -10,6 +10,7 @@ Public functions:
     * get_fuzzing_stats - stats about number of scenarios at each depth
 """
 from scipy.special import comb
+from fuzzer.common.FuzzData import FuzzData
 from fuzzer.strategies import baseline_strategies as base
 from fuzzer.strategies import heuristic_strategy as heuristic
 
@@ -26,8 +27,8 @@ class Statespace:
     def get_dfs_plan(self) -> list:
         return base.dfs(self.depth, self.links)
 
-    def get_heuristic_plan(self, properties: list) -> list:
-        return heuristic.heuristic(self.depth, self.links, properties)
+    def get_heuristic_plan(self, properties: list, fuzz_data: FuzzData) -> list:
+        return heuristic.heuristic(self.depth, self.links, properties, fuzz_data)
 
     # @Tested
     def get_fuzzing_stats(self) -> dict:

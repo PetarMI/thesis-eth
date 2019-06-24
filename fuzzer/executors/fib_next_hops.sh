@@ -26,4 +26,6 @@ fib=$(ssh -n -T "${USER}@${vm_ip}" "${command}")
 
 ips=$(echo "${fib}" | grep -E -o "${IP_regex}")
 
-echo "${ips}" | awk -vORS=, '{ print $1 }' | sed 's/,$/\n/'
+formatted_ips=$(echo "${ips}" | awk -vORS=, '{ print $1 }' | sed 's/,$/\n/')
+
+echo -n "${formatted_ips}"
