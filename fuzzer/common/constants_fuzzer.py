@@ -31,6 +31,7 @@ CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
 LINK_STATE_SH = "{}/executors/exec_link_change.sh".format(FUZZ_DIR)
 PING_SH = "{}/executors/ping_reachability.sh".format(FUZZ_DIR)
 FIB_SH = "{}/executors/fib_reachability.sh".format(FUZZ_DIR)
+FIB_NEXT_HOP_SH = "{}/executors/fib_next_hops.sh".format(FUZZ_DIR)
 VM_STATE_SH = "{}/executors/vm_save_state.sh".format(FUZZ_DIR)
 
 RESTORE = "restore"

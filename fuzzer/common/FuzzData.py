@@ -48,6 +48,10 @@ class FuzzData:
         return fdata_ops.find_network_interface(container, network, self.dev_net2iface)
 
     def find_ip_device(self, ip: str) -> str:
+        """
+        :param ip: The IP address without mask
+        :return: The name of the device which has this IP
+        """
         return fdata_ops.find_ip_dev(ip, self.ip2dev)
 
     # wrapper methods
