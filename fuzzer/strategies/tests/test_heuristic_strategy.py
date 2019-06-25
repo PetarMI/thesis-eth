@@ -3,85 +3,128 @@ import heuristic_strategy as hs
 
 
 ###############################################################################
-# ############################ HEURISTIC ######################################
+# ######################### HEURISTIC FULL PLAN ###############################
 ###############################################################################
-def test_complete_heuristic():
-    property_links = ['b', 'd']
-    all_links = ['a', 'b', 'c', 'd']
+def test_heuristic_plan():
+    heuristic_subplan = [(), ('a',), ('a', 'b'), ('a', 'c')]
+    links = ['b', 'd', 'a', 'c']
 
-    res_plan = hs.heuristic(3, all_links, property_links)
-    expected_plan = [
-        (), ('b',), ('b', 'd'), ('d',),
-        ('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'b', 'd'),
-        ('a', 'c'), ('a', 'c', 'd'), ('a', 'd'),
-        ('b', 'c'), ('b', 'c', 'd'), ('c',), ('c', 'd')
+    res_plan = hs.gen_full_plan(3, heuristic_subplan, links)
+    expected_plan = [(), ('a',), ('a', 'b'), ('a', 'c'),
+                     ('a', 'b', 'c'), ('a', 'b', 'd'), ('a', 'c', 'd'),
+                     ('a', 'd'), ('b',), ('b', 'c'), ('b', 'c', 'd'),
+                     ('b', 'd'), ('c',), ('c', 'd'), ('d',)
+                     ]
+
+    assert (res_plan == expected_plan)
+
+
+###############################################################################
+# ########################## HEURISTIC SUBPLAN ################################
+###############################################################################
+def test_heuristic_subplan():
+    heuristic_links = [
+        ['c', 'e', 'b'],
+        ['a', 'b'],
+        ['a', 'f', 'g', 'd'],
+        ['d', 'f']
     ]
 
-    assert(res_plan == expected_plan)
-
-
-def test_complete_heuristic_longer():
-    property_links = ['a', 'b', 'd']
-    all_links = ['a', 'b', 'c', 'd']
-
-    res_plan = hs.heuristic(3, all_links, property_links)
+    res_plan = hs.gen_heuristic_subplan(3, heuristic_links)
     expected_plan = [
-        (), ('a',), ('a', 'b'), ('a', 'b', 'd'),
-        ('a', 'd'), ('b',), ('b', 'd'), ('d',),
-        ('a', 'b', 'c'), ('a', 'c'), ('a', 'c', 'd'),
-        ('b', 'c'), ('b', 'c', 'd'), ('c',), ('c', 'd')
+        (),
+        ('b',), ('b', 'c'), ('b', 'c', 'e'), ('b', 'e'), ('c',), ('c', 'e'),
+        ('e',),
+        ('a',), ('a', 'b'),
+        ('a', 'd'), ('a', 'd', 'f'), ('a', 'd', 'g'), ('a', 'f'), ('a', 'f', 'g'),
+        ('a', 'g'), ('d',), ('d', 'f'), ('d', 'f', 'g'), ('d', 'g'), ('f',),
+        ('f', 'g'), ('g',)
     ]
 
-    assert(res_plan == expected_plan)
+    assert (res_plan == expected_plan)
 
 
-def test_complete_heuristic_even_longer():
-    property_links = ['a', 'c', 'd']
-    all_links = ['a', 'b', 'c', 'd']
-
-    res_plan = hs.heuristic(4, all_links, property_links)
-    expected_plan = [
-        (), ('a',), ('a', 'c'), ('a', 'c', 'd'), ('a', 'd'), ('c',),
-        ('c', 'd'), ('d',), ('a', 'b'), ('a', 'b', 'c'),
-        ('a', 'b', 'c', 'd'), ('a', 'b', 'd'), ('b',), ('b', 'c'),
-        ('b', 'c', 'd'), ('b', 'd'),
-
-    ]
-
-    assert(res_plan == expected_plan)
-
-
-def test_gen_full_heuristic():
+###############################################################################
+# ########################### PLAN UNION ######################################
+###############################################################################
+def test_union_plans_full_overlap():
     subplan = [('a',), ('a', 'b'), ('b',)]
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
                  ('b', 'c'), ('c',)]
 
-    res_plan = hs.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.union_plans(subplan, full_plan)
     expected_plan = [('a',), ('a', 'b'), ('b',),
                      ('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
-    assert(res_plan == expected_plan)
+    assert (res_plan == expected_plan)
 
 
-def test_gen_full_heuristic_no_overlap():
+def test_union_plans_no_overlap():
     subplan = [('a',), ('a', 'b'), ('b',)]
     full_plan = [('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
-    res_plan = hs.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.union_plans(subplan, full_plan)
     expected_plan = [('a',), ('a', 'b'), ('b',),
                      ('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
 
-    assert(res_plan == expected_plan)
+    assert (res_plan == expected_plan)
 
 
-def test_gen_full_heuristic_full_overlap():
+def test_union_plans_identical():
     subplan = [('a', 'c'), ('a',), ('a', 'b', 'c'), ('a', 'b'), ('b',)]
     full_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',)]
 
-    res_plan = hs.gen_full_heuristic(subplan, full_plan)
+    res_plan = hs.union_plans(subplan, full_plan)
     expected_plan = [('a', 'c'), ('a',), ('a', 'b', 'c'), ('a', 'b'), ('b',)]
 
-    assert(res_plan == expected_plan)
+    assert (res_plan == expected_plan)
+
+
+def test_union_plans_some_overlap():
+    subplan = [('a',), ('a', 'b'), ('b',)]
+    full_plan = [('a',), ('a', 'b', 'c'), ('a', 'c'), ('b',),
+                 ('b', 'c'), ('c',)]
+
+    res_plan = hs.union_plans(subplan, full_plan)
+    expected_plan = [('a',), ('a', 'b'), ('b',),
+                     ('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
+
+    assert (res_plan == expected_plan)
+
+
+def test_union_plans_inverted_full_overlap():
+    subplan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
+               ('b', 'c'), ('c',)]
+    full_plan = [('a',), ('a', 'b'), ('b',)]
+
+    res_plan = hs.union_plans(subplan, full_plan)
+    expected_plan = [('a',), ('a', 'b'), ('a', 'b', 'c'), ('a', 'c'), ('b',),
+                     ('b', 'c'), ('c',)]
+
+    assert (res_plan == expected_plan)
+
+
+def test_union_plans_inverted_no_overlap():
+    subplan = [('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',)]
+    full_plan = [('a',), ('a', 'b'), ('b',)]
+
+    res_plan = hs.union_plans(subplan, full_plan)
+    expected_plan = [('a', 'b', 'c'), ('a', 'c'), ('b', 'c'), ('c',),
+                     ('a',), ('a', 'b'), ('b',)]
+
+    assert (res_plan == expected_plan)
+
+
+def test_union_plans_inverted_some_overlap():
+    subplan = [('a',), ('a', 'b', 'c'), ('a', 'c'), ('b',),
+               ('b', 'c'), ('c',)]
+    full_plan = [('a',), ('a', 'd'), ('b',)]
+
+    res_plan = hs.union_plans(subplan, full_plan)
+    expected_plan = [('a',), ('a', 'b', 'c'), ('a', 'c'), ('b',),
+                     ('b', 'c'), ('c',), ('a', 'd')]
+
+    assert (res_plan == expected_plan)
 
 
 ###############################################################################
