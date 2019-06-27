@@ -55,8 +55,7 @@ class Fuzzer:
             self.transition.exec_state_transition(transition_instr, net_changes)
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
-            fib_results: dict = self.verification.verify_fib_reachability()
-            self.verification.interpret_fib_results(state, fib_results)
+            self.verification.verify_fib_reachability(state)
 
             dropped_links = state
 

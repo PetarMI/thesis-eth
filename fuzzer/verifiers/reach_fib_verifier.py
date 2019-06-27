@@ -7,25 +7,36 @@ from fuzzer.common import file_writer as fw
 
 
 def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
-    ver_results = dict()
-    failed_props = dict()
+    failed_properties = dict()
 
-    # initial check of the properties
+    # remember the properties that failed
     for prop_id, prop in properties.items():
-        print("Verifying {}".format(prop_id))
+        print("Verifying property {}".format(prop_id))
         reachability_res = verify_fib_property(prop, fuzz_data)
-        ver_results.update({prop_id: reachability_res})
 
         if reachability_res["status"] != 0:
-            failed_props.update({prop_id: prop})
+            failed_properties.update({prop_id: prop})
 
-    # if some of them failed double check to give network more time to converge
-    if failed_props:
-        double_check_res = double_check_failed(failed_props, fuzz_data)
-        for prop_id, dc_res in double_check_res.items():
-            ver_results.update({prop_id: dc_res})
+    # double check to give network more time to converge
+    if failed_properties:
+        return double_check_failed(failed_properties, fuzz_data)
+    else:
+        return failed_properties
 
-    return ver_results
+
+def double_check_failed(failed_properties: dict, fuzz_data: FuzzData) -> dict:
+    print(clr("# Giving network {} seconds to converge before double checking".
+              format(const.CONV_TIME), 'cyan'))
+    time.sleep(const.CONV_TIME)
+
+    property_failures = dict()
+
+    for prop_id, prop in failed_properties.items():
+        print("Double checking property {}".format(prop_id))
+        reachability_res = verify_fib_property(prop, fuzz_data)
+        property_failures.update({prop_id: reachability_res})
+
+    return property_failures
 
 
 def verify_fib_property(prop: dict, fuzz_data: FuzzData):
@@ -72,51 +83,21 @@ def exec_fib_verification(vm_ip, src_dev, dest_network) -> subprocess.CompletedP
     return result
 
 
-def double_check_failed(properties: dict, fuzz_data: FuzzData) -> dict:
-    print(clr("# Giving network {} seconds to converge before double checking".
-              format(const.CONV_TIME), 'cyan'))
-    time.sleep(const.CONV_TIME)
-
-    double_check_results = dict()
-
-    for prop_id, prop in properties.items():
-        print("Double checking property {}".format(prop_id))
-        reachability_res = verify_fib_property(prop, fuzz_data)
-        double_check_results.update({prop_id: reachability_res})
-
-    return double_check_results
-
-
-def interpret_verification_results(state: tuple, fib_results: dict):
-    all_successful: bool = True
-    failures = []
-
-    for property_id, ver_res in fib_results.items():
-        if ver_res["status"] == 0:
-            continue
-        else:
-            all_successful = False
-
-        pretty_print_failure(property_id, ver_res)
-
-        failures.append({
-            "pid": property_id,
-            "desc": ver_res["desc"],
-            "info": ver_res["info"]
-        })
-
-    if all_successful:
-        print(clr("All properties HOLD", 'green'))
+def examine_violations(state, property_failures: dict):
+    if property_failures:
+        pretty_print_violations(property_failures)
+        fw.write_state_failures(state, property_failures)
     else:
-        fw.write_state_failures(state, failures)
+        print(clr("All properties HOLD", 'green'))
 
 
-def pretty_print_failure(pid: int, verification_res: dict):
-    ver_status = verification_res["status"]
+def pretty_print_violations(property_failures: dict):
+    for prop_id, ver_res in property_failures.items():
+        ver_status = ver_res["status"]
 
-    if ver_status == 1:
-        print(clr("Property {} FAILED: {}".format(pid, verification_res["desc"]), 'red'))
-    elif ver_status == 2:
-        print(clr("Property {} ERROR: {}".format(pid, verification_res["desc"]), 'grey'))
+        if ver_status == 1:
+            print(clr("Property {} FAILED: {}".format(prop_id, ver_res["desc"]), 'red'))
+        elif ver_status == 2:
+            print(clr("Property {} ERROR: {}".format(prop_id, ver_res["desc"]), 'grey'))
 
-    print(clr("\tInfo: {}".format(verification_res["info"]), 'yellow'))
+        print(clr("\tInfo: {}".format(ver_res["info"]), 'yellow'))
