@@ -9,6 +9,10 @@ uses the file_reader.
 How to use: Other modules should import just the class via
             from fuzzer.common.FuzzData import FuzzData
 
+Convention:
+    * Methods starting with `find_` are used repeatedly during fuzzing
+    * Methods starting with `get_` are one-time operations
+
 In-memory data: * dev2vm         - Container to VM IP
                 * net2dev        - Network to attached containers
                 * dev_net2ifaces - Container to networks to ifaces
@@ -28,12 +32,12 @@ class FuzzData:
         sim_ifaces: dict = fr.read_sim_ifaces()
         vms: dict = fr.read_vm_info()
 
-        # in-memory data for fuzzing
+        # parsed in-memory data for fuzzing
         self.dev2vm: dict = parse_dev2vm(topo_containers, vms, topo_name)
         self.net2dev: dict = parse_net2devices(topo_containers, topo_name)
         self.dev_net2iface = parse_nets2ifaces(sim_ifaces, inverted_sim_nets)
         self.ip2dev = parse_ip2dev(sim_ifaces)
-        # in-memory data for clearer output
+        # read as-is in-memory data
         self.sim_nets: dict = fr.read_sim_networks()
         self.sim_nets_inverted: dict = fr.read_sim_networks(swap=True)
 
@@ -54,17 +58,13 @@ class FuzzData:
         """
         return fdata_ops.find_ip_dev(ip, self.ip2dev)
 
+    def get_ospf_networks(self) -> list:
+        return fdata_ops.get_ospf_networks(self.net2dev)
+
     # wrapper methods
     def get_topo_name(self) -> dict:
         topo: dict = fr.read_topo()
         return topo["meta"]["name"]
-
-    def get_networks(self) -> list:
-        topo_networks: list = fr.read_topo()["networks"]
-        sim_networks: list = list(fr.read_sim_networks().keys())
-        post_validation_networks(topo_networks, sim_networks)
-
-        return sim_networks
 
     # TODO maybe refactor
     def get_nat_ip(self, dest_ip: str):

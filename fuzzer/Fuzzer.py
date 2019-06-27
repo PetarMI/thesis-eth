@@ -22,7 +22,7 @@ class Fuzzer:
 
     def prepare_fuzzing(self, depth: int):
         # define necessary variables
-        nets: list = self.fuzz_data.get_networks()
+        nets: list = self.fuzz_data.get_ospf_networks()
         statespace = Statespace(depth, nets)
         properties: list = pp.parse_properties(self.fuzz_data)
 

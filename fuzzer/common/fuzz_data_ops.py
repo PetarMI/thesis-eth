@@ -52,6 +52,19 @@ def find_ip_dev(ip: str, ip2dev: dict) -> str:
     return ip2dev.get(ip, None)
 
 
+# @Tested
+def get_ospf_networks(net2dev: dict) -> list:
+    """ Return only OSPF network names """
+    ospf_nets = []
+
+    for network, devices in net2dev.items():
+        if len(devices) > 1:
+            ospf_nets.append(network)
+
+    check_none(ospf_nets, "No OSPF Networks found in topology")
+    return ospf_nets
+
+
 def get_nat_iface(dest_ip: str, nat_ips: dict) -> ipaddress.IPv4Interface:
     """ Check every container for the original IP and return the simulated one.
     Works with dest_ip which has no netmask specified

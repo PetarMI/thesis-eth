@@ -141,4 +141,54 @@ def test_find_ip_dev_no_match():
     }
 
     res_dev = fdata_ops.find_ip_dev("10.0.3.3", ip2dev)
-    assert(res_dev == None)
+    assert(res_dev is None)
+
+
+###############################################################################
+# ########################## OSPF NETWORKS FIND ###############################
+###############################################################################
+def test_ospf_nets():
+    net2dev = {
+        "topo-wnet10": ["topo-r01", "topo-r02"],
+        "topo-wnet20": ["topo-r01"],
+        "topo-wnet11": ["topo-r02"],
+        "topo-wnet12": ["topo-r02"],
+        "topo-wnet21": ["topo-r03", "topo-r03"],
+        "topo-wnet22": ["topo-r03"]
+    }
+
+    res_nets = fdata_ops.get_ospf_networks(net2dev)
+    expected_nets = ["topo-wnet10", "topo-wnet21"]
+
+    assert(res_nets == expected_nets)
+
+
+def test_ospf_nets_all():
+    net2dev = {
+        "topo-wnet10": ["topo-r01", "topo-r02"],
+        "topo-wnet20": ["topo-r01", "topo-r03"],
+        "topo-wnet11": ["topo-r02", "topo-r03"],
+        "topo-wnet12": ["topo-r02", "topo-r04"],
+        "topo-wnet21": ["topo-r03", "topo-r04"],
+        "topo-wnet22": ["topo-r03", "topo-r05"]
+    }
+
+    res_nets = fdata_ops.get_ospf_networks(net2dev)
+    expected_nets = ["topo-wnet10", "topo-wnet20", "topo-wnet11",
+                     "topo-wnet12", "topo-wnet21", "topo-wnet22"]
+
+    assert(res_nets == expected_nets)
+
+
+def test_ospf_nets_none():
+    with pytest.raises(ValueError, match="No OSPF Networks found in topology"):
+        net2dev = {
+            "topo-wnet10": ["topo-r01"],
+            "topo-wnet20": ["topo-r01"],
+            "topo-wnet11": ["topo-r02"],
+            "topo-wnet12": ["topo-r02"],
+            "topo-wnet21": ["topo-r03"],
+            "topo-wnet22": ["topo-r03"]
+        }
+
+        fdata_ops.get_ospf_networks(net2dev)
