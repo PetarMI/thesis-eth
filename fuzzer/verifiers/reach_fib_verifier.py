@@ -23,6 +23,7 @@ def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
         pretty_print_double_check_info(failed_properties, property_failures)
         return property_failures
     else:
+        # just and empty dict signaling all properties hold
         return failed_properties
 
 

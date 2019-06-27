@@ -24,6 +24,9 @@ class Verification:
         print(clr("## Applying changes to fuzzed properties", 'cyan'))
         self._remove_properties(property_failures)
 
+    def stop_fuzzing(self) -> bool:
+        return len(self.properties.keys()) == 0
+
     @staticmethod
     def interpret_ping_results(ping_results: dict):
         rpv.interpret_verification_results(ping_results)

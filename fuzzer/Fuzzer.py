@@ -57,6 +57,9 @@ class Fuzzer:
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
             self.verification.verify_fib_reachability(state)
 
+            if self.check_stop_fuzzing(n):
+                break
+
             dropped_links = state
 
             print("===================================")
@@ -113,6 +116,14 @@ class Fuzzer:
             ips.append(self.fuzz_data.get_sim_net_ip(net))
 
         return ips
+
+    def check_stop_fuzzing(self, n: int) -> bool:
+        if self.verification.stop_fuzzing():
+            print(clr("#### Finished fuzzing after {} iterations".format(n),
+                      'green', attrs=['bold']))
+            return True
+
+        return False
 
 
 def exec_ping_reachability():
