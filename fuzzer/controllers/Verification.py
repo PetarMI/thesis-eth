@@ -15,9 +15,13 @@ class Verification:
         return rpv.verify_ping_reachability(self.properties)
 
     def verify_fib_reachability(self, state):
+        print(clr("## Property checking", 'cyan'))
         property_failures: dict = rfv.verify_fib_reachability(self.properties,
                                                               self.fuzz_data)
+        print(clr("## Final verdict", 'cyan'))
         rfv.examine_violations(state, property_failures)
+
+        print(clr("## Applying changes to fuzzed properties", 'cyan'))
         self._remove_properties(property_failures)
 
     @staticmethod

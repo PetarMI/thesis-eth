@@ -19,13 +19,15 @@ def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
 
     # double check to give network more time to converge
     if failed_properties:
-        return double_check_failed(failed_properties, fuzz_data)
+        property_failures = double_check_violations(failed_properties, fuzz_data)
+        pretty_print_double_check_info(failed_properties, property_failures)
+        return property_failures
     else:
         return failed_properties
 
 
-def double_check_failed(failed_properties: dict, fuzz_data: FuzzData) -> dict:
-    print(clr("# Giving network {} seconds to converge before double checking".
+def double_check_violations(failed_properties: dict, fuzz_data) -> dict:
+    print(clr("## Giving network {} seconds to converge before double checking".
               format(const.CONV_TIME), 'cyan'))
     time.sleep(const.CONV_TIME)
 
@@ -34,7 +36,9 @@ def double_check_failed(failed_properties: dict, fuzz_data: FuzzData) -> dict:
     for prop_id, prop in failed_properties.items():
         print("Double checking property {}".format(prop_id))
         reachability_res = verify_fib_property(prop, fuzz_data)
-        property_failures.update({prop_id: reachability_res})
+
+        if reachability_res["status"] != 0:
+            property_failures.update({prop_id: reachability_res})
 
     return property_failures
 
@@ -101,3 +105,16 @@ def pretty_print_violations(property_failures: dict):
             print(clr("Property {} ERROR: {}".format(prop_id, ver_res["desc"]), 'grey'))
 
         print(clr("\tInfo: {}".format(ver_res["info"]), 'yellow'))
+
+
+def pretty_print_double_check_info(first_pass_fails: dict, double_check_fails):
+    num_fp_fails: int = len(first_pass_fails.keys())
+    num_dc_fails: int = len(double_check_fails.keys())
+
+    if num_fp_fails == num_dc_fails:
+        print("INFO: All {} failed properties still fail after double checking".
+              format(num_fp_fails))
+    elif num_dc_fails == 0:
+        print("INFO: All failed properties succeeded after double checking")
+    else:
+        print("INFO: Some failed properties succeeded after double checking")
