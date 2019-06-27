@@ -5,13 +5,13 @@ from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import file_writer as fw
 
 
-def verify_fib_reachability(properties: list, fuzz_data: FuzzData) -> dict:
+def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
     ver_results = dict()
 
-    for idx, prop in enumerate(properties, start=1):
-        print("Verifying {}".format(idx))
+    for prop_id, prop in properties.items():
+        print("Verifying {}".format(prop_id))
         reachability_res = verify_fib_property(prop, fuzz_data)
-        ver_results.update({idx: reachability_res})
+        ver_results.update({prop_id: reachability_res})
 
     return ver_results
 

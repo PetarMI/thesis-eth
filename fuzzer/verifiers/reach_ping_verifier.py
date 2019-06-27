@@ -3,14 +3,14 @@ from termcolor import colored as clr
 from fuzzer.common import file_reader as fr
 
 
-def verify_ping_reachability(properties: list) -> dict:
+def verify_ping_reachability(properties: dict) -> dict:
     results = dict()
 
-    for idx, prop in enumerate(properties):
-        ping_msg = fr.read_ping_file(idx)
+    for prop_id, prop in properties.items():
+        ping_msg = fr.read_ping_file(prop_id)
         res: dict = check_ping(ping_msg, prop["dest_sim_ip"])
 
-        results.update({idx: res})
+        results.update({prop_id: res})
 
     return results
 

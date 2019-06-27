@@ -22,11 +22,11 @@ def parse_properties(fuzz_data: FuzzData) -> list:
     return reach_props
 
 
-def parse_reachability_props(raw_properties, fuzz_data) -> list:
-    properties = []
+def parse_reachability_props(raw_properties, fuzz_data) -> dict:
+    properties = dict()
     topo_name: str = fuzz_data.get_topo_name()
 
-    for raw_property in raw_properties:
+    for idx, raw_property in enumerate(raw_properties, start=1):
         prop = dict()
         container_name = get_container_name(topo_name, raw_property["src"])
         dest_sim_ip, dest_sim_net = fuzz_data.get_nat_ip(raw_property["dest"])
@@ -37,7 +37,7 @@ def parse_reachability_props(raw_properties, fuzz_data) -> list:
         prop["dest_sim_net"] = dest_sim_net
         prop["dest_ip"] = raw_property["dest"]
 
-        properties.append(prop)
+        properties.update({idx: prop})
 
     return properties
 

@@ -6,7 +6,7 @@ from fuzzer.common.FuzzData import FuzzData
 class Verification:
     # TODO make this pass the correct properties to every ver function
     # currently contains only reachability properties anyway
-    def __init__(self, properties: list, fuzz_data: FuzzData):
+    def __init__(self, properties: dict, fuzz_data: FuzzData):
         self.properties = properties
         self.fuzz_data = fuzz_data
 

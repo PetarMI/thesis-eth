@@ -27,7 +27,7 @@ class Statespace:
     def get_dfs_plan(self) -> list:
         return base.dfs(self.depth, self.links)
 
-    def get_heuristic_plan(self, properties: list, fuzz_data: FuzzData) -> list:
+    def get_heuristic_plan(self, properties: dict, fuzz_data: FuzzData) -> list:
         return heuristic.heuristic(self.depth, self.links, properties, fuzz_data)
 
     # @Tested

@@ -24,7 +24,7 @@ class Fuzzer:
         # define necessary variables
         nets: list = self.fuzz_data.get_ospf_networks()
         statespace = Statespace(depth, nets)
-        properties: list = pp.parse_properties(self.fuzz_data)
+        properties: dict = pp.parse_properties(self.fuzz_data)
 
         # set fuzzing approach state variables
         self.search_plan = statespace.get_heuristic_plan(properties, self.fuzz_data)

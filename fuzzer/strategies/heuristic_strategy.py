@@ -7,7 +7,7 @@ from fuzzer.common.FuzzData import FuzzData
 from fuzzer.strategies import baseline_strategies as base
 
 
-def heuristic(max_depth: int, links: list, properties: list, fuzz_data) -> list:
+def heuristic(max_depth: int, links: list, properties: dict, fuzz_data) -> list:
     """ Makes a search plan based on a heuristic """
     heuristic_links: list = find_path_links(properties, fuzz_data)
     pretty_print_property_paths(heuristic_links)
@@ -59,7 +59,7 @@ def union_plans(subplan: list, full_plan: list) -> list:
     return heuristic_plan
 
 
-def find_path_links(properties: list, fuzz_data: FuzzData) -> list:
+def find_path_links(properties: dict, fuzz_data: FuzzData) -> list:
     """ Find the links associated with each property
 
     :param properties: List of properties
@@ -68,7 +68,7 @@ def find_path_links(properties: list, fuzz_data: FuzzData) -> list:
     """
     links = []
 
-    for prop in properties:
+    for prop in properties.values():
         property_hops: list = find_property_hops(prop, fuzz_data)
         property_links: list = parse_hops2links(property_hops, fuzz_data)
         links.append(property_links)
