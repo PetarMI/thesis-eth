@@ -1,4 +1,5 @@
 import subprocess
+import time
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common.FuzzData import FuzzData
@@ -7,11 +8,22 @@ from fuzzer.common import file_writer as fw
 
 def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
     ver_results = dict()
+    failed_props = dict()
 
+    # initial check of the properties
     for prop_id, prop in properties.items():
         print("Verifying {}".format(prop_id))
         reachability_res = verify_fib_property(prop, fuzz_data)
         ver_results.update({prop_id: reachability_res})
+
+        if reachability_res["status"] != 0:
+            failed_props.update({prop_id: prop})
+
+    # if some of them failed double check to give network more time to converge
+    if failed_props:
+        double_check_res = double_check_failed(failed_props, fuzz_data)
+        for prop_id, dc_res in double_check_res.items():
+            ver_results.update({prop_id: dc_res})
 
     return ver_results
 
@@ -58,6 +70,21 @@ def exec_fib_verification(vm_ip, src_dev, dest_network) -> subprocess.CompletedP
                             stdout=subprocess.PIPE)
 
     return result
+
+
+def double_check_failed(properties: dict, fuzz_data: FuzzData) -> dict:
+    print(clr("# Giving network {} seconds to converge before double checking".
+              format(const.CONV_TIME), 'cyan'))
+    time.sleep(const.CONV_TIME)
+
+    double_check_results = dict()
+
+    for prop_id, prop in properties.items():
+        print("Double checking property {}".format(prop_id))
+        reachability_res = verify_fib_property(prop, fuzz_data)
+        double_check_results.update({prop_id: reachability_res})
+
+    return double_check_results
 
 
 def interpret_verification_results(state: tuple, fib_results: dict):

@@ -36,3 +36,5 @@ VM_STATE_SH = "{}/executors/vm_save_state.sh".format(FUZZ_DIR)
 
 RESTORE = "restore"
 DROP = "drop"
+
+CONV_TIME = 15
