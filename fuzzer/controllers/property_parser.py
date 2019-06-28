@@ -11,10 +11,10 @@ from fuzzer.common import file_writer as fw
 from fuzzer.common.FuzzData import FuzzData
 
 
-def parse_properties(fuzz_data: FuzzData) -> list:
+def parse_properties(fuzz_data: FuzzData) -> dict:
     # TODO make this read all properties
     raw_reach_props: dict = fr.read_properties("reachability")
-    reach_props: list = parse_reachability_props(raw_reach_props, fuzz_data)
+    reach_props: dict = parse_reachability_props(raw_reach_props, fuzz_data)
 
     fw.write_reach_instr(reach_props)
     fw.write_parsed_properties(reach_props)

@@ -92,7 +92,7 @@ def find_property_hops(prop: dict, fuzz_data: FuzzData) -> list:
         next_hops: list = next_hops_output.split(",")
 
         if len(next_hops) == 1:
-            nets.append(next_hops[0])
+            # nets.append(next_hops[0])
             break
         elif not next_hops:
             print(clr("No path to {}".format(dest_network), 'red'))

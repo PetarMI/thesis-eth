@@ -36,7 +36,7 @@ class Verification:
             removed_property = self.properties.pop(property_id, None)
 
             if removed_property:
-                print(clr("Removed property with ID from further verification".
+                print(clr("Removed property with ID {} from further verification".
                           format(property_id), 'green'))
             else:
                 print(clr("Tried to remove property with non-existing ID {}".
