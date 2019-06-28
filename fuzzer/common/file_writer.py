@@ -3,22 +3,23 @@ import json
 from fuzzer.common import constants_fuzzer as const
 
 
-def write_reach_instr(properties: list):
+def write_reach_instr(properties: dict):
     output_file = const.REACH_PROPS_FILE
 
     with open(output_file, mode='w+') as csv_file:
         writer = csv.writer(csv_file, delimiter=',', lineterminator='\n')
 
-        for prop in properties:
+        for prop in properties.values():
             writer.writerow([prop["vm_ip"], prop["container_name"],
                              prop["dest_sim_ip"]])
 
 
-def write_parsed_properties(properties: list):
+def write_parsed_properties(properties: dict):
     output_file = const.PARSED_PROPS_FILE
+    prop_list = list(properties.values())
 
     with open(output_file, 'w+') as json_file:
-        json.dump(properties, json_file, indent=4)
+        json.dump(prop_list, json_file, indent=4)
 
 
 def write_state_failures(state: tuple, property_violations: dict):
