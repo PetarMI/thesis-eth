@@ -10,42 +10,23 @@ from subprocess import call
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common.FuzzData import FuzzData
-from fuzzer.controllers import convergence
-
-
-class FullRevert:
-    """ Reverts the topology to its initial state between state transitions """
-    def __init__(self):
-        self.exec_prepare_vms()
-
-    # TODO tests
-    @staticmethod
-    def find_link_changes(dropped_links: list, next_state: tuple) -> dict:
-        return {
-            "restore": dropped_links,
-            "drop": list(next_state)
-        }
-
-    @staticmethod
-    def exec_state_transition(transition_instr: dict, net_changes: dict):
-        print(clr("## Reverting to initial state", 'cyan'))
-        exec_link_changes(transition_instr[const.RESTORE])
-        convergence.converge_full_revert(net_changes[const.RESTORE])
-
-        print(clr("## Dropping failed links", 'cyan'))
-        exec_link_changes(transition_instr.get(const.DROP))
-        convergence.converge_drop(net_changes[const.DROP])
-
-    @staticmethod
-    def exec_prepare_vms():
-        return_code: int = call([const.VM_STATE_SH, "-d"])
-        signal_script_fail(return_code, "Preparing VMs for fuzzing")
+from fuzzer.transitions import convergence
+from fuzzer.transitions.InstructionGenerator import InstructionGenerator
 
 
 class PartialRevert:
     """ Restore only non-overlapping links between state transitions"""
     def __init__(self, fuzz_data: FuzzData):
-        self.fuzz_data = fuzz_data
+        self.igen = InstructionGenerator(fuzz_data)
+        self.dropped_links = []
+
+    def perform_state_transition(self, state):
+        link_changes: dict = self.find_link_changes(self.dropped_links, state)
+        transition_instr: dict = self.igen.gen_transition_instructions(link_changes)
+        transition_data: dict = self.igen.get_transition_data(link_changes)
+
+        self.exec_state_transition(transition_instr, transition_data)
+        self.dropped_links = state
 
     # @Tested
     @staticmethod
@@ -58,21 +39,17 @@ class PartialRevert:
             "drop": links_to_drop
         }
 
-    def exec_state_transition(self, transition_instr: dict, net_changes: dict):
+    @staticmethod
+    def exec_state_transition(transition_instr: dict, transition_data: dict):
         print(clr("## Dropping failed links", 'cyan'))
         exec_link_changes(transition_instr.get(const.DROP))
-        convergence.converge_drop(net_changes[const.DROP])
+        convergence.converge_drop(transition_data[const.DROP])
         # save the state so that we check the number of neighbors after the restore is increased
-        self.exec_state_save()
+        exec_state_save()
 
         print(clr("## Restoring non-overlapping links", 'cyan'))
         exec_link_changes(transition_instr[const.RESTORE])
-        convergence.converge_partial_revert(net_changes[const.RESTORE], self.fuzz_data)
-
-    @staticmethod
-    def exec_state_save():
-        return_code: int = call([const.VM_STATE_SH, "-r"])
-        signal_script_fail(return_code, "Saving running state")
+        convergence.converge_partial_revert(transition_data[const.RESTORE])
 
 
 ###############################################################################
@@ -87,6 +64,11 @@ def exec_link_changes(instructions: list):
                                  "-i", instr["iface"], "-s", instr["op_type"]])
         signal_script_fail(return_code, "{} interface {}".
                            format(instr["op_type"], instr["iface"]))
+
+
+def exec_state_save():
+    return_code: int = call([const.VM_STATE_SH, "-r"])
+    signal_script_fail(return_code, "Saving running state")
 
 
 def pretty_print_instr(instr: dict, n, t):
@@ -119,3 +101,35 @@ def signal_script_fail(return_code: int, msg="", die=False):
 
         if die:
             exit(return_code)
+
+
+class FullRevert:
+    """ Reverts the topology to its initial state between state transitions """
+    def __init__(self):
+        self.exec_prepare_vms()
+
+    def perform_state_transition(self, state):
+        raise RuntimeError("Not implemented")
+
+    # TODO tests
+    @staticmethod
+    def find_link_changes(dropped_links: list, next_state: tuple) -> dict:
+        return {
+            "restore": dropped_links,
+            "drop": list(next_state)
+        }
+
+    @staticmethod
+    def exec_state_transition(transition_instr: dict, net_changes: dict):
+        print(clr("## Reverting to initial state", 'cyan'))
+        exec_link_changes(transition_instr[const.RESTORE])
+        convergence.converge_full_revert(net_changes[const.RESTORE])
+
+        print(clr("## Dropping failed links", 'cyan'))
+        exec_link_changes(transition_instr.get(const.DROP))
+        convergence.converge_drop(net_changes[const.DROP])
+
+    @staticmethod
+    def exec_prepare_vms():
+        return_code: int = call([const.VM_STATE_SH, "-d"])
+        signal_script_fail(return_code, "Preparing VMs for fuzzing")
