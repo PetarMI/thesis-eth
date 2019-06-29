@@ -55,8 +55,8 @@ class InstructionGenerator:
     def get_link_devices(self, networks: list) -> list:
         affected_containers = []
 
-        for net_ip in networks:
-            net_name: str = self.fuzz_data.get_sim_net_name(net_ip)
+        for net_name in networks:
+            # net_name: str = self.fuzz_data.get_sim_net_name(net_ip)
             net_devices: list = self.fuzz_data.find_network_devices(net_name)
 
             affected_containers.extend(net_devices)
