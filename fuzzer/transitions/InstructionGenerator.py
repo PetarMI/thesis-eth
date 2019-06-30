@@ -63,8 +63,7 @@ class InstructionGenerator:
         dev: str = self.link2dev.get(link, None)
 
         if op_type == const.DROP:
-            check_none(dev, True, "Device {} for link {} exists in logs"
-                       .format(dev, link))
+            # check_none(dev, True, "Device {} for link {} exists in logs".format(dev, link))
             link_containers: list = self.fuzz_data.find_network_devices(link)
             dev = random.choice(link_containers)
             self.link2dev.update({link: dev})

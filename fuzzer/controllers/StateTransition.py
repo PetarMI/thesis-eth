@@ -43,7 +43,7 @@ class PartialRevert:
     def exec_state_transition(transition_instr: dict, transition_data: dict):
         print(clr("## Dropping failed links", 'cyan'))
         exec_link_changes(transition_instr.get(const.DROP))
-        convergence.converge_drop(transition_data[const.DROP])
+        # convergence.converge_drop(transition_data[const.DROP])
         # save the state so that we check the number of neighbors after the restore is increased
         exec_state_save()
 
