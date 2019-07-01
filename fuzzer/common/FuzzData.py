@@ -74,6 +74,15 @@ class FuzzData:
         nat_iface = fdata_ops.get_nat_iface(dest_ip, nat_ips)
         return str(nat_iface.ip), str(nat_iface.network)
 
+    def get_link_nets(self, networks) -> list:
+        """ Get the IPs of a list of network names """
+        ips = []
+
+        for net in networks:
+            ips.append(self.get_sim_net_ip(net))
+
+        return ips
+
     def get_sim_net_ip(self, net_name: str) -> str:
         net_ip: str = self.sim_nets.get(net_name, None)
         check_none(net_ip, "Network name does not exist in networks.log")

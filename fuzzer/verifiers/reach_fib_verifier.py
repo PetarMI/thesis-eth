@@ -1,25 +1,25 @@
 import subprocess
 import time
+import ipaddress
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
-from fuzzer.common.FuzzData import FuzzData
 from fuzzer.common import file_writer as fw
 
 
-def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
+def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> dict:
     failed_properties = dict()
 
     # remember the properties that failed
     for prop_id, prop in properties.items():
         print("Verifying property {}".format(prop_id))
-        reachability_res = verify_fib_property(prop, fuzz_data)
+        reachability_res = verify_fib_property(prop, fuzz_data, failed_nets)
 
         if reachability_res["status"] != 0:
             failed_properties.update({prop_id: prop})
 
     # double check to give network more time to converge
     if failed_properties:
-        property_failures = double_check_violations(failed_properties, fuzz_data)
+        property_failures = double_check_violations(failed_properties, fuzz_data, failed_nets)
         pretty_print_double_check_info(failed_properties, property_failures)
         return property_failures
     else:
@@ -27,7 +27,7 @@ def verify_fib_reachability(properties: dict, fuzz_data: FuzzData) -> dict:
         return failed_properties
 
 
-def double_check_violations(failed_properties: dict, fuzz_data) -> dict:
+def double_check_violations(failed_properties: dict, fuzz_data, failed_nets) -> dict:
     print(clr("## Giving network {} seconds to converge before double checking".
               format(const.CONV_TIME), 'cyan'))
     time.sleep(const.CONV_TIME)
@@ -36,7 +36,7 @@ def double_check_violations(failed_properties: dict, fuzz_data) -> dict:
 
     for prop_id, prop in failed_properties.items():
         print("Double checking property {}".format(prop_id))
-        reachability_res = verify_fib_property(prop, fuzz_data)
+        reachability_res = verify_fib_property(prop, fuzz_data, failed_nets)
 
         if reachability_res["status"] != 0:
             property_failures.update({prop_id: reachability_res})
@@ -44,7 +44,7 @@ def double_check_violations(failed_properties: dict, fuzz_data) -> dict:
     return property_failures
 
 
-def verify_fib_property(prop: dict, fuzz_data: FuzzData):
+def verify_fib_property(prop: dict, fuzz_data, failed_nets):
     vm_ip: str = prop["vm_ip"]
     src_dev: str = prop["container_name"]
     dest_network: str = prop["dest_sim_net"]
@@ -64,6 +64,12 @@ def verify_fib_property(prop: dict, fuzz_data: FuzzData):
             ver_info = "No path to network {} at device {}".format(dest_network, src_dev)
             break
         else:
+            if check_next_hop_failed(next_hop, failed_nets):
+                ver_status = 1
+                ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
+                ver_info = "Next hop {} at {} is on a failed link".format(next_hop, src_dev)
+                break
+
             src_dev = fuzz_data.find_ip_device(next_hop)
             vm_ip = fuzz_data.find_container_vm(src_dev)
 
@@ -78,6 +84,18 @@ def verify_fib_property(prop: dict, fuzz_data: FuzzData):
         "desc": ver_msg,
         "info": ver_info
     }
+
+
+# @Tested
+def check_next_hop_failed(next_hop: str, failed_nets: list) -> bool:
+    """ Check if the next hop belongs to a failed network """
+    next_hop_ip = ipaddress.IPv4Address(next_hop)
+
+    for fnet in failed_nets:
+        if next_hop_ip in ipaddress.IPv4Network(fnet, strict=True):
+            return True
+
+    return False
 
 
 def exec_fib_verification(vm_ip, src_dev, dest_network) -> subprocess.CompletedProcess:

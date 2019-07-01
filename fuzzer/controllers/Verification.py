@@ -16,8 +16,10 @@ class Verification:
 
     def verify_fib_reachability(self, state):
         print(clr("## Property checking", 'cyan'))
+        failed_nets: list = self.fuzz_data.get_link_nets(state)
         property_failures: dict = rfv.verify_fib_reachability(self.properties,
-                                                              self.fuzz_data)
+                                                              self.fuzz_data,
+                                                              failed_nets)
         print(clr("## Final verdict", 'cyan'))
         rfv.examine_violations(state, property_failures)
 

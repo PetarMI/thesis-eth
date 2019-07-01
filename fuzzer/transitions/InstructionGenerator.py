@@ -35,19 +35,10 @@ class InstructionGenerator:
     def get_transition_data(self, link_changes: dict):
         trans_data = dict()
 
-        trans_data[const.DROP] = self.get_link_ips(link_changes[const.DROP])
+        trans_data[const.DROP] = self.fuzz_data.get_link_nets(link_changes[const.DROP])
         trans_data[const.RESTORE] = self.get_link_devices(link_changes[const.RESTORE])
 
         return trans_data
-
-    def get_link_ips(self, networks: list) -> list:
-        """ Get the IPs of a list of network names """
-        ips = []
-
-        for net in networks:
-            ips.append(self.fuzz_data.get_sim_net_ip(net))
-
-        return ips
 
     def get_link_devices(self, networks: list) -> list:
         affected_containers = []
