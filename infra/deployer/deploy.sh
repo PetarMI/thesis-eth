@@ -32,7 +32,7 @@ readonly VM_COMMS_DIR="${DEPLOYER_DIR}/vm_comms"
 readonly COMPOSER_DIR="${DEPLOYER_DIR}/composer"
 readonly NAT_DIR="${DEPLOYER_DIR}/nat"
 
-readonly DEPL_LOG_DIR="${HOME_DIR}/benchmarks/simulator/depl_files/latest_run"
+readonly DEPL_LOG_DIR="${HOME_DIR}/thesis-eth/benchmarks/simulator/depl_files/latest_run"
 readonly DEPL_STATS="depl_stats.log"
 
 # colors for output
@@ -61,41 +61,96 @@ signal_fail $?
 
 printf "${L_GREEN}######### 1/9 Setting up VM directories #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash ${VM_COMMS_DIR}/vm_env.sh -cd | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash ${VM_COMMS_DIR}/vm_env.sh -cd
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "dirs,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
 
 printf "${L_GREEN}######### 2/9 Generating compose files #########${NC}\n"
 cd "${COMPOSER_DIR}"
-time python TopoComposer.py -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time python TopoComposer.py -t "${FLAG_topology}"
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "gencomp,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
 
 printf "${L_GREEN}######### 3/9 Uploading files to VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash vm_upload.sh -t "${FLAG_topology}" -a | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash vm_upload.sh -t "${FLAG_topology}" -a
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "upload,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
 
 printf "${L_GREEN}######### 4/9 Building Layer 2 on VMs #########${NC}\n"
-time bash vm_compose.sh -u | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash vm_compose.sh -u
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "phynet,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
 
 printf "${L_GREEN}######### 5/9 Setup L3 device containers #########${NC}\n"
-time bash vm_configure.sh -s | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash vm_configure.sh -s
 signal_fail $?
 
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "setup,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
+
 printf "${L_GREEN}######### 6/9 Downloading data #########${NC}\n"
-time bash vm_download.sh -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash vm_download.sh -t "${FLAG_topology}"
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "download,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
 
 printf "${L_GREEN}######### 7/9 Performing NAT #########${NC}\n"
 cd "${NAT_DIR}"
-time bash perform_nat.sh -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash perform_nat.sh -t "${FLAG_topology}"
 signal_fail $?
 
-printf "${L_GREEN}######### 8/9 Building Layer 2 on VMs #########${NC}\n"
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "nat,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
+
+printf "${L_GREEN}######### 8/9 Building Layer 3 on VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash vm_upload.sh -t "${FLAG_topology}" -f | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+start_time="$(date -u +%s)"
+
+time bash vm_upload.sh -t "${FLAG_topology}" -f
 signal_fail $?
 
-printf "${L_GREEN}######### 9/9 Building Layer 2 on VMs #########${NC}\n"
-time bash vm_configure.sh -c | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "configs,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
+
+printf "${L_GREEN}######### 9/9 Building Layer 3 on VMs #########${NC}\n"
+start_time="$(date -u +%s)"
+
+time bash vm_configure.sh -c
 signal_fail $?
+
+end_time="$(date -u +%s)"
+elapsed="$(($end_time-$start_time))"
+echo "restart,$elapsed" >> "${DEPL_LOG_DIR}/${DEPL_STATS}"
+
