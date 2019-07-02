@@ -1,0 +1,1134 @@
+{
+    "meta": {
+        "name": "iris"
+    },
+    "networks": [
+        {
+            "name": "net-unioncity-trentonid37",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-unioncity-mayfield",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-unioncity-martin",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-jackson-trentonid37",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-jackson-yuma",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-jackson-memphis",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-jackson-henderson",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-chattanooga-ringgold",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-chattanooga-huntsville",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-chattanooga-knoxville",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-chattanooga-dunlap",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-crossville-mcminnville",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-crossville-gainesboro",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-paris-camden",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-paris-murray",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-paris-mckenzie",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-gainesboro-nashville",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-gainesboro-wartburg",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-gainesboro-lafayette",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-gainesboro-smithville",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-gainesboro-mtjuliet",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-greenville-morristown",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-greenville-johnsoncity",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-pulaski-loretto",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-pulaski-ardmore",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-morristown-knoxville",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-mckenzie-yuma",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-mckenzie-martin",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-millington-memphis",
+            "subnet": "10.0.0.56/31"
+        },
+        {
+            "name": "net-millington-brownsville",
+            "subnet": "10.0.0.58/31"
+        },
+        {
+            "name": "net-glasgow-scottsville",
+            "subnet": "10.0.0.60/31"
+        },
+        {
+            "name": "net-henderson-waynesboro",
+            "subnet": "10.0.0.62/31"
+        },
+        {
+            "name": "net-yuma-bruceton",
+            "subnet": "10.0.0.64/31"
+        },
+        {
+            "name": "net-yuma-nashville",
+            "subnet": "10.0.0.66/31"
+        },
+        {
+            "name": "net-columbia-huntsville",
+            "subnet": "10.0.0.68/31"
+        },
+        {
+            "name": "net-columbia-nashville",
+            "subnet": "10.0.0.70/31"
+        },
+        {
+            "name": "net-huntsville-ardmore",
+            "subnet": "10.0.0.72/31"
+        },
+        {
+            "name": "net-huntsville-loretto",
+            "subnet": "10.0.0.74/31"
+        },
+        {
+            "name": "net-huntsville-newhope",
+            "subnet": "10.0.0.76/31"
+        },
+        {
+            "name": "net-mcminnville-spencer",
+            "subnet": "10.0.0.78/31"
+        },
+        {
+            "name": "net-nashville-chapelhill",
+            "subnet": "10.0.0.80/31"
+        },
+        {
+            "name": "net-dunlap-spencer",
+            "subnet": "10.0.0.82/31"
+        },
+        {
+            "name": "net-chickamauga-ringgold",
+            "subnet": "10.0.0.84/31"
+        },
+        {
+            "name": "net-chickamauga-trenton",
+            "subnet": "10.0.0.86/31"
+        },
+        {
+            "name": "net-waynesboro-loretto",
+            "subnet": "10.0.0.88/31"
+        },
+        {
+            "name": "net-mtjuliet-smyrna",
+            "subnet": "10.0.0.90/31"
+        },
+        {
+            "name": "net-newjohnsonville-camden",
+            "subnet": "10.0.0.92/31"
+        },
+        {
+            "name": "net-knoxville-wartburg",
+            "subnet": "10.0.0.94/31"
+        },
+        {
+            "name": "net-knoxville-johnsoncity",
+            "subnet": "10.0.0.96/31"
+        },
+        {
+            "name": "net-bruceton-camden",
+            "subnet": "10.0.0.98/31"
+        },
+        {
+            "name": "net-paducah-mayfield",
+            "subnet": "10.0.0.100/31"
+        },
+        {
+            "name": "net-paducah-murray",
+            "subnet": "10.0.0.102/31"
+        },
+        {
+            "name": "net-franklin-bowlinggreen",
+            "subnet": "10.0.0.104/31"
+        },
+        {
+            "name": "net-franklin-scottsville",
+            "subnet": "10.0.0.106/31"
+        },
+        {
+            "name": "net-spencer-chapelhill",
+            "subnet": "10.0.0.108/31"
+        },
+        {
+            "name": "net-spencer-smithville",
+            "subnet": "10.0.0.110/31"
+        },
+        {
+            "name": "net-johnsoncity-scottcounty",
+            "subnet": "10.0.0.112/31"
+        },
+        {
+            "name": "net-trenton-rainsville",
+            "subnet": "10.0.0.114/31"
+        },
+        {
+            "name": "net-chapelhill-smyrna",
+            "subnet": "10.0.0.116/31"
+        },
+        {
+            "name": "net-chapelhill-ardmore",
+            "subnet": "10.0.0.118/31"
+        },
+        {
+            "name": "net-bowlinggreen-scottsville",
+            "subnet": "10.0.0.120/31"
+        },
+        {
+            "name": "net-scottsville-lafayette",
+            "subnet": "10.0.0.122/31"
+        },
+        {
+            "name": "net-rainsville-scottsboro",
+            "subnet": "10.0.0.124/31"
+        },
+        {
+            "name": "net-newhope-scottsboro",
+            "subnet": "10.0.0.126/31"
+        }
+    ],
+    "containers": [
+        {
+            "name": "unioncity",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-unioncity-trentonid37",
+                    "ipaddr": "10.0.0.0/31"
+                },
+                {
+                    "network": "net-unioncity-mayfield",
+                    "ipaddr": "10.0.0.2/31"
+                },
+                {
+                    "network": "net-unioncity-martin",
+                    "ipaddr": "10.0.0.4/31"
+                }
+            ]
+        },
+        {
+            "name": "jackson",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jackson-trentonid37",
+                    "ipaddr": "10.0.0.6/31"
+                },
+                {
+                    "network": "net-jackson-yuma",
+                    "ipaddr": "10.0.0.8/31"
+                },
+                {
+                    "network": "net-jackson-memphis",
+                    "ipaddr": "10.0.0.10/31"
+                },
+                {
+                    "network": "net-jackson-henderson",
+                    "ipaddr": "10.0.0.12/31"
+                }
+            ]
+        },
+        {
+            "name": "chattanooga",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chattanooga-ringgold",
+                    "ipaddr": "10.0.0.14/31"
+                },
+                {
+                    "network": "net-chattanooga-huntsville",
+                    "ipaddr": "10.0.0.16/31"
+                },
+                {
+                    "network": "net-chattanooga-knoxville",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-chattanooga-dunlap",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "crossville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-crossville-mcminnville",
+                    "ipaddr": "10.0.0.22/31"
+                },
+                {
+                    "network": "net-crossville-gainesboro",
+                    "ipaddr": "10.0.0.24/31"
+                }
+            ]
+        },
+        {
+            "name": "paris",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-camden",
+                    "ipaddr": "10.0.0.26/31"
+                },
+                {
+                    "network": "net-paris-murray",
+                    "ipaddr": "10.0.0.28/31"
+                },
+                {
+                    "network": "net-paris-mckenzie",
+                    "ipaddr": "10.0.0.30/31"
+                }
+            ]
+        },
+        {
+            "name": "gainesboro",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-crossville-gainesboro",
+                    "ipaddr": "10.0.0.25/31"
+                },
+                {
+                    "network": "net-gainesboro-nashville",
+                    "ipaddr": "10.0.0.32/31"
+                },
+                {
+                    "network": "net-gainesboro-wartburg",
+                    "ipaddr": "10.0.0.34/31"
+                },
+                {
+                    "network": "net-gainesboro-lafayette",
+                    "ipaddr": "10.0.0.36/31"
+                },
+                {
+                    "network": "net-gainesboro-smithville",
+                    "ipaddr": "10.0.0.38/31"
+                },
+                {
+                    "network": "net-gainesboro-mtjuliet",
+                    "ipaddr": "10.0.0.40/31"
+                }
+            ]
+        },
+        {
+            "name": "greenville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-greenville-morristown",
+                    "ipaddr": "10.0.0.42/31"
+                },
+                {
+                    "network": "net-greenville-johnsoncity",
+                    "ipaddr": "10.0.0.44/31"
+                }
+            ]
+        },
+        {
+            "name": "pulaski",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pulaski-loretto",
+                    "ipaddr": "10.0.0.46/31"
+                },
+                {
+                    "network": "net-pulaski-ardmore",
+                    "ipaddr": "10.0.0.48/31"
+                }
+            ]
+        },
+        {
+            "name": "morristown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-morristown-knoxville",
+                    "ipaddr": "10.0.0.50/31"
+                },
+                {
+                    "network": "net-greenville-morristown",
+                    "ipaddr": "10.0.0.43/31"
+                }
+            ]
+        },
+        {
+            "name": "mckenzie",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-mckenzie",
+                    "ipaddr": "10.0.0.31/31"
+                },
+                {
+                    "network": "net-mckenzie-yuma",
+                    "ipaddr": "10.0.0.52/31"
+                },
+                {
+                    "network": "net-mckenzie-martin",
+                    "ipaddr": "10.0.0.54/31"
+                }
+            ]
+        },
+        {
+            "name": "millington",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-millington-memphis",
+                    "ipaddr": "10.0.0.56/31"
+                },
+                {
+                    "network": "net-millington-brownsville",
+                    "ipaddr": "10.0.0.58/31"
+                }
+            ]
+        },
+        {
+            "name": "glasgow",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-glasgow-scottsville",
+                    "ipaddr": "10.0.0.60/31"
+                }
+            ]
+        },
+        {
+            "name": "henderson",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jackson-henderson",
+                    "ipaddr": "10.0.0.13/31"
+                },
+                {
+                    "network": "net-henderson-waynesboro",
+                    "ipaddr": "10.0.0.62/31"
+                }
+            ]
+        },
+        {
+            "name": "yuma",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-yuma-bruceton",
+                    "ipaddr": "10.0.0.64/31"
+                },
+                {
+                    "network": "net-yuma-nashville",
+                    "ipaddr": "10.0.0.66/31"
+                },
+                {
+                    "network": "net-jackson-yuma",
+                    "ipaddr": "10.0.0.9/31"
+                },
+                {
+                    "network": "net-mckenzie-yuma",
+                    "ipaddr": "10.0.0.53/31"
+                }
+            ]
+        },
+        {
+            "name": "columbia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-columbia-huntsville",
+                    "ipaddr": "10.0.0.68/31"
+                },
+                {
+                    "network": "net-columbia-nashville",
+                    "ipaddr": "10.0.0.70/31"
+                }
+            ]
+        },
+        {
+            "name": "huntsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-columbia-huntsville",
+                    "ipaddr": "10.0.0.69/31"
+                },
+                {
+                    "network": "net-chattanooga-huntsville",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-huntsville-ardmore",
+                    "ipaddr": "10.0.0.72/31"
+                },
+                {
+                    "network": "net-huntsville-loretto",
+                    "ipaddr": "10.0.0.74/31"
+                },
+                {
+                    "network": "net-huntsville-newhope",
+                    "ipaddr": "10.0.0.76/31"
+                }
+            ]
+        },
+        {
+            "name": "mcminnville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mcminnville-spencer",
+                    "ipaddr": "10.0.0.78/31"
+                },
+                {
+                    "network": "net-crossville-mcminnville",
+                    "ipaddr": "10.0.0.23/31"
+                }
+            ]
+        },
+        {
+            "name": "nashville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-yuma-nashville",
+                    "ipaddr": "10.0.0.67/31"
+                },
+                {
+                    "network": "net-nashville-chapelhill",
+                    "ipaddr": "10.0.0.80/31"
+                },
+                {
+                    "network": "net-columbia-nashville",
+                    "ipaddr": "10.0.0.71/31"
+                },
+                {
+                    "network": "net-gainesboro-nashville",
+                    "ipaddr": "10.0.0.33/31"
+                }
+            ]
+        },
+        {
+            "name": "dunlap",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chattanooga-dunlap",
+                    "ipaddr": "10.0.0.21/31"
+                },
+                {
+                    "network": "net-dunlap-spencer",
+                    "ipaddr": "10.0.0.82/31"
+                }
+            ]
+        },
+        {
+            "name": "chickamauga",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chickamauga-ringgold",
+                    "ipaddr": "10.0.0.84/31"
+                },
+                {
+                    "network": "net-chickamauga-trenton",
+                    "ipaddr": "10.0.0.86/31"
+                }
+            ]
+        },
+        {
+            "name": "waynesboro",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-waynesboro-loretto",
+                    "ipaddr": "10.0.0.88/31"
+                },
+                {
+                    "network": "net-henderson-waynesboro",
+                    "ipaddr": "10.0.0.63/31"
+                }
+            ]
+        },
+        {
+            "name": "trentonid37",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-unioncity-trentonid37",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-jackson-trentonid37",
+                    "ipaddr": "10.0.0.7/31"
+                }
+            ]
+        },
+        {
+            "name": "memphis",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jackson-memphis",
+                    "ipaddr": "10.0.0.11/31"
+                },
+                {
+                    "network": "net-millington-memphis",
+                    "ipaddr": "10.0.0.57/31"
+                }
+            ]
+        },
+        {
+            "name": "mtjuliet",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mtjuliet-smyrna",
+                    "ipaddr": "10.0.0.90/31"
+                },
+                {
+                    "network": "net-gainesboro-mtjuliet",
+                    "ipaddr": "10.0.0.41/31"
+                }
+            ]
+        },
+        {
+            "name": "newjohnsonville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newjohnsonville-camden",
+                    "ipaddr": "10.0.0.92/31"
+                }
+            ]
+        },
+        {
+            "name": "knoxville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-knoxville-wartburg",
+                    "ipaddr": "10.0.0.94/31"
+                },
+                {
+                    "network": "net-morristown-knoxville",
+                    "ipaddr": "10.0.0.51/31"
+                },
+                {
+                    "network": "net-chattanooga-knoxville",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-knoxville-johnsoncity",
+                    "ipaddr": "10.0.0.96/31"
+                }
+            ]
+        },
+        {
+            "name": "bruceton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-yuma-bruceton",
+                    "ipaddr": "10.0.0.65/31"
+                },
+                {
+                    "network": "net-bruceton-camden",
+                    "ipaddr": "10.0.0.98/31"
+                }
+            ]
+        },
+        {
+            "name": "paducah",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paducah-mayfield",
+                    "ipaddr": "10.0.0.100/31"
+                },
+                {
+                    "network": "net-paducah-murray",
+                    "ipaddr": "10.0.0.102/31"
+                }
+            ]
+        },
+        {
+            "name": "wartburg",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-knoxville-wartburg",
+                    "ipaddr": "10.0.0.95/31"
+                },
+                {
+                    "network": "net-gainesboro-wartburg",
+                    "ipaddr": "10.0.0.35/31"
+                }
+            ]
+        },
+        {
+            "name": "mayfield",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-unioncity-mayfield",
+                    "ipaddr": "10.0.0.3/31"
+                },
+                {
+                    "network": "net-paducah-mayfield",
+                    "ipaddr": "10.0.0.101/31"
+                }
+            ]
+        },
+        {
+            "name": "loretto",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pulaski-loretto",
+                    "ipaddr": "10.0.0.47/31"
+                },
+                {
+                    "network": "net-huntsville-loretto",
+                    "ipaddr": "10.0.0.75/31"
+                },
+                {
+                    "network": "net-waynesboro-loretto",
+                    "ipaddr": "10.0.0.89/31"
+                }
+            ]
+        },
+        {
+            "name": "franklin",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-franklin-bowlinggreen",
+                    "ipaddr": "10.0.0.104/31"
+                },
+                {
+                    "network": "net-franklin-scottsville",
+                    "ipaddr": "10.0.0.106/31"
+                }
+            ]
+        },
+        {
+            "name": "martin",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-unioncity-martin",
+                    "ipaddr": "10.0.0.5/31"
+                },
+                {
+                    "network": "net-mckenzie-martin",
+                    "ipaddr": "10.0.0.55/31"
+                }
+            ]
+        },
+        {
+            "name": "spencer",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mcminnville-spencer",
+                    "ipaddr": "10.0.0.79/31"
+                },
+                {
+                    "network": "net-spencer-chapelhill",
+                    "ipaddr": "10.0.0.108/31"
+                },
+                {
+                    "network": "net-spencer-smithville",
+                    "ipaddr": "10.0.0.110/31"
+                },
+                {
+                    "network": "net-dunlap-spencer",
+                    "ipaddr": "10.0.0.83/31"
+                }
+            ]
+        },
+        {
+            "name": "brownsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-millington-brownsville",
+                    "ipaddr": "10.0.0.59/31"
+                }
+            ]
+        },
+        {
+            "name": "johnsoncity",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-johnsoncity-scottcounty",
+                    "ipaddr": "10.0.0.112/31"
+                },
+                {
+                    "network": "net-knoxville-johnsoncity",
+                    "ipaddr": "10.0.0.97/31"
+                },
+                {
+                    "network": "net-greenville-johnsoncity",
+                    "ipaddr": "10.0.0.45/31"
+                }
+            ]
+        },
+        {
+            "name": "ringgold",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chattanooga-ringgold",
+                    "ipaddr": "10.0.0.15/31"
+                },
+                {
+                    "network": "net-chickamauga-ringgold",
+                    "ipaddr": "10.0.0.85/31"
+                }
+            ]
+        },
+        {
+            "name": "trenton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-trenton-rainsville",
+                    "ipaddr": "10.0.0.114/31"
+                },
+                {
+                    "network": "net-chickamauga-trenton",
+                    "ipaddr": "10.0.0.87/31"
+                }
+            ]
+        },
+        {
+            "name": "chapelhill",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nashville-chapelhill",
+                    "ipaddr": "10.0.0.81/31"
+                },
+                {
+                    "network": "net-chapelhill-smyrna",
+                    "ipaddr": "10.0.0.116/31"
+                },
+                {
+                    "network": "net-spencer-chapelhill",
+                    "ipaddr": "10.0.0.109/31"
+                },
+                {
+                    "network": "net-chapelhill-ardmore",
+                    "ipaddr": "10.0.0.118/31"
+                }
+            ]
+        },
+        {
+            "name": "ardmore",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pulaski-ardmore",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-huntsville-ardmore",
+                    "ipaddr": "10.0.0.73/31"
+                },
+                {
+                    "network": "net-chapelhill-ardmore",
+                    "ipaddr": "10.0.0.119/31"
+                }
+            ]
+        },
+        {
+            "name": "smyrna",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chapelhill-smyrna",
+                    "ipaddr": "10.0.0.117/31"
+                },
+                {
+                    "network": "net-mtjuliet-smyrna",
+                    "ipaddr": "10.0.0.91/31"
+                }
+            ]
+        },
+        {
+            "name": "bowlinggreen",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-franklin-bowlinggreen",
+                    "ipaddr": "10.0.0.105/31"
+                },
+                {
+                    "network": "net-bowlinggreen-scottsville",
+                    "ipaddr": "10.0.0.120/31"
+                }
+            ]
+        },
+        {
+            "name": "murray",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-murray",
+                    "ipaddr": "10.0.0.29/31"
+                },
+                {
+                    "network": "net-paducah-murray",
+                    "ipaddr": "10.0.0.103/31"
+                }
+            ]
+        },
+        {
+            "name": "scottsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-scottsville-lafayette",
+                    "ipaddr": "10.0.0.122/31"
+                },
+                {
+                    "network": "net-glasgow-scottsville",
+                    "ipaddr": "10.0.0.61/31"
+                },
+                {
+                    "network": "net-franklin-scottsville",
+                    "ipaddr": "10.0.0.107/31"
+                },
+                {
+                    "network": "net-bowlinggreen-scottsville",
+                    "ipaddr": "10.0.0.121/31"
+                }
+            ]
+        },
+        {
+            "name": "rainsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-trenton-rainsville",
+                    "ipaddr": "10.0.0.115/31"
+                },
+                {
+                    "network": "net-rainsville-scottsboro",
+                    "ipaddr": "10.0.0.124/31"
+                }
+            ]
+        },
+        {
+            "name": "camden",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-camden",
+                    "ipaddr": "10.0.0.27/31"
+                },
+                {
+                    "network": "net-newjohnsonville-camden",
+                    "ipaddr": "10.0.0.93/31"
+                },
+                {
+                    "network": "net-bruceton-camden",
+                    "ipaddr": "10.0.0.99/31"
+                }
+            ]
+        },
+        {
+            "name": "smithville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-spencer-smithville",
+                    "ipaddr": "10.0.0.111/31"
+                },
+                {
+                    "network": "net-gainesboro-smithville",
+                    "ipaddr": "10.0.0.39/31"
+                }
+            ]
+        },
+        {
+            "name": "newhope",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-huntsville-newhope",
+                    "ipaddr": "10.0.0.77/31"
+                },
+                {
+                    "network": "net-newhope-scottsboro",
+                    "ipaddr": "10.0.0.126/31"
+                }
+            ]
+        },
+        {
+            "name": "lafayette",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-scottsville-lafayette",
+                    "ipaddr": "10.0.0.123/31"
+                },
+                {
+                    "network": "net-gainesboro-lafayette",
+                    "ipaddr": "10.0.0.37/31"
+                }
+            ]
+        },
+        {
+            "name": "scottcounty",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-johnsoncity-scottcounty",
+                    "ipaddr": "10.0.0.113/31"
+                }
+            ]
+        },
+        {
+            "name": "scottsboro",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-rainsville-scottsboro",
+                    "ipaddr": "10.0.0.125/31"
+                },
+                {
+                    "network": "net-newhope-scottsboro",
+                    "ipaddr": "10.0.0.127/31"
+                }
+            ]
+        }
+    ]
+}

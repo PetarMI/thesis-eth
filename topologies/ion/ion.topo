@@ -1,0 +1,2636 @@
+{
+    "meta": {
+        "name": "ion"
+    },
+    "networks": [
+        {
+            "name": "net-albany-gloversville",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-albany-queensbury",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-albany-saugerties",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-albany-coxsackie",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-ogdensburg-alexandriabay",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-ogdensburg-massena",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-jamestown-nodeid94",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-forestcity-hancock",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-forestcity-southcanaan",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-nodeid91-malone",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-nodeid91-massena",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-cooperstown-hamilton",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-cooperstown-oneonta",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-nodeid93-nodeid123",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-nodeid93-corning",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-nodeid93-addisonid45",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-nodeid94-cassadaga",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-nodeid94-salamanca",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-barre-mountpelier",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-nodeid96-nodeid90",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-nodeid96-paulsmiths",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-nodeid96-potsdam",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-chesterfield-schroonlake",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-chesterfield-plattsburgh",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-addison-crownpoint",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-addison-middlebury",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-paulsmiths-saranaclake",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-delhi-margaretsville",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-delhi-hancock",
+            "subnet": "10.0.0.56/31"
+        },
+        {
+            "name": "net-bellowsfalls-whiteriverjunction",
+            "subnet": "10.0.0.58/31"
+        },
+        {
+            "name": "net-bellowsfalls-brattleboro",
+            "subnet": "10.0.0.60/31"
+        },
+        {
+            "name": "net-winooski-burlington",
+            "subnet": "10.0.0.62/31"
+        },
+        {
+            "name": "net-winooski-nodeid31",
+            "subnet": "10.0.0.64/31"
+        },
+        {
+            "name": "net-addisonid45-whitesville",
+            "subnet": "10.0.0.66/31"
+        },
+        {
+            "name": "net-waterloo-phelps",
+            "subnet": "10.0.0.68/31"
+        },
+        {
+            "name": "net-hancock-deposit",
+            "subnet": "10.0.0.70/31"
+        },
+        {
+            "name": "net-dryden-cortland",
+            "subnet": "10.0.0.72/31"
+        },
+        {
+            "name": "net-dryden-nodeid124",
+            "subnet": "10.0.0.74/31"
+        },
+        {
+            "name": "net-dryden-binghampton",
+            "subnet": "10.0.0.76/31"
+        },
+        {
+            "name": "net-burdett-nodeid109",
+            "subnet": "10.0.0.78/31"
+        },
+        {
+            "name": "net-burdett-odessa",
+            "subnet": "10.0.0.80/31"
+        },
+        {
+            "name": "net-nodeid109-ovid",
+            "subnet": "10.0.0.82/31"
+        },
+        {
+            "name": "net-nodeid109-ithaca",
+            "subnet": "10.0.0.84/31"
+        },
+        {
+            "name": "net-olean-wellsville",
+            "subnet": "10.0.0.86/31"
+        },
+        {
+            "name": "net-olean-salamanca",
+            "subnet": "10.0.0.88/31"
+        },
+        {
+            "name": "net-newport-nodeid111",
+            "subnet": "10.0.0.90/31"
+        },
+        {
+            "name": "net-newport-nodeid114",
+            "subnet": "10.0.0.92/31"
+        },
+        {
+            "name": "net-plattsburgh-chazy",
+            "subnet": "10.0.0.94/31"
+        },
+        {
+            "name": "net-plattsburgh-malone",
+            "subnet": "10.0.0.96/31"
+        },
+        {
+            "name": "net-nodeid89-nodeid90",
+            "subnet": "10.0.0.98/31"
+        },
+        {
+            "name": "net-nodeid89-gouveneur",
+            "subnet": "10.0.0.100/31"
+        },
+        {
+            "name": "net-nodeid89-canton",
+            "subnet": "10.0.0.102/31"
+        },
+        {
+            "name": "net-rowland-portjervis",
+            "subnet": "10.0.0.104/31"
+        },
+        {
+            "name": "net-rowland-southcanaan",
+            "subnet": "10.0.0.106/31"
+        },
+        {
+            "name": "net-keene-brattleboro",
+            "subnet": "10.0.0.108/31"
+        },
+        {
+            "name": "net-mountpelier-whiteriverjunction",
+            "subnet": "10.0.0.110/31"
+        },
+        {
+            "name": "net-mountpelier-essexjunction",
+            "subnet": "10.0.0.112/31"
+        },
+        {
+            "name": "net-nodeid92-middleburgh",
+            "subnet": "10.0.0.114/31"
+        },
+        {
+            "name": "net-nodeid92-saratogasprings",
+            "subnet": "10.0.0.116/31"
+        },
+        {
+            "name": "net-lowville-watertown",
+            "subnet": "10.0.0.118/31"
+        },
+        {
+            "name": "net-lowville-boonville",
+            "subnet": "10.0.0.120/31"
+        },
+        {
+            "name": "net-manchester-rutland",
+            "subnet": "10.0.0.122/31"
+        },
+        {
+            "name": "net-manchester-benningtown",
+            "subnet": "10.0.0.124/31"
+        },
+        {
+            "name": "net-portjervis-monroe",
+            "subnet": "10.0.0.126/31"
+        },
+        {
+            "name": "net-ithaca-nodeid124",
+            "subnet": "10.0.0.128/31"
+        },
+        {
+            "name": "net-nodeid95-barreid68",
+            "subnet": "10.0.0.130/31"
+        },
+        {
+            "name": "net-nodeid95-rochester",
+            "subnet": "10.0.0.132/31"
+        },
+        {
+            "name": "net-nodeid95-empiretelephoneco",
+            "subnet": "10.0.0.134/31"
+        },
+        {
+            "name": "net-lakeplacid-westport",
+            "subnet": "10.0.0.136/31"
+        },
+        {
+            "name": "net-lakeplacid-saranaclake",
+            "subnet": "10.0.0.138/31"
+        },
+        {
+            "name": "net-brattleboro-boston",
+            "subnet": "10.0.0.140/31"
+        },
+        {
+            "name": "net-brattleboro-benningtown",
+            "subnet": "10.0.0.142/31"
+        },
+        {
+            "name": "net-brattleboro-putney",
+            "subnet": "10.0.0.144/31"
+        },
+        {
+            "name": "net-rochester-phelps",
+            "subnet": "10.0.0.146/31"
+        },
+        {
+            "name": "net-burlington-middlebury",
+            "subnet": "10.0.0.148/31"
+        },
+        {
+            "name": "net-burlington-essexjunction",
+            "subnet": "10.0.0.150/31"
+        },
+        {
+            "name": "net-burlington-nodeid30",
+            "subnet": "10.0.0.152/31"
+        },
+        {
+            "name": "net-burlington-bristol",
+            "subnet": "10.0.0.154/31"
+        },
+        {
+            "name": "net-burlington-rutland",
+            "subnet": "10.0.0.156/31"
+        },
+        {
+            "name": "net-massena-potsdam",
+            "subnet": "10.0.0.158/31"
+        },
+        {
+            "name": "net-alfred-nodeid21",
+            "subnet": "10.0.0.160/31"
+        },
+        {
+            "name": "net-alfred-nodeid22",
+            "subnet": "10.0.0.162/31"
+        },
+        {
+            "name": "net-alfred-almond",
+            "subnet": "10.0.0.164/31"
+        },
+        {
+            "name": "net-nodeid112-nodeid113",
+            "subnet": "10.0.0.166/31"
+        },
+        {
+            "name": "net-nodeid112-vernon",
+            "subnet": "10.0.0.168/31"
+        },
+        {
+            "name": "net-nodeid112-syracuse",
+            "subnet": "10.0.0.170/31"
+        },
+        {
+            "name": "net-nodeid113-nodeid111",
+            "subnet": "10.0.0.172/31"
+        },
+        {
+            "name": "net-nodeid113-nodeid114",
+            "subnet": "10.0.0.174/31"
+        },
+        {
+            "name": "net-nodeid110-auburn",
+            "subnet": "10.0.0.176/31"
+        },
+        {
+            "name": "net-nodeid110-phelps",
+            "subnet": "10.0.0.178/31"
+        },
+        {
+            "name": "net-nodeid110-syracuse",
+            "subnet": "10.0.0.180/31"
+        },
+        {
+            "name": "net-nodeid111-gloversville",
+            "subnet": "10.0.0.182/31"
+        },
+        {
+            "name": "net-nodeid111-herkimmer",
+            "subnet": "10.0.0.184/31"
+        },
+        {
+            "name": "net-nodeid114-remsen",
+            "subnet": "10.0.0.186/31"
+        },
+        {
+            "name": "net-nodeid30-nodeid31",
+            "subnet": "10.0.0.188/31"
+        },
+        {
+            "name": "net-remsen-boonville",
+            "subnet": "10.0.0.190/31"
+        },
+        {
+            "name": "net-saratogasprings-whitehall",
+            "subnet": "10.0.0.192/31"
+        },
+        {
+            "name": "net-hamilton-morrisville",
+            "subnet": "10.0.0.194/31"
+        },
+        {
+            "name": "net-syracuse-pulaski",
+            "subnet": "10.0.0.196/31"
+        },
+        {
+            "name": "net-syracuse-buffalo",
+            "subnet": "10.0.0.198/31"
+        },
+        {
+            "name": "net-syracuse-altmar",
+            "subnet": "10.0.0.200/31"
+        },
+        {
+            "name": "net-saugerties-harriman",
+            "subnet": "10.0.0.202/31"
+        },
+        {
+            "name": "net-morrisville-cazenovia",
+            "subnet": "10.0.0.204/31"
+        },
+        {
+            "name": "net-watertown-pulaski",
+            "subnet": "10.0.0.206/31"
+        },
+        {
+            "name": "net-watertown-alexandriabay",
+            "subnet": "10.0.0.208/31"
+        },
+        {
+            "name": "net-watertown-gouveneur",
+            "subnet": "10.0.0.210/31"
+        },
+        {
+            "name": "net-margaretsville-middleburgh",
+            "subnet": "10.0.0.212/31"
+        },
+        {
+            "name": "net-deposit-binghampton",
+            "subnet": "10.0.0.214/31"
+        },
+        {
+            "name": "net-nodeid124-auburn",
+            "subnet": "10.0.0.216/31"
+        },
+        {
+            "name": "net-buffalo-barreid68",
+            "subnet": "10.0.0.218/31"
+        },
+        {
+            "name": "net-buffalo-fredonia",
+            "subnet": "10.0.0.220/31"
+        },
+        {
+            "name": "net-nodeid21-whitesville",
+            "subnet": "10.0.0.222/31"
+        },
+        {
+            "name": "net-nodeid21-wellsville",
+            "subnet": "10.0.0.224/31"
+        },
+        {
+            "name": "net-nodeid22-whitesville",
+            "subnet": "10.0.0.226/31"
+        },
+        {
+            "name": "net-nodeid22-wellsville",
+            "subnet": "10.0.0.228/31"
+        },
+        {
+            "name": "net-nodeid24-poughkeepsie",
+            "subnet": "10.0.0.230/31"
+        },
+        {
+            "name": "net-nodeid24-germantown",
+            "subnet": "10.0.0.232/31"
+        },
+        {
+            "name": "net-almond-ingleside",
+            "subnet": "10.0.0.234/31"
+        },
+        {
+            "name": "net-middlebury-bristol",
+            "subnet": "10.0.0.236/31"
+        },
+        {
+            "name": "net-harriman-monroe",
+            "subnet": "10.0.0.238/31"
+        },
+        {
+            "name": "net-harriman-newyorkcity",
+            "subnet": "10.0.0.240/31"
+        },
+        {
+            "name": "net-cassadaga-fredonia",
+            "subnet": "10.0.0.242/31"
+        },
+        {
+            "name": "net-oneonta-cobleskill",
+            "subnet": "10.0.0.244/31"
+        },
+        {
+            "name": "net-canton-potsdam",
+            "subnet": "10.0.0.246/31"
+        },
+        {
+            "name": "net-middleburgh-cobleskill",
+            "subnet": "10.0.0.248/31"
+        },
+        {
+            "name": "net-schroonlake-queensbury",
+            "subnet": "10.0.0.250/31"
+        },
+        {
+            "name": "net-nodeid123-millerton",
+            "subnet": "10.0.0.252/31"
+        },
+        {
+            "name": "net-nodeid123-odessa",
+            "subnet": "10.0.0.254/31"
+        },
+        {
+            "name": "net-crownpoint-westport",
+            "subnet": "10.0.1.0/31"
+        },
+        {
+            "name": "net-crownpoint-whitehall",
+            "subnet": "10.0.1.2/31"
+        },
+        {
+            "name": "net-vernon-utica",
+            "subnet": "10.0.1.4/31"
+        },
+        {
+            "name": "net-poughkeepsie-putnamvalley",
+            "subnet": "10.0.1.6/31"
+        },
+        {
+            "name": "net-corning-elmira",
+            "subnet": "10.0.1.8/31"
+        },
+        {
+            "name": "net-germantown-coxsackie",
+            "subnet": "10.0.1.10/31"
+        },
+        {
+            "name": "net-ovid-geneva",
+            "subnet": "10.0.1.12/31"
+        },
+        {
+            "name": "net-rutland-whitehall",
+            "subnet": "10.0.1.14/31"
+        },
+        {
+            "name": "net-newyorkcity-putnamvalley",
+            "subnet": "10.0.1.16/31"
+        },
+        {
+            "name": "net-lebanon-whiteriverjunction",
+            "subnet": "10.0.1.18/31"
+        },
+        {
+            "name": "net-utica-herkimmer",
+            "subnet": "10.0.1.20/31"
+        },
+        {
+            "name": "net-chazy-champlain",
+            "subnet": "10.0.1.22/31"
+        },
+        {
+            "name": "net-westport-champlain",
+            "subnet": "10.0.1.24/31"
+        },
+        {
+            "name": "net-cortland-cazenovia",
+            "subnet": "10.0.1.26/31"
+        },
+        {
+            "name": "net-odessa-elmira",
+            "subnet": "10.0.1.28/31"
+        },
+        {
+            "name": "net-odessa-ingleside",
+            "subnet": "10.0.1.30/31"
+        },
+        {
+            "name": "net-geneva-phelps",
+            "subnet": "10.0.1.32/31"
+        },
+        {
+            "name": "net-binghampton-norwich",
+            "subnet": "10.0.1.34/31"
+        }
+    ],
+    "containers": [
+        {
+            "name": "albany",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-gloversville",
+                    "ipaddr": "10.0.0.0/31"
+                },
+                {
+                    "network": "net-albany-queensbury",
+                    "ipaddr": "10.0.0.2/31"
+                },
+                {
+                    "network": "net-albany-saugerties",
+                    "ipaddr": "10.0.0.4/31"
+                },
+                {
+                    "network": "net-albany-coxsackie",
+                    "ipaddr": "10.0.0.6/31"
+                }
+            ]
+        },
+        {
+            "name": "ogdensburg",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ogdensburg-alexandriabay",
+                    "ipaddr": "10.0.0.8/31"
+                },
+                {
+                    "network": "net-ogdensburg-massena",
+                    "ipaddr": "10.0.0.10/31"
+                }
+            ]
+        },
+        {
+            "name": "jamestown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jamestown-nodeid94",
+                    "ipaddr": "10.0.0.12/31"
+                }
+            ]
+        },
+        {
+            "name": "forestcity",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-forestcity-hancock",
+                    "ipaddr": "10.0.0.14/31"
+                },
+                {
+                    "network": "net-forestcity-southcanaan",
+                    "ipaddr": "10.0.0.16/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid91",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid91-malone",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-nodeid91-massena",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "cooperstown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cooperstown-hamilton",
+                    "ipaddr": "10.0.0.22/31"
+                },
+                {
+                    "network": "net-cooperstown-oneonta",
+                    "ipaddr": "10.0.0.24/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid93",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid93-nodeid123",
+                    "ipaddr": "10.0.0.26/31"
+                },
+                {
+                    "network": "net-nodeid93-corning",
+                    "ipaddr": "10.0.0.28/31"
+                },
+                {
+                    "network": "net-nodeid93-addisonid45",
+                    "ipaddr": "10.0.0.30/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid94",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-jamestown-nodeid94",
+                    "ipaddr": "10.0.0.13/31"
+                },
+                {
+                    "network": "net-nodeid94-cassadaga",
+                    "ipaddr": "10.0.0.32/31"
+                },
+                {
+                    "network": "net-nodeid94-salamanca",
+                    "ipaddr": "10.0.0.34/31"
+                }
+            ]
+        },
+        {
+            "name": "barre",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-barre-mountpelier",
+                    "ipaddr": "10.0.0.36/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid96",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid96-nodeid90",
+                    "ipaddr": "10.0.0.38/31"
+                },
+                {
+                    "network": "net-nodeid96-paulsmiths",
+                    "ipaddr": "10.0.0.40/31"
+                },
+                {
+                    "network": "net-nodeid96-potsdam",
+                    "ipaddr": "10.0.0.42/31"
+                }
+            ]
+        },
+        {
+            "name": "chesterfield",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chesterfield-schroonlake",
+                    "ipaddr": "10.0.0.44/31"
+                },
+                {
+                    "network": "net-chesterfield-plattsburgh",
+                    "ipaddr": "10.0.0.46/31"
+                }
+            ]
+        },
+        {
+            "name": "addison",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-addison-crownpoint",
+                    "ipaddr": "10.0.0.48/31"
+                },
+                {
+                    "network": "net-addison-middlebury",
+                    "ipaddr": "10.0.0.50/31"
+                }
+            ]
+        },
+        {
+            "name": "paulsmiths",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paulsmiths-saranaclake",
+                    "ipaddr": "10.0.0.52/31"
+                },
+                {
+                    "network": "net-nodeid96-paulsmiths",
+                    "ipaddr": "10.0.0.41/31"
+                }
+            ]
+        },
+        {
+            "name": "delhi",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-delhi-margaretsville",
+                    "ipaddr": "10.0.0.54/31"
+                },
+                {
+                    "network": "net-delhi-hancock",
+                    "ipaddr": "10.0.0.56/31"
+                }
+            ]
+        },
+        {
+            "name": "bellowsfalls",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bellowsfalls-whiteriverjunction",
+                    "ipaddr": "10.0.0.58/31"
+                },
+                {
+                    "network": "net-bellowsfalls-brattleboro",
+                    "ipaddr": "10.0.0.60/31"
+                }
+            ]
+        },
+        {
+            "name": "winooski",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-winooski-burlington",
+                    "ipaddr": "10.0.0.62/31"
+                },
+                {
+                    "network": "net-winooski-nodeid31",
+                    "ipaddr": "10.0.0.64/31"
+                }
+            ]
+        },
+        {
+            "name": "addisonid45",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-addisonid45-whitesville",
+                    "ipaddr": "10.0.0.66/31"
+                },
+                {
+                    "network": "net-nodeid93-addisonid45",
+                    "ipaddr": "10.0.0.31/31"
+                }
+            ]
+        },
+        {
+            "name": "waterloo",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-waterloo-phelps",
+                    "ipaddr": "10.0.0.68/31"
+                }
+            ]
+        },
+        {
+            "name": "hancock",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-forestcity-hancock",
+                    "ipaddr": "10.0.0.15/31"
+                },
+                {
+                    "network": "net-delhi-hancock",
+                    "ipaddr": "10.0.0.57/31"
+                },
+                {
+                    "network": "net-hancock-deposit",
+                    "ipaddr": "10.0.0.70/31"
+                }
+            ]
+        },
+        {
+            "name": "dryden",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-dryden-cortland",
+                    "ipaddr": "10.0.0.72/31"
+                },
+                {
+                    "network": "net-dryden-nodeid124",
+                    "ipaddr": "10.0.0.74/31"
+                },
+                {
+                    "network": "net-dryden-binghampton",
+                    "ipaddr": "10.0.0.76/31"
+                }
+            ]
+        },
+        {
+            "name": "burdett",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-burdett-nodeid109",
+                    "ipaddr": "10.0.0.78/31"
+                },
+                {
+                    "network": "net-burdett-odessa",
+                    "ipaddr": "10.0.0.80/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid109",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid109-ovid",
+                    "ipaddr": "10.0.0.82/31"
+                },
+                {
+                    "network": "net-nodeid109-ithaca",
+                    "ipaddr": "10.0.0.84/31"
+                },
+                {
+                    "network": "net-burdett-nodeid109",
+                    "ipaddr": "10.0.0.79/31"
+                }
+            ]
+        },
+        {
+            "name": "olean",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-olean-wellsville",
+                    "ipaddr": "10.0.0.86/31"
+                },
+                {
+                    "network": "net-olean-salamanca",
+                    "ipaddr": "10.0.0.88/31"
+                }
+            ]
+        },
+        {
+            "name": "newport",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newport-nodeid111",
+                    "ipaddr": "10.0.0.90/31"
+                },
+                {
+                    "network": "net-newport-nodeid114",
+                    "ipaddr": "10.0.0.92/31"
+                }
+            ]
+        },
+        {
+            "name": "plattsburgh",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-plattsburgh-chazy",
+                    "ipaddr": "10.0.0.94/31"
+                },
+                {
+                    "network": "net-plattsburgh-malone",
+                    "ipaddr": "10.0.0.96/31"
+                },
+                {
+                    "network": "net-chesterfield-plattsburgh",
+                    "ipaddr": "10.0.0.47/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid89",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid89-nodeid90",
+                    "ipaddr": "10.0.0.98/31"
+                },
+                {
+                    "network": "net-nodeid89-gouveneur",
+                    "ipaddr": "10.0.0.100/31"
+                },
+                {
+                    "network": "net-nodeid89-canton",
+                    "ipaddr": "10.0.0.102/31"
+                }
+            ]
+        },
+        {
+            "name": "rowland",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-rowland-portjervis",
+                    "ipaddr": "10.0.0.104/31"
+                },
+                {
+                    "network": "net-rowland-southcanaan",
+                    "ipaddr": "10.0.0.106/31"
+                }
+            ]
+        },
+        {
+            "name": "keene",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-keene-brattleboro",
+                    "ipaddr": "10.0.0.108/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid90",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid89-nodeid90",
+                    "ipaddr": "10.0.0.99/31"
+                },
+                {
+                    "network": "net-nodeid96-nodeid90",
+                    "ipaddr": "10.0.0.39/31"
+                }
+            ]
+        },
+        {
+            "name": "mountpelier",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mountpelier-whiteriverjunction",
+                    "ipaddr": "10.0.0.110/31"
+                },
+                {
+                    "network": "net-barre-mountpelier",
+                    "ipaddr": "10.0.0.37/31"
+                },
+                {
+                    "network": "net-mountpelier-essexjunction",
+                    "ipaddr": "10.0.0.112/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid92",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid92-middleburgh",
+                    "ipaddr": "10.0.0.114/31"
+                },
+                {
+                    "network": "net-nodeid92-saratogasprings",
+                    "ipaddr": "10.0.0.116/31"
+                }
+            ]
+        },
+        {
+            "name": "lowville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lowville-watertown",
+                    "ipaddr": "10.0.0.118/31"
+                },
+                {
+                    "network": "net-lowville-boonville",
+                    "ipaddr": "10.0.0.120/31"
+                }
+            ]
+        },
+        {
+            "name": "manchester",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-manchester-rutland",
+                    "ipaddr": "10.0.0.122/31"
+                },
+                {
+                    "network": "net-manchester-benningtown",
+                    "ipaddr": "10.0.0.124/31"
+                }
+            ]
+        },
+        {
+            "name": "portjervis",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-rowland-portjervis",
+                    "ipaddr": "10.0.0.105/31"
+                },
+                {
+                    "network": "net-portjervis-monroe",
+                    "ipaddr": "10.0.0.126/31"
+                }
+            ]
+        },
+        {
+            "name": "ithaca",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid109-ithaca",
+                    "ipaddr": "10.0.0.85/31"
+                },
+                {
+                    "network": "net-ithaca-nodeid124",
+                    "ipaddr": "10.0.0.128/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid95",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid95-barreid68",
+                    "ipaddr": "10.0.0.130/31"
+                },
+                {
+                    "network": "net-nodeid95-rochester",
+                    "ipaddr": "10.0.0.132/31"
+                },
+                {
+                    "network": "net-nodeid95-empiretelephoneco",
+                    "ipaddr": "10.0.0.134/31"
+                }
+            ]
+        },
+        {
+            "name": "lakeplacid",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lakeplacid-westport",
+                    "ipaddr": "10.0.0.136/31"
+                },
+                {
+                    "network": "net-lakeplacid-saranaclake",
+                    "ipaddr": "10.0.0.138/31"
+                }
+            ]
+        },
+        {
+            "name": "brattleboro",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-brattleboro-boston",
+                    "ipaddr": "10.0.0.140/31"
+                },
+                {
+                    "network": "net-brattleboro-benningtown",
+                    "ipaddr": "10.0.0.142/31"
+                },
+                {
+                    "network": "net-keene-brattleboro",
+                    "ipaddr": "10.0.0.109/31"
+                },
+                {
+                    "network": "net-bellowsfalls-brattleboro",
+                    "ipaddr": "10.0.0.61/31"
+                },
+                {
+                    "network": "net-brattleboro-putney",
+                    "ipaddr": "10.0.0.144/31"
+                }
+            ]
+        },
+        {
+            "name": "rochester",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid95-rochester",
+                    "ipaddr": "10.0.0.133/31"
+                },
+                {
+                    "network": "net-rochester-phelps",
+                    "ipaddr": "10.0.0.146/31"
+                }
+            ]
+        },
+        {
+            "name": "burlington",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-burlington-middlebury",
+                    "ipaddr": "10.0.0.148/31"
+                },
+                {
+                    "network": "net-burlington-essexjunction",
+                    "ipaddr": "10.0.0.150/31"
+                },
+                {
+                    "network": "net-burlington-nodeid30",
+                    "ipaddr": "10.0.0.152/31"
+                },
+                {
+                    "network": "net-burlington-bristol",
+                    "ipaddr": "10.0.0.154/31"
+                },
+                {
+                    "network": "net-burlington-rutland",
+                    "ipaddr": "10.0.0.156/31"
+                },
+                {
+                    "network": "net-winooski-burlington",
+                    "ipaddr": "10.0.0.63/31"
+                }
+            ]
+        },
+        {
+            "name": "massena",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid91-massena",
+                    "ipaddr": "10.0.0.21/31"
+                },
+                {
+                    "network": "net-ogdensburg-massena",
+                    "ipaddr": "10.0.0.11/31"
+                },
+                {
+                    "network": "net-massena-potsdam",
+                    "ipaddr": "10.0.0.158/31"
+                }
+            ]
+        },
+        {
+            "name": "alfred",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-alfred-nodeid21",
+                    "ipaddr": "10.0.0.160/31"
+                },
+                {
+                    "network": "net-alfred-nodeid22",
+                    "ipaddr": "10.0.0.162/31"
+                },
+                {
+                    "network": "net-alfred-almond",
+                    "ipaddr": "10.0.0.164/31"
+                }
+            ]
+        },
+        {
+            "name": "empiretelephoneco",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid95-empiretelephoneco",
+                    "ipaddr": "10.0.0.135/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid112",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid112-nodeid113",
+                    "ipaddr": "10.0.0.166/31"
+                },
+                {
+                    "network": "net-nodeid112-vernon",
+                    "ipaddr": "10.0.0.168/31"
+                },
+                {
+                    "network": "net-nodeid112-syracuse",
+                    "ipaddr": "10.0.0.170/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid113",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid112-nodeid113",
+                    "ipaddr": "10.0.0.167/31"
+                },
+                {
+                    "network": "net-nodeid113-nodeid111",
+                    "ipaddr": "10.0.0.172/31"
+                },
+                {
+                    "network": "net-nodeid113-nodeid114",
+                    "ipaddr": "10.0.0.174/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid110",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid110-auburn",
+                    "ipaddr": "10.0.0.176/31"
+                },
+                {
+                    "network": "net-nodeid110-phelps",
+                    "ipaddr": "10.0.0.178/31"
+                },
+                {
+                    "network": "net-nodeid110-syracuse",
+                    "ipaddr": "10.0.0.180/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid111",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid113-nodeid111",
+                    "ipaddr": "10.0.0.173/31"
+                },
+                {
+                    "network": "net-nodeid111-gloversville",
+                    "ipaddr": "10.0.0.182/31"
+                },
+                {
+                    "network": "net-newport-nodeid111",
+                    "ipaddr": "10.0.0.91/31"
+                },
+                {
+                    "network": "net-nodeid111-herkimmer",
+                    "ipaddr": "10.0.0.184/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid114",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid114-remsen",
+                    "ipaddr": "10.0.0.186/31"
+                },
+                {
+                    "network": "net-nodeid113-nodeid114",
+                    "ipaddr": "10.0.0.175/31"
+                },
+                {
+                    "network": "net-newport-nodeid114",
+                    "ipaddr": "10.0.0.93/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid30",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-burlington-nodeid30",
+                    "ipaddr": "10.0.0.153/31"
+                },
+                {
+                    "network": "net-nodeid30-nodeid31",
+                    "ipaddr": "10.0.0.188/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid31",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-winooski-nodeid31",
+                    "ipaddr": "10.0.0.65/31"
+                },
+                {
+                    "network": "net-nodeid30-nodeid31",
+                    "ipaddr": "10.0.0.189/31"
+                }
+            ]
+        },
+        {
+            "name": "remsen",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid114-remsen",
+                    "ipaddr": "10.0.0.187/31"
+                },
+                {
+                    "network": "net-remsen-boonville",
+                    "ipaddr": "10.0.0.190/31"
+                }
+            ]
+        },
+        {
+            "name": "saratogasprings",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid92-saratogasprings",
+                    "ipaddr": "10.0.0.117/31"
+                },
+                {
+                    "network": "net-saratogasprings-whitehall",
+                    "ipaddr": "10.0.0.192/31"
+                }
+            ]
+        },
+        {
+            "name": "hamilton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cooperstown-hamilton",
+                    "ipaddr": "10.0.0.23/31"
+                },
+                {
+                    "network": "net-hamilton-morrisville",
+                    "ipaddr": "10.0.0.194/31"
+                }
+            ]
+        },
+        {
+            "name": "syracuse",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid112-syracuse",
+                    "ipaddr": "10.0.0.171/31"
+                },
+                {
+                    "network": "net-syracuse-pulaski",
+                    "ipaddr": "10.0.0.196/31"
+                },
+                {
+                    "network": "net-nodeid110-syracuse",
+                    "ipaddr": "10.0.0.181/31"
+                },
+                {
+                    "network": "net-syracuse-buffalo",
+                    "ipaddr": "10.0.0.198/31"
+                },
+                {
+                    "network": "net-syracuse-altmar",
+                    "ipaddr": "10.0.0.200/31"
+                }
+            ]
+        },
+        {
+            "name": "saugerties",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-saugerties",
+                    "ipaddr": "10.0.0.5/31"
+                },
+                {
+                    "network": "net-saugerties-harriman",
+                    "ipaddr": "10.0.0.202/31"
+                }
+            ]
+        },
+        {
+            "name": "morrisville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-morrisville-cazenovia",
+                    "ipaddr": "10.0.0.204/31"
+                },
+                {
+                    "network": "net-hamilton-morrisville",
+                    "ipaddr": "10.0.0.195/31"
+                }
+            ]
+        },
+        {
+            "name": "watertown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-watertown-pulaski",
+                    "ipaddr": "10.0.0.206/31"
+                },
+                {
+                    "network": "net-watertown-alexandriabay",
+                    "ipaddr": "10.0.0.208/31"
+                },
+                {
+                    "network": "net-watertown-gouveneur",
+                    "ipaddr": "10.0.0.210/31"
+                },
+                {
+                    "network": "net-lowville-watertown",
+                    "ipaddr": "10.0.0.119/31"
+                }
+            ]
+        },
+        {
+            "name": "margaretsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-margaretsville-middleburgh",
+                    "ipaddr": "10.0.0.212/31"
+                },
+                {
+                    "network": "net-delhi-margaretsville",
+                    "ipaddr": "10.0.0.55/31"
+                }
+            ]
+        },
+        {
+            "name": "deposit",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-hancock-deposit",
+                    "ipaddr": "10.0.0.71/31"
+                },
+                {
+                    "network": "net-deposit-binghampton",
+                    "ipaddr": "10.0.0.214/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid124",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ithaca-nodeid124",
+                    "ipaddr": "10.0.0.129/31"
+                },
+                {
+                    "network": "net-dryden-nodeid124",
+                    "ipaddr": "10.0.0.75/31"
+                },
+                {
+                    "network": "net-nodeid124-auburn",
+                    "ipaddr": "10.0.0.216/31"
+                }
+            ]
+        },
+        {
+            "name": "buffalo",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-buffalo-barreid68",
+                    "ipaddr": "10.0.0.218/31"
+                },
+                {
+                    "network": "net-buffalo-fredonia",
+                    "ipaddr": "10.0.0.220/31"
+                },
+                {
+                    "network": "net-syracuse-buffalo",
+                    "ipaddr": "10.0.0.199/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid21",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid21-whitesville",
+                    "ipaddr": "10.0.0.222/31"
+                },
+                {
+                    "network": "net-nodeid21-wellsville",
+                    "ipaddr": "10.0.0.224/31"
+                },
+                {
+                    "network": "net-alfred-nodeid21",
+                    "ipaddr": "10.0.0.161/31"
+                }
+            ]
+        },
+        {
+            "name": "malone",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid91-malone",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-plattsburgh-malone",
+                    "ipaddr": "10.0.0.97/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid22",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid22-whitesville",
+                    "ipaddr": "10.0.0.226/31"
+                },
+                {
+                    "network": "net-nodeid22-wellsville",
+                    "ipaddr": "10.0.0.228/31"
+                },
+                {
+                    "network": "net-alfred-nodeid22",
+                    "ipaddr": "10.0.0.163/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid24",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid24-poughkeepsie",
+                    "ipaddr": "10.0.0.230/31"
+                },
+                {
+                    "network": "net-nodeid24-germantown",
+                    "ipaddr": "10.0.0.232/31"
+                }
+            ]
+        },
+        {
+            "name": "boston",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-brattleboro-boston",
+                    "ipaddr": "10.0.0.141/31"
+                }
+            ]
+        },
+        {
+            "name": "almond",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-almond-ingleside",
+                    "ipaddr": "10.0.0.234/31"
+                },
+                {
+                    "network": "net-alfred-almond",
+                    "ipaddr": "10.0.0.165/31"
+                }
+            ]
+        },
+        {
+            "name": "southcanaan",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-forestcity-southcanaan",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-rowland-southcanaan",
+                    "ipaddr": "10.0.0.107/31"
+                }
+            ]
+        },
+        {
+            "name": "middlebury",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-addison-middlebury",
+                    "ipaddr": "10.0.0.51/31"
+                },
+                {
+                    "network": "net-burlington-middlebury",
+                    "ipaddr": "10.0.0.149/31"
+                },
+                {
+                    "network": "net-middlebury-bristol",
+                    "ipaddr": "10.0.0.236/31"
+                }
+            ]
+        },
+        {
+            "name": "harriman",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-harriman-monroe",
+                    "ipaddr": "10.0.0.238/31"
+                },
+                {
+                    "network": "net-saugerties-harriman",
+                    "ipaddr": "10.0.0.203/31"
+                },
+                {
+                    "network": "net-harriman-newyorkcity",
+                    "ipaddr": "10.0.0.240/31"
+                }
+            ]
+        },
+        {
+            "name": "cassadaga",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid94-cassadaga",
+                    "ipaddr": "10.0.0.33/31"
+                },
+                {
+                    "network": "net-cassadaga-fredonia",
+                    "ipaddr": "10.0.0.242/31"
+                }
+            ]
+        },
+        {
+            "name": "oneonta",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cooperstown-oneonta",
+                    "ipaddr": "10.0.0.25/31"
+                },
+                {
+                    "network": "net-oneonta-cobleskill",
+                    "ipaddr": "10.0.0.244/31"
+                }
+            ]
+        },
+        {
+            "name": "canton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid89-canton",
+                    "ipaddr": "10.0.0.103/31"
+                },
+                {
+                    "network": "net-canton-potsdam",
+                    "ipaddr": "10.0.0.246/31"
+                }
+            ]
+        },
+        {
+            "name": "middleburgh",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-margaretsville-middleburgh",
+                    "ipaddr": "10.0.0.213/31"
+                },
+                {
+                    "network": "net-middleburgh-cobleskill",
+                    "ipaddr": "10.0.0.248/31"
+                },
+                {
+                    "network": "net-nodeid92-middleburgh",
+                    "ipaddr": "10.0.0.115/31"
+                }
+            ]
+        },
+        {
+            "name": "schroonlake",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chesterfield-schroonlake",
+                    "ipaddr": "10.0.0.45/31"
+                },
+                {
+                    "network": "net-schroonlake-queensbury",
+                    "ipaddr": "10.0.0.250/31"
+                }
+            ]
+        },
+        {
+            "name": "gouveneur",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-watertown-gouveneur",
+                    "ipaddr": "10.0.0.211/31"
+                },
+                {
+                    "network": "net-nodeid89-gouveneur",
+                    "ipaddr": "10.0.0.101/31"
+                }
+            ]
+        },
+        {
+            "name": "salamanca",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-olean-salamanca",
+                    "ipaddr": "10.0.0.89/31"
+                },
+                {
+                    "network": "net-nodeid94-salamanca",
+                    "ipaddr": "10.0.0.35/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid123",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid93-nodeid123",
+                    "ipaddr": "10.0.0.27/31"
+                },
+                {
+                    "network": "net-nodeid123-millerton",
+                    "ipaddr": "10.0.0.252/31"
+                },
+                {
+                    "network": "net-nodeid123-odessa",
+                    "ipaddr": "10.0.0.254/31"
+                }
+            ]
+        },
+        {
+            "name": "crownpoint",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-crownpoint-westport",
+                    "ipaddr": "10.0.1.0/31"
+                },
+                {
+                    "network": "net-addison-crownpoint",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-crownpoint-whitehall",
+                    "ipaddr": "10.0.1.2/31"
+                }
+            ]
+        },
+        {
+            "name": "altmar",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-syracuse-altmar",
+                    "ipaddr": "10.0.0.201/31"
+                }
+            ]
+        },
+        {
+            "name": "vernon",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid112-vernon",
+                    "ipaddr": "10.0.0.169/31"
+                },
+                {
+                    "network": "net-vernon-utica",
+                    "ipaddr": "10.0.1.4/31"
+                }
+            ]
+        },
+        {
+            "name": "poughkeepsie",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-poughkeepsie-putnamvalley",
+                    "ipaddr": "10.0.1.6/31"
+                },
+                {
+                    "network": "net-nodeid24-poughkeepsie",
+                    "ipaddr": "10.0.0.231/31"
+                }
+            ]
+        },
+        {
+            "name": "corning",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-corning-elmira",
+                    "ipaddr": "10.0.1.8/31"
+                },
+                {
+                    "network": "net-nodeid93-corning",
+                    "ipaddr": "10.0.0.29/31"
+                }
+            ]
+        },
+        {
+            "name": "cobleskill",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-middleburgh-cobleskill",
+                    "ipaddr": "10.0.0.249/31"
+                },
+                {
+                    "network": "net-oneonta-cobleskill",
+                    "ipaddr": "10.0.0.245/31"
+                }
+            ]
+        },
+        {
+            "name": "germantown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid24-germantown",
+                    "ipaddr": "10.0.0.233/31"
+                },
+                {
+                    "network": "net-germantown-coxsackie",
+                    "ipaddr": "10.0.1.10/31"
+                }
+            ]
+        },
+        {
+            "name": "ovid",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid109-ovid",
+                    "ipaddr": "10.0.0.83/31"
+                },
+                {
+                    "network": "net-ovid-geneva",
+                    "ipaddr": "10.0.1.12/31"
+                }
+            ]
+        },
+        {
+            "name": "coxsackie",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-coxsackie",
+                    "ipaddr": "10.0.0.7/31"
+                },
+                {
+                    "network": "net-germantown-coxsackie",
+                    "ipaddr": "10.0.1.11/31"
+                }
+            ]
+        },
+        {
+            "name": "rutland",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-manchester-rutland",
+                    "ipaddr": "10.0.0.123/31"
+                },
+                {
+                    "network": "net-burlington-rutland",
+                    "ipaddr": "10.0.0.157/31"
+                },
+                {
+                    "network": "net-rutland-whitehall",
+                    "ipaddr": "10.0.1.14/31"
+                }
+            ]
+        },
+        {
+            "name": "newyorkcity",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newyorkcity-putnamvalley",
+                    "ipaddr": "10.0.1.16/31"
+                },
+                {
+                    "network": "net-harriman-newyorkcity",
+                    "ipaddr": "10.0.0.241/31"
+                }
+            ]
+        },
+        {
+            "name": "fredonia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cassadaga-fredonia",
+                    "ipaddr": "10.0.0.243/31"
+                },
+                {
+                    "network": "net-buffalo-fredonia",
+                    "ipaddr": "10.0.0.221/31"
+                }
+            ]
+        },
+        {
+            "name": "alexandriabay",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-watertown-alexandriabay",
+                    "ipaddr": "10.0.0.209/31"
+                },
+                {
+                    "network": "net-ogdensburg-alexandriabay",
+                    "ipaddr": "10.0.0.9/31"
+                }
+            ]
+        },
+        {
+            "name": "lebanon",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lebanon-whiteriverjunction",
+                    "ipaddr": "10.0.1.18/31"
+                }
+            ]
+        },
+        {
+            "name": "auburn",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid110-auburn",
+                    "ipaddr": "10.0.0.177/31"
+                },
+                {
+                    "network": "net-nodeid124-auburn",
+                    "ipaddr": "10.0.0.217/31"
+                }
+            ]
+        },
+        {
+            "name": "benningtown",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-brattleboro-benningtown",
+                    "ipaddr": "10.0.0.143/31"
+                },
+                {
+                    "network": "net-manchester-benningtown",
+                    "ipaddr": "10.0.0.125/31"
+                }
+            ]
+        },
+        {
+            "name": "essexjunction",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mountpelier-essexjunction",
+                    "ipaddr": "10.0.0.113/31"
+                },
+                {
+                    "network": "net-burlington-essexjunction",
+                    "ipaddr": "10.0.0.151/31"
+                }
+            ]
+        },
+        {
+            "name": "utica",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-vernon-utica",
+                    "ipaddr": "10.0.1.5/31"
+                },
+                {
+                    "network": "net-utica-herkimmer",
+                    "ipaddr": "10.0.1.20/31"
+                }
+            ]
+        },
+        {
+            "name": "chazy",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chazy-champlain",
+                    "ipaddr": "10.0.1.22/31"
+                },
+                {
+                    "network": "net-plattsburgh-chazy",
+                    "ipaddr": "10.0.0.95/31"
+                }
+            ]
+        },
+        {
+            "name": "pulaski",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-watertown-pulaski",
+                    "ipaddr": "10.0.0.207/31"
+                },
+                {
+                    "network": "net-syracuse-pulaski",
+                    "ipaddr": "10.0.0.197/31"
+                }
+            ]
+        },
+        {
+            "name": "herkimmer",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid111-herkimmer",
+                    "ipaddr": "10.0.0.185/31"
+                },
+                {
+                    "network": "net-utica-herkimmer",
+                    "ipaddr": "10.0.1.21/31"
+                }
+            ]
+        },
+        {
+            "name": "potsdam",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-massena-potsdam",
+                    "ipaddr": "10.0.0.159/31"
+                },
+                {
+                    "network": "net-nodeid96-potsdam",
+                    "ipaddr": "10.0.0.43/31"
+                },
+                {
+                    "network": "net-canton-potsdam",
+                    "ipaddr": "10.0.0.247/31"
+                }
+            ]
+        },
+        {
+            "name": "putney",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-brattleboro-putney",
+                    "ipaddr": "10.0.0.145/31"
+                }
+            ]
+        },
+        {
+            "name": "westport",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lakeplacid-westport",
+                    "ipaddr": "10.0.0.137/31"
+                },
+                {
+                    "network": "net-westport-champlain",
+                    "ipaddr": "10.0.1.24/31"
+                },
+                {
+                    "network": "net-crownpoint-westport",
+                    "ipaddr": "10.0.1.1/31"
+                }
+            ]
+        },
+        {
+            "name": "cortland",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cortland-cazenovia",
+                    "ipaddr": "10.0.1.26/31"
+                },
+                {
+                    "network": "net-dryden-cortland",
+                    "ipaddr": "10.0.0.73/31"
+                }
+            ]
+        },
+        {
+            "name": "odessa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-odessa-elmira",
+                    "ipaddr": "10.0.1.28/31"
+                },
+                {
+                    "network": "net-odessa-ingleside",
+                    "ipaddr": "10.0.1.30/31"
+                },
+                {
+                    "network": "net-nodeid123-odessa",
+                    "ipaddr": "10.0.0.255/31"
+                },
+                {
+                    "network": "net-burdett-odessa",
+                    "ipaddr": "10.0.0.81/31"
+                }
+            ]
+        },
+        {
+            "name": "queensbury",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-queensbury",
+                    "ipaddr": "10.0.0.3/31"
+                },
+                {
+                    "network": "net-schroonlake-queensbury",
+                    "ipaddr": "10.0.0.251/31"
+                }
+            ]
+        },
+        {
+            "name": "putnamvalley",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-poughkeepsie-putnamvalley",
+                    "ipaddr": "10.0.1.7/31"
+                },
+                {
+                    "network": "net-newyorkcity-putnamvalley",
+                    "ipaddr": "10.0.1.17/31"
+                }
+            ]
+        },
+        {
+            "name": "geneva",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ovid-geneva",
+                    "ipaddr": "10.0.1.13/31"
+                },
+                {
+                    "network": "net-geneva-phelps",
+                    "ipaddr": "10.0.1.32/31"
+                }
+            ]
+        },
+        {
+            "name": "whitehall",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-saratogasprings-whitehall",
+                    "ipaddr": "10.0.0.193/31"
+                },
+                {
+                    "network": "net-crownpoint-whitehall",
+                    "ipaddr": "10.0.1.3/31"
+                },
+                {
+                    "network": "net-rutland-whitehall",
+                    "ipaddr": "10.0.1.15/31"
+                }
+            ]
+        },
+        {
+            "name": "millerton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid123-millerton",
+                    "ipaddr": "10.0.0.253/31"
+                }
+            ]
+        },
+        {
+            "name": "barreid68",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-buffalo-barreid68",
+                    "ipaddr": "10.0.0.219/31"
+                },
+                {
+                    "network": "net-nodeid95-barreid68",
+                    "ipaddr": "10.0.0.131/31"
+                }
+            ]
+        },
+        {
+            "name": "ingleside",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-almond-ingleside",
+                    "ipaddr": "10.0.0.235/31"
+                },
+                {
+                    "network": "net-odessa-ingleside",
+                    "ipaddr": "10.0.1.31/31"
+                }
+            ]
+        },
+        {
+            "name": "cazenovia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cortland-cazenovia",
+                    "ipaddr": "10.0.1.27/31"
+                },
+                {
+                    "network": "net-morrisville-cazenovia",
+                    "ipaddr": "10.0.0.205/31"
+                }
+            ]
+        },
+        {
+            "name": "champlain",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-westport-champlain",
+                    "ipaddr": "10.0.1.25/31"
+                },
+                {
+                    "network": "net-chazy-champlain",
+                    "ipaddr": "10.0.1.23/31"
+                }
+            ]
+        },
+        {
+            "name": "binghampton",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-deposit-binghampton",
+                    "ipaddr": "10.0.0.215/31"
+                },
+                {
+                    "network": "net-dryden-binghampton",
+                    "ipaddr": "10.0.0.77/31"
+                },
+                {
+                    "network": "net-binghampton-norwich",
+                    "ipaddr": "10.0.1.34/31"
+                }
+            ]
+        },
+        {
+            "name": "bristol",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-burlington-bristol",
+                    "ipaddr": "10.0.0.155/31"
+                },
+                {
+                    "network": "net-middlebury-bristol",
+                    "ipaddr": "10.0.0.237/31"
+                }
+            ]
+        },
+        {
+            "name": "boonville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-remsen-boonville",
+                    "ipaddr": "10.0.0.191/31"
+                },
+                {
+                    "network": "net-lowville-boonville",
+                    "ipaddr": "10.0.0.121/31"
+                }
+            ]
+        },
+        {
+            "name": "phelps",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid110-phelps",
+                    "ipaddr": "10.0.0.179/31"
+                },
+                {
+                    "network": "net-rochester-phelps",
+                    "ipaddr": "10.0.0.147/31"
+                },
+                {
+                    "network": "net-waterloo-phelps",
+                    "ipaddr": "10.0.0.69/31"
+                },
+                {
+                    "network": "net-geneva-phelps",
+                    "ipaddr": "10.0.1.33/31"
+                }
+            ]
+        },
+        {
+            "name": "norwich",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-binghampton-norwich",
+                    "ipaddr": "10.0.1.35/31"
+                }
+            ]
+        },
+        {
+            "name": "elmira",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-corning-elmira",
+                    "ipaddr": "10.0.1.9/31"
+                },
+                {
+                    "network": "net-odessa-elmira",
+                    "ipaddr": "10.0.1.29/31"
+                }
+            ]
+        },
+        {
+            "name": "whiteriverjunction",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-mountpelier-whiteriverjunction",
+                    "ipaddr": "10.0.0.111/31"
+                },
+                {
+                    "network": "net-bellowsfalls-whiteriverjunction",
+                    "ipaddr": "10.0.0.59/31"
+                },
+                {
+                    "network": "net-lebanon-whiteriverjunction",
+                    "ipaddr": "10.0.1.19/31"
+                }
+            ]
+        },
+        {
+            "name": "wellsville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid21-wellsville",
+                    "ipaddr": "10.0.0.225/31"
+                },
+                {
+                    "network": "net-olean-wellsville",
+                    "ipaddr": "10.0.0.87/31"
+                },
+                {
+                    "network": "net-nodeid22-wellsville",
+                    "ipaddr": "10.0.0.229/31"
+                }
+            ]
+        },
+        {
+            "name": "saranaclake",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lakeplacid-saranaclake",
+                    "ipaddr": "10.0.0.139/31"
+                },
+                {
+                    "network": "net-paulsmiths-saranaclake",
+                    "ipaddr": "10.0.0.53/31"
+                }
+            ]
+        },
+        {
+            "name": "whitesville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid21-whitesville",
+                    "ipaddr": "10.0.0.223/31"
+                },
+                {
+                    "network": "net-nodeid22-whitesville",
+                    "ipaddr": "10.0.0.227/31"
+                },
+                {
+                    "network": "net-addisonid45-whitesville",
+                    "ipaddr": "10.0.0.67/31"
+                }
+            ]
+        },
+        {
+            "name": "gloversville",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-gloversville",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-nodeid111-gloversville",
+                    "ipaddr": "10.0.0.183/31"
+                }
+            ]
+        },
+        {
+            "name": "monroe",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-portjervis-monroe",
+                    "ipaddr": "10.0.0.127/31"
+                },
+                {
+                    "network": "net-harriman-monroe",
+                    "ipaddr": "10.0.0.239/31"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,511 @@
+{
+    "meta": {
+        "name": "hiberniaus"
+    },
+    "networks": [
+        {
+            "name": "net-albany-newyork",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-albany-boston",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-albany-buffalo",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-albany-montreal",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-chicago-pittsburgh",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-chicago-cleveland",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-newyork-newark",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-newyork-stamford",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-newyork-philadelphia",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-philadelphia-ashburn",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-philadelphia-newark",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-richmond-mclean",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-richmond-raleigh",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-pittsburgh-ashburn",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-pittsburgh-cleveland",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-nodeid11-halifax",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-ashburn-newark",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-ashburn-mclean",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-atlanta-charlotte",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-toronto-buffalo",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-toronto-montreal",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-whiteplains-newark",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-whiteplains-stamford",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-raleigh-charlotte",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-buffalo-cleveland",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-montreal-halifax",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-boston-halifax",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-boston-stamford",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-nodeid10-halifax",
+            "subnet": "10.0.0.56/31"
+        }
+    ],
+    "containers": [
+        {
+            "name": "albany",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-newyork",
+                    "ipaddr": "10.0.0.0/31"
+                },
+                {
+                    "network": "net-albany-boston",
+                    "ipaddr": "10.0.0.2/31"
+                },
+                {
+                    "network": "net-albany-buffalo",
+                    "ipaddr": "10.0.0.4/31"
+                },
+                {
+                    "network": "net-albany-montreal",
+                    "ipaddr": "10.0.0.6/31"
+                }
+            ]
+        },
+        {
+            "name": "chicago",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chicago-pittsburgh",
+                    "ipaddr": "10.0.0.8/31"
+                },
+                {
+                    "network": "net-chicago-cleveland",
+                    "ipaddr": "10.0.0.10/31"
+                }
+            ]
+        },
+        {
+            "name": "newyork",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newyork-newark",
+                    "ipaddr": "10.0.0.12/31"
+                },
+                {
+                    "network": "net-albany-newyork",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-newyork-stamford",
+                    "ipaddr": "10.0.0.14/31"
+                },
+                {
+                    "network": "net-newyork-philadelphia",
+                    "ipaddr": "10.0.0.16/31"
+                }
+            ]
+        },
+        {
+            "name": "philadelphia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newyork-philadelphia",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-philadelphia-ashburn",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-philadelphia-newark",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "richmond",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-richmond-mclean",
+                    "ipaddr": "10.0.0.22/31"
+                },
+                {
+                    "network": "net-richmond-raleigh",
+                    "ipaddr": "10.0.0.24/31"
+                }
+            ]
+        },
+        {
+            "name": "pittsburgh",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pittsburgh-ashburn",
+                    "ipaddr": "10.0.0.26/31"
+                },
+                {
+                    "network": "net-chicago-pittsburgh",
+                    "ipaddr": "10.0.0.9/31"
+                },
+                {
+                    "network": "net-pittsburgh-cleveland",
+                    "ipaddr": "10.0.0.28/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid11",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid11-halifax",
+                    "ipaddr": "10.0.0.30/31"
+                }
+            ]
+        },
+        {
+            "name": "ashburn",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pittsburgh-ashburn",
+                    "ipaddr": "10.0.0.27/31"
+                },
+                {
+                    "network": "net-ashburn-newark",
+                    "ipaddr": "10.0.0.32/31"
+                },
+                {
+                    "network": "net-ashburn-mclean",
+                    "ipaddr": "10.0.0.34/31"
+                },
+                {
+                    "network": "net-philadelphia-ashburn",
+                    "ipaddr": "10.0.0.19/31"
+                }
+            ]
+        },
+        {
+            "name": "atlanta",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-atlanta-charlotte",
+                    "ipaddr": "10.0.0.36/31"
+                }
+            ]
+        },
+        {
+            "name": "toronto",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-toronto-buffalo",
+                    "ipaddr": "10.0.0.38/31"
+                },
+                {
+                    "network": "net-toronto-montreal",
+                    "ipaddr": "10.0.0.40/31"
+                }
+            ]
+        },
+        {
+            "name": "mclean",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ashburn-mclean",
+                    "ipaddr": "10.0.0.35/31"
+                },
+                {
+                    "network": "net-richmond-mclean",
+                    "ipaddr": "10.0.0.23/31"
+                }
+            ]
+        },
+        {
+            "name": "whiteplains",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-whiteplains-newark",
+                    "ipaddr": "10.0.0.42/31"
+                },
+                {
+                    "network": "net-whiteplains-stamford",
+                    "ipaddr": "10.0.0.44/31"
+                }
+            ]
+        },
+        {
+            "name": "raleigh",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-richmond-raleigh",
+                    "ipaddr": "10.0.0.25/31"
+                },
+                {
+                    "network": "net-raleigh-charlotte",
+                    "ipaddr": "10.0.0.46/31"
+                }
+            ]
+        },
+        {
+            "name": "buffalo",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-toronto-buffalo",
+                    "ipaddr": "10.0.0.39/31"
+                },
+                {
+                    "network": "net-albany-buffalo",
+                    "ipaddr": "10.0.0.5/31"
+                },
+                {
+                    "network": "net-buffalo-cleveland",
+                    "ipaddr": "10.0.0.48/31"
+                }
+            ]
+        },
+        {
+            "name": "montreal",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-toronto-montreal",
+                    "ipaddr": "10.0.0.41/31"
+                },
+                {
+                    "network": "net-albany-montreal",
+                    "ipaddr": "10.0.0.7/31"
+                },
+                {
+                    "network": "net-montreal-halifax",
+                    "ipaddr": "10.0.0.50/31"
+                }
+            ]
+        },
+        {
+            "name": "charlotte",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-atlanta-charlotte",
+                    "ipaddr": "10.0.0.37/31"
+                },
+                {
+                    "network": "net-raleigh-charlotte",
+                    "ipaddr": "10.0.0.47/31"
+                }
+            ]
+        },
+        {
+            "name": "boston",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-albany-boston",
+                    "ipaddr": "10.0.0.3/31"
+                },
+                {
+                    "network": "net-boston-halifax",
+                    "ipaddr": "10.0.0.52/31"
+                },
+                {
+                    "network": "net-boston-stamford",
+                    "ipaddr": "10.0.0.54/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid10",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid10-halifax",
+                    "ipaddr": "10.0.0.56/31"
+                }
+            ]
+        },
+        {
+            "name": "stamford",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-newyork-stamford",
+                    "ipaddr": "10.0.0.15/31"
+                },
+                {
+                    "network": "net-boston-stamford",
+                    "ipaddr": "10.0.0.55/31"
+                },
+                {
+                    "network": "net-whiteplains-stamford",
+                    "ipaddr": "10.0.0.45/31"
+                }
+            ]
+        },
+        {
+            "name": "newark",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-ashburn-newark",
+                    "ipaddr": "10.0.0.33/31"
+                },
+                {
+                    "network": "net-newyork-newark",
+                    "ipaddr": "10.0.0.13/31"
+                },
+                {
+                    "network": "net-philadelphia-newark",
+                    "ipaddr": "10.0.0.21/31"
+                },
+                {
+                    "network": "net-whiteplains-newark",
+                    "ipaddr": "10.0.0.43/31"
+                }
+            ]
+        },
+        {
+            "name": "cleveland",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pittsburgh-cleveland",
+                    "ipaddr": "10.0.0.29/31"
+                },
+                {
+                    "network": "net-buffalo-cleveland",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-chicago-cleveland",
+                    "ipaddr": "10.0.0.11/31"
+                }
+            ]
+        },
+        {
+            "name": "halifax",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid10-halifax",
+                    "ipaddr": "10.0.0.57/31"
+                },
+                {
+                    "network": "net-boston-halifax",
+                    "ipaddr": "10.0.0.53/31"
+                },
+                {
+                    "network": "net-montreal-halifax",
+                    "ipaddr": "10.0.0.51/31"
+                },
+                {
+                    "network": "net-nodeid11-halifax",
+                    "ipaddr": "10.0.0.31/31"
+                }
+            ]
+        }
+    ]
+}

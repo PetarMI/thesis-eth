@@ -1,0 +1,1875 @@
+{
+    "meta": {
+        "name": "oteglobe"
+    },
+    "networks": [
+        {
+            "name": "net-tousa-blaabjerg",
+            "subnet": "10.0.0.0/31"
+        },
+        {
+            "name": "net-lille-paris",
+            "subnet": "10.0.0.2/31"
+        },
+        {
+            "name": "net-lille-london",
+            "subnet": "10.0.0.4/31"
+        },
+        {
+            "name": "net-paris-lyon",
+            "subnet": "10.0.0.6/31"
+        },
+        {
+            "name": "net-bologna-bari",
+            "subnet": "10.0.0.8/31"
+        },
+        {
+            "name": "net-bologna-venice",
+            "subnet": "10.0.0.10/31"
+        },
+        {
+            "name": "net-bratislava-budapest",
+            "subnet": "10.0.0.12/31"
+        },
+        {
+            "name": "net-bratislava-vienna",
+            "subnet": "10.0.0.14/31"
+        },
+        {
+            "name": "net-tirana-opteglobetbn",
+            "subnet": "10.0.0.16/31"
+        },
+        {
+            "name": "net-katwijk-valery",
+            "subnet": "10.0.0.18/31"
+        },
+        {
+            "name": "net-katwijk-norden",
+            "subnet": "10.0.0.20/31"
+        },
+        {
+            "name": "net-beirut-pentaskinos",
+            "subnet": "10.0.0.22/31"
+        },
+        {
+            "name": "net-durres-dubrovnik",
+            "subnet": "10.0.0.24/31"
+        },
+        {
+            "name": "net-durres-corfu",
+            "subnet": "10.0.0.26/31"
+        },
+        {
+            "name": "net-nodeid18-ostend",
+            "subnet": "10.0.0.28/31"
+        },
+        {
+            "name": "net-nodeid18-norden",
+            "subnet": "10.0.0.30/31"
+        },
+        {
+            "name": "net-nodeid18-cornwallstations",
+            "subnet": "10.0.0.32/31"
+        },
+        {
+            "name": "net-nodeid19-nodeid47",
+            "subnet": "10.0.0.34/31"
+        },
+        {
+            "name": "net-nodeid19-chania",
+            "subnet": "10.0.0.36/31"
+        },
+        {
+            "name": "net-novorossiysk-varna",
+            "subnet": "10.0.0.38/31"
+        },
+        {
+            "name": "net-catania-chania",
+            "subnet": "10.0.0.40/31"
+        },
+        {
+            "name": "net-catania-telaviv",
+            "subnet": "10.0.0.42/31"
+        },
+        {
+            "name": "net-catania-malta",
+            "subnet": "10.0.0.44/31"
+        },
+        {
+            "name": "net-norden-blaabjerg",
+            "subnet": "10.0.0.46/31"
+        },
+        {
+            "name": "net-nodeid47-athens",
+            "subnet": "10.0.0.48/31"
+        },
+        {
+            "name": "net-nuremberg-walserberg",
+            "subnet": "10.0.0.50/31"
+        },
+        {
+            "name": "net-nuremberg-frankfurt",
+            "subnet": "10.0.0.52/31"
+        },
+        {
+            "name": "net-bar-corfu",
+            "subnet": "10.0.0.54/31"
+        },
+        {
+            "name": "net-rome-bari",
+            "subnet": "10.0.0.56/31"
+        },
+        {
+            "name": "net-rome-genova",
+            "subnet": "10.0.0.58/31"
+        },
+        {
+            "name": "net-petrich-sofia",
+            "subnet": "10.0.0.60/31"
+        },
+        {
+            "name": "net-petrich-promachonas",
+            "subnet": "10.0.0.62/31"
+        },
+        {
+            "name": "net-marseille-lyon",
+            "subnet": "10.0.0.64/31"
+        },
+        {
+            "name": "net-marseille-genova",
+            "subnet": "10.0.0.66/31"
+        },
+        {
+            "name": "net-conil-cornwallstations",
+            "subnet": "10.0.0.68/31"
+        },
+        {
+            "name": "net-conil-nodeid31",
+            "subnet": "10.0.0.70/31"
+        },
+        {
+            "name": "net-opteglobetbn-thessaloniki",
+            "subnet": "10.0.0.72/31"
+        },
+        {
+            "name": "net-opteglobetbn-bitola",
+            "subnet": "10.0.0.74/31"
+        },
+        {
+            "name": "net-milan-venice",
+            "subnet": "10.0.0.76/31"
+        },
+        {
+            "name": "net-milan-genova",
+            "subnet": "10.0.0.78/31"
+        },
+        {
+            "name": "net-milan-zurich",
+            "subnet": "10.0.0.80/31"
+        },
+        {
+            "name": "net-alexandroupolis-thessaloniki",
+            "subnet": "10.0.0.82/31"
+        },
+        {
+            "name": "net-alexandroupolis-komotini",
+            "subnet": "10.0.0.84/31"
+        },
+        {
+            "name": "net-alexandroupolis-kastanies",
+            "subnet": "10.0.0.86/31"
+        },
+        {
+            "name": "net-alexandroupolis-kesan",
+            "subnet": "10.0.0.88/31"
+        },
+        {
+            "name": "net-london-amsterdam",
+            "subnet": "10.0.0.90/31"
+        },
+        {
+            "name": "net-london-cornwallstations",
+            "subnet": "10.0.0.92/31"
+        },
+        {
+            "name": "net-svilengrad-edirne",
+            "subnet": "10.0.0.94/31"
+        },
+        {
+            "name": "net-svilengrad-sofia",
+            "subnet": "10.0.0.96/31"
+        },
+        {
+            "name": "net-svilengrad-kastanies",
+            "subnet": "10.0.0.98/31"
+        },
+        {
+            "name": "net-corfu-thessaloniki",
+            "subnet": "10.0.0.100/31"
+        },
+        {
+            "name": "net-corfu-otranto",
+            "subnet": "10.0.0.102/31"
+        },
+        {
+            "name": "net-corfu-athens",
+            "subnet": "10.0.0.104/31"
+        },
+        {
+            "name": "net-corfu-bari",
+            "subnet": "10.0.0.106/31"
+        },
+        {
+            "name": "net-kilkis-thessaloniki",
+            "subnet": "10.0.0.108/31"
+        },
+        {
+            "name": "net-kilkis-gevgelija",
+            "subnet": "10.0.0.110/31"
+        },
+        {
+            "name": "net-dunaujvaros-timisoara",
+            "subnet": "10.0.0.112/31"
+        },
+        {
+            "name": "net-dunaujvaros-hegyeshantom",
+            "subnet": "10.0.0.114/31"
+        },
+        {
+            "name": "net-vienna-walserberg",
+            "subnet": "10.0.0.116/31"
+        },
+        {
+            "name": "net-vienna-frankfurt",
+            "subnet": "10.0.0.118/31"
+        },
+        {
+            "name": "net-vienna-hegyeshantom",
+            "subnet": "10.0.0.120/31"
+        },
+        {
+            "name": "net-nodeid33-mazara",
+            "subnet": "10.0.0.122/31"
+        },
+        {
+            "name": "net-nodeid33-chania",
+            "subnet": "10.0.0.124/31"
+        },
+        {
+            "name": "net-nodeid33-nodeid42",
+            "subnet": "10.0.0.126/31"
+        },
+        {
+            "name": "net-nodeid31-palermo",
+            "subnet": "10.0.0.128/31"
+        },
+        {
+            "name": "net-nodeid31-sesimbra",
+            "subnet": "10.0.0.130/31"
+        },
+        {
+            "name": "net-nodeid31-mazara",
+            "subnet": "10.0.0.132/31"
+        },
+        {
+            "name": "net-nodeid31-estepona",
+            "subnet": "10.0.0.134/31"
+        },
+        {
+            "name": "net-haifa-chania",
+            "subnet": "10.0.0.136/31"
+        },
+        {
+            "name": "net-haifa-telaviv",
+            "subnet": "10.0.0.138/31"
+        },
+        {
+            "name": "net-bucharest-tgcarbunesti",
+            "subnet": "10.0.0.140/31"
+        },
+        {
+            "name": "net-bucharest-russe",
+            "subnet": "10.0.0.142/31"
+        },
+        {
+            "name": "net-agianapa-nahariya",
+            "subnet": "10.0.0.144/31"
+        },
+        {
+            "name": "net-kastanies-edirne",
+            "subnet": "10.0.0.146/31"
+        },
+        {
+            "name": "net-stuttgart-frankfurt",
+            "subnet": "10.0.0.148/31"
+        },
+        {
+            "name": "net-stuttgart-zurich",
+            "subnet": "10.0.0.150/31"
+        },
+        {
+            "name": "net-chania-athens",
+            "subnet": "10.0.0.152/31"
+        },
+        {
+            "name": "net-chania-derna",
+            "subnet": "10.0.0.154/31"
+        },
+        {
+            "name": "net-chania-yeroskipos",
+            "subnet": "10.0.0.156/31"
+        },
+        {
+            "name": "net-frankfurt-amsterdam",
+            "subnet": "10.0.0.158/31"
+        },
+        {
+            "name": "net-thessaloniki-nodeid44",
+            "subnet": "10.0.0.160/31"
+        },
+        {
+            "name": "net-thessaloniki-athens",
+            "subnet": "10.0.0.162/31"
+        },
+        {
+            "name": "net-haskavo-komotini",
+            "subnet": "10.0.0.164/31"
+        },
+        {
+            "name": "net-cornwallstations-usa",
+            "subnet": "10.0.0.166/31"
+        },
+        {
+            "name": "net-cornwallstations-valery",
+            "subnet": "10.0.0.168/31"
+        },
+        {
+            "name": "net-cornwallstations-kilmorequay",
+            "subnet": "10.0.0.170/31"
+        },
+        {
+            "name": "net-cornwallstations-penmarch",
+            "subnet": "10.0.0.172/31"
+        },
+        {
+            "name": "net-drobetaturnusevenin-timisoara",
+            "subnet": "10.0.0.174/31"
+        },
+        {
+            "name": "net-drobetaturnusevenin-sofia",
+            "subnet": "10.0.0.176/31"
+        },
+        {
+            "name": "net-promachonas-nodeid44",
+            "subnet": "10.0.0.178/31"
+        },
+        {
+            "name": "net-penmarch-sesimbra",
+            "subnet": "10.0.0.180/31"
+        },
+        {
+            "name": "net-pentaskinos-tartus",
+            "subnet": "10.0.0.182/31"
+        },
+        {
+            "name": "net-marmaris-nodeid42",
+            "subnet": "10.0.0.184/31"
+        },
+        {
+            "name": "net-nodeid44-komotini",
+            "subnet": "10.0.0.186/31"
+        },
+        {
+            "name": "net-nodeid42-nodeid41",
+            "subnet": "10.0.0.188/31"
+        },
+        {
+            "name": "net-nodeid41-suez",
+            "subnet": "10.0.0.190/31"
+        },
+        {
+            "name": "net-nodeid41-yeroskipos",
+            "subnet": "10.0.0.192/31"
+        },
+        {
+            "name": "net-tgcarbunesti-timisoara",
+            "subnet": "10.0.0.194/31"
+        },
+        {
+            "name": "net-timisoara-budapest",
+            "subnet": "10.0.0.196/31"
+        },
+        {
+            "name": "net-starazagora-sofia",
+            "subnet": "10.0.0.198/31"
+        },
+        {
+            "name": "net-starazagora-russe",
+            "subnet": "10.0.0.200/31"
+        },
+        {
+            "name": "net-pleven-sofia",
+            "subnet": "10.0.0.202/31"
+        },
+        {
+            "name": "net-pleven-russe",
+            "subnet": "10.0.0.204/31"
+        }
+    ],
+    "containers": [
+        {
+            "name": "tousa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-tousa-blaabjerg",
+                    "ipaddr": "10.0.0.0/31"
+                }
+            ]
+        },
+        {
+            "name": "lille",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-lille-paris",
+                    "ipaddr": "10.0.0.2/31"
+                },
+                {
+                    "network": "net-lille-london",
+                    "ipaddr": "10.0.0.4/31"
+                }
+            ]
+        },
+        {
+            "name": "paris",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-lyon",
+                    "ipaddr": "10.0.0.6/31"
+                },
+                {
+                    "network": "net-lille-paris",
+                    "ipaddr": "10.0.0.3/31"
+                }
+            ]
+        },
+        {
+            "name": "bologna",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bologna-bari",
+                    "ipaddr": "10.0.0.8/31"
+                },
+                {
+                    "network": "net-bologna-venice",
+                    "ipaddr": "10.0.0.10/31"
+                }
+            ]
+        },
+        {
+            "name": "bratislava",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bratislava-budapest",
+                    "ipaddr": "10.0.0.12/31"
+                },
+                {
+                    "network": "net-bratislava-vienna",
+                    "ipaddr": "10.0.0.14/31"
+                }
+            ]
+        },
+        {
+            "name": "tirana",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-tirana-opteglobetbn",
+                    "ipaddr": "10.0.0.16/31"
+                }
+            ]
+        },
+        {
+            "name": "katwijk",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-katwijk-valery",
+                    "ipaddr": "10.0.0.18/31"
+                },
+                {
+                    "network": "net-katwijk-norden",
+                    "ipaddr": "10.0.0.20/31"
+                }
+            ]
+        },
+        {
+            "name": "beirut",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-beirut-pentaskinos",
+                    "ipaddr": "10.0.0.22/31"
+                }
+            ]
+        },
+        {
+            "name": "durres",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-durres-dubrovnik",
+                    "ipaddr": "10.0.0.24/31"
+                },
+                {
+                    "network": "net-durres-corfu",
+                    "ipaddr": "10.0.0.26/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid18",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid18-ostend",
+                    "ipaddr": "10.0.0.28/31"
+                },
+                {
+                    "network": "net-nodeid18-norden",
+                    "ipaddr": "10.0.0.30/31"
+                },
+                {
+                    "network": "net-nodeid18-cornwallstations",
+                    "ipaddr": "10.0.0.32/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid19",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid19-nodeid47",
+                    "ipaddr": "10.0.0.34/31"
+                },
+                {
+                    "network": "net-nodeid19-chania",
+                    "ipaddr": "10.0.0.36/31"
+                }
+            ]
+        },
+        {
+            "name": "novorossiysk",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-novorossiysk-varna",
+                    "ipaddr": "10.0.0.38/31"
+                }
+            ]
+        },
+        {
+            "name": "dubrovnik",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-durres-dubrovnik",
+                    "ipaddr": "10.0.0.25/31"
+                }
+            ]
+        },
+        {
+            "name": "catania",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-catania-chania",
+                    "ipaddr": "10.0.0.40/31"
+                },
+                {
+                    "network": "net-catania-telaviv",
+                    "ipaddr": "10.0.0.42/31"
+                },
+                {
+                    "network": "net-catania-malta",
+                    "ipaddr": "10.0.0.44/31"
+                }
+            ]
+        },
+        {
+            "name": "norden",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid18-norden",
+                    "ipaddr": "10.0.0.31/31"
+                },
+                {
+                    "network": "net-norden-blaabjerg",
+                    "ipaddr": "10.0.0.46/31"
+                },
+                {
+                    "network": "net-katwijk-norden",
+                    "ipaddr": "10.0.0.21/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid47",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid19-nodeid47",
+                    "ipaddr": "10.0.0.35/31"
+                },
+                {
+                    "network": "net-nodeid47-athens",
+                    "ipaddr": "10.0.0.48/31"
+                }
+            ]
+        },
+        {
+            "name": "nuremberg",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nuremberg-walserberg",
+                    "ipaddr": "10.0.0.50/31"
+                },
+                {
+                    "network": "net-nuremberg-frankfurt",
+                    "ipaddr": "10.0.0.52/31"
+                }
+            ]
+        },
+        {
+            "name": "bar",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bar-corfu",
+                    "ipaddr": "10.0.0.54/31"
+                }
+            ]
+        },
+        {
+            "name": "rome",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-rome-bari",
+                    "ipaddr": "10.0.0.56/31"
+                },
+                {
+                    "network": "net-rome-genova",
+                    "ipaddr": "10.0.0.58/31"
+                }
+            ]
+        },
+        {
+            "name": "petrich",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-petrich-sofia",
+                    "ipaddr": "10.0.0.60/31"
+                },
+                {
+                    "network": "net-petrich-promachonas",
+                    "ipaddr": "10.0.0.62/31"
+                }
+            ]
+        },
+        {
+            "name": "varna",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-novorossiysk-varna",
+                    "ipaddr": "10.0.0.39/31"
+                }
+            ]
+        },
+        {
+            "name": "marseille",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-marseille-lyon",
+                    "ipaddr": "10.0.0.64/31"
+                },
+                {
+                    "network": "net-marseille-genova",
+                    "ipaddr": "10.0.0.66/31"
+                }
+            ]
+        },
+        {
+            "name": "conil",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-conil-cornwallstations",
+                    "ipaddr": "10.0.0.68/31"
+                },
+                {
+                    "network": "net-conil-nodeid31",
+                    "ipaddr": "10.0.0.70/31"
+                }
+            ]
+        },
+        {
+            "name": "opteglobetbn",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-opteglobetbn-thessaloniki",
+                    "ipaddr": "10.0.0.72/31"
+                },
+                {
+                    "network": "net-tirana-opteglobetbn",
+                    "ipaddr": "10.0.0.17/31"
+                },
+                {
+                    "network": "net-opteglobetbn-bitola",
+                    "ipaddr": "10.0.0.74/31"
+                }
+            ]
+        },
+        {
+            "name": "milan",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-milan-venice",
+                    "ipaddr": "10.0.0.76/31"
+                },
+                {
+                    "network": "net-milan-genova",
+                    "ipaddr": "10.0.0.78/31"
+                },
+                {
+                    "network": "net-milan-zurich",
+                    "ipaddr": "10.0.0.80/31"
+                }
+            ]
+        },
+        {
+            "name": "alexandroupolis",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-alexandroupolis-thessaloniki",
+                    "ipaddr": "10.0.0.82/31"
+                },
+                {
+                    "network": "net-alexandroupolis-komotini",
+                    "ipaddr": "10.0.0.84/31"
+                },
+                {
+                    "network": "net-alexandroupolis-kastanies",
+                    "ipaddr": "10.0.0.86/31"
+                },
+                {
+                    "network": "net-alexandroupolis-kesan",
+                    "ipaddr": "10.0.0.88/31"
+                }
+            ]
+        },
+        {
+            "name": "london",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-london-amsterdam",
+                    "ipaddr": "10.0.0.90/31"
+                },
+                {
+                    "network": "net-london-cornwallstations",
+                    "ipaddr": "10.0.0.92/31"
+                },
+                {
+                    "network": "net-lille-london",
+                    "ipaddr": "10.0.0.5/31"
+                }
+            ]
+        },
+        {
+            "name": "svilengrad",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-svilengrad-edirne",
+                    "ipaddr": "10.0.0.94/31"
+                },
+                {
+                    "network": "net-svilengrad-sofia",
+                    "ipaddr": "10.0.0.96/31"
+                },
+                {
+                    "network": "net-svilengrad-kastanies",
+                    "ipaddr": "10.0.0.98/31"
+                }
+            ]
+        },
+        {
+            "name": "genova",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-marseille-genova",
+                    "ipaddr": "10.0.0.67/31"
+                },
+                {
+                    "network": "net-rome-genova",
+                    "ipaddr": "10.0.0.59/31"
+                },
+                {
+                    "network": "net-milan-genova",
+                    "ipaddr": "10.0.0.79/31"
+                }
+            ]
+        },
+        {
+            "name": "corfu",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-corfu-thessaloniki",
+                    "ipaddr": "10.0.0.100/31"
+                },
+                {
+                    "network": "net-corfu-otranto",
+                    "ipaddr": "10.0.0.102/31"
+                },
+                {
+                    "network": "net-corfu-athens",
+                    "ipaddr": "10.0.0.104/31"
+                },
+                {
+                    "network": "net-corfu-bari",
+                    "ipaddr": "10.0.0.106/31"
+                },
+                {
+                    "network": "net-bar-corfu",
+                    "ipaddr": "10.0.0.55/31"
+                },
+                {
+                    "network": "net-durres-corfu",
+                    "ipaddr": "10.0.0.27/31"
+                }
+            ]
+        },
+        {
+            "name": "kilkis",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-kilkis-thessaloniki",
+                    "ipaddr": "10.0.0.108/31"
+                },
+                {
+                    "network": "net-kilkis-gevgelija",
+                    "ipaddr": "10.0.0.110/31"
+                }
+            ]
+        },
+        {
+            "name": "dunaujvaros",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-dunaujvaros-timisoara",
+                    "ipaddr": "10.0.0.112/31"
+                },
+                {
+                    "network": "net-dunaujvaros-hegyeshantom",
+                    "ipaddr": "10.0.0.114/31"
+                }
+            ]
+        },
+        {
+            "name": "vienna",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-vienna-walserberg",
+                    "ipaddr": "10.0.0.116/31"
+                },
+                {
+                    "network": "net-vienna-frankfurt",
+                    "ipaddr": "10.0.0.118/31"
+                },
+                {
+                    "network": "net-vienna-hegyeshantom",
+                    "ipaddr": "10.0.0.120/31"
+                },
+                {
+                    "network": "net-bratislava-vienna",
+                    "ipaddr": "10.0.0.15/31"
+                }
+            ]
+        },
+        {
+            "name": "walserberg",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nuremberg-walserberg",
+                    "ipaddr": "10.0.0.51/31"
+                },
+                {
+                    "network": "net-vienna-walserberg",
+                    "ipaddr": "10.0.0.117/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid33",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid33-mazara",
+                    "ipaddr": "10.0.0.122/31"
+                },
+                {
+                    "network": "net-nodeid33-chania",
+                    "ipaddr": "10.0.0.124/31"
+                },
+                {
+                    "network": "net-nodeid33-nodeid42",
+                    "ipaddr": "10.0.0.126/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid31",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid31-palermo",
+                    "ipaddr": "10.0.0.128/31"
+                },
+                {
+                    "network": "net-nodeid31-sesimbra",
+                    "ipaddr": "10.0.0.130/31"
+                },
+                {
+                    "network": "net-nodeid31-mazara",
+                    "ipaddr": "10.0.0.132/31"
+                },
+                {
+                    "network": "net-conil-nodeid31",
+                    "ipaddr": "10.0.0.71/31"
+                },
+                {
+                    "network": "net-nodeid31-estepona",
+                    "ipaddr": "10.0.0.134/31"
+                }
+            ]
+        },
+        {
+            "name": "gevgelija",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-kilkis-gevgelija",
+                    "ipaddr": "10.0.0.111/31"
+                }
+            ]
+        },
+        {
+            "name": "haifa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-haifa-chania",
+                    "ipaddr": "10.0.0.136/31"
+                },
+                {
+                    "network": "net-haifa-telaviv",
+                    "ipaddr": "10.0.0.138/31"
+                }
+            ]
+        },
+        {
+            "name": "bucharest",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bucharest-tgcarbunesti",
+                    "ipaddr": "10.0.0.140/31"
+                },
+                {
+                    "network": "net-bucharest-russe",
+                    "ipaddr": "10.0.0.142/31"
+                }
+            ]
+        },
+        {
+            "name": "bitola",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-opteglobetbn-bitola",
+                    "ipaddr": "10.0.0.75/31"
+                }
+            ]
+        },
+        {
+            "name": "agianapa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-agianapa-nahariya",
+                    "ipaddr": "10.0.0.144/31"
+                }
+            ]
+        },
+        {
+            "name": "kastanies",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-kastanies-edirne",
+                    "ipaddr": "10.0.0.146/31"
+                },
+                {
+                    "network": "net-alexandroupolis-kastanies",
+                    "ipaddr": "10.0.0.87/31"
+                },
+                {
+                    "network": "net-svilengrad-kastanies",
+                    "ipaddr": "10.0.0.99/31"
+                }
+            ]
+        },
+        {
+            "name": "stuttgart",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stuttgart-frankfurt",
+                    "ipaddr": "10.0.0.148/31"
+                },
+                {
+                    "network": "net-stuttgart-zurich",
+                    "ipaddr": "10.0.0.150/31"
+                }
+            ]
+        },
+        {
+            "name": "chania",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid19-chania",
+                    "ipaddr": "10.0.0.37/31"
+                },
+                {
+                    "network": "net-haifa-chania",
+                    "ipaddr": "10.0.0.137/31"
+                },
+                {
+                    "network": "net-chania-athens",
+                    "ipaddr": "10.0.0.152/31"
+                },
+                {
+                    "network": "net-nodeid33-chania",
+                    "ipaddr": "10.0.0.125/31"
+                },
+                {
+                    "network": "net-catania-chania",
+                    "ipaddr": "10.0.0.41/31"
+                },
+                {
+                    "network": "net-chania-derna",
+                    "ipaddr": "10.0.0.154/31"
+                },
+                {
+                    "network": "net-chania-yeroskipos",
+                    "ipaddr": "10.0.0.156/31"
+                }
+            ]
+        },
+        {
+            "name": "frankfurt",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stuttgart-frankfurt",
+                    "ipaddr": "10.0.0.149/31"
+                },
+                {
+                    "network": "net-nuremberg-frankfurt",
+                    "ipaddr": "10.0.0.53/31"
+                },
+                {
+                    "network": "net-vienna-frankfurt",
+                    "ipaddr": "10.0.0.119/31"
+                },
+                {
+                    "network": "net-frankfurt-amsterdam",
+                    "ipaddr": "10.0.0.158/31"
+                }
+            ]
+        },
+        {
+            "name": "thessaloniki",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-corfu-thessaloniki",
+                    "ipaddr": "10.0.0.101/31"
+                },
+                {
+                    "network": "net-thessaloniki-nodeid44",
+                    "ipaddr": "10.0.0.160/31"
+                },
+                {
+                    "network": "net-thessaloniki-athens",
+                    "ipaddr": "10.0.0.162/31"
+                },
+                {
+                    "network": "net-kilkis-thessaloniki",
+                    "ipaddr": "10.0.0.109/31"
+                },
+                {
+                    "network": "net-alexandroupolis-thessaloniki",
+                    "ipaddr": "10.0.0.83/31"
+                },
+                {
+                    "network": "net-opteglobetbn-thessaloniki",
+                    "ipaddr": "10.0.0.73/31"
+                }
+            ]
+        },
+        {
+            "name": "haskavo",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-haskavo-komotini",
+                    "ipaddr": "10.0.0.164/31"
+                }
+            ]
+        },
+        {
+            "name": "zurich",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-stuttgart-zurich",
+                    "ipaddr": "10.0.0.151/31"
+                },
+                {
+                    "network": "net-milan-zurich",
+                    "ipaddr": "10.0.0.81/31"
+                }
+            ]
+        },
+        {
+            "name": "bari",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bologna-bari",
+                    "ipaddr": "10.0.0.9/31"
+                },
+                {
+                    "network": "net-corfu-bari",
+                    "ipaddr": "10.0.0.107/31"
+                },
+                {
+                    "network": "net-rome-bari",
+                    "ipaddr": "10.0.0.57/31"
+                }
+            ]
+        },
+        {
+            "name": "derna",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chania-derna",
+                    "ipaddr": "10.0.0.155/31"
+                }
+            ]
+        },
+        {
+            "name": "cornwallstations",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid18-cornwallstations",
+                    "ipaddr": "10.0.0.33/31"
+                },
+                {
+                    "network": "net-cornwallstations-usa",
+                    "ipaddr": "10.0.0.166/31"
+                },
+                {
+                    "network": "net-london-cornwallstations",
+                    "ipaddr": "10.0.0.93/31"
+                },
+                {
+                    "network": "net-conil-cornwallstations",
+                    "ipaddr": "10.0.0.69/31"
+                },
+                {
+                    "network": "net-cornwallstations-valery",
+                    "ipaddr": "10.0.0.168/31"
+                },
+                {
+                    "network": "net-cornwallstations-kilmorequay",
+                    "ipaddr": "10.0.0.170/31"
+                },
+                {
+                    "network": "net-cornwallstations-penmarch",
+                    "ipaddr": "10.0.0.172/31"
+                }
+            ]
+        },
+        {
+            "name": "lyon",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-paris-lyon",
+                    "ipaddr": "10.0.0.7/31"
+                },
+                {
+                    "network": "net-marseille-lyon",
+                    "ipaddr": "10.0.0.65/31"
+                }
+            ]
+        },
+        {
+            "name": "nahariya",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-agianapa-nahariya",
+                    "ipaddr": "10.0.0.145/31"
+                }
+            ]
+        },
+        {
+            "name": "otranto",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-corfu-otranto",
+                    "ipaddr": "10.0.0.103/31"
+                }
+            ]
+        },
+        {
+            "name": "drobetaturnusevenin",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-drobetaturnusevenin-timisoara",
+                    "ipaddr": "10.0.0.174/31"
+                },
+                {
+                    "network": "net-drobetaturnusevenin-sofia",
+                    "ipaddr": "10.0.0.176/31"
+                }
+            ]
+        },
+        {
+            "name": "promachonas",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-promachonas-nodeid44",
+                    "ipaddr": "10.0.0.178/31"
+                },
+                {
+                    "network": "net-petrich-promachonas",
+                    "ipaddr": "10.0.0.63/31"
+                }
+            ]
+        },
+        {
+            "name": "penmarch",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-penmarch-sesimbra",
+                    "ipaddr": "10.0.0.180/31"
+                },
+                {
+                    "network": "net-cornwallstations-penmarch",
+                    "ipaddr": "10.0.0.173/31"
+                }
+            ]
+        },
+        {
+            "name": "telaviv",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-catania-telaviv",
+                    "ipaddr": "10.0.0.43/31"
+                },
+                {
+                    "network": "net-haifa-telaviv",
+                    "ipaddr": "10.0.0.139/31"
+                }
+            ]
+        },
+        {
+            "name": "palermo",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid31-palermo",
+                    "ipaddr": "10.0.0.129/31"
+                }
+            ]
+        },
+        {
+            "name": "ostend",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid18-ostend",
+                    "ipaddr": "10.0.0.29/31"
+                }
+            ]
+        },
+        {
+            "name": "pentaskinos",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pentaskinos-tartus",
+                    "ipaddr": "10.0.0.182/31"
+                },
+                {
+                    "network": "net-beirut-pentaskinos",
+                    "ipaddr": "10.0.0.23/31"
+                }
+            ]
+        },
+        {
+            "name": "tartus",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pentaskinos-tartus",
+                    "ipaddr": "10.0.0.183/31"
+                }
+            ]
+        },
+        {
+            "name": "marmaris",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-marmaris-nodeid42",
+                    "ipaddr": "10.0.0.184/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid44",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-thessaloniki-nodeid44",
+                    "ipaddr": "10.0.0.161/31"
+                },
+                {
+                    "network": "net-nodeid44-komotini",
+                    "ipaddr": "10.0.0.186/31"
+                },
+                {
+                    "network": "net-promachonas-nodeid44",
+                    "ipaddr": "10.0.0.179/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid42",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-marmaris-nodeid42",
+                    "ipaddr": "10.0.0.185/31"
+                },
+                {
+                    "network": "net-nodeid33-nodeid42",
+                    "ipaddr": "10.0.0.127/31"
+                },
+                {
+                    "network": "net-nodeid42-nodeid41",
+                    "ipaddr": "10.0.0.188/31"
+                }
+            ]
+        },
+        {
+            "name": "nodeid41",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid41-suez",
+                    "ipaddr": "10.0.0.190/31"
+                },
+                {
+                    "network": "net-nodeid41-yeroskipos",
+                    "ipaddr": "10.0.0.192/31"
+                },
+                {
+                    "network": "net-nodeid42-nodeid41",
+                    "ipaddr": "10.0.0.189/31"
+                }
+            ]
+        },
+        {
+            "name": "tgcarbunesti",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-tgcarbunesti-timisoara",
+                    "ipaddr": "10.0.0.194/31"
+                },
+                {
+                    "network": "net-bucharest-tgcarbunesti",
+                    "ipaddr": "10.0.0.141/31"
+                }
+            ]
+        },
+        {
+            "name": "edirne",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-kastanies-edirne",
+                    "ipaddr": "10.0.0.147/31"
+                },
+                {
+                    "network": "net-svilengrad-edirne",
+                    "ipaddr": "10.0.0.95/31"
+                }
+            ]
+        },
+        {
+            "name": "hegyeshantom",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-dunaujvaros-hegyeshantom",
+                    "ipaddr": "10.0.0.115/31"
+                },
+                {
+                    "network": "net-vienna-hegyeshantom",
+                    "ipaddr": "10.0.0.121/31"
+                }
+            ]
+        },
+        {
+            "name": "kilmorequay",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cornwallstations-kilmorequay",
+                    "ipaddr": "10.0.0.171/31"
+                }
+            ]
+        },
+        {
+            "name": "blaabjerg",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-tousa-blaabjerg",
+                    "ipaddr": "10.0.0.1/31"
+                },
+                {
+                    "network": "net-norden-blaabjerg",
+                    "ipaddr": "10.0.0.47/31"
+                }
+            ]
+        },
+        {
+            "name": "venice",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-bologna-venice",
+                    "ipaddr": "10.0.0.11/31"
+                },
+                {
+                    "network": "net-milan-venice",
+                    "ipaddr": "10.0.0.77/31"
+                }
+            ]
+        },
+        {
+            "name": "usa",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-cornwallstations-usa",
+                    "ipaddr": "10.0.0.167/31"
+                }
+            ]
+        },
+        {
+            "name": "athens",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-thessaloniki-athens",
+                    "ipaddr": "10.0.0.163/31"
+                },
+                {
+                    "network": "net-nodeid47-athens",
+                    "ipaddr": "10.0.0.49/31"
+                },
+                {
+                    "network": "net-corfu-athens",
+                    "ipaddr": "10.0.0.105/31"
+                },
+                {
+                    "network": "net-chania-athens",
+                    "ipaddr": "10.0.0.153/31"
+                }
+            ]
+        },
+        {
+            "name": "malta",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-catania-malta",
+                    "ipaddr": "10.0.0.45/31"
+                }
+            ]
+        },
+        {
+            "name": "timisoara",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-drobetaturnusevenin-timisoara",
+                    "ipaddr": "10.0.0.175/31"
+                },
+                {
+                    "network": "net-timisoara-budapest",
+                    "ipaddr": "10.0.0.196/31"
+                },
+                {
+                    "network": "net-dunaujvaros-timisoara",
+                    "ipaddr": "10.0.0.113/31"
+                },
+                {
+                    "network": "net-tgcarbunesti-timisoara",
+                    "ipaddr": "10.0.0.195/31"
+                }
+            ]
+        },
+        {
+            "name": "starazagora",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-starazagora-sofia",
+                    "ipaddr": "10.0.0.198/31"
+                },
+                {
+                    "network": "net-starazagora-russe",
+                    "ipaddr": "10.0.0.200/31"
+                }
+            ]
+        },
+        {
+            "name": "pleven",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-pleven-sofia",
+                    "ipaddr": "10.0.0.202/31"
+                },
+                {
+                    "network": "net-pleven-russe",
+                    "ipaddr": "10.0.0.204/31"
+                }
+            ]
+        },
+        {
+            "name": "russe",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-starazagora-russe",
+                    "ipaddr": "10.0.0.201/31"
+                },
+                {
+                    "network": "net-bucharest-russe",
+                    "ipaddr": "10.0.0.143/31"
+                },
+                {
+                    "network": "net-pleven-russe",
+                    "ipaddr": "10.0.0.205/31"
+                }
+            ]
+        },
+        {
+            "name": "suez",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid41-suez",
+                    "ipaddr": "10.0.0.191/31"
+                }
+            ]
+        },
+        {
+            "name": "kesan",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-alexandroupolis-kesan",
+                    "ipaddr": "10.0.0.89/31"
+                }
+            ]
+        },
+        {
+            "name": "estepona",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid31-estepona",
+                    "ipaddr": "10.0.0.135/31"
+                }
+            ]
+        },
+        {
+            "name": "budapest",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-timisoara-budapest",
+                    "ipaddr": "10.0.0.197/31"
+                },
+                {
+                    "network": "net-bratislava-budapest",
+                    "ipaddr": "10.0.0.13/31"
+                }
+            ]
+        },
+        {
+            "name": "mazara",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid33-mazara",
+                    "ipaddr": "10.0.0.123/31"
+                },
+                {
+                    "network": "net-nodeid31-mazara",
+                    "ipaddr": "10.0.0.133/31"
+                }
+            ]
+        },
+        {
+            "name": "sesimbra",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-penmarch-sesimbra",
+                    "ipaddr": "10.0.0.181/31"
+                },
+                {
+                    "network": "net-nodeid31-sesimbra",
+                    "ipaddr": "10.0.0.131/31"
+                }
+            ]
+        },
+        {
+            "name": "valery",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-katwijk-valery",
+                    "ipaddr": "10.0.0.19/31"
+                },
+                {
+                    "network": "net-cornwallstations-valery",
+                    "ipaddr": "10.0.0.169/31"
+                }
+            ]
+        },
+        {
+            "name": "sofia",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-starazagora-sofia",
+                    "ipaddr": "10.0.0.199/31"
+                },
+                {
+                    "network": "net-drobetaturnusevenin-sofia",
+                    "ipaddr": "10.0.0.177/31"
+                },
+                {
+                    "network": "net-petrich-sofia",
+                    "ipaddr": "10.0.0.61/31"
+                },
+                {
+                    "network": "net-pleven-sofia",
+                    "ipaddr": "10.0.0.203/31"
+                },
+                {
+                    "network": "net-svilengrad-sofia",
+                    "ipaddr": "10.0.0.97/31"
+                }
+            ]
+        },
+        {
+            "name": "komotini",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-nodeid44-komotini",
+                    "ipaddr": "10.0.0.187/31"
+                },
+                {
+                    "network": "net-haskavo-komotini",
+                    "ipaddr": "10.0.0.165/31"
+                },
+                {
+                    "network": "net-alexandroupolis-komotini",
+                    "ipaddr": "10.0.0.85/31"
+                }
+            ]
+        },
+        {
+            "name": "amsterdam",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-london-amsterdam",
+                    "ipaddr": "10.0.0.91/31"
+                },
+                {
+                    "network": "net-frankfurt-amsterdam",
+                    "ipaddr": "10.0.0.159/31"
+                }
+            ]
+        },
+        {
+            "name": "yeroskipos",
+            "type": "frr",
+            "vm": "UNDEFINED",
+            "interfaces": [
+                {
+                    "network": "net-chania-yeroskipos",
+                    "ipaddr": "10.0.0.157/31"
+                },
+                {
+                    "network": "net-nodeid41-yeroskipos",
+                    "ipaddr": "10.0.0.193/31"
+                }
+            ]
+        }
+    ]
+}
