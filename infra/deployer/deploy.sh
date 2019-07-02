@@ -32,6 +32,9 @@ readonly VM_COMMS_DIR="${DEPLOYER_DIR}/vm_comms"
 readonly COMPOSER_DIR="${DEPLOYER_DIR}/composer"
 readonly NAT_DIR="${DEPLOYER_DIR}/nat"
 
+readonly DEPL_LOG_DIR="${HOME_DIR}/benchmarks/simulator/depl_files/latest_run"
+readonly DEPL_STATS="depl_stats.log"
+
 # colors for output
 readonly GREEN='\033[0;32m'
 readonly RED='\033[0;31m'
@@ -58,41 +61,41 @@ signal_fail $?
 
 printf "${L_GREEN}######### 1/9 Setting up VM directories #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash ${VM_COMMS_DIR}/vm_env.sh -cd
+time bash ${VM_COMMS_DIR}/vm_env.sh -cd | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 2/9 Generating compose files #########${NC}\n"
 cd "${COMPOSER_DIR}"
-time python TopoComposer.py -t "${FLAG_topology}"
+time python TopoComposer.py -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 3/9 Uploading files to VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash vm_upload.sh -t "${FLAG_topology}" -a
+time bash vm_upload.sh -t "${FLAG_topology}" -a | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 4/9 Building Layer 2 on VMs #########${NC}\n"
-time bash vm_compose.sh -u
+time bash vm_compose.sh -u | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 5/9 Setup L3 device containers #########${NC}\n"
-time bash vm_configure.sh -s
+time bash vm_configure.sh -s | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 6/9 Downloading data #########${NC}\n"
-time bash vm_download.sh -t "${FLAG_topology}"
+time bash vm_download.sh -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 7/9 Performing NAT #########${NC}\n"
 cd "${NAT_DIR}"
-time bash perform_nat.sh -t "${FLAG_topology}"
+time bash perform_nat.sh -t "${FLAG_topology}" | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 8/9 Building Layer 2 on VMs #########${NC}\n"
 cd "${VM_COMMS_DIR}"
-time bash vm_upload.sh -t "${FLAG_topology}" -f
+time bash vm_upload.sh -t "${FLAG_topology}" -f | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
 
 printf "${L_GREEN}######### 9/9 Building Layer 2 on VMs #########${NC}\n"
-time bash vm_configure.sh -c
+time bash vm_configure.sh -c | tee -a "${DEPL_LOG_DIR}/${DEPL_STATS}"
 signal_fail $?
