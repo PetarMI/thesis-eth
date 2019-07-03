@@ -934,7 +934,7 @@
                 {
                     "network": "net-paris-london",
                     "ipaddr": "10.0.0.19/31"
-                }
+                },
                 {
                     "network": "net-london-amsterdam",
                     "ipaddr": "10.0.0.94/31"
