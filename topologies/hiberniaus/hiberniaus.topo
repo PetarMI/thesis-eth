@@ -124,7 +124,7 @@
         {
             "name": "albany",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-albany-newyork",
@@ -147,7 +147,7 @@
         {
             "name": "chicago",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-chicago-pittsburgh",
@@ -162,7 +162,7 @@
         {
             "name": "newyork",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-newyork-newark",
@@ -185,7 +185,7 @@
         {
             "name": "philadelphia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-newyork-philadelphia",
@@ -204,7 +204,7 @@
         {
             "name": "richmond",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-richmond-mclean",
@@ -219,7 +219,7 @@
         {
             "name": "pittsburgh",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-pittsburgh-ashburn",
@@ -238,7 +238,7 @@
         {
             "name": "nodeid11",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-nodeid11-halifax",
@@ -249,7 +249,7 @@
         {
             "name": "ashburn",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-pittsburgh-ashburn",
@@ -272,7 +272,7 @@
         {
             "name": "atlanta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-atlanta-charlotte",
@@ -283,7 +283,7 @@
         {
             "name": "toronto",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-toronto-buffalo",
@@ -298,7 +298,7 @@
         {
             "name": "mclean",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-ashburn-mclean",
@@ -313,7 +313,7 @@
         {
             "name": "whiteplains",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-whiteplains-newark",
@@ -328,7 +328,7 @@
         {
             "name": "raleigh",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-richmond-raleigh",
@@ -343,7 +343,7 @@
         {
             "name": "buffalo",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-toronto-buffalo",
@@ -362,7 +362,7 @@
         {
             "name": "montreal",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-toronto-montreal",
@@ -381,7 +381,7 @@
         {
             "name": "charlotte",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-atlanta-charlotte",
@@ -396,7 +396,7 @@
         {
             "name": "boston",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-albany-boston",
@@ -415,7 +415,7 @@
         {
             "name": "nodeid10",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid10-halifax",
@@ -426,7 +426,7 @@
         {
             "name": "stamford",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-newyork-stamford",
@@ -445,7 +445,7 @@
         {
             "name": "newark",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-ashburn-newark",
@@ -468,7 +468,7 @@
         {
             "name": "cleveland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-pittsburgh-cleveland",
@@ -487,7 +487,7 @@
         {
             "name": "halifax",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid10-halifax",
