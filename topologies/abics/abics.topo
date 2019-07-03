@@ -124,14 +124,6 @@
             "subnet": "10.0.0.40/31"
         },
         {
-            "name": "net-ljubjana",
-            "subnet": "100.0.7.0/24"
-        },
-        {
-            "name": "net-ljubjana-zagreb",
-            "subnet": "10.0.0.52/31"
-        },
-        {
             "name": "net-geneva",
             "subnet": "100.0.11.0/24"
         },
@@ -300,16 +292,8 @@
             "subnet": "100.0.29.0/24"
         },
         {
-            "name": "net-london-lisbon",
-            "subnet": "10.0.0.92/31"
-        },
-        {
             "name": "net-london-amsterdam",
             "subnet": "10.0.0.94/31"
-        },
-        {
-            "name": "net-lisbon",
-            "subnet": "100.0.30.0/24"
         },
         {
             "name": "net-amsterdam",
@@ -513,21 +497,6 @@
             ]
         },
         {
-            "name": "ljubjana",
-            "type": "frr",
-            "vm": "3",
-            "interfaces": [
-                {
-                    "network": "net-ljubjana",
-                    "ipaddr": "100.0.7.1/24"
-                },
-                {
-                    "network": "net-ljubjana-zagreb",
-                    "ipaddr": "10.0.0.53/31"
-                }
-            ]
-        },
-        {
             "name": "geneva",
             "type": "frr",
             "vm": "3",
@@ -566,10 +535,6 @@
                 {
                     "network": "net-zagreb-budapest",
                     "ipaddr": "10.0.0.50/31"
-                },
-                {
-                    "network": "net-ljubjana-zagreb",
-                    "ipaddr": "10.0.0.52/31"
                 }
             ]
         },
@@ -969,11 +934,7 @@
                 {
                     "network": "net-paris-london",
                     "ipaddr": "10.0.0.19/31"
-                },
-                {
-                    "network": "net-london-lisbon",
-                    "ipaddr": "10.0.0.92/31"
-                },
+                }
                 {
                     "network": "net-london-amsterdam",
                     "ipaddr": "10.0.0.94/31"
@@ -981,21 +942,6 @@
                 {
                     "network": "net-brussels-london",
                     "ipaddr": "10.0.0.55/31"
-                }
-            ]
-        },
-        {
-            "name": "lisbon",
-            "type": "frr",
-            "vm": "9",
-            "interfaces": [
-                {
-                    "network": "net-lisbon",
-                    "ipaddr": "100.0.30.1/24"
-                },
-                {
-                    "network": "net-london-lisbon",
-                    "ipaddr": "10.0.0.93/31"
                 }
             ]
         },
