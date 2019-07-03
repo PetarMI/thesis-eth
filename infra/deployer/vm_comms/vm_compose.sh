@@ -65,6 +65,25 @@ EOF
     done < ${CONF_FILE}
 }
 
+function pcompose {
+    local script=$1
+    local only_role=$2
+    pids=()
+
+    while IFS=, read -r idx vm_id role
+    do
+        if [[ ${only_role} == ${role} ]]
+        then
+            ssh -T "${USER}@${vm_id}" "cd ${VM_SCRIPT_DIR}; ./${script} --${role} --"vm" ${idx}" &
+            pids+=($!)
+        fi
+    done < ${CONF_FILE}
+
+    for pid in ${pids[*]}; do
+        wait ${pid}
+    done
+}
+
 #######################################
 # First compose up the manager where the networks are created
 #   and only then create the other containers on worker VMs
@@ -79,8 +98,8 @@ function compose_up {
 #   and only then the networks on the manager
 #######################################
 function compose_down {
-    compose "${COMPOSE_DOWN}" "worker"
-    compose "${COMPOSE_DOWN}" "manager"
+    pcompose "${COMPOSE_DOWN}" "worker"
+    pcompose "${COMPOSE_DOWN}" "manager"
 }
 
 #######################################
@@ -93,3 +112,4 @@ elif [[ ${FLAG_UP} == 0 ]]
 then
     compose_down
 fi
+
