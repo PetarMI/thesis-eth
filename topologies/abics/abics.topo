@@ -369,7 +369,7 @@
         {
             "name": "paris",
             "type": "frr",
-            "vm": "1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-paris",
@@ -400,7 +400,7 @@
         {
             "name": "basel",
             "type": "frr",
-            "vm": "1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-basel",
@@ -419,7 +419,7 @@
         {
             "name": "athens",
             "type": "frr",
-            "vm": "1",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-athens",
@@ -438,7 +438,7 @@
         {
             "name": "luxembourg",
             "type": "frr",
-            "vm": "2",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-luxembourg",
@@ -457,7 +457,7 @@
         {
             "name": "rotterdam",
             "type": "frr",
-            "vm": "2",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-rotterdam",
@@ -476,7 +476,7 @@
         {
             "name": "vienna",
             "type": "frr",
-            "vm": "2",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-vienna",
@@ -499,7 +499,7 @@
         {
             "name": "geneva",
             "type": "frr",
-            "vm": "3",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-geneva",
@@ -526,7 +526,7 @@
         {
             "name": "zagreb",
             "type": "frr",
-            "vm": "3",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-zagreb",
@@ -541,7 +541,7 @@
         {
             "name": "bratislava",
             "type": "frr",
-            "vm": "4",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-bratislava",
@@ -564,7 +564,7 @@
         {
             "name": "brussels",
             "type": "frr",
-            "vm": "4",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-brussels",
@@ -599,7 +599,7 @@
         {
             "name": "strasbourg",
             "type": "frr",
-            "vm": "4",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-strasbourg",
@@ -622,7 +622,7 @@
         {
             "name": "budapest",
             "type": "frr",
-            "vm": "5",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-budapest",
@@ -649,7 +649,7 @@
         {
             "name": "vaduz",
             "type": "frr",
-            "vm": "5",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-vaduz",
@@ -664,7 +664,7 @@
         {
             "name": "barcelona",
             "type": "frr",
-            "vm": "6",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-barcelona",
@@ -683,7 +683,7 @@
         {
             "name": "stockholm",
             "type": "frr",
-            "vm": "6",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-stockholm",
@@ -698,7 +698,7 @@
         {
             "name": "roma",
             "type": "frr",
-            "vm": "6",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-roma",
@@ -717,7 +717,7 @@
         {
             "name": "marseille",
             "type": "frr",
-            "vm": "7",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-marseille",
@@ -740,7 +740,7 @@
         {
             "name": "frankfurt",
             "type": "frr",
-            "vm": "7",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-frankfurt",
@@ -783,7 +783,7 @@
         {
             "name": "bucharest",
             "type": "frr",
-            "vm": "7",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-bucharest",
@@ -806,7 +806,7 @@
         {
             "name": "zurich",
             "type": "frr",
-            "vm": "7",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-zurich",
@@ -837,7 +837,7 @@
         {
             "name": "madrid",
             "type": "frr",
-            "vm": "8",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-madrid",
@@ -856,7 +856,7 @@
         {
             "name": "sofia",
             "type": "frr",
-            "vm": "8",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-sofia",
@@ -875,7 +875,7 @@
         {
             "name": "milan",
             "type": "frr",
-            "vm": "8",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-milan",
@@ -902,7 +902,7 @@
         {
             "name": "praha",
             "type": "frr",
-            "vm": "8",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-praha",
@@ -925,7 +925,7 @@
         {
             "name": "london",
             "type": "frr",
-            "vm": "9",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-london",
@@ -948,7 +948,7 @@
         {
             "name": "amsterdam",
             "type": "frr",
-            "vm": "9",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-amsterdam",
@@ -975,7 +975,7 @@
         {
             "name": "warsaw",
             "type": "frr",
-            "vm": "9",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-warsaw",
