@@ -735,7 +735,7 @@
         {
             "name": "panama",
             "type": "frr",
-            "vm": "0",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-panama",
@@ -758,7 +758,7 @@
         {
             "name": "nodeid59",
             "type": "frr",
-            "vm": "0",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-nodeid59",
@@ -846,7 +846,7 @@
         {
             "name": "venezuela",
             "type": "frr",
-            "vm": "1",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-venezuela",
@@ -865,7 +865,7 @@
         {
             "name": "stcroix",
             "type": "frr",
-            "vm": "1",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-stcroix",
@@ -888,7 +888,7 @@
         {
             "name": "ecuador",
             "type": "frr",
-            "vm": "1",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-ecuador",
@@ -903,7 +903,7 @@
         {
             "name": "curacao",
             "type": "frr",
-            "vm": "1",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-curacao",
@@ -953,7 +953,7 @@
         {
             "name": "nodeid56",
             "type": "frr",
-            "vm": "2",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid56",
@@ -972,7 +972,7 @@
         {
             "name": "stvincent",
             "type": "frr",
-            "vm": "2",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-stvincent",
@@ -991,7 +991,7 @@
         {
             "name": "columbia",
             "type": "frr",
-            "vm": "2",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-columbia",
@@ -1010,7 +1010,7 @@
         {
             "name": "nodeid38",
             "type": "frr",
-            "vm": "2",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid38",
@@ -1033,7 +1033,7 @@
         {
             "name": "elsalvador",
             "type": "frr",
-            "vm": "2",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-elsalvador",
@@ -1048,7 +1048,7 @@
         {
             "name": "puertorico",
             "type": "frr",
-            "vm": "2",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-puertorico",
@@ -1075,7 +1075,7 @@
         {
             "name": "nodeid37",
             "type": "frr",
-            "vm": "3",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid37",
@@ -1094,7 +1094,7 @@
         {
             "name": "nodeid34",
             "type": "frr",
-            "vm": "3",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid34",
@@ -1113,7 +1113,7 @@
         {
             "name": "nodeid35",
             "type": "frr",
-            "vm": "3",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid35",
@@ -1136,7 +1136,7 @@
         {
             "name": "nodeid32",
             "type": "frr",
-            "vm": "3",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid32",
@@ -1155,7 +1155,7 @@
         {
             "name": "nodeid15",
             "type": "frr",
-            "vm": "3",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid15",
@@ -1174,7 +1174,7 @@
         {
             "name": "nodeid17",
             "type": "frr",
-            "vm": "3",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid17",
@@ -1193,7 +1193,7 @@
         {
             "name": "nodeid7",
             "type": "frr",
-            "vm": "3",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid7",
@@ -1212,7 +1212,7 @@
         {
             "name": "guatemala",
             "type": "frr",
-            "vm": "4",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-guatemala",
@@ -1231,7 +1231,7 @@
         {
             "name": "nodeid0",
             "type": "frr",
-            "vm": "4",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid0",
@@ -1250,7 +1250,7 @@
         {
             "name": "martinique",
             "type": "frr",
-            "vm": "4",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-martinique",
@@ -1269,7 +1269,7 @@
         {
             "name": "stkittsnevis",
             "type": "frr",
-            "vm": "4",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-stkittsnevis",
@@ -1292,7 +1292,7 @@
         {
             "name": "belize",
             "type": "frr",
-            "vm": "4",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-belize",
@@ -1311,7 +1311,7 @@
         {
             "name": "dominica",
             "type": "frr",
-            "vm": "4",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-dominica",
@@ -1334,7 +1334,7 @@
         {
             "name": "nodeid9",
             "type": "frr",
-            "vm": "4",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-nodeid9",
@@ -1357,7 +1357,7 @@
         {
             "name": "dominicanrepublic",
             "type": "frr",
-            "vm": "5",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-dominicanrepublic",
@@ -1380,7 +1380,7 @@
         {
             "name": "nodeid50",
             "type": "frr",
-            "vm": "5",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid50",
@@ -1403,7 +1403,7 @@
         {
             "name": "trinidadandtobago",
             "type": "frr",
-            "vm": "5",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-trinidadandtobago",
@@ -1426,7 +1426,7 @@
         {
             "name": "costarica",
             "type": "frr",
-            "vm": "5",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-costarica",
@@ -1449,7 +1449,7 @@
         {
             "name": "jamaica",
             "type": "frr",
-            "vm": "5",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-jamaica",
@@ -1468,7 +1468,7 @@
         {
             "name": "nodeid1",
             "type": "frr",
-            "vm": "5",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nodeid1",
@@ -1499,7 +1499,7 @@
         {
             "name": "turksandcaicos",
             "type": "frr",
-            "vm": "5",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-turksandcaicos",
@@ -1518,7 +1518,7 @@
         {
             "name": "bonaire",
             "type": "frr",
-            "vm": "6",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-bonaire",
@@ -1533,7 +1533,7 @@
         {
             "name": "nodeid69",
             "type": "frr",
-            "vm": "6",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nodeid69",
@@ -1552,7 +1552,7 @@
         {
             "name": "antigua",
             "type": "frr",
-            "vm": "6",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-antigua",
@@ -1571,7 +1571,7 @@
         {
             "name": "guyana",
             "type": "frr",
-            "vm": "6",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-guyana",
@@ -1586,7 +1586,7 @@
         {
             "name": "grenada",
             "type": "frr",
-            "vm": "6",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-grenada",
@@ -1605,7 +1605,7 @@
         {
             "name": "nodeid67",
             "type": "frr",
-            "vm": "6",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nodeid67",
@@ -1628,7 +1628,7 @@
         {
             "name": "guadeloupe",
             "type": "frr",
-            "vm": "6",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-guadeloupe",
@@ -1647,7 +1647,7 @@
         {
             "name": "nodeid60",
             "type": "frr",
-            "vm": "7",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nodeid60",
@@ -1666,7 +1666,7 @@
         {
             "name": "nodeid63",
             "type": "frr",
-            "vm": "7",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid63",
@@ -1689,7 +1689,7 @@
         {
             "name": "nodeid62",
             "type": "frr",
-            "vm": "7",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid62",
@@ -1704,7 +1704,7 @@
         {
             "name": "stmartin",
             "type": "frr",
-            "vm": "7",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-stmartin",
@@ -1727,7 +1727,7 @@
         {
             "name": "nodeid46",
             "type": "frr",
-            "vm": "7",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid46",
@@ -1750,7 +1750,7 @@
         {
             "name": "nodeid45",
             "type": "frr",
-            "vm": "7",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid45",
@@ -1777,7 +1777,7 @@
         {
             "name": "nodeid44",
             "type": "frr",
-            "vm": "7",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid44",
@@ -1804,7 +1804,7 @@
         {
             "name": "honduras",
             "type": "frr",
-            "vm": "8",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-honduras",
@@ -1823,7 +1823,7 @@
         {
             "name": "nodeid24",
             "type": "frr",
-            "vm": "8",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid24",
@@ -1842,7 +1842,7 @@
         {
             "name": "nodeid27",
             "type": "frr",
-            "vm": "8",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid27",
@@ -1865,7 +1865,7 @@
         {
             "name": "nodeid26",
             "type": "frr",
-            "vm": "8",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid26",
@@ -1884,7 +1884,7 @@
         {
             "name": "nodeid29",
             "type": "frr",
-            "vm": "8",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid29",
@@ -1907,7 +1907,7 @@
         {
             "name": "nodeid28",
             "type": "frr",
-            "vm": "8",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid28",
@@ -1930,7 +1930,7 @@
         {
             "name": "mexico",
             "type": "frr",
-            "vm": "8",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-mexico",
@@ -1949,7 +1949,7 @@
         {
             "name": "nodeid39",
             "type": "frr",
-            "vm": "9",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid39",
@@ -1968,7 +1968,7 @@
         {
             "name": "nodeid49",
             "type": "frr",
-            "vm": "9",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid49",
@@ -1991,7 +1991,7 @@
         {
             "name": "nodeid14",
             "type": "frr",
-            "vm": "9",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-nodeid14",
@@ -2006,7 +2006,7 @@
         {
             "name": "nodeid8",
             "type": "frr",
-            "vm": "9",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-nodeid8",
@@ -2029,7 +2029,7 @@
         {
             "name": "caymanislands",
             "type": "frr",
-            "vm": "9",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-caymanislands",
@@ -2044,7 +2044,7 @@
         {
             "name": "nicaragua",
             "type": "frr",
-            "vm": "9",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-nicaragua",
@@ -2063,7 +2063,7 @@
         {
             "name": "barbados",
             "type": "frr",
-            "vm": "9",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-barbados",
