@@ -768,6 +768,18 @@
             "subnet": "100.0.72.0/24"
         },
         {
+            "name": "net-istanbul",
+            "subnet": "100.0.12.1/24"
+        },
+        {
+            "name": "net-nicosia",
+            "subnet": "100.0.36.0/24"
+        },
+        {
+            "name": "net-skopje",
+            "subnet": "100.0.82.0/24"
+        },
+        {
             "name": "net-amsterdam",
             "subnet": "100.0.29.0/24"
         },
@@ -780,7 +792,7 @@
         {
             "name": "petrich",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-petrich",
@@ -799,7 +811,7 @@
         {
             "name": "lille",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-lille",
@@ -818,7 +830,7 @@
         {
             "name": "paris",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-paris",
@@ -837,7 +849,7 @@
         {
             "name": "bologna",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-bologna",
@@ -856,7 +868,7 @@
         {
             "name": "bratislava",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-bratislava",
@@ -875,7 +887,7 @@
         {
             "name": "tirana",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-tirana",
@@ -890,7 +902,7 @@
         {
             "name": "katwijk",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-katwijk",
@@ -909,7 +921,7 @@
         {
             "name": "beirut",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-beirut",
@@ -924,7 +936,7 @@
         {
             "name": "durres",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-durres",
@@ -943,7 +955,7 @@
         {
             "name": "nodeid18",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-nodeid18",
@@ -966,7 +978,7 @@
         {
             "name": "nodeid19",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-nodeid19",
@@ -985,7 +997,7 @@
         {
             "name": "novorossiysk",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-novorossiysk",
@@ -1000,7 +1012,7 @@
         {
             "name": "dubrovnik",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-dubrovnik",
@@ -1015,7 +1027,7 @@
         {
             "name": "catania",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-catania",
@@ -1038,7 +1050,7 @@
         {
             "name": "norden",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-norden",
@@ -1061,7 +1073,7 @@
         {
             "name": "marmaris",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-marmaris",
@@ -1076,7 +1088,7 @@
         {
             "name": "nuremberg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-nuremberg",
@@ -1095,7 +1107,7 @@
         {
             "name": "bar",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-bar",
@@ -1110,7 +1122,7 @@
         {
             "name": "pleven",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-pleven",
@@ -1129,7 +1141,7 @@
         {
             "name": "nodeid47",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid47",
@@ -1148,7 +1160,7 @@
         {
             "name": "rome",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-rome",
@@ -1167,7 +1179,7 @@
         {
             "name": "varna",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-varna",
@@ -1182,7 +1194,7 @@
         {
             "name": "marseille",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-marseille",
@@ -1201,7 +1213,7 @@
         {
             "name": "conil",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-conil",
@@ -1220,7 +1232,7 @@
         {
             "name": "tousa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-tousa",
@@ -1235,7 +1247,7 @@
         {
             "name": "nodeid41",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid41",
@@ -1258,7 +1270,7 @@
         {
             "name": "opteglobetbn",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-opteglobetbn",
@@ -1281,7 +1293,7 @@
         {
             "name": "milan",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-milan",
@@ -1304,7 +1316,7 @@
         {
             "name": "alexandroupolis",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-alexandroupolis",
@@ -1331,7 +1343,7 @@
         {
             "name": "london",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-london",
@@ -1354,7 +1366,7 @@
         {
             "name": "svilengrad",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-svilengrad",
@@ -1377,7 +1389,7 @@
         {
             "name": "genova",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-genova",
@@ -1400,7 +1412,7 @@
         {
             "name": "corfu",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-corfu",
@@ -1435,7 +1447,7 @@
         {
             "name": "kilkis",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-kilkis",
@@ -1454,7 +1466,7 @@
         {
             "name": "dunaujvaros",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-dunaujvaros",
@@ -1473,7 +1485,7 @@
         {
             "name": "vienna",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-vienna",
@@ -1500,7 +1512,7 @@
         {
             "name": "walserberg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-walserberg",
@@ -1519,7 +1531,7 @@
         {
             "name": "nodeid33",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-nodeid33",
@@ -1542,7 +1554,7 @@
         {
             "name": "nodeid31",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-nodeid31",
@@ -1573,7 +1585,7 @@
         {
             "name": "penmarch",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-penmarch",
@@ -1592,7 +1604,7 @@
         {
             "name": "gevgelija",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-gevgelija",
@@ -1607,7 +1619,7 @@
         {
             "name": "haifa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-haifa",
@@ -1626,7 +1638,7 @@
         {
             "name": "hegyeshantom",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-hegyeshantom",
@@ -1645,7 +1657,7 @@
         {
             "name": "bitola",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-bitola",
@@ -1660,7 +1672,7 @@
         {
             "name": "agianapa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-agianapa",
@@ -1675,7 +1687,7 @@
         {
             "name": "kastanies",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-kastanies",
@@ -1698,7 +1710,7 @@
         {
             "name": "stuttgart",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-stuttgart",
@@ -1717,7 +1729,7 @@
         {
             "name": "istanbul",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-istanbul",
@@ -1728,7 +1740,7 @@
         {
             "name": "chania",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-chania",
@@ -1767,7 +1779,7 @@
         {
             "name": "frankfurt",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-frankfurt",
@@ -1794,7 +1806,7 @@
         {
             "name": "thessaloniki",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-thessaloniki",
@@ -1829,7 +1841,7 @@
         {
             "name": "haskavo",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-haskavo",
@@ -1844,7 +1856,7 @@
         {
             "name": "zurich",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-zurich",
@@ -1863,7 +1875,7 @@
         {
             "name": "bari",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-bari",
@@ -1886,7 +1898,7 @@
         {
             "name": "nicosia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nicosia",
@@ -1897,7 +1909,7 @@
         {
             "name": "derna",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-derna",
@@ -1912,7 +1924,7 @@
         {
             "name": "cornwallstations",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-cornwallstations",
@@ -1951,7 +1963,7 @@
         {
             "name": "lyon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-lyon",
@@ -1970,7 +1982,7 @@
         {
             "name": "nahariya",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nahariya",
@@ -1985,7 +1997,7 @@
         {
             "name": "otranto",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-otranto",
@@ -2000,7 +2012,7 @@
         {
             "name": "drobetaturnusevenin",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-drobetaturnusevenin",
@@ -2019,7 +2031,7 @@
         {
             "name": "promachonas",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-promachonas",
@@ -2038,7 +2050,7 @@
         {
             "name": "usa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-usa",
@@ -2053,7 +2065,7 @@
         {
             "name": "telaviv",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-telaviv",
@@ -2072,7 +2084,7 @@
         {
             "name": "palermo",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-palermo",
@@ -2087,7 +2099,7 @@
         {
             "name": "ostend",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-ostend",
@@ -2102,7 +2114,7 @@
         {
             "name": "malta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-malta",
@@ -2117,7 +2129,7 @@
         {
             "name": "tartus",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-tartus",
@@ -2132,7 +2144,7 @@
         {
             "name": "timisoara",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-timisoara",
@@ -2159,7 +2171,7 @@
         {
             "name": "nodeid44",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid44",
@@ -2182,7 +2194,7 @@
         {
             "name": "nodeid42",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid42",
@@ -2205,7 +2217,7 @@
         {
             "name": "tgcarbunesti",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-tgcarbunesti",
@@ -2224,7 +2236,7 @@
         {
             "name": "edirne",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-edirne",
@@ -2243,7 +2255,7 @@
         {
             "name": "kilmorequay",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-kilmorequay",
@@ -2258,7 +2270,7 @@
         {
             "name": "blaabjerg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-blaabjerg",
@@ -2277,7 +2289,7 @@
         {
             "name": "venice",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-venice",
@@ -2296,7 +2308,7 @@
         {
             "name": "athens",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-athens",
@@ -2323,7 +2335,7 @@
         {
             "name": "bucharest",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-bucharest",
@@ -2342,7 +2354,7 @@
         {
             "name": "starazagora",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-starazagora",
@@ -2361,7 +2373,7 @@
         {
             "name": "russe",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-russe",
@@ -2384,7 +2396,7 @@
         {
             "name": "skopje",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-skopje",
@@ -2395,7 +2407,7 @@
         {
             "name": "suez",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-suez",
@@ -2410,7 +2422,7 @@
         {
             "name": "kesan",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-kesan",
@@ -2425,7 +2437,7 @@
         {
             "name": "estepona",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-estepona",
@@ -2440,7 +2452,7 @@
         {
             "name": "budapest",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-budapest",
@@ -2459,7 +2471,7 @@
         {
             "name": "mazara",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-mazara",
@@ -2478,7 +2490,7 @@
         {
             "name": "sesimbra",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-sesimbra",
@@ -2497,7 +2509,7 @@
         {
             "name": "pentaskinos",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-pentaskinos",
@@ -2516,7 +2528,7 @@
         {
             "name": "valery",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-valery",
@@ -2535,7 +2547,7 @@
         {
             "name": "sofia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-sofia",
@@ -2566,7 +2578,7 @@
         {
             "name": "komotini",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-komotini",
@@ -2589,7 +2601,7 @@
         {
             "name": "amsterdam",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-amsterdam",
@@ -2608,7 +2620,7 @@
         {
             "name": "yeroskipos",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-yeroskipos",
