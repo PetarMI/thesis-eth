@@ -592,7 +592,7 @@
         {
             "name": "albany",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-albany-gloversville",
@@ -615,7 +615,7 @@
         {
             "name": "ogdensburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-ogdensburg-alexandriabay",
@@ -630,7 +630,7 @@
         {
             "name": "jamestown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-jamestown-nodeid94",
@@ -641,7 +641,7 @@
         {
             "name": "forestcity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-forestcity-hancock",
@@ -656,7 +656,7 @@
         {
             "name": "nodeid91",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-nodeid91-malone",
@@ -671,7 +671,7 @@
         {
             "name": "cooperstown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-cooperstown-hamilton",
@@ -686,7 +686,7 @@
         {
             "name": "nodeid93",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-nodeid93-nodeid123",
@@ -705,7 +705,7 @@
         {
             "name": "nodeid94",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-jamestown-nodeid94",
@@ -724,7 +724,7 @@
         {
             "name": "barre",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-barre-mountpelier",
@@ -735,7 +735,7 @@
         {
             "name": "nodeid96",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-nodeid96-nodeid90",
@@ -754,7 +754,7 @@
         {
             "name": "chesterfield",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-chesterfield-schroonlake",
@@ -769,7 +769,7 @@
         {
             "name": "addison",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-addison-crownpoint",
@@ -784,7 +784,7 @@
         {
             "name": "paulsmiths",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-paulsmiths-saranaclake",
@@ -799,7 +799,7 @@
         {
             "name": "delhi",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-delhi-margaretsville",
@@ -814,7 +814,7 @@
         {
             "name": "bellowsfalls",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-bellowsfalls-whiteriverjunction",
@@ -829,7 +829,7 @@
         {
             "name": "winooski",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-winooski-burlington",
@@ -844,7 +844,7 @@
         {
             "name": "addisonid45",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-addisonid45-whitesville",
@@ -859,7 +859,7 @@
         {
             "name": "waterloo",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-waterloo-phelps",
@@ -870,7 +870,7 @@
         {
             "name": "hancock",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-forestcity-hancock",
@@ -889,7 +889,7 @@
         {
             "name": "dryden",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-dryden-cortland",
@@ -908,7 +908,7 @@
         {
             "name": "burdett",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-burdett-nodeid109",
@@ -923,7 +923,7 @@
         {
             "name": "nodeid109",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid109-ovid",
@@ -942,7 +942,7 @@
         {
             "name": "olean",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-olean-wellsville",
@@ -957,7 +957,7 @@
         {
             "name": "newport",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-newport-nodeid111",
@@ -972,7 +972,7 @@
         {
             "name": "plattsburgh",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-plattsburgh-chazy",
@@ -991,7 +991,7 @@
         {
             "name": "nodeid89",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid89-nodeid90",
@@ -1010,7 +1010,7 @@
         {
             "name": "rowland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-rowland-portjervis",
@@ -1025,7 +1025,7 @@
         {
             "name": "keene",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-keene-brattleboro",
@@ -1036,7 +1036,7 @@
         {
             "name": "nodeid90",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid89-nodeid90",
@@ -1051,7 +1051,7 @@
         {
             "name": "mountpelier",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-mountpelier-whiteriverjunction",
@@ -1070,7 +1070,7 @@
         {
             "name": "nodeid92",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid92-middleburgh",
@@ -1085,7 +1085,7 @@
         {
             "name": "lowville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-lowville-watertown",
@@ -1100,7 +1100,7 @@
         {
             "name": "manchester",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-manchester-rutland",
@@ -1115,7 +1115,7 @@
         {
             "name": "portjervis",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-rowland-portjervis",
@@ -1130,7 +1130,7 @@
         {
             "name": "ithaca",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid109-ithaca",
@@ -1145,7 +1145,7 @@
         {
             "name": "nodeid95",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-nodeid95-barreid68",
@@ -1164,7 +1164,7 @@
         {
             "name": "lakeplacid",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-lakeplacid-westport",
@@ -1179,7 +1179,7 @@
         {
             "name": "brattleboro",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-brattleboro-boston",
@@ -1206,7 +1206,7 @@
         {
             "name": "rochester",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-nodeid95-rochester",
@@ -1221,7 +1221,7 @@
         {
             "name": "burlington",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-burlington-middlebury",
@@ -1252,7 +1252,7 @@
         {
             "name": "massena",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-nodeid91-massena",
@@ -1271,7 +1271,7 @@
         {
             "name": "alfred",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-alfred-nodeid21",
@@ -1290,7 +1290,7 @@
         {
             "name": "empiretelephoneco",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid95-empiretelephoneco",
@@ -1301,7 +1301,7 @@
         {
             "name": "nodeid112",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid112-nodeid113",
@@ -1320,7 +1320,7 @@
         {
             "name": "nodeid113",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid112-nodeid113",
@@ -1339,7 +1339,7 @@
         {
             "name": "nodeid110",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid110-auburn",
@@ -1358,7 +1358,7 @@
         {
             "name": "nodeid111",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid113-nodeid111",
@@ -1381,7 +1381,7 @@
         {
             "name": "nodeid114",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-nodeid114-remsen",
@@ -1400,7 +1400,7 @@
         {
             "name": "nodeid30",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-burlington-nodeid30",
@@ -1415,7 +1415,7 @@
         {
             "name": "nodeid31",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-winooski-nodeid31",
@@ -1430,7 +1430,7 @@
         {
             "name": "remsen",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nodeid114-remsen",
@@ -1445,7 +1445,7 @@
         {
             "name": "saratogasprings",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nodeid92-saratogasprings",
@@ -1460,7 +1460,7 @@
         {
             "name": "hamilton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-cooperstown-hamilton",
@@ -1475,7 +1475,7 @@
         {
             "name": "syracuse",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-nodeid112-syracuse",
@@ -1502,7 +1502,7 @@
         {
             "name": "saugerties",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-albany-saugerties",
@@ -1517,7 +1517,7 @@
         {
             "name": "morrisville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-morrisville-cazenovia",
@@ -1532,7 +1532,7 @@
         {
             "name": "watertown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-watertown-pulaski",
@@ -1555,7 +1555,7 @@
         {
             "name": "margaretsville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-margaretsville-middleburgh",
@@ -1570,7 +1570,7 @@
         {
             "name": "deposit",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-hancock-deposit",
@@ -1585,7 +1585,7 @@
         {
             "name": "nodeid124",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-ithaca-nodeid124",
@@ -1604,7 +1604,7 @@
         {
             "name": "buffalo",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-buffalo-barreid68",
@@ -1623,7 +1623,7 @@
         {
             "name": "nodeid21",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nodeid21-whitesville",
@@ -1642,7 +1642,7 @@
         {
             "name": "malone",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid91-malone",
@@ -1657,7 +1657,7 @@
         {
             "name": "nodeid22",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid22-whitesville",
@@ -1676,7 +1676,7 @@
         {
             "name": "nodeid24",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-nodeid24-poughkeepsie",
@@ -1691,7 +1691,7 @@
         {
             "name": "boston",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-brattleboro-boston",
@@ -1702,7 +1702,7 @@
         {
             "name": "almond",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-almond-ingleside",
@@ -1717,7 +1717,7 @@
         {
             "name": "southcanaan",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-forestcity-southcanaan",
@@ -1732,7 +1732,7 @@
         {
             "name": "middlebury",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-addison-middlebury",
@@ -1751,7 +1751,7 @@
         {
             "name": "harriman",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-harriman-monroe",
@@ -1770,7 +1770,7 @@
         {
             "name": "cassadaga",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid94-cassadaga",
@@ -1785,7 +1785,7 @@
         {
             "name": "oneonta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-cooperstown-oneonta",
@@ -1800,7 +1800,7 @@
         {
             "name": "canton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid89-canton",
@@ -1815,7 +1815,7 @@
         {
             "name": "middleburgh",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-margaretsville-middleburgh",
@@ -1834,7 +1834,7 @@
         {
             "name": "schroonlake",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-chesterfield-schroonlake",
@@ -1849,7 +1849,7 @@
         {
             "name": "gouveneur",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-watertown-gouveneur",
@@ -1864,7 +1864,7 @@
         {
             "name": "salamanca",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-olean-salamanca",
@@ -1879,7 +1879,7 @@
         {
             "name": "nodeid123",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid93-nodeid123",
@@ -1898,7 +1898,7 @@
         {
             "name": "crownpoint",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-crownpoint-westport",
@@ -1917,7 +1917,7 @@
         {
             "name": "altmar",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-syracuse-altmar",
@@ -1928,7 +1928,7 @@
         {
             "name": "vernon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-nodeid112-vernon",
@@ -1943,7 +1943,7 @@
         {
             "name": "poughkeepsie",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-poughkeepsie-putnamvalley",
@@ -1958,7 +1958,7 @@
         {
             "name": "corning",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-corning-elmira",
@@ -1973,7 +1973,7 @@
         {
             "name": "cobleskill",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-middleburgh-cobleskill",
@@ -1988,7 +1988,7 @@
         {
             "name": "germantown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-nodeid24-germantown",
@@ -2003,7 +2003,7 @@
         {
             "name": "ovid",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-nodeid109-ovid",
@@ -2018,7 +2018,7 @@
         {
             "name": "coxsackie",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-albany-coxsackie",
@@ -2033,7 +2033,7 @@
         {
             "name": "rutland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-manchester-rutland",
@@ -2052,7 +2052,7 @@
         {
             "name": "newyorkcity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-newyorkcity-putnamvalley",
@@ -2067,7 +2067,7 @@
         {
             "name": "fredonia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-cassadaga-fredonia",
@@ -2082,7 +2082,7 @@
         {
             "name": "alexandriabay",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-watertown-alexandriabay",
@@ -2097,7 +2097,7 @@
         {
             "name": "lebanon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-lebanon-whiteriverjunction",
@@ -2108,7 +2108,7 @@
         {
             "name": "auburn",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-nodeid110-auburn",
@@ -2123,7 +2123,7 @@
         {
             "name": "benningtown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-brattleboro-benningtown",
@@ -2138,7 +2138,7 @@
         {
             "name": "essexjunction",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-mountpelier-essexjunction",
@@ -2153,7 +2153,7 @@
         {
             "name": "utica",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-vernon-utica",
@@ -2168,7 +2168,7 @@
         {
             "name": "chazy",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-chazy-champlain",
@@ -2183,7 +2183,7 @@
         {
             "name": "pulaski",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-watertown-pulaski",
@@ -2198,7 +2198,7 @@
         {
             "name": "herkimmer",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-nodeid111-herkimmer",
@@ -2213,7 +2213,7 @@
         {
             "name": "potsdam",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-massena-potsdam",
@@ -2232,7 +2232,7 @@
         {
             "name": "putney",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-brattleboro-putney",
@@ -2243,7 +2243,7 @@
         {
             "name": "westport",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-lakeplacid-westport",
@@ -2262,7 +2262,7 @@
         {
             "name": "cortland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-cortland-cazenovia",
@@ -2277,7 +2277,7 @@
         {
             "name": "odessa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-odessa-elmira",
@@ -2300,7 +2300,7 @@
         {
             "name": "queensbury",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-albany-queensbury",
@@ -2315,7 +2315,7 @@
         {
             "name": "putnamvalley",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-poughkeepsie-putnamvalley",
@@ -2330,7 +2330,7 @@
         {
             "name": "geneva",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-ovid-geneva",
@@ -2345,7 +2345,7 @@
         {
             "name": "whitehall",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-saratogasprings-whitehall",
@@ -2364,7 +2364,7 @@
         {
             "name": "millerton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-nodeid123-millerton",
@@ -2375,7 +2375,7 @@
         {
             "name": "barreid68",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-buffalo-barreid68",
@@ -2390,7 +2390,7 @@
         {
             "name": "ingleside",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-almond-ingleside",
@@ -2405,7 +2405,7 @@
         {
             "name": "cazenovia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-cortland-cazenovia",
@@ -2420,7 +2420,7 @@
         {
             "name": "champlain",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-westport-champlain",
@@ -2435,7 +2435,7 @@
         {
             "name": "binghampton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-deposit-binghampton",
@@ -2454,7 +2454,7 @@
         {
             "name": "bristol",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-burlington-bristol",
@@ -2469,7 +2469,7 @@
         {
             "name": "boonville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-remsen-boonville",
@@ -2484,7 +2484,7 @@
         {
             "name": "phelps",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-nodeid110-phelps",
@@ -2507,7 +2507,7 @@
         {
             "name": "norwich",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-binghampton-norwich",
@@ -2518,7 +2518,7 @@
         {
             "name": "elmira",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-corning-elmira",
@@ -2533,7 +2533,7 @@
         {
             "name": "whiteriverjunction",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-mountpelier-whiteriverjunction",
@@ -2552,7 +2552,7 @@
         {
             "name": "wellsville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-nodeid21-wellsville",
@@ -2571,7 +2571,7 @@
         {
             "name": "saranaclake",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-lakeplacid-saranaclake",
@@ -2586,7 +2586,7 @@
         {
             "name": "whitesville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-nodeid21-whitesville",
@@ -2605,7 +2605,7 @@
         {
             "name": "gloversville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-albany-gloversville",
@@ -2620,7 +2620,7 @@
         {
             "name": "monroe",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-portjervis-monroe",
