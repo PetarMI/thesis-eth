@@ -769,7 +769,7 @@
         },
         {
             "name": "net-istanbul",
-            "subnet": "100.0.12.1/24"
+            "subnet": "100.0.12.0/24"
         },
         {
             "name": "net-nicosia",
@@ -1902,7 +1902,7 @@
             "interfaces": [
                 {
                     "network": "net-nicosia",
-                    "ipaddr": "100.0.36.0/24"
+                    "ipaddr": "100.0.36.1/24"
                 }
             ]
         },
@@ -2400,7 +2400,7 @@
             "interfaces": [
                 {
                     "network": "net-skopje",
-                    "ipaddr": "100.0.82.0/24"
+                    "ipaddr": "100.0.82.1/24"
                 }
             ]
         },
