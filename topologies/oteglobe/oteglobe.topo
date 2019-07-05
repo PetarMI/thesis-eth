@@ -1512,7 +1512,7 @@
         {
             "name": "walserberg",
             "type": "frr",
-            "vm": "5",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-walserberg",
@@ -1638,7 +1638,7 @@
         {
             "name": "hegyeshantom",
             "type": "frr",
-            "vm": "6",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-hegyeshantom",
@@ -1657,7 +1657,7 @@
         {
             "name": "bitola",
             "type": "frr",
-            "vm": "6",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-bitola",
@@ -1740,7 +1740,7 @@
         {
             "name": "chania",
             "type": "frr",
-            "vm": "7",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-chania",
@@ -1779,7 +1779,7 @@
         {
             "name": "frankfurt",
             "type": "frr",
-            "vm": "7",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-frankfurt",
@@ -1806,7 +1806,7 @@
         {
             "name": "thessaloniki",
             "type": "frr",
-            "vm": "7",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-thessaloniki",
@@ -1898,7 +1898,7 @@
         {
             "name": "nicosia",
             "type": "frr",
-            "vm": "8",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nicosia",
@@ -1909,7 +1909,7 @@
         {
             "name": "derna",
             "type": "frr",
-            "vm": "8",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-derna",
@@ -1924,7 +1924,7 @@
         {
             "name": "cornwallstations",
             "type": "frr",
-            "vm": "8",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-cornwallstations",
@@ -1963,7 +1963,7 @@
         {
             "name": "lyon",
             "type": "frr",
-            "vm": "8",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-lyon",
@@ -2012,7 +2012,7 @@
         {
             "name": "drobetaturnusevenin",
             "type": "frr",
-            "vm": "9",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-drobetaturnusevenin",
@@ -2031,7 +2031,7 @@
         {
             "name": "promachonas",
             "type": "frr",
-            "vm": "9",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-promachonas",
@@ -2050,7 +2050,7 @@
         {
             "name": "usa",
             "type": "frr",
-            "vm": "9",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-usa",
@@ -2065,7 +2065,7 @@
         {
             "name": "telaviv",
             "type": "frr",
-            "vm": "9",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-telaviv",
@@ -2084,7 +2084,7 @@
         {
             "name": "palermo",
             "type": "frr",
-            "vm": "9",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-palermo",
@@ -2114,7 +2114,7 @@
         {
             "name": "malta",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-malta",
@@ -2129,7 +2129,7 @@
         {
             "name": "tartus",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-tartus",
@@ -2144,7 +2144,7 @@
         {
             "name": "timisoara",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-timisoara",
@@ -2171,7 +2171,7 @@
         {
             "name": "nodeid44",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid44",
@@ -2194,7 +2194,7 @@
         {
             "name": "nodeid42",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-nodeid42",
@@ -2217,7 +2217,7 @@
         {
             "name": "tgcarbunesti",
             "type": "frr",
-            "vm": "10",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-tgcarbunesti",
@@ -2236,7 +2236,7 @@
         {
             "name": "edirne",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-edirne",
@@ -2255,7 +2255,7 @@
         {
             "name": "kilmorequay",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-kilmorequay",
@@ -2270,7 +2270,7 @@
         {
             "name": "blaabjerg",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-blaabjerg",
@@ -2289,7 +2289,7 @@
         {
             "name": "venice",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-venice",
@@ -2308,7 +2308,7 @@
         {
             "name": "athens",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-athens",
@@ -2335,7 +2335,7 @@
         {
             "name": "bucharest",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-bucharest",
@@ -2354,7 +2354,7 @@
         {
             "name": "starazagora",
             "type": "frr",
-            "vm": "11",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-starazagora",
@@ -2373,7 +2373,7 @@
         {
             "name": "russe",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-russe",
@@ -2396,7 +2396,7 @@
         {
             "name": "skopje",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-skopje",
@@ -2407,7 +2407,7 @@
         {
             "name": "suez",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-suez",
@@ -2422,7 +2422,7 @@
         {
             "name": "kesan",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-kesan",
@@ -2437,7 +2437,7 @@
         {
             "name": "estepona",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-estepona",
@@ -2452,7 +2452,7 @@
         {
             "name": "budapest",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-budapest",
@@ -2471,7 +2471,7 @@
         {
             "name": "mazara",
             "type": "frr",
-            "vm": "12",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-mazara",
@@ -2490,7 +2490,7 @@
         {
             "name": "sesimbra",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-sesimbra",
@@ -2509,7 +2509,7 @@
         {
             "name": "pentaskinos",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-pentaskinos",
@@ -2528,7 +2528,7 @@
         {
             "name": "valery",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-valery",
@@ -2547,7 +2547,7 @@
         {
             "name": "sofia",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-sofia",
@@ -2578,7 +2578,7 @@
         {
             "name": "komotini",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-komotini",
@@ -2601,7 +2601,7 @@
         {
             "name": "amsterdam",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-amsterdam",
@@ -2620,7 +2620,7 @@
         {
             "name": "yeroskipos",
             "type": "frr",
-            "vm": "13",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-yeroskipos",
