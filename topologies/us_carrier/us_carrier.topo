@@ -1396,7 +1396,7 @@
         {
             "name": "roanoke",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-roanoke",
@@ -1423,7 +1423,7 @@
         {
             "name": "albany",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-albany",
@@ -1442,7 +1442,7 @@
         {
             "name": "youngharris",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-youngharris",
@@ -1465,7 +1465,7 @@
         {
             "name": "montgomery",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-montgomery",
@@ -1492,7 +1492,7 @@
         {
             "name": "charlottesville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-charlottesville",
@@ -1511,7 +1511,7 @@
         {
             "name": "warwick",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-warwick",
@@ -1530,7 +1530,7 @@
         {
             "name": "spartanburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "0",
             "interfaces": [
                 {
                     "network": "net-spartanburg",
@@ -1553,7 +1553,7 @@
         {
             "name": "toccoa",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-toccoa",
@@ -1572,7 +1572,7 @@
         {
             "name": "harrisonburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-harrisonburg",
@@ -1595,7 +1595,7 @@
         {
             "name": "ashburn",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-ashburn",
@@ -1614,7 +1614,7 @@
         {
             "name": "waynesboro",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-waynesboro",
@@ -1641,7 +1641,7 @@
         {
             "name": "atlanta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-atlanta",
@@ -1676,7 +1676,7 @@
         {
             "name": "greenwood",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-greenwood",
@@ -1691,7 +1691,7 @@
         {
             "name": "pembroke",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "1",
             "interfaces": [
                 {
                     "network": "net-pembroke",
@@ -1710,7 +1710,7 @@
         {
             "name": "bristol",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-bristol",
@@ -1733,7 +1733,7 @@
         {
             "name": "ellijay",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-ellijay",
@@ -1756,7 +1756,7 @@
         {
             "name": "hickory",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-hickory",
@@ -1775,7 +1775,7 @@
         {
             "name": "lexingtonid33",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-lexingtonid33",
@@ -1802,7 +1802,7 @@
         {
             "name": "myrtlebeach",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-myrtlebeach",
@@ -1825,7 +1825,7 @@
         {
             "name": "winterpark",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-winterpark",
@@ -1844,7 +1844,7 @@
         {
             "name": "lexington",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "2",
             "interfaces": [
                 {
                     "network": "net-lexington",
@@ -1863,7 +1863,7 @@
         {
             "name": "augusta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-augusta",
@@ -1890,7 +1890,7 @@
         {
             "name": "yemassee",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-yemassee",
@@ -1917,7 +1917,7 @@
         {
             "name": "nodeid82",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid82",
@@ -1940,7 +1940,7 @@
         {
             "name": "stephenscity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-stephenscity",
@@ -1959,7 +1959,7 @@
         {
             "name": "nodeid86",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid86",
@@ -1982,7 +1982,7 @@
         {
             "name": "nodeid85",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid85",
@@ -2005,7 +2005,7 @@
         {
             "name": "nodeid84",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "3",
             "interfaces": [
                 {
                     "network": "net-nodeid84",
@@ -2028,7 +2028,7 @@
         {
             "name": "clemson",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-clemson",
@@ -2055,7 +2055,7 @@
         {
             "name": "walterboro",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-walterboro",
@@ -2074,7 +2074,7 @@
         {
             "name": "nodeid79",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-nodeid79",
@@ -2097,7 +2097,7 @@
         {
             "name": "johnsoncity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-johnsoncity",
@@ -2116,7 +2116,7 @@
         {
             "name": "charlotte",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-charlotte",
@@ -2139,7 +2139,7 @@
         {
             "name": "pensacola",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-pensacola",
@@ -2158,7 +2158,7 @@
         {
             "name": "savannah",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "4",
             "interfaces": [
                 {
                     "network": "net-savannah",
@@ -2185,7 +2185,7 @@
         {
             "name": "omega",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-omega",
@@ -2212,7 +2212,7 @@
         {
             "name": "kingsport",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-kingsport",
@@ -2231,7 +2231,7 @@
         {
             "name": "warrenton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-warrenton",
@@ -2250,7 +2250,7 @@
         {
             "name": "durham",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-durham",
@@ -2269,7 +2269,7 @@
         {
             "name": "marion",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-marion",
@@ -2288,7 +2288,7 @@
         {
             "name": "charlestonid102",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-charlestonid102",
@@ -2307,7 +2307,7 @@
         {
             "name": "darien",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "5",
             "interfaces": [
                 {
                     "network": "net-darien",
@@ -2326,7 +2326,7 @@
         {
             "name": "ocala",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-ocala",
@@ -2345,7 +2345,7 @@
         {
             "name": "hagerstown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-hagerstown",
@@ -2364,7 +2364,7 @@
         {
             "name": "winchester",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-winchester",
@@ -2383,7 +2383,7 @@
         {
             "name": "sparta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-sparta",
@@ -2406,7 +2406,7 @@
         {
             "name": "levelcross",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-levelcross",
@@ -2425,7 +2425,7 @@
         {
             "name": "rentz",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-rentz",
@@ -2444,7 +2444,7 @@
         {
             "name": "sumter",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "6",
             "interfaces": [
                 {
                     "network": "net-sumter",
@@ -2467,7 +2467,7 @@
         {
             "name": "monkscorner",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-monkscorner",
@@ -2486,7 +2486,7 @@
         {
             "name": "anderson",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-anderson",
@@ -2501,7 +2501,7 @@
         {
             "name": "tarheel",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-tarheel",
@@ -2520,7 +2520,7 @@
         {
             "name": "kershaw",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-kershaw",
@@ -2539,7 +2539,7 @@
         {
             "name": "maretta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-maretta",
@@ -2558,7 +2558,7 @@
         {
             "name": "chamersburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-chamersburg",
@@ -2577,7 +2577,7 @@
         {
             "name": "hiltonhead",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "7",
             "interfaces": [
                 {
                     "network": "net-hiltonhead",
@@ -2596,7 +2596,7 @@
         {
             "name": "blueridge",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-blueridge",
@@ -2619,7 +2619,7 @@
         {
             "name": "beaufort",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-beaufort",
@@ -2638,7 +2638,7 @@
         {
             "name": "lynchburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-lynchburg",
@@ -2661,7 +2661,7 @@
         {
             "name": "blacksburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-blacksburg",
@@ -2680,7 +2680,7 @@
         {
             "name": "hiawassee",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-hiawassee",
@@ -2699,7 +2699,7 @@
         {
             "name": "dalton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-dalton",
@@ -2722,7 +2722,7 @@
         {
             "name": "radford",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "8",
             "interfaces": [
                 {
                     "network": "net-radford",
@@ -2741,7 +2741,7 @@
         {
             "name": "calhoun",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-calhoun",
@@ -2756,7 +2756,7 @@
         {
             "name": "columbia",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-columbia",
@@ -2787,7 +2787,7 @@
         {
             "name": "highpoint",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-highpoint",
@@ -2810,7 +2810,7 @@
         {
             "name": "blountstown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-blountstown",
@@ -2829,7 +2829,7 @@
         {
             "name": "leslie",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-leslie",
@@ -2848,7 +2848,7 @@
         {
             "name": "nahunta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-nahunta",
@@ -2871,7 +2871,7 @@
         {
             "name": "frontroyal",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "9",
             "interfaces": [
                 {
                     "network": "net-frontroyal",
@@ -2890,7 +2890,7 @@
         {
             "name": "mobile",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-mobile",
@@ -2909,7 +2909,7 @@
         {
             "name": "greenvilleid16",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-greenvilleid16",
@@ -2928,7 +2928,7 @@
         {
             "name": "baldwin",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-baldwin",
@@ -2947,7 +2947,7 @@
         {
             "name": "metter",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-metter",
@@ -2966,7 +2966,7 @@
         {
             "name": "chester",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-chester",
@@ -2989,7 +2989,7 @@
         {
             "name": "lancaster",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-lancaster",
@@ -3008,7 +3008,7 @@
         {
             "name": "rockymount",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-rockymount",
@@ -3027,7 +3027,7 @@
         {
             "name": "cherokee",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "10",
             "interfaces": [
                 {
                     "network": "net-cherokee",
@@ -3046,7 +3046,7 @@
         {
             "name": "cartersville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-cartersville",
@@ -3065,7 +3065,7 @@
         {
             "name": "greenville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-greenville",
@@ -3092,7 +3092,7 @@
         {
             "name": "canton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-canton",
@@ -3111,7 +3111,7 @@
         {
             "name": "hinesville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-hinesville",
@@ -3130,7 +3130,7 @@
         {
             "name": "tifton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-tifton",
@@ -3149,7 +3149,7 @@
         {
             "name": "columbus",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-columbus",
@@ -3168,7 +3168,7 @@
         {
             "name": "jacksonvilleid5",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-jacksonvilleid5",
@@ -3187,7 +3187,7 @@
         {
             "name": "kinston",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "11",
             "interfaces": [
                 {
                     "network": "net-kinston",
@@ -3206,7 +3206,7 @@
         {
             "name": "leesburgid143",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-leesburgid143",
@@ -3225,7 +3225,7 @@
         {
             "name": "avonpark",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-avonpark",
@@ -3244,7 +3244,7 @@
         {
             "name": "asheville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-asheville",
@@ -3263,7 +3263,7 @@
         {
             "name": "hickorytavern",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-hickorytavern",
@@ -3282,7 +3282,7 @@
         {
             "name": "macon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-macon",
@@ -3305,7 +3305,7 @@
         {
             "name": "orangeburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-orangeburg",
@@ -3320,7 +3320,7 @@
         {
             "name": "abbeville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-abbeville",
@@ -3343,7 +3343,7 @@
         {
             "name": "bluefield",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "12",
             "interfaces": [
                 {
                     "network": "net-bluefield",
@@ -3358,7 +3358,7 @@
         {
             "name": "abingdon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-abingdon",
@@ -3377,7 +3377,7 @@
         {
             "name": "maitland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-maitland",
@@ -3396,7 +3396,7 @@
         {
             "name": "martinsburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-martinsburg",
@@ -3415,7 +3415,7 @@
         {
             "name": "franklin",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-franklin",
@@ -3434,7 +3434,7 @@
         {
             "name": "waycross",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-waycross",
@@ -3453,7 +3453,7 @@
         {
             "name": "adel",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-adel",
@@ -3472,7 +3472,7 @@
         {
             "name": "charleston",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-charleston",
@@ -3491,7 +3491,7 @@
         {
             "name": "fayetteville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "13",
             "interfaces": [
                 {
                     "network": "net-fayetteville",
@@ -3522,7 +3522,7 @@
         {
             "name": "greensboro",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-greensboro",
@@ -3545,7 +3545,7 @@
         {
             "name": "ringgold",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-ringgold",
@@ -3564,7 +3564,7 @@
         {
             "name": "concord",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-concord",
@@ -3583,7 +3583,7 @@
         {
             "name": "gettysburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-gettysburg",
@@ -3602,7 +3602,7 @@
         {
             "name": "hartwell",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-hartwell",
@@ -3621,7 +3621,7 @@
         {
             "name": "birmingham",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-birmingham",
@@ -3640,7 +3640,7 @@
         {
             "name": "boone",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-boone",
@@ -3659,7 +3659,7 @@
         {
             "name": "burlington",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "14",
             "interfaces": [
                 {
                     "network": "net-burlington",
@@ -3678,7 +3678,7 @@
         {
             "name": "leesburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-leesburg",
@@ -3697,7 +3697,7 @@
         {
             "name": "florence",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-florence",
@@ -3724,7 +3724,7 @@
         {
             "name": "bethune",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-bethune",
@@ -3743,7 +3743,7 @@
         {
             "name": "herndon",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-herndon",
@@ -3762,7 +3762,7 @@
         {
             "name": "martinsville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-martinsville",
@@ -3781,7 +3781,7 @@
         {
             "name": "courtney",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-courtney",
@@ -3800,7 +3800,7 @@
         {
             "name": "troutville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-troutville",
@@ -3827,7 +3827,7 @@
         {
             "name": "athens",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "15",
             "interfaces": [
                 {
                     "network": "net-athens",
@@ -3846,7 +3846,7 @@
         {
             "name": "douglas",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-douglas",
@@ -3865,7 +3865,7 @@
         {
             "name": "copperhill",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-copperhill",
@@ -3884,7 +3884,7 @@
         {
             "name": "kernersville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-kernersville",
@@ -3903,7 +3903,7 @@
         {
             "name": "nodeid78",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-nodeid78",
@@ -3926,7 +3926,7 @@
         {
             "name": "panamacity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-panamacity",
@@ -3949,7 +3949,7 @@
         {
             "name": "danville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-danville",
@@ -3972,7 +3972,7 @@
         {
             "name": "hawkinsville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-hawkinsville",
@@ -3995,7 +3995,7 @@
         {
             "name": "georgetown",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "16",
             "interfaces": [
                 {
                     "network": "net-georgetown",
@@ -4014,7 +4014,7 @@
         {
             "name": "rockymountid11",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-rockymountid11",
@@ -4037,7 +4037,7 @@
         {
             "name": "staunton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-staunton",
@@ -4060,7 +4060,7 @@
         {
             "name": "murphy",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-murphy",
@@ -4079,7 +4079,7 @@
         {
             "name": "edinburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-edinburg",
@@ -4098,7 +4098,7 @@
         {
             "name": "sylva",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-sylva",
@@ -4117,7 +4117,7 @@
         {
             "name": "lakecity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-lakecity",
@@ -4136,7 +4136,7 @@
         {
             "name": "andrews",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-andrews",
@@ -4159,7 +4159,7 @@
         {
             "name": "brysoncity",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "17",
             "interfaces": [
                 {
                     "network": "net-brysoncity",
@@ -4178,7 +4178,7 @@
         {
             "name": "dothan",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-dothan",
@@ -4197,7 +4197,7 @@
         {
             "name": "jacksonville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-jacksonville",
@@ -4216,7 +4216,7 @@
         {
             "name": "wytheville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-wytheville",
@@ -4243,7 +4243,7 @@
         {
             "name": "chattanooga",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-chattanooga",
@@ -4262,7 +4262,7 @@
         {
             "name": "crestview",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-crestview",
@@ -4281,7 +4281,7 @@
         {
             "name": "willacoochee",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-willacoochee",
@@ -4300,7 +4300,7 @@
         {
             "name": "wilmington",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-wilmington",
@@ -4319,7 +4319,7 @@
         {
             "name": "bland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "18",
             "interfaces": [
                 {
                     "network": "net-bland",
@@ -4338,7 +4338,7 @@
         {
             "name": "raleigh",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-raleigh",
@@ -4361,7 +4361,7 @@
         {
             "name": "blitchton",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-blitchton",
@@ -4380,7 +4380,7 @@
         {
             "name": "ashland",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-ashland",
@@ -4395,7 +4395,7 @@
         {
             "name": "huntington",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-huntington",
@@ -4414,7 +4414,7 @@
         {
             "name": "blairsville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-blairsville",
@@ -4433,7 +4433,7 @@
         {
             "name": "rockhill",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-rockhill",
@@ -4456,7 +4456,7 @@
         {
             "name": "tallahassee",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-tallahassee",
@@ -4483,7 +4483,7 @@
         {
             "name": "aiken",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "19",
             "interfaces": [
                 {
                     "network": "net-aiken",
@@ -4502,7 +4502,7 @@
         {
             "name": "fortmyers",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-fortmyers",
@@ -4517,7 +4517,7 @@
         {
             "name": "easley",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-easley",
@@ -4536,7 +4536,7 @@
         {
             "name": "christiansburg",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-christiansburg",
@@ -4555,7 +4555,7 @@
         {
             "name": "salisbury",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-salisbury",
@@ -4574,7 +4574,7 @@
         {
             "name": "vadosta",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-vadosta",
@@ -4593,7 +4593,7 @@
         {
             "name": "newbern",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-newbern",
@@ -4612,7 +4612,7 @@
         {
             "name": "carlisle",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-carlisle",
@@ -4627,7 +4627,7 @@
         {
             "name": "hayesville",
             "type": "frr",
-            "vm": "UNDEFINED",
+            "vm": "20",
             "interfaces": [
                 {
                     "network": "net-hayesville",
