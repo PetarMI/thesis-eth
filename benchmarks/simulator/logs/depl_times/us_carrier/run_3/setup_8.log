@@ -1,0 +1,63 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 37
+2/2 Setting up FRR container
+af9a670d2b5fbd31fd46dd65753d8e420aca5d793ebf6bdb7374e29b88ba44a2
+Setup time: 28
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 47
+2/2 Setting up FRR container
+650012c1f9384b58ae3b0ec567ba9c5eac433ed0ca7a3807f3af9979b44a8427
+Setup time: 13
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 29
+2/2 Setting up FRR container
+c62cd7bba89d598a1538079038a6f602569e9aab743f07b7765083ada40ab6e3
+Setup time: 11
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 27
+2/2 Setting up FRR container
+9b7f096ff36a43f42a92427198be851944bcc4492631f3b86711ea416f6fec2e
+Setup time: 19
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 40
+2/2 Setting up FRR container
+d24603e3b9d03143131b6218a44f48de63ef5fee4b5c1b0757ca4de9d59d24a6
+Setup time: 13
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 38
+2/2 Setting up FRR container
+3d4a314354bf95c0fde8f67605f8cb79bc20de1061a96ce228ba4a0ee1c1495f
+Setup time: 11
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 37
+2/2 Setting up FRR container
+8e12d1c182e053603d5aae3881d9b1fc72c0ceaec7b6c3cfa6848ba02af57bcd
+Setup time: 18
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs

@@ -1,0 +1,63 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 28
+2/2 Setting up FRR container
+29f27b044beabb768a97c9f35102ad97580ba261309aea4246047f7acaf07b71
+Setup time: 7
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 33
+2/2 Setting up FRR container
+038e95500184c0f98dcef2604d75dac8eaad70596236e95d73a6ddce3a84f479
+Setup time: 10
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 35
+2/2 Setting up FRR container
+1dd1b5984255cc1f96e31e295b80d2c8cd0a105932d8db37a91974cf3d73dbcc
+Setup time: 12
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 35
+2/2 Setting up FRR container
+138293f5953500ce862c521d32823032a21fa9ade0c0ef3bb5db0c83acc97a21
+Setup time: 7
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 37
+2/2 Setting up FRR container
+107af7eaf0f160da21862e3ba7b359431bbe619ea5045a975aec1b47ce09d57e
+Setup time: 10
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 31
+2/2 Setting up FRR container
+addf5d7cdf33bdada425e1f0a269f1fe7ed7dc93191ab50a607ab0bc2cb3907f
+Setup time: 5
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 38
+2/2 Setting up FRR container
+f6e1c11bdb9f20ece702d3afc46dc35c4770211f4a0f8800816814545e336344
+Setup time: 14
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
