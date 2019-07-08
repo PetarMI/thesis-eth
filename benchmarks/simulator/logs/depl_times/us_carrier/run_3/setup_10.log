@@ -1,0 +1,72 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 36
+2/2 Setting up FRR container
+be8f010b5877504708720f0440578675706d6f6837508fc18f0ac9bfed9d9b16
+Setup time: 7
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 16
+2/2 Setting up FRR container
+caf985cd36ecb727cc4d54f724fb9f1945f780b9ad25bdbdfdd19e9f008d8547
+Setup time: 5
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 18
+2/2 Setting up FRR container
+f348ffcd12c5cb1e34022c5cf8af98d1b50a4a39a1a7d175cf540aa827defdda
+Setup time: 4
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 20
+2/2 Setting up FRR container
+8c3253f72aa3d20510a49dd76da5d5a2034374da7ae350da3a944a54d016bfb6
+Setup time: 1
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 12
+2/2 Setting up FRR container
+0428b1f3dad4d144a5cfe5f113572a3a11cf2876627e92ea82566f14b763cb3d
+Setup time: 5
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 16
+2/2 Setting up FRR container
+f365ac49ee729d158c1ac10ae62925223855a909bfb2fc623ead820768431f51
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 17
+2/2 Setting up FRR container
+28673577e68b09069453e6e95f980e4edbc500f8c4634aeb8037f34865c8fa0b
+Setup time: 3
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 12
+2/2 Setting up FRR container
+910be36c8df34ab178a834de6c76b29a2338a33c303a9716360b4169cf3ddf55
+Setup time: 2
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs

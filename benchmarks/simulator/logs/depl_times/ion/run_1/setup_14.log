@@ -1,0 +1,63 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 21
+2/2 Setting up FRR container
+18bf8a8a7724be7b16ec8c53d9147e38d5c6cf14048cd173e5e0e8a894fbff70
+Setup time: 4
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 10
+2/2 Setting up FRR container
+3a4ed090d497300b130fe667cb51eb6277bac5b6afec9ac74cdbdeca89b5f625
+Setup time: 5
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 17
+2/2 Setting up FRR container
+bbe1afa4d5b40d92e51b6a817609a8eaad833023e2665f6903b72bee9a70a0b3
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 15
+2/2 Setting up FRR container
+f45d60c45e839e1f131d84bcf4a14dda3f991d86f6ed23a58d695286aacb36ff
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 15
+2/2 Setting up FRR container
+081b9cf9dd0f8f78abe551eeace4e8fb35fe3a63ef02932b50deb0f325aec083
+Setup time: 3
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 14
+2/2 Setting up FRR container
+d4eb5baf2114d02576bd4ad000c2bd021496b5f3f2b57d300742cd152f73e0a5
+Setup time: 3
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 14
+2/2 Setting up FRR container
+1b7c4d0fc94e0d9371f831161ceec8bb676c172a4a2e5938989f7c9461bfadc4
+Setup time: 3
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
