@@ -1,5 +1,9 @@
 # Master Thesis at ETH Zurich SS2019
 
+## NEVER MERGE THIS BRANCH WITH MASTER! IT CONTAINS INSTRUMENTED CODE SERVING ONLY A BENCHMARKING PURPOSE! 
+
+Important changes to the code made while benchmarking will be put into master separately. 
+
 ## Project structure
 
     ├── infra                   # Network Simulator implementation
