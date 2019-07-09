@@ -1,3 +1,6 @@
+import csv
+import numpy as np
+import matplotlib.pyplot as plt
 from fuzzer.Fuzzer import Fuzzer
 from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
 
@@ -6,11 +9,11 @@ def get_search_strategy():
     fuzzer = Fuzzer()
     fuzzer.prepare_fuzzing(3, "bfs")
     bfs_plan = fuzzer.get_search_plan()
-    print(bfs_plan)
+    # print(bfs_plan)
 
     fuzzer.prepare_fuzzing(3, "dfs")
     dfs_plan = fuzzer.get_search_plan()
-    print(dfs_plan)
+    # print(dfs_plan)
 
     assert(len(bfs_plan) == len(dfs_plan))
 
@@ -89,4 +92,44 @@ def write_results(op, bfs_ds, bfs_rs, dfs_ds, dfs_rs):
         logfile.write("{},{},{},{},{}\n".format(op, bfs_ds, bfs_rs, dfs_ds, dfs_rs))
 
 
-compare_num_ops()
+def parse_op_results():
+    fr_stats = []
+    bfs_pr_stats = []
+    dfs_pr_stats = []
+
+    with open(const.REVERT_STATS, 'r') as csv_file:
+        csv_reader = csv.reader(csv_file, delimiter=',')
+
+        for row in csv_reader:
+            if row[0] == "full":
+                fr_stats.append(int(row[3]) + int(row[4]))
+            elif row[0] == "partial":
+                bfs_pr_stats.append(int(row[1]) + int(row[2]))
+                dfs_pr_stats.append(int(row[3]) + int(row[4]))
+
+    return fr_stats, bfs_pr_stats, dfs_pr_stats
+
+
+def plot_op_stats():
+    fr_stats, bfs_pr_stats, dfs_prs_stats = parse_op_results()
+
+    x_axis = [12, 29, 48, 64, 85, 103, 146, 189]
+
+    fig, ax = plt.subplots()
+
+    plt.plot(x_axis, fr_stats, marker='o', color='green', label='Full revert')
+    plt.plot(x_axis, bfs_pr_stats, color='red', label='Partial revert BFS')
+    plt.plot(x_axis, dfs_prs_stats, color='blue', label='Partial revert DFS')
+
+    plt.ylabel('Link operations')
+    plt.xlabel("Number of links in topology")
+    ax.set_title('Full vs Partial revert')
+    plt.legend()
+
+    plt.show()
+
+
+if __name__ == "__main__":
+    # compare_num_ops()
+
+    plot_op_stats()
