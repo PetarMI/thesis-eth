@@ -17,7 +17,7 @@ class Fuzzer:
         self.transition = None
         self.verification = None
 
-    def prepare_fuzzing(self, depth: int):
+    def prepare_fuzzing(self, depth: int, strategy: str):
         # define necessary variables
         fuzz_data = FuzzData()
         nets: list = fuzz_data.get_ospf_networks()
@@ -25,8 +25,12 @@ class Fuzzer:
         properties: dict = pp.parse_properties(fuzz_data)
 
         # set fuzzing approach state variables
-        self.search_plan = statespace.get_heuristic_plan(properties, fuzz_data)
-        self.search_stats = statespace.get_fuzzing_stats()
+        if strategy == "bfs":
+            self.search_plan = statespace.get_bfs_plan()
+            self.search_stats = statespace.get_fuzzing_stats()
+        elif strategy == "dfs":
+            self.search_plan = statespace.get_dfs_plan()
+            self.search_stats = statespace.get_fuzzing_stats()
         self.transition = StateTransition.PartialRevert(fuzz_data)
         self.verification = Ver.Verification(properties, fuzz_data)
 
@@ -56,6 +60,9 @@ class Fuzzer:
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
+
+    def get_search_plan(self) -> list:
+        return self.search_plan
 
     def check_stop_fuzzing(self, n: int) -> bool:
         if self.verification.stop_fuzzing():
