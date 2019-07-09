@@ -134,7 +134,7 @@ function parse_iface_logs {
         local filename=$(echo ${f##*_})
         filename=$(echo ${filename%.*})
         # pair every two lines
-        sed '$!N;s/\n/,/' ${f} | sed '/10.0./!d' \
+        sed '$!N;s/\n/,/' ${f} | sed '/ethwe/!d' \
         | sed -e "s/^/${filename},/" >> ${IFACES_SIM_FILE}
         signal_fail $? "Processing ${f}"
     done

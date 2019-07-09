@@ -1,0 +1,42 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 21
+2/2 Setting up FRR container
+cd6b173497e58df1dd1e05bf53309419b14b67fb50802dee5e433ebb7deb9792
+Setup time: 1
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 10
+2/2 Setting up FRR container
+971b035c5ff8ff2f7385f9467880a6d40af79a9d9ebb6e168c5ce2e248f19f67
+Setup time: 3
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 11
+2/2 Setting up FRR container
+2397319e960ef6fb1aad687da11637dbef8733933072ed735bba413ec77032de
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 11
+2/2 Setting up FRR container
+fa4c9a29fd11e7a3b76d9fe4e5916e416dfa583fd1727a06ac6b3289b29c5082
+Setup time: 3
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 11
+2/2 Setting up FRR container
+8428a986185b76ba35a1f14e94485a65f08bc5ede102627954ae4a49091bed60
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 12
+2/2 Setting up FRR container
+a7ab23d9346241df0594870112c09a0e3b16fc7673fc0d193137e955107c4fe3
+Setup time: 2
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 9
+2/2 Setting up FRR container
+5ea48a32947aa8cf31c224f863f306fae5864a0c1afec4bc3062048941664d23
+Setup time: 2

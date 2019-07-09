@@ -1,0 +1,27 @@
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 35
+2/2 Setting up FRR container
+5efcbef65364a8246a963f24513c8fbc2668ebace38dd50e8e3cda1fb9727b9f
+Setup time: 8
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 14
+2/2 Setting up FRR container
+a5e83faba1d812d56f238c5f3c2404539ca69a1bf641e0e06dcace1072091c97
+Setup time: 9
+1/2 Load FRR image
+Loaded image: frr:6.0.2
+Load time: 16
+2/2 Setting up FRR container
+e2c592812e441757cfcc2d5ab3f03790cf4ba58548d97e6f8b47603084ca4710
+Setup time: 3
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+1/3 Copying config files to FRR container
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+2/3 Setting configs to frr.conf
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
+3/3 Restart FRR container to load new configs
