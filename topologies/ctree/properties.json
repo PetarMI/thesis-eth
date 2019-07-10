@@ -69,8 +69,8 @@
         },
         {
             "src": "vienna",
-            "dest": "100.0.100.1",
-            "dest_name": "praha"
+            "dest": "100.0.10.1",
+            "dest_name": "troot"
         },
         {
             "src": "london",
