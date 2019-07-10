@@ -26,7 +26,7 @@ def generate_properties(topo_name: str, n: int) -> list:
 
     properties = []
     print(list(topo_data))
-    for i in range(1, n):
+    for i in range(1, n + 1):
         src_name = random.choice(list(topo_data))
         dest_name = random.choice(list(topo_data))
 

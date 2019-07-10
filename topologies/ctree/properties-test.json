@@ -1,0 +1,16 @@
+{
+    "reachability": [
+        {
+            "src": "troot",
+            "dest": "100.0.90.1"
+        },
+        {
+            "src": "roma",
+            "dest": "100.0.80.1"
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.30.1"
+        }
+    ]
+}
