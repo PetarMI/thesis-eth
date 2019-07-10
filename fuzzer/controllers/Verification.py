@@ -41,7 +41,6 @@ class Verification:
         with open(const.VIOLATIONS_LOG, "a+") as logfile:
             logfile.write("{},{}\n".format(self.iterations, self.num_violations))
 
-
     @staticmethod
     def interpret_ping_results(ping_results: dict):
         rpv.interpret_verification_results(ping_results)

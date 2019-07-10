@@ -8,6 +8,8 @@ Each class then has its own implementation of the "interface" method
 """
 from subprocess import call
 from termcolor import colored as clr
+from ttictoc import TicToc
+import logging
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.transitions import convergence
@@ -19,11 +21,16 @@ class PartialRevert:
     def __init__(self, fuzz_data: FuzzData):
         self.igen = InstructionGenerator(fuzz_data)
         self.dropped_links = []
+        self.t = TicToc()
+        self.logger = logging.getLogger('fuzzer')
 
     def perform_state_transition(self, state):
+        self.t.tic()
         link_changes: dict = self.find_link_changes(self.dropped_links, state)
         transition_instr: dict = self.igen.gen_transition_instructions(link_changes)
         transition_data: dict = self.igen.get_transition_data(link_changes)
+        self.t.toc()
+        self.logger.info("stuff,{}".format(self.t.elapsed))
 
         self.exec_state_transition(transition_instr, transition_data)
         self.dropped_links = state
@@ -39,17 +46,27 @@ class PartialRevert:
             "drop": links_to_drop
         }
 
-    @staticmethod
-    def exec_state_transition(transition_instr: dict, transition_data: dict):
+    def exec_state_transition(self, transition_instr: dict, transition_data: dict):
         print(clr("## Dropping failed links", 'cyan'))
+        self.t.tic()
         exec_link_changes(transition_instr.get(const.DROP))
+        self.t.toc()
+        self.logger.info("drop,{}".format(self.t.elapsed))
         # convergence.converge_drop(transition_data[const.DROP])
         # save the state so that we check the number of neighbors after the restore is increased
         exec_state_save()
 
         print(clr("## Restoring non-overlapping links", 'cyan'))
-        exec_link_changes(transition_instr[const.RESTORE])
+        if transition_instr[const.RESTORE]:
+            self.t.tic()
+            exec_link_changes(transition_instr[const.RESTORE])
+            self.t.toc()
+            self.logger.info("restore,{}".format(self.t.elapsed))
+
+        self.t.tic()
         convergence.converge_partial_revert(transition_data[const.RESTORE])
+        self.t.toc()
+        self.logger.info("conv,{}".format(self.t.elapsed))
 
 
 ###############################################################################

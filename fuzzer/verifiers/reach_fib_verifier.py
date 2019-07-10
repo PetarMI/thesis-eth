@@ -4,11 +4,16 @@ import ipaddress
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common import file_writer as fw
+from ttictoc import TicToc
+import logging
 
 
 def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> dict:
     failed_properties = dict()
 
+    logger = logging.getLogger('fuzzer')
+    t = TicToc()
+    t.tic()
     # remember the properties that failed
     for prop_id, prop in properties.items():
         print("Verifying property {}".format(prop_id))
@@ -16,6 +21,8 @@ def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> d
 
         if reachability_res["status"] != 0:
             failed_properties.update({prop_id: prop})
+    t.toc()
+    logger.info("fpass,{}".format(t.elapsed))
 
     # double check to give network more time to converge
     if failed_properties:

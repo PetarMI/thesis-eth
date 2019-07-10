@@ -1,5 +1,7 @@
 from subprocess import call
 from termcolor import colored as clr
+from ttictoc import TicToc
+import logging
 import json
 from fuzzer.controllers import property_parser as pp
 from fuzzer.controllers.Statespace import Statespace
@@ -24,11 +26,21 @@ class Fuzzer:
         statespace = Statespace(depth, nets)
         properties: dict = pp.parse_properties(fuzz_data)
 
+        self.logger = logging.getLogger('fuzzer')
+        self.logger.setLevel(logging.INFO)
+        fh = logging.FileHandler('{}/{}_h.log'.format(const.LOG_DIR, fuzz_data.get_topo_name()), mode='a+')
+        fh.setLevel(logging.INFO)
+        self.logger.addHandler(fh)
+
         # set fuzzing approach state variables
+        t = TicToc()
+        t.tic()
         self.search_plan = statespace.get_heuristic_plan(properties, fuzz_data)
         self.search_stats = statespace.get_fuzzing_stats()
         self.transition = StateTransition.PartialRevert(fuzz_data)
         self.verification = Ver.Verification(properties, fuzz_data)
+        t.toc()
+        self.logger.info("prep,{}".format(t.elapsed))
 
     def verify_deployment(self):
         print(clr("#### Verifying deployment", 'cyan', attrs=['bold']))
@@ -37,19 +49,30 @@ class Fuzzer:
         self.verification.interpret_ping_results(ping_results)
 
     def fuzz(self):
+        t = TicToc(nested=True)
 
         for n, state in enumerate(self.search_plan):
+            t.tic()
             print(clr("State {}/{}: {}".format(n, self.search_stats["total"], state),
                       'green', attrs=['bold']))
 
             print(clr("#### Executing state transition", 'cyan', attrs=['bold']))
+            t.tic()
             self.transition.perform_state_transition(state)
+            t.toc()
+            self.logger.info("otransition,{}".format(t.elapsed))
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
+            t.tic()
             self.verification.verify_fib_reachability(state)
+            t.toc()
+            self.logger.info("over,{}".format(t.elapsed))
 
             if self.check_stop_fuzzing(n):
                 break
+
+            t.toc()
+            self.logger.info("state,{}".format(t.elapsed))
 
             print("===================================")
 
