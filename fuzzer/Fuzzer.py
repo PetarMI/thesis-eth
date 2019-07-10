@@ -1,6 +1,7 @@
 from subprocess import call
 from termcolor import colored as clr
 from ttictoc import TicToc
+import time
 import logging
 import json
 from fuzzer.controllers import property_parser as pp
@@ -49,10 +50,10 @@ class Fuzzer:
         self.verification.interpret_ping_results(ping_results)
 
     def fuzz(self):
-        t = TicToc(nested=True)
+        t = TicToc()
 
         for n, state in enumerate(self.search_plan):
-            t.tic()
+            start = time.time()
             print(clr("State {}/{}: {}".format(n, self.search_stats["total"], state),
                       'green', attrs=['bold']))
 
@@ -71,8 +72,8 @@ class Fuzzer:
             if self.check_stop_fuzzing(n):
                 break
 
-            t.toc()
-            self.logger.info("state,{}".format(t.elapsed))
+            end = time.time()
+            self.logger.info("state,{}".format(end - start))
 
             print("===================================")
 
