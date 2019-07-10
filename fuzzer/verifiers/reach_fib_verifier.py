@@ -8,7 +8,7 @@ from ttictoc import TicToc
 import logging
 
 
-def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> dict:
+def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list):
     failed_properties = dict()
 
     logger = logging.getLogger('fuzzer')
@@ -22,16 +22,16 @@ def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> d
         if reachability_res["status"] != 0:
             failed_properties.update({prop_id: prop})
     t.toc()
-    logger.info("fpass,{}".format(t.elapsed))
+    fpass = t.elapsed
 
     # double check to give network more time to converge
     if failed_properties:
         property_failures = double_check_violations(failed_properties, fuzz_data, failed_nets)
         pretty_print_double_check_info(failed_properties, property_failures)
-        return property_failures
+        return property_failures, fpass, len(properties.keys())
     else:
         # just and empty dict signaling all properties hold
-        return failed_properties
+        return failed_properties, fpass, len(properties.keys())
 
 
 def double_check_violations(failed_properties: dict, fuzz_data, failed_nets) -> dict:

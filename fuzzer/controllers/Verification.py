@@ -20,9 +20,9 @@ class Verification:
     def verify_fib_reachability(self, state):
         print(clr("## Property checking", 'cyan'))
         failed_nets: list = self.fuzz_data.get_link_nets(state)
-        property_failures: dict = rfv.verify_fib_reachability(self.properties,
-                                                              self.fuzz_data,
-                                                              failed_nets)
+        property_failures, fpass, props = rfv.verify_fib_reachability(self.properties,
+                                                                      self.fuzz_data,
+                                                                      failed_nets)
         print(clr("## Final verdict", 'cyan'))
         rfv.examine_violations(state, property_failures)
 
@@ -30,6 +30,8 @@ class Verification:
 
         print(clr("## Applying changes to fuzzed properties", 'cyan'))
         self._remove_properties(property_failures)
+
+        return fpass, props
 
     def stop_fuzzing(self) -> bool:
         return len(self.properties.keys()) == 0

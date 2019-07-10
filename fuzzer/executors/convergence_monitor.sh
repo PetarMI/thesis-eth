@@ -108,18 +108,7 @@ elif [[ ${ARG_partial_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
     time neighbors_up_partial
     time neighbors_adjacency
-
-    printf "${CYAN}## Checking Routes changes${NC}\n"
-    time route_changes
-
-elif [[ ${ARG_full_revert} != "" ]]; then
-    printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
-    time neighbors_up_full
-    time neighbors_adjacency
-
-    printf "${CYAN}## Checking Restored links convergence${NC}\n"
-    time revert_convergence_full
-
-    printf "${CYAN}## Checking Routes restore${NC}\n"
-    time routes_up_full
 fi
+
+printf "${CYAN}## Checking Routes changes${NC}\n"
+time route_changes

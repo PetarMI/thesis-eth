@@ -59,22 +59,25 @@ class Fuzzer:
 
             print(clr("#### Executing state transition", 'cyan', attrs=['bold']))
             t.tic()
-            self.transition.perform_state_transition(state)
+            td, tr, tc = self.transition.perform_state_transition(state)
             t.toc()
-            self.logger.info("otransition,{}".format(t.elapsed))
+            overall_trans = t.elapsed
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
             t.tic()
-            self.verification.verify_fib_reachability(state)
+            fpass, nprops = self.verification.verify_fib_reachability(state)
             t.toc()
-            self.logger.info("over,{}".format(t.elapsed))
+            overall_ver = t.elapsed
 
             if self.check_stop_fuzzing(n):
                 break
 
             end = time.time()
-            self.logger.info("state,{}".format(end - start))
+            overall_state = end - start
 
+            self.logger.info("{},{},{},{},{},{},{},{}".
+                             format(td, tr, tc, overall_trans, fpass, nprops,
+                                    overall_ver, overall_state))
             print("===================================")
 
     def print_search_strategy(self):
