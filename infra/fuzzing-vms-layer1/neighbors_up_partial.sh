@@ -16,7 +16,6 @@ function check_neighbor_discovery {
 
         # check that the container in the argument list belongs to this VM
         if [[ ${prev_neighbors} == "" ]]; then
-            echo "${cont} not on this VM"
             continue
         fi
 
@@ -27,7 +26,6 @@ function check_neighbor_discovery {
             sleep 1
             num_neighbors=$(docker exec ${cont} ${FRR_INFO_SH} -n | grep -E "${IP_regex}" | wc -l)
         done
-        echo "${cont} increased its neighbors"
     done
 }
 

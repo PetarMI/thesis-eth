@@ -108,7 +108,7 @@ elif [[ ${ARG_partial_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
     time neighbors_up_partial
     time neighbors_adjacency
-fi
 
-printf "${CYAN}## Checking Routes changes${NC}\n"
-time route_changes
+    printf "${CYAN}## Checking Routes changes${NC}\n"
+    time route_changes
+fi
