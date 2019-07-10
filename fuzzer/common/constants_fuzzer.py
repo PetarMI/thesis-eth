@@ -37,4 +37,7 @@ VM_STATE_SH = "{}/executors/vm_save_state.sh".format(FUZZ_DIR)
 RESTORE = "restore"
 DROP = "drop"
 
-CONV_TIME = 15
+CONV_TIME = 10
+
+LOG_DIR = "{}/thesis-eth/benchmarks/fuzzer/logs".format(HOME_LOC)
+VIOLATIONS_LOG = "{}/violations.log".format(LOG_DIR)
