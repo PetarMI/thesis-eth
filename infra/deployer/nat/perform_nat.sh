@@ -219,8 +219,8 @@ printf "${CYAN}#### Performing network matching (python) ####${NC}\n"
 py_perform_matching
 
 printf "${CYAN}#### Performing NAT ####"
-echo "## Updating subnets ##"
-sed_subnets
+# echo "## Updating subnets ##"
+# sed_subnets
 echo "## Updating interfaces ##"
 sed_ifaces
 echo "## Updating IP addresses ##"
