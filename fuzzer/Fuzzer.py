@@ -19,6 +19,8 @@ class Fuzzer:
         self.search_stats: dict = None
         self.transition = None
         self.verification = None
+        self.visited_states = []
+        self.depth = 0
 
     def prepare_fuzzing(self, depth: int):
         # define necessary variables
@@ -26,13 +28,13 @@ class Fuzzer:
         nets: list = fuzz_data.get_ospf_networks()
         statespace = Statespace(depth, nets)
         properties: dict = pp.parse_properties(fuzz_data)
+        self.depth = depth
 
         self.logger = logging.getLogger('fuzzer')
         self.logger.setLevel(logging.INFO)
         fh = logging.FileHandler('{}/{}_h.log'.format(const.LOG_DIR, fuzz_data.get_topo_name()), mode='a+')
         fh.setLevel(logging.INFO)
         self.logger.addHandler(fh)
-
         # set fuzzing approach state variables
         t = TicToc()
         t.tic()
@@ -53,6 +55,9 @@ class Fuzzer:
         t = TicToc()
 
         for n, state in enumerate(self.search_plan):
+            if self.check_skippable_state(state):
+                continue
+
             start = time.time()
             print(clr("State {}/{}: {}".format(n, self.search_stats["total"], state),
                       'green', attrs=['bold']))
@@ -78,7 +83,22 @@ class Fuzzer:
             self.logger.info("{},{},{},{},{},{},{},{}".
                              format(td, tr, tc, overall_trans, fpass, nprops,
                                     overall_ver, overall_state))
+            self.update_examined_states(state)
             print("===================================")
+
+    def update_examined_states(self, state):
+        if len(state) > 1:
+            self.visited_states.append(set(state))
+
+    def check_skippable_state(self, state):
+        if len(state) >= self.depth:
+            return False
+
+        for nv_state in self.visited_states:
+            if set(state).issubset(nv_state):
+                return True
+
+        return False
 
     def print_search_strategy(self):
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
