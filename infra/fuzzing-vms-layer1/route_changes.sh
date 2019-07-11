@@ -31,9 +31,9 @@ function check_changes {
     return 0
 }
 
-MAX_ITERATIONS=6
+MAX_ITERATIONS=5
 readonly WAIT_INTERVAL=1
-readonly REDUCED_ITERATIONS=4
+readonly REDUCED_ITERATIONS=3
 attempts=0
 
 # TODO called after drop so here I believe it is not actually necessary
