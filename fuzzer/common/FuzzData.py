@@ -66,6 +66,10 @@ class FuzzData:
         topo: dict = fr.read_topo()
         return topo["meta"]["name"]
 
+    def get_topo_containers(self) -> list:
+        topo: dict = fr.read_topo()
+        return topo["containers"]
+
     # TODO maybe refactor
     def get_nat_ip(self, dest_ip: str):
         """ Return the simulated IP and the network it belongs to

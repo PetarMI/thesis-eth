@@ -40,6 +40,9 @@ readonly ROUTES_UP_FULL_SH="routes_up_full.sh"
 readonly ROUTES_UP_PARTIAL_SH="routes_up_partial.sh"
 readonly ROUTE_CHANGES_SH="route_changes.sh"
 
+readonly LOG_DIR="${HOME}/thesis-eth/benchmarks/fuzzer/logs"
+readonly CONV_STATS="conv_stats.log"
+
 readonly CYAN='\033[0;36m'
 readonly NC='\033[0m' # No Color
 
@@ -106,9 +109,17 @@ if [[ ${ARG_dropped} != "" ]]; then
 
 elif [[ ${ARG_partial_revert} != "" ]]; then
     printf "${CYAN}## Checking Neighbors adjacency${NC}\n"
+    start_time="$(date -u +%s)"
     time neighbors_up_partial
     time neighbors_adjacency
+    end_time="$(date -u +%s)"
+    elapsed="$(($end_time-$start_time))"
+    echo "neighbors,$elapsed" >> "${LOG_DIR}/${CONV_STATS}"
 
     printf "${CYAN}## Checking Routes changes${NC}\n"
+    start_time="$(date -u +%s)"
     time route_changes
+    end_time="$(date -u +%s)"
+    elapsed="$(($end_time-$start_time))"
+    echo "neighbors,$elapsed" >> "${LOG_DIR}/${CONV_STATS}"
 fi

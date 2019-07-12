@@ -38,7 +38,7 @@ class Fuzzer:
         # set fuzzing approach state variables
         t = TicToc()
         t.tic()
-        self.search_plan = statespace.get_heuristic_plan(properties, fuzz_data)
+        self.search_plan = statespace.get_neighbor_heuristic_plan(properties, fuzz_data)
         self.search_stats = statespace.get_fuzzing_stats()
         self.transition = StateTransition.PartialRevert(fuzz_data)
         self.verification = Ver.Verification(properties, fuzz_data)
