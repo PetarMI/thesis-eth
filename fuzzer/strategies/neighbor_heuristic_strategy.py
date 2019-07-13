@@ -65,11 +65,11 @@ def find_heuristic_links(properties: dict, max_depth, fuzz_data: FuzzData) -> li
 
     for prop in properties.values():
         prop_links = set([])
-        src_container = prop["container_name"]
+        src_container = prop["container_name"].split("-")[1]
 
         src_links = find_container_links(src_container, topo_containers, topo_name)
 
-        if len(src_links > max_depth):
+        if len(src_links) > max_depth:
             links.append([])
             continue
         else:
@@ -79,7 +79,7 @@ def find_heuristic_links(properties: dict, max_depth, fuzz_data: FuzzData) -> li
             neighbor_name = get_neighbor_name(src_link, src_container)
             neighbor_links = find_container_links(neighbor_name, topo_containers, topo_name)
 
-            if len(neighbor_links >= max_depth):
+            if len(neighbor_links) >= max_depth:
                 continue
             else:
                 prop_links.update(neighbor_links)
@@ -112,7 +112,7 @@ def find_container(c_name: str, containers: list) -> dict:
 def get_neighbor_name(link: str, neighbor: str) -> str:
     parts = link.split("-")
 
-    for dev in parts[1:]:
+    for dev in parts[2:]:
         if dev != neighbor:
             return dev
 

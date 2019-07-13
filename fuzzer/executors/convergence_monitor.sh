@@ -121,5 +121,5 @@ elif [[ ${ARG_partial_revert} != "" ]]; then
     time route_changes
     end_time="$(date -u +%s)"
     elapsed="$(($end_time-$start_time))"
-    echo "neighbors,$elapsed" >> "${LOG_DIR}/${CONV_STATS}"
+    echo "routes,$elapsed" >> "${LOG_DIR}/${CONV_STATS}"
 fi
