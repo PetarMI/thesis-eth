@@ -69,7 +69,7 @@ def plot_violations(topo_name):
 
 
 def main():
-    plot_violations("hiberniaus")
+    plot_violations("ctree")
 
 
 main()
