@@ -93,6 +93,9 @@ class FuzzData:
         check_none(net_name, "Network IP does not exist in networks.log")
         return net_name
 
+    def get_dev2vm(self) -> dict:
+        return self.dev2vm
+
 
 # @Tested
 def parse_dev2vm(topo_containers: list, vms: dict, topo_name: str) -> dict:
