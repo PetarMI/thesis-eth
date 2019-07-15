@@ -1,0 +1,117 @@
+State: ('hiberniaus-net-ashburn-mclean',)
+	Failed property 2
+	Description: No reachability from hiberniaus-cleveland to 10.0.144.2
+	Extra Info: No path to network 10.0.144.0/24 at device hiberniaus-cleveland
+===========================
+	Failed property 4
+	Description: No reachability from hiberniaus-richmond to 10.0.133.2
+	Extra Info: No path to network 10.0.133.0/24 at device hiberniaus-richmond
+===========================
+	Failed property 8
+	Description: No reachability from hiberniaus-charlotte to 10.0.119.2
+	Extra Info: No path to network 10.0.119.0/24 at device hiberniaus-charlotte
+===========================
+	Failed property 15
+	Description: No reachability from hiberniaus-charlotte to 10.0.121.2
+	Extra Info: No path to network 10.0.121.0/24 at device hiberniaus-charlotte
+===========================
+	Failed property 16
+	Description: No reachability from hiberniaus-richmond to 10.0.136.2
+	Extra Info: No path to network 10.0.136.0/24 at device hiberniaus-richmond
+===========================
+	Failed property 17
+	Description: No reachability from hiberniaus-mclean to 10.0.121.2
+	Extra Info: No path to network 10.0.121.0/24 at device hiberniaus-mclean
+===========================
+	Failed property 18
+	Description: No reachability from hiberniaus-atlanta to 10.0.110.2
+	Extra Info: No path to network 10.0.110.0/24 at device hiberniaus-atlanta
+===========================
+	Failed property 20
+	Description: No reachability from hiberniaus-mclean to 10.0.136.2
+	Extra Info: No path to network 10.0.136.0/24 at device hiberniaus-mclean
+===========================
+	Failed property 22
+	Description: No reachability from hiberniaus-charlotte to 10.0.136.2
+	Extra Info: No path to network 10.0.136.0/24 at device hiberniaus-charlotte
+===========================
+	Failed property 24
+	Description: No reachability from hiberniaus-richmond to 10.0.148.2
+	Extra Info: No path to network 10.0.148.0/24 at device hiberniaus-richmond
+===========================
+	Failed property 27
+	Description: No reachability from hiberniaus-richmond to 10.0.145.2
+	Extra Info: No path to network 10.0.145.0/24 at device hiberniaus-richmond
+===========================
+	Failed property 29
+	Description: No reachability from hiberniaus-whiteplains to 10.0.139.2
+	Extra Info: No path to network 10.0.139.0/24 at device hiberniaus-whiteplains
+===========================
+State: ('hiberniaus-net-ashburn-mclean', 'hiberniaus-net-pittsburgh-ashburn', 'hiberniaus-net-raleigh-charlotte')
+	Failed property 19
+	Description: No reachability from hiberniaus-atlanta to 10.0.132.2
+	Extra Info: No path to network 10.0.132.0/24 at device hiberniaus-atlanta
+===========================
+	Failed property 21
+	Description: No reachability from hiberniaus-atlanta to 10.0.139.2
+	Extra Info: No path to network 10.0.139.0/24 at device hiberniaus-atlanta
+===========================
+State: ('hiberniaus-net-ashburn-mclean', 'hiberniaus-net-pittsburgh-ashburn', 'hiberniaus-net-richmond-raleigh')
+	Failed property 14
+	Description: No reachability from hiberniaus-raleigh to 10.0.113.2
+	Extra Info: No path to network 10.0.113.0/24 at device hiberniaus-raleigh
+===========================
+State: ('hiberniaus-net-albany-buffalo', 'hiberniaus-net-buffalo-cleveland', 'hiberniaus-net-montreal-toronto')
+	Failed property 7
+	Description: No reachability from hiberniaus-pittsburgh to 10.0.141.2
+	Extra Info: No path to network 10.0.141.0/24 at device hiberniaus-pittsburgh
+===========================
+	Failed property 13
+	Description: No reachability from hiberniaus-boston to 10.0.130.2
+	Extra Info: No path to network 10.0.130.0/24 at device hiberniaus-boston
+===========================
+	Failed property 25
+	Description: No reachability from hiberniaus-newark to 10.0.141.2
+	Extra Info: No path to network 10.0.141.0/24 at device hiberniaus-newark
+===========================
+	Failed property 26
+	Description: No reachability from hiberniaus-buffalo to 10.0.136.2
+	Extra Info: No path to network 10.0.136.0/24 at device hiberniaus-buffalo
+===========================
+State: ('hiberniaus-net-albany-buffalo', 'hiberniaus-net-buffalo-cleveland', 'hiberniaus-net-nodeid11-halifax')
+	Failed property 6
+	Description: No reachability from hiberniaus-pittsburgh to 10.0.119.2
+	Extra Info: No path to network 10.0.119.0/24 at device hiberniaus-pittsburgh
+===========================
+	Failed property 10
+	Description: No reachability from hiberniaus-nodeid11 to 10.0.102.2
+	Extra Info: No path to network 10.0.102.0/24 at device hiberniaus-nodeid11
+===========================
+State: ('hiberniaus-net-boston-halifax', 'hiberniaus-net-buffalo-cleveland', 'hiberniaus-net-montreal-halifax')
+	Failed property 28
+	Description: No reachability from hiberniaus-boston to 10.0.148.2
+	Extra Info: No path to network 10.0.148.0/24 at device hiberniaus-boston
+===========================
+State: ('hiberniaus-net-albany-boston', 'hiberniaus-net-boston-halifax', 'hiberniaus-net-boston-stamford')
+	Failed property 1
+	Description: No reachability from hiberniaus-boston to 10.0.110.2
+	Extra Info: No path to network 10.0.110.0/24 at device hiberniaus-boston
+===========================
+	Failed property 5
+	Description: No reachability from hiberniaus-pittsburgh to 10.0.145.2
+	Extra Info: No path to network 10.0.145.0/24 at device hiberniaus-pittsburgh
+===========================
+State: ('hiberniaus-net-albany-boston', 'hiberniaus-net-buffalo-cleveland', 'hiberniaus-net-pittsburgh-ashburn')
+	Failed property 9
+	Description: No reachability from hiberniaus-newark to 10.0.102.2
+	Extra Info: No path to network 10.0.102.0/24 at device hiberniaus-newark
+===========================
+	Failed property 12
+	Description: No reachability from hiberniaus-chicago to 10.0.136.2
+	Extra Info: No path to network 10.0.136.0/24 at device hiberniaus-chicago
+===========================
+State: ('hiberniaus-net-albany-boston', 'hiberniaus-net-whiteplains-newark', 'hiberniaus-net-whiteplains-stamford')
+	Failed property 3
+	Description: No reachability from hiberniaus-albany to 10.0.133.2
+	Extra Info: No path to network 10.0.133.0/24 at device hiberniaus-albany
+===========================
