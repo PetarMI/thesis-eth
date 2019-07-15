@@ -97,11 +97,11 @@ def read_sim_ifaces() -> dict:
     return iface_dict
 
 
-def read_properties(prop_type: str) -> dict:
+def read_properties() -> dict:
     with open(const.PROPERTIES_FILE) as properties_file:
         properties = json.load(properties_file)
 
-    return properties[prop_type]
+    return properties
 
 
 def read_reachability_properties() -> list:

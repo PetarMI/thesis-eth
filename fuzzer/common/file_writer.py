@@ -14,9 +14,9 @@ def write_reach_instr(properties: dict):
                              prop["dest_sim_ip"]])
 
 
-def write_parsed_properties(properties: dict):
+def write_reach_properties(reach_properties: dict):
     output_file = const.PARSED_PROPS_FILE
-    prop_list = list(properties.values())
+    prop_list = list(reach_properties.values())
 
     with open(output_file, 'w+') as json_file:
         json.dump(prop_list, json_file, indent=4)

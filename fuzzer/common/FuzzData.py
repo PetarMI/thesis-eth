@@ -62,11 +62,9 @@ class FuzzData:
         return fdata_ops.get_ospf_networks(self.net2dev)
 
     # wrapper methods
-    def get_topo_name(self) -> dict:
-        topo: dict = fr.read_topo()
-        return topo["meta"]["name"]
+    def get_topo(self) -> dict:
+        return fr.read_topo()
 
-    # TODO maybe refactor
     def get_nat_ip(self, dest_ip: str):
         """ Return the simulated IP and the network it belongs to
             Used one-time for property parsing """
