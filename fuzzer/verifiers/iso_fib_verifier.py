@@ -6,6 +6,7 @@ from fuzzer.common import file_writer as fw
 
 def verify_fib_isolation(iso_props: dict, fib, fuzz_data, failed_nets: list) -> dict:
     failed_properties = dict()
+    no_reach_props = dict()
 
     for prop_id, prop in iso_props.items():
         print("Verifying property {}".format(prop_id))
@@ -13,6 +14,10 @@ def verify_fib_isolation(iso_props: dict, fib, fuzz_data, failed_nets: list) -> 
 
         if iso_res["status"] == 1:
             failed_properties.update({prop_id: iso_res})
+        elif iso_res["status"] == 2:
+            no_reach_props.update({prop_id: iso_res})
+
+    pretty_print_violations(no_reach_props)
 
     return failed_properties
 
@@ -79,32 +84,16 @@ def check_next_hops_forbidden(next_hops: list, trap_ips: list):
 def examine_violations(state, property_failures: dict):
     if property_failures:
         pretty_print_violations(property_failures)
-        fw.write_state_failures(state, get_real_failuers(property_failures))
+        fw.write_state_failures(state, property_failures)
     else:
         print(clr("All properties HOLD", 'green'))
 
 
 def pretty_print_violations(property_failures: dict):
-    all_hold = True
-
     for prop_id, ver_res in property_failures.items():
         ver_status = ver_res["status"]
 
         if ver_status == 1:
             print(clr("Property {} FAILED: {}".format(prop_id, ver_res["desc"]), 'red'))
-            all_hold = False
         elif ver_status == 2:
             print(clr("Property {}: {}".format(prop_id, ver_res["desc"]), 'yellow'))
-
-    if all_hold:
-        print(clr("All properties HOLD", 'green'))
-
-
-def get_real_failuers(property_failures: dict):
-    real_fails = dict()
-
-    for idx, f in property_failures.items():
-        if f["status"] == 1:
-            real_fails.update({idx: f})
-
-    return real_fails
