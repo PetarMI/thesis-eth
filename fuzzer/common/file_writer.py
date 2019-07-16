@@ -39,5 +39,5 @@ def write_state_failures(state: tuple, property_violations: dict):
         for pid, ver_res in property_violations.items():
             log_file.write("\tFailed property {}\n".format(pid))
             log_file.write("\tDescription: {}\n".format(ver_res["desc"]))
-            log_file.write("\tExtra Info: {}\n".format(ver_res["info"]))
+            log_file.write("\tExtra Info: {}\n".format(ver_res.get("info", None)))
             log_file.write("===========================\n")

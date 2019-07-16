@@ -39,4 +39,7 @@ FIB_INFO_SH = "{}/executors/get_fib.sh".format(FUZZ_DIR)
 RESTORE = "restore"
 DROP = "drop"
 
+REACH_FUZZ = "reachability"
+ISO_FUZZ = "isolation"
+
 CONV_TIME = 15

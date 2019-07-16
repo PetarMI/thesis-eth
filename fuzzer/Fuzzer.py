@@ -30,7 +30,7 @@ class Fuzzer:
         self.search_plan = statespace.get_heuristic_plan(properties["reachability"], fib, fuzz_data)
         self.search_stats = statespace.get_fuzzing_stats()
         self.transition = StateTransition.PartialRevert(fuzz_data)
-        self.verification = Ver.Verification(properties, fuzz_data)
+        self.verification = Ver.Verification(properties, fib, fuzz_data)
 
     def verify_deployment(self):
         print(clr("#### Verifying deployment", 'cyan', attrs=['bold']))
@@ -48,9 +48,9 @@ class Fuzzer:
             self.transition.perform_state_transition(state)
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
-            self.verification.verify_fib_reachability(state)
+            self.verification.verify_fib_isolation(state)
 
-            if self.check_stop_fuzzing(n):
+            if self.check_stop_fuzzing(n, const.ISO_FUZZ):
                 break
 
             print("===================================")
@@ -59,8 +59,8 @@ class Fuzzer:
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
 
-    def check_stop_fuzzing(self, n: int) -> bool:
-        if self.verification.stop_fuzzing():
+    def check_stop_fuzzing(self, n: int, fuzz_type: str) -> bool:
+        if self.verification.stop_fuzzing(fuzz_type):
             print(clr("#### Finished fuzzing after {} iterations".format(n),
                       'green', attrs=['bold']))
             return True
