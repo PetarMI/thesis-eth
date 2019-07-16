@@ -5,7 +5,7 @@ Responsible for parsing the reachability properties specified as input.
 Public functions:
     * parse_properties
 """
-
+import ipaddress
 from fuzzer.common import file_reader as fr
 from fuzzer.common import file_writer as fw
 from fuzzer.common.FuzzData import FuzzData
@@ -88,10 +88,11 @@ def find_ospf_ips(node_ifaces: list, ospf_links, topo_name, fuzz_data: FuzzData)
     ospf_ips = []
 
     for iface in node_ifaces:
-        sim_iface_name = prepend_topo(topo_name, iface["name"])
+        sim_net_name = prepend_topo(topo_name, iface["network"])
 
-        if sim_iface_name in ospf_links:
-            dest_sim_ip, dest_sim_net = fuzz_data.get_nat_ip(iface["ipaddr"])
+        if sim_net_name in ospf_links:
+            orig_ip = str(ipaddress.IPv4Interface(iface["ipaddr"]).ip)
+            dest_sim_ip, dest_sim_net = fuzz_data.get_nat_ip(orig_ip)
             ospf_ips.append(dest_sim_ip)
 
     return ospf_ips

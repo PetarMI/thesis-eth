@@ -19,7 +19,7 @@ class Fib:
             dev_fib: dict = parse_device_fib(raw_fib)
             self.fib.update({dev: dev_fib})
 
-        print(json.dumps(self.fib, indent=4))
+        # print(json.dumps(self.fib, indent=4))
 
     def find_next_hops(self, src_dev: str, dest_net: str) -> list:
         src_dev_fib = self.fib.get(src_dev, None)

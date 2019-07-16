@@ -12,6 +12,13 @@
             "src": "praha",
             "dest": "100.0.30.1"
         }
+    ],
+    "isolation": [
+        {
+            "src": "milano",
+            "dest": "100.0.40.1",
+            "traps": ["broot"]
+        }
     ]
 }
 

@@ -97,8 +97,8 @@ def find_property_hops(prop: dict, fib: Fib, fuzz_data: FuzzData) -> list:
             print(clr("No path to {}".format(dest_network), 'red'))
             break
         else:
-            src_dev = fuzz_data.find_ip_device(next_hops[1])
-
+            src_dev = fuzz_data.find_ip_device(next_hops[0])
+           
             if not src_dev:
                 print(clr("Next hop {} not present {}".
                           format(src_dev, dest_network), 'red'))
