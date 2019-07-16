@@ -1,15 +1,15 @@
 import ipaddress
-import subprocess
 from collections import OrderedDict
 from termcolor import colored as clr
-from fuzzer.common import constants_fuzzer as const
 from fuzzer.common.FuzzData import FuzzData
+from fuzzer.controllers.fib import Fib
 from fuzzer.strategies import baseline_strategies as base
 
 
-def heuristic(max_depth: int, links: list, properties: dict, fuzz_data) -> list:
+def heuristic(max_depth, links: list, properties: dict, fib: Fib, fuzz_data) -> list:
     """ Makes a search plan based on a heuristic """
-    heuristic_links: list = find_path_links(properties, fuzz_data)
+    fib.update_fib()
+    heuristic_links: list = find_path_links(properties, fib, fuzz_data)
     pretty_print_property_paths(heuristic_links)
 
     heuristic_subplan: list = gen_heuristic_subplan(max_depth, heuristic_links)
@@ -59,66 +59,54 @@ def union_plans(subplan: list, full_plan: list) -> list:
     return heuristic_plan
 
 
-def find_path_links(properties: dict, fuzz_data: FuzzData) -> list:
+def find_path_links(properties: dict, fib: Fib, fuzz_data: FuzzData) -> list:
     """ Find the links associated with each property
 
     :param properties: List of properties
+    :param fib:
     :param fuzz_data:
     :return: List of lists where each list corresponds to a property
     """
     links = []
 
     for prop in properties.values():
-        property_hops: list = find_property_hops(prop, fuzz_data)
+        property_hops: list = find_property_hops(prop, fib, fuzz_data)
         property_links: list = parse_hops2links(property_hops, fuzz_data)
         links.append(property_links)
 
     return links
 
 
-def find_property_hops(prop: dict, fuzz_data: FuzzData) -> list:
+def find_property_hops(prop: dict, fib: Fib, fuzz_data: FuzzData) -> list:
     """ Find the networks associated with each property
 
     :return: a set of IP addresses (without a netmask)
     """
-    vm_ip: str = prop["vm_ip"]
     src_dev: str = prop["container_name"]
     dest_network: str = prop["dest_sim_net"]
 
     nets = []
 
     while True:
-        next_hops_output: str = exec_next_hop_find(vm_ip, src_dev, dest_network)
-        next_hops: list = next_hops_output.split(",")
+        next_hops: list = fib.find_next_hops(src_dev, dest_network)
 
-        if len(next_hops) == 1:
-            # nets.append(next_hops[0])
+        if next_hops == []:
+            # container is directly connected to destination network
             break
-        elif not next_hops:
+        elif next_hops is None:
             print(clr("No path to {}".format(dest_network), 'red'))
             break
         else:
             src_dev = fuzz_data.find_ip_device(next_hops[1])
-            vm_ip = fuzz_data.find_container_vm(src_dev)
 
-            if not src_dev or not vm_ip:
-                print(clr("Next hop {} on {} not present {}".
-                          format(src_dev, vm_ip, dest_network), 'red'))
+            if not src_dev:
+                print(clr("Next hop {} not present {}".
+                          format(src_dev, dest_network), 'red'))
                 break
 
-            nets.extend(next_hops[1:])
+            nets.extend(next_hops)
 
     return nets
-
-
-def exec_next_hop_find(vm_ip, src_dev, dest_network) -> str:
-    """ Execute the next hop finding script and return a
-    comma separated string of IP addresses without a netmask """
-    result = subprocess.run([const.FIB_NEXT_HOP_SH, vm_ip, src_dev, dest_network],
-                            stdout=subprocess.PIPE)
-    next_hops: str = result.stdout.decode('utf-8')
-
-    return next_hops
 
 
 def parse_hops2links(property_hops: list, fuzz_data) -> list:
