@@ -3,6 +3,14 @@ import json
 from fuzzer.common import constants_fuzzer as const
 
 
+def write_search_plan(search_plan: list):
+    output_file = const.SEARCH_PLAN_LOG
+
+    with open(output_file, 'w+') as log_file:
+        for state in search_plan:
+            log_file.write("{}\n".format(state))
+
+
 def write_reach_instr(properties: dict):
     output_file = const.REACH_PROPS_FILE
 

@@ -36,6 +36,7 @@ readonly FUZZ_DATA_DIR="${FUZZ_DIR}/fuzz_data"
 readonly CONTROLLER_DATA_DIR="${FUZZ_DATA_DIR}/controller_data"
 readonly EXECUTOR_DATA_DIR="${FUZZ_DATA_DIR}/executor_data"
 readonly VERIFIER_DATA_DIR="${FUZZ_DATA_DIR}/verifier_data"
+readonly FUZZING_STATS_DIR="${FUZZ_DATA_DIR}/fuzzing_stats"
 
 readonly DEPLOY_DIR="${WORK_DIR}/infra/deployer/deployment_files/${FLAG_topology}"
 readonly TOPO_DIR="${WORK_DIR}/topologies/${FLAG_topology}"
@@ -69,6 +70,7 @@ function collect_running_data {
     mkdir "${CONTROLLER_DATA_DIR}"
     mkdir "${EXECUTOR_DATA_DIR}"
     mkdir "${VERIFIER_DATA_DIR}"
+    mkdir "${FUZZING_STATS_DIR}"
 
     cp "${TOPO_DIR}/${FLAG_topology}.topo" "${CONTROLLER_DATA_DIR}/topo.json"
     cp "${TOPO_DIR}/properties.json" "${CONTROLLER_DATA_DIR}"

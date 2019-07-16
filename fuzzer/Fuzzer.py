@@ -7,6 +7,7 @@ from fuzzer.controllers import StateTransition
 from fuzzer.controllers import Verification as Ver
 from fuzzer.controllers.fib import Fib
 from fuzzer.common.FuzzData import FuzzData
+from fuzzer.common import file_writer as fw
 from fuzzer.common import constants_fuzzer as const
 
 
@@ -29,6 +30,7 @@ class Fuzzer:
         # set fuzzing approach state variables
         self.search_plan = statespace.get_bfs_plan()
         self.search_stats = statespace.get_fuzzing_stats()
+        fw.write_search_plan(self.search_plan)
         self.transition = StateTransition.PartialRevert(fuzz_data)
         self.verification = Ver.Verification(properties, fib, fuzz_data)
 

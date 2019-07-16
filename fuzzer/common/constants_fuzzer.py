@@ -8,6 +8,7 @@ FUZZ_DATA_DIR = "{}/fuzz_data".format(FUZZ_DIR)
 CONTROLLER_DATA_DIR = "{}/controller_data".format(FUZZ_DATA_DIR)
 EXECUTOR_DATA_DIR = "{}/executor_data".format(FUZZ_DATA_DIR)
 VERIFIER_DATA_DIR = "{}/verifier_data".format(FUZZ_DATA_DIR)
+FUZZING_STATS_DIR = "{}/fuzzing_stats".format(FUZZ_DATA_DIR)
 
 PING_LOGS_DIR = "{}/ping_logs".format(VERIFIER_DATA_DIR)
 
@@ -25,7 +26,8 @@ PARSED_ISO_FILE = "{}/isolation_props.json".format(VERIFIER_DATA_DIR)
 REACH_PROPS_FILE = "{}/reachability_instr.csv".format(EXECUTOR_DATA_DIR)
 
 PING_FILE = "ping_res_{}.log"
-FAILURES_LOG = "{}/failures.log".format(VERIFIER_DATA_DIR)
+FAILURES_LOG = "{}/failures.log".format(FUZZING_STATS_DIR)
+SEARCH_PLAN_LOG = "{}/search_plan.log".format(FUZZING_STATS_DIR)
 
 # Executor scripts
 CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
