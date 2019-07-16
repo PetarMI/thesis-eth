@@ -22,6 +22,14 @@ def write_reach_properties(reach_properties: dict):
         json.dump(prop_list, json_file, indent=4)
 
 
+def write_iso_properties(iso_properties: dict):
+    output_file = const.PARSED_ISO_FILE
+    prop_list = list(iso_properties.values())
+
+    with open(output_file, 'w+') as json_file:
+        json.dump(prop_list, json_file, indent=4)
+
+
 def write_state_failures(state: tuple, property_violations: dict):
     output_file = const.FAILURES_LOG
 

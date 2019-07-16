@@ -14,11 +14,16 @@ from fuzzer.common.FuzzData import FuzzData
 def parse_properties(fuzz_data: FuzzData) -> dict:
     raw_props: dict = fr.read_properties()
     reach_props: dict = parse_reachability_props(raw_props["reachability"], fuzz_data)
+    iso_props: dict = parse_iso_props(raw_props["isolation"], fuzz_data)
 
     fw.write_reach_instr(reach_props)
     fw.write_reach_properties(reach_props)
+    fw.write_iso_properties(iso_props)
 
-    return reach_props
+    return {
+        "reachability": reach_props,
+        "isolation": iso_props
+    }
 
 
 def parse_reachability_props(raw_reach_props, fuzz_data) -> dict:

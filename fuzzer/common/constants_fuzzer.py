@@ -21,6 +21,7 @@ SIM_IFACES_FILE = "{}/sim_ifaces.csv".format(CONTROLLER_DATA_DIR)
 
 # files used for fuzzing
 PARSED_PROPS_FILE = "{}/reachability_props.json".format(VERIFIER_DATA_DIR)
+PARSED_ISO_FILE = "{}/isolation_props.json".format(VERIFIER_DATA_DIR)
 REACH_PROPS_FILE = "{}/reachability_instr.csv".format(EXECUTOR_DATA_DIR)
 
 PING_FILE = "ping_res_{}.log"
