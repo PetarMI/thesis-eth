@@ -11,14 +11,14 @@ def verify_fib_isolation(iso_props: dict, fib, fuzz_data, failed_nets: list) -> 
         print("Verifying property {}".format(prop_id))
         iso_res = verify_fib_property(prop, fib, fuzz_data, failed_nets)
 
-        if iso_res["status"] != 0:
+        if iso_res["status"] == 1:
             failed_properties.update({prop_id: iso_res})
 
     return failed_properties
 
 
 def verify_fib_property(prop: dict, fib: Fib, fuzz_data, failed_nets):
-    src_dev: str = prop["container_name"]
+    src_dev: str = prop["src_name"]
     dest_network: str = prop["dest_sim_net"]
 
     while True:
@@ -38,7 +38,7 @@ def verify_fib_property(prop: dict, fib: Fib, fuzz_data, failed_nets):
                 ver_msg = "Broken reachability from {} to {}".format(src_dev, dest_network)
                 break
 
-            forbidden_hop: str = check_next_hops_forbidden(next_hops, prop["traps"])
+            forbidden_hop: str = check_next_hops_forbidden(next_hops, prop["trap_ips"])
 
             if forbidden_hop:
                 ver_status = 1
@@ -94,7 +94,7 @@ def pretty_print_violations(property_failures: dict):
             print(clr("Property {} FAILED: {}".format(prop_id, ver_res["desc"]), 'red'))
             all_hold = False
         elif ver_status == 2:
-            print(clr("Property {}: {}".format(prop_id, ver_res["desc"]), 'grey'))
+            print(clr("Property {}: {}".format(prop_id, ver_res["desc"]), 'yellow'))
 
     if all_hold:
         print(clr("All properties HOLD", 'green'))

@@ -32,9 +32,10 @@ class Verification:
     def verify_fib_isolation(self, state):
         print(clr("## Isolation property checking", 'cyan'))
         failed_nets: list = self.fuzz_data.get_link_nets(state)
+        print(clr("Updating FIB", 'cyan'))
         self.fib.update_fib()
 
-        property_failures: dict = ifv.verify_fib_isolation(self.reach_props,
+        property_failures: dict = ifv.verify_fib_isolation(self.iso_props,
                                                            self.fib,
                                                            self.fuzz_data,
                                                            failed_nets)
