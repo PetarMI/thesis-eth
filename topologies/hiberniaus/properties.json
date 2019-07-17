@@ -150,5 +150,6 @@
             "dest": "100.0.4.1",
             "dest_name": "ashburn"
         }
-    ]
+    ],
+    "isolation": []
 }

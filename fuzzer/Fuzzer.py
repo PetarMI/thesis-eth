@@ -28,7 +28,7 @@ class Fuzzer:
         fib = Fib(fuzz_data)
 
         # set fuzzing approach state variables
-        self.search_plan = statespace.get_bfs_plan()
+        self.search_plan = statespace.get_heuristic_plan(properties["reachability"], fib, fuzz_data)
         self.search_stats = statespace.get_fuzzing_stats()
         fw.write_search_plan(self.search_plan)
         self.transition = StateTransition.PartialRevert(fuzz_data)
@@ -50,9 +50,9 @@ class Fuzzer:
             self.transition.perform_state_transition(state)
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
-            self.verification.verify_fib_isolation(state)
+            self.verification.verify_fib_reachability(state)
 
-            if self.check_stop_fuzzing(n, const.ISO_FUZZ):
+            if self.check_stop_fuzzing(n, const.ISO_REACH):
                 break
 
             print("===================================")
