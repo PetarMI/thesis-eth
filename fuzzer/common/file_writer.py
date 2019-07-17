@@ -51,9 +51,9 @@ def write_state_failures(state: tuple, property_violations: dict):
             log_file.write("===========================\n")
 
 
-def track_reach_progress(iso_iterations, property_failures):
+def track_reach_progress(reach_iterations, property_failures):
     filepath: str = const.REACH_VIOLATIONS_LOG
-    write_violations_progress(filepath, iso_iterations, property_failures)
+    write_violations_progress(filepath, reach_iterations, property_failures)
 
 
 def track_iso_progress(iso_iterations, property_failures):
