@@ -13,6 +13,8 @@ class Verification:
         self.iso_props = properties.get("isolation", dict())
         self.fib = fib
         self.fuzz_data = fuzz_data
+        self.iso_iterations = -1
+        self.reach_iterations = -1
 
     def verify_ping_reachability(self) -> dict:
         return rpv.verify_ping_reachability(self.reach_props)
@@ -20,11 +22,13 @@ class Verification:
     def verify_fib_reachability(self, state):
         print(clr("## Reachability property checking", 'cyan'))
         failed_nets: list = self.fuzz_data.get_link_nets(state)
+        self.reach_iterations += 1
+
         property_failures: dict = rfv.verify_fib_reachability(self.reach_props,
                                                               self.fuzz_data,
                                                               failed_nets)
         print(clr("## Final verdict", 'cyan'))
-        rfv.examine_violations(state, property_failures)
+        rfv.examine_violations(state, self.reach_iterations, property_failures)
 
         print(clr("## Applying changes to fuzzed properties", 'cyan'))
         remove_properties(property_failures, self.reach_props)
@@ -32,7 +36,7 @@ class Verification:
     def verify_fib_isolation(self, state):
         print(clr("## Isolation property checking", 'cyan'))
         failed_nets: list = self.fuzz_data.get_link_nets(state)
-        print(clr("Updating FIB", 'cyan'))
+        self.iso_iterations += 1
         self.fib.update_fib()
 
         property_failures: dict = ifv.verify_fib_isolation(self.iso_props,
@@ -40,7 +44,7 @@ class Verification:
                                                            self.fuzz_data,
                                                            failed_nets)
         print(clr("## Final verdict", 'cyan'))
-        ifv.examine_violations(state, property_failures)
+        ifv.examine_violations(state, self.iso_iterations, property_failures)
 
         print(clr("## Applying changes to fuzzed properties", 'cyan'))
         remove_properties(property_failures, self.iso_props)

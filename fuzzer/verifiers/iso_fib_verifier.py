@@ -81,9 +81,10 @@ def check_next_hops_forbidden(next_hops: list, trap_ips: list):
     return False
 
 
-def examine_violations(state, property_failures: dict):
+def examine_violations(state, iso_iterations: int, property_failures: dict):
     if property_failures:
         pretty_print_violations(property_failures)
+        fw.track_iso_progress(iso_iterations, property_failures)
         fw.write_state_failures(state, property_failures)
     else:
         print(clr("All properties HOLD", 'green'))

@@ -106,9 +106,10 @@ def exec_fib_verification(vm_ip, src_dev, dest_network) -> subprocess.CompletedP
     return result
 
 
-def examine_violations(state, property_failures: dict):
+def examine_violations(state, reach_iterations, property_failures: dict):
     if property_failures:
         pretty_print_violations(property_failures)
+        fw.track_reach_progress(reach_iterations, property_failures)
         fw.write_state_failures(state, property_failures)
     else:
         print(clr("All properties HOLD", 'green'))

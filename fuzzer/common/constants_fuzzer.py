@@ -28,6 +28,8 @@ REACH_PROPS_FILE = "{}/reachability_instr.csv".format(EXECUTOR_DATA_DIR)
 PING_FILE = "ping_res_{}.log"
 FAILURES_LOG = "{}/failures.log".format(FUZZING_STATS_DIR)
 SEARCH_PLAN_LOG = "{}/search_plan.log".format(FUZZING_STATS_DIR)
+REACH_VIOLATIONS_LOG = "{}/reach_violations.log".format(FUZZING_STATS_DIR)
+ISO_VIOLATIONS_LOG = "{}/iso_violations.log".format(FUZZING_STATS_DIR)
 
 # Executor scripts
 CONVERGENCE_SH = "{}/executors/convergence_monitor.sh".format(FUZZ_DIR)
@@ -44,4 +46,4 @@ DROP = "drop"
 REACH_FUZZ = "reachability"
 ISO_FUZZ = "isolation"
 
-CONV_TIME = 15
+CONV_TIME = 10
