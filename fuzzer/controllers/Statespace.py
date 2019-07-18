@@ -13,6 +13,7 @@ from scipy.special import comb
 from fuzzer.common.FuzzData import FuzzData
 from fuzzer.strategies import baseline_strategies as base
 from fuzzer.strategies import heuristic_strategy as heuristic
+from fuzzer.strategies import neighbor_heuristic as nh
 
 
 class Statespace:
@@ -29,6 +30,9 @@ class Statespace:
 
     def get_heuristic_plan(self, props: dict, fib, fuzz_data: FuzzData) -> list:
         return heuristic.heuristic(self.depth, self.links, props, fib, fuzz_data)
+
+    def get_neighbor_heuristic_plan(self, properties: dict, fuzz_data: FuzzData):
+        return nh.heuristic(self.depth, properties, fuzz_data)
 
     # @Tested
     def get_fuzzing_stats(self) -> dict:
