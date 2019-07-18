@@ -4,7 +4,6 @@ from fuzzer.verifiers import reach_ping_verifier as rpv
 from fuzzer.verifiers import reach_fib_verifier as rfv
 from fuzzer.verifiers import iso_fib_verifier as ifv
 from fuzzer.common.FuzzData import FuzzData
-from fuzzer.common import constants_fuzzer as const
 
 
 class Verification:
@@ -19,8 +18,19 @@ class Verification:
     def verify_ping_reachability(self) -> dict:
         return rpv.verify_ping_reachability(self.reach_props)
 
-    def verify_fib_reachability(self, state):
+    def verify_fib_properties(self, state):
+        print(clr("## Updating FIB", 'cyan'))
+        self.fib.update_fib()
+
+        self._verify_fib_reachability(state)
+        self._verify_fib_isolation(state)
+
+    def _verify_fib_reachability(self, state):
         print(clr("## Reachability property checking", 'cyan'))
+        if len(self.reach_props.keys()) == 0:
+            print("No more Reachability properties")
+            return
+
         failed_nets: list = self.fuzz_data.get_link_nets(state)
         self.reach_iterations += 1
 
@@ -30,14 +40,17 @@ class Verification:
         print(clr("## Final verdict", 'cyan'))
         rfv.examine_violations(state, self.reach_iterations, property_failures)
 
-        print(clr("## Applying changes to fuzzed properties", 'cyan'))
+        print(clr("## Applying changes to reachability properties", 'cyan'))
         remove_properties(property_failures, self.reach_props)
 
-    def verify_fib_isolation(self, state):
+    def _verify_fib_isolation(self, state):
         print(clr("## Isolation property checking", 'cyan'))
+        if len(self.iso_props.keys()) == 0:
+            print("No more Blacklisting properties")
+            return
+
         failed_nets: list = self.fuzz_data.get_link_nets(state)
         self.iso_iterations += 1
-        self.fib.update_fib()
 
         property_failures: dict = ifv.verify_fib_isolation(self.iso_props,
                                                            self.fib,
@@ -46,16 +59,14 @@ class Verification:
         print(clr("## Final verdict", 'cyan'))
         ifv.examine_violations(state, self.iso_iterations, property_failures)
 
-        print(clr("## Applying changes to fuzzed properties", 'cyan'))
+        print(clr("## Applying changes to blacklist properties", 'cyan'))
         remove_properties(property_failures, self.iso_props)
 
-    def stop_fuzzing(self, fuzz_type: str) -> bool:
-        if fuzz_type == const.REACH_FUZZ:
-            return len(self.reach_props.keys()) == 0
-        elif fuzz_type == const.ISO_FUZZ:
-            return len(self.iso_props.keys()) == 0
-        else:
-            raise ValueError("Unsupported fuzzing type {}".format(fuzz_type))
+    def stop_fuzzing(self) -> bool:
+        if len(self.reach_props.keys()) == 0 and len(self.iso_props.keys()) == 0:
+            return True
+
+        return False
 
     @staticmethod
     def interpret_ping_results(ping_results: dict):

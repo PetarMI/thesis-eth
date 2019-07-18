@@ -50,9 +50,9 @@ class Fuzzer:
             self.transition.perform_state_transition(state)
 
             print(clr("#### Verifying properties", 'cyan', attrs=['bold']))
-            self.verification.verify_fib_reachability(state)
+            self.verification.verify_fib_properties(state)
 
-            if self.check_stop_fuzzing(n, const.ISO_REACH):
+            if self.check_stop_fuzzing(n):
                 break
 
             print("===================================")
@@ -61,8 +61,8 @@ class Fuzzer:
         print(clr("## Statespace stats", 'magenta', attrs=['bold']))
         print(json.dumps(self.search_stats, indent=4))
 
-    def check_stop_fuzzing(self, n: int, fuzz_type: str) -> bool:
-        if self.verification.stop_fuzzing(fuzz_type):
+    def check_stop_fuzzing(self, n: int) -> bool:
+        if self.verification.stop_fuzzing():
             print(clr("#### Finished fuzzing after {} iterations".format(n),
                       'green', attrs=['bold']))
             return True
