@@ -74,15 +74,6 @@ def generate_iso_properties(topo_name: str, n: int) -> list:
         traps = []
         num_traps = random.choice([1, 1, 1, 2])
 
-        for n in range(0, num_traps):
-            trap = random.choice(list(topo_data))
-
-            while trap in used_containers:
-                trap = random.choice(list(topo_data))
-
-            used_containers.append(trap)
-            traps.append(trap)
-
         properties.append({
             "src": src_name,
             "dest": dest_ip,

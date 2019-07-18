@@ -79,8 +79,8 @@ def read_topo_conv_times(topo_name: str):
     return times
 
 
-def parse_verification_times() -> dict:
-    ver_times: dict = read_verification_times()
+def parse_verification_times(ver_type: str) -> dict:
+    ver_times: dict = read_verification_times(ver_type)
     parsed_ver = {"xaxis": [], "means": [], "errs": []}
 
     for nprops, times in ver_times.items():
@@ -91,8 +91,8 @@ def parse_verification_times() -> dict:
     return parsed_ver
 
 
-def read_verification_times() -> dict:
-    filepath = "{}/verification.log".format(const.LOG_DIR)
+def read_verification_times(ver_type: str) -> dict:
+    filepath = "{}/verification_{}.log".format(const.LOG_DIR, ver_type)
 
     times = dict()
 
@@ -146,13 +146,19 @@ def plot_transition_times():
 
 
 def plot_ver_times():
-    ver_times = parse_verification_times()
+    ver_times_dynamic = parse_verification_times("dynamic")
+    ver_times_static = parse_verification_times("static")
 
-    plt.errorbar(ver_times["xaxis"], ver_times["means"], yerr=ver_times["errs"],
-                 fmt='-o', ecolor='red', markersize=5, capsize=2)
+    plt.errorbar(ver_times_dynamic["xaxis"], ver_times_dynamic["means"],
+                 yerr=ver_times_dynamic["errs"], c='blue', ecolor='red',
+                 fmt='-o', markersize=5, capsize=2, label='Dynamic check')
+    plt.errorbar(ver_times_static["xaxis"], ver_times_static["means"],
+                 yerr=ver_times_static["errs"], c='green', ecolor='red',
+                 fmt='-o', markersize=5, capsize=2, label='Static graph check')
     plt.ylabel('Seconds')
     plt.xlabel("Properties")
     plt.title('Reachability Verification')
+    plt.legend()
 
     plt.show()
 
@@ -160,5 +166,6 @@ def plot_ver_times():
 def main():
     # plot_transition_times()
     plot_ver_times()
+
 
 main()
