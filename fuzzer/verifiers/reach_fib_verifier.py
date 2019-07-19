@@ -19,7 +19,7 @@ def verify_fib_reachability(properties: dict, fib, fuzz_data, failed_nets: list)
 
     # double check to give network more time to converge
     if failed_properties:
-        property_failures = double_check_violations(failed_properties, fuzz_data, failed_nets)
+        property_failures = double_check_violations(failed_properties, fib, fuzz_data, failed_nets)
         pretty_print_double_check_info(failed_properties, property_failures)
         return property_failures
     else:
@@ -27,7 +27,7 @@ def verify_fib_reachability(properties: dict, fib, fuzz_data, failed_nets: list)
         return failed_properties
 
 
-def double_check_violations(failed_properties: dict, fuzz_data, failed_nets) -> dict:
+def double_check_violations(failed_properties: dict, fib: Fib, fuzz_data, failed_nets) -> dict:
     print(clr("## Giving network {} seconds to converge before double checking".
               format(const.CONV_TIME), 'cyan'))
     time.sleep(const.CONV_TIME)
@@ -36,7 +36,7 @@ def double_check_violations(failed_properties: dict, fuzz_data, failed_nets) -> 
 
     for prop_id, prop in failed_properties.items():
         print("Double checking property {}".format(prop_id))
-        reachability_res = verify_fib_property(prop, fuzz_data, failed_nets)
+        reachability_res = verify_fib_property(prop, fib, fuzz_data, failed_nets)
 
         if reachability_res["status"] != 0:
             property_failures.update({prop_id: reachability_res})

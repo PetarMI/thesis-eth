@@ -62,7 +62,7 @@ def track_iso_progress(iso_iterations, property_failures):
 
 
 def write_violations_progress(filepath: str, iterations, prop_failures: dict):
-    failed_props = ",".join(prop_failures.keys())
+    failed_props = ",".join(str(x) for x in prop_failures.keys())
 
     with open(filepath, mode='a+') as log_file:
         log_file.write("{}:{}\n".format(iterations, failed_props))
