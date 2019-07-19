@@ -28,7 +28,7 @@ class Fuzzer:
         fib = Fib(fuzz_data)
 
         # set fuzzing approach state variables
-        self.search_plan = statespace.get_heuristic_plan(properties["reachability"], fib, fuzz_data)
+        self.search_plan = statespace.get_bfs_plan()
         self.search_stats = statespace.get_fuzzing_stats()
         fw.write_search_plan(self.search_plan)
         self.transition = StateTransition.PartialRevert(fuzz_data)

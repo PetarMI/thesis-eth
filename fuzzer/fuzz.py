@@ -11,7 +11,7 @@ def main():
     args = parser.parse_args()
 
     fuzzer = Fuzzer()
-    fuzzer.prepare_fuzzing(3)
+    fuzzer.prepare_fuzzing(2)
     fuzzer.print_search_strategy()
     fuzzer.verify_deployment()
     fuzzer.fuzz()
