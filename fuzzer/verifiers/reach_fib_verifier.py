@@ -1,18 +1,18 @@
-import subprocess
 import time
 import ipaddress
 from termcolor import colored as clr
 from fuzzer.common import constants_fuzzer as const
 from fuzzer.common import file_writer as fw
+from fuzzer.controllers.fib import Fib
 
 
-def verify_fib_reachability(properties: dict, fuzz_data, failed_nets: list) -> dict:
+def verify_fib_reachability(properties: dict, fib, fuzz_data, failed_nets: list) -> dict:
     failed_properties = dict()
 
     # remember the properties that failed
     for prop_id, prop in properties.items():
         print("Verifying property {}".format(prop_id))
-        reachability_res = verify_fib_property(prop, fuzz_data, failed_nets)
+        reachability_res = verify_fib_property(prop, fib, fuzz_data, failed_nets)
 
         if reachability_res["status"] != 0:
             failed_properties.update({prop_id: prop})
@@ -44,39 +44,36 @@ def double_check_violations(failed_properties: dict, fuzz_data, failed_nets) -> 
     return property_failures
 
 
-def verify_fib_property(prop: dict, fuzz_data, failed_nets):
-    vm_ip: str = prop["vm_ip"]
+def verify_fib_property(prop: dict, fib: Fib, fuzz_data, failed_nets):
     src_dev: str = prop["container_name"]
     dest_network: str = prop["dest_sim_net"]
 
     while True:
-        reachability_res = exec_fib_verification(vm_ip, src_dev, dest_network)
-        next_hop: str = reachability_res.stdout.decode('utf-8')
+        next_hops: list = fib.find_next_hops(src_dev, dest_network)
 
-        if next_hop == "connected":
+        if next_hops == []:
             ver_status = 0
             ver_msg = "Found path to network {}".format(dest_network)
             ver_info = ""
             break
-        elif not next_hop:
+        elif next_hops is None:
             ver_status = 1
             ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
             ver_info = "No path to network {} at device {}".format(dest_network, src_dev)
             break
         else:
-            if check_next_hop_failed(next_hop, failed_nets):
+            if check_next_hop_failed(next_hops[0], failed_nets):
                 ver_status = 1
                 ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
-                ver_info = "Next hop {} at {} is on a failed link".format(next_hop, src_dev)
+                ver_info = "Next hop {} at {} is on a failed link".format(next_hops[0], src_dev)
                 break
 
-            src_dev = fuzz_data.find_ip_device(next_hop)
-            vm_ip = fuzz_data.find_container_vm(src_dev)
+            src_dev = fuzz_data.find_ip_device(next_hops[0])
 
-            if not src_dev or not vm_ip:
+            if src_dev is None:
                 ver_status = 2
                 ver_msg = "No reachability from {} to {}".format(src_dev, prop["dest_sim_ip"])
-                ver_info = "Next hop {} on {} not present".format(src_dev, vm_ip)
+                ver_info = "Next hop {} not present".format(src_dev)
                 break
 
     return {
@@ -96,14 +93,6 @@ def check_next_hop_failed(next_hop: str, failed_nets: list) -> bool:
             return True
 
     return False
-
-
-def exec_fib_verification(vm_ip, src_dev, dest_network) -> subprocess.CompletedProcess:
-    """ Call the verifier script for one property """
-    result = subprocess.run([const.FIB_SH, vm_ip, src_dev, dest_network],
-                            stdout=subprocess.PIPE)
-
-    return result
 
 
 def examine_violations(state, reach_iterations, property_failures: dict):

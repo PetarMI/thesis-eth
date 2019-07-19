@@ -35,6 +35,7 @@ class Verification:
         self.reach_iterations += 1
 
         property_failures: dict = rfv.verify_fib_reachability(self.reach_props,
+                                                              self.fib,
                                                               self.fuzz_data,
                                                               failed_nets)
         print(clr("## Final verdict", 'cyan'))
