@@ -1,21 +1,42 @@
 import csv
 import json
 import matplotlib.pyplot as plt
+from collections import OrderedDict
 from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
 
 
 strategies_full = {"bfs": "BFS", "dfs": "DFS",
                    "h": "Path heuristic", "nh": "Neighbor heuristic"}
-violation_types = ["reach", "iso"]
+property_types = ["reach", "iso"]
+properties = {
+    "ctree": {
+        "reach": 30,
+        "iso": 12
+    }
+}
+
+
+def parse_prop_difficulty(raw_violations: dict, num_props: int) -> OrderedDict:
+    all_violations = raw_violations["BFS"]
+    prop_difficulties = OrderedDict()
+
+    for prop_id in range(1, num_props + 1):
+        prop_difficulties.setdefault(prop_id, 0)
+
+    for iter_props in all_violations.values():
+        for prop_id in iter_props:
+            prop_difficulties[prop_id] += 1
+
+    return prop_difficulties
 
 
 def normalize_topo_violations(parsed_violations: dict) -> dict:
     violations = dict()
 
     for strat, strat_results in parsed_violations.items():
-        normalized_violations = dict()
+        normalized_violations = OrderedDict()
         last_iteration = 1
-        last_num_violations = list(strat_results.values())[0]
+        last_num_violations = 0
 
         for iteration, iter_violations in strat_results.items():
             while last_iteration < iteration:
@@ -35,7 +56,7 @@ def parse_topo_violations(raw_violations: dict) -> dict:
 
     for strat, strat_results in raw_violations.items():
         violated_properties = set([])
-        parsed_strategy_results = dict()
+        parsed_strategy_results = OrderedDict()
 
         for iteration, iter_violations in strat_results.items():
             old_num_violations = len(violated_properties)
@@ -55,7 +76,7 @@ def read_topo_violations(topo_name: str):
         "iso": dict()
     }
 
-    for vio_type in violation_types:
+    for vio_type in property_types:
         for strat_code, strat in strategies_full.items():
             try:
                 strat_violations: list = read_violations_log(topo_name, vio_type, strat_code)
@@ -66,12 +87,12 @@ def read_topo_violations(topo_name: str):
     return all_violations
 
 
-def read_violations_log(topo_name: str, vio_type: str, strat: str) -> dict:
+def read_violations_log(topo_name: str, vio_type: str, strat: str) -> OrderedDict:
     log_dir = "{}/{}".format(const.VIOLATIONS_DIR, topo_name)
     filename = "{}_violations_{}.log".format(vio_type, strat)
     filepath = "{}/{}".format(log_dir, filename)
 
-    violations = dict()
+    violations = OrderedDict()
 
     with open(filepath, 'r') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter=':')
@@ -99,17 +120,39 @@ def make_violations_plot(violations: dict):
     plt.show()
 
 
-def plot_topo_violations(topo_name: str, vio_type: str):
+def make_difficulty_plot(difficulties: OrderedDict):
+    fig, ax = plt.subplots()
+
+    plt.plot(list(difficulties.keys()), list(difficulties.values()),
+             marker='o')
+
+    plt.ylabel('Number of violating states')
+    plt.xlabel("Properties")
+    ax.set_title('Property violations comparison')
+
+    plt.show()
+
+
+def plot_topo_violations(topo_name: str, prop_type: str):
     raw_violations = read_topo_violations(topo_name)
-    parsed_violations = parse_topo_violations(raw_violations[vio_type])
-    print(json.dumps(parsed_violations, indent=4))
+    parsed_violations = parse_topo_violations(raw_violations[prop_type])
     normalized_violations = normalize_topo_violations(parsed_violations)
-    print(json.dumps(normalized_violations, indent=4))
     make_violations_plot(normalized_violations)
 
 
+def plot_topo_properties_difficulty(topo_name: str, prop_type: str, num_props: int):
+    raw_violations = read_topo_violations(topo_name)
+    parsed_difficulty = parse_prop_difficulty(raw_violations[prop_type], num_props)
+    make_difficulty_plot(parsed_difficulty)
+
+
 def main():
-    plot_topo_violations("ctree", "iso")
+    topology = "ctree"
+    property_type = "reach"
+    num_props = properties[topology][property_type]
+
+    plot_topo_violations(topology, property_type)
+    # plot_topo_properties_difficulty(topology, property_type, num_props)
 
 
 main()
