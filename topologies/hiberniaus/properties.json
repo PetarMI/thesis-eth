@@ -1,6 +1,156 @@
 {
     "reachability": [
         {
+            "src": "newark",
+            "dest": "100.0.2.1",
+            "dest_name": "philadelphia"
+        },
+        {
+            "src": "whiteplains",
+            "dest": "100.0.16.1",
+            "dest_name": "cleveland"
+        },
+        {
+            "src": "nodeid11",
+            "dest": "100.0.13.1",
+            "dest_name": "nodeid10"
+        },
+        {
+            "src": "cleveland",
+            "dest": "100.0.15.1",
+            "dest_name": "whiteplains"
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.8.1",
+            "dest_name": "richmond"
+        },
+        {
+            "src": "atlanta",
+            "dest": "100.0.16.1",
+            "dest_name": "cleveland"
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.7.1",
+            "dest_name": "raleigh"
+        },
+        {
+            "src": "mclean",
+            "dest": "100.0.7.1",
+            "dest_name": "raleigh"
+        },
+        {
+            "src": "stamford",
+            "dest": "100.0.20.1",
+            "dest_name": "albany"
+        },
+        {
+            "src": "atlanta",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh"
+        },
+        {
+            "src": "richmond",
+            "dest": "100.0.19.1",
+            "dest_name": "buffalo"
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.11.1",
+            "dest_name": "atlanta"
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.5.1",
+            "dest_name": "newark"
+        },
+        {
+            "src": "halifax",
+            "dest": "100.0.19.1",
+            "dest_name": "buffalo"
+        },
+        {
+            "src": "pittsburgh",
+            "dest": "100.0.7.1",
+            "dest_name": "raleigh"
+        },
+        {
+            "src": "stamford",
+            "dest": "100.0.6.1",
+            "dest_name": "charlotte"
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.0.1",
+            "dest_name": "boston"
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.21.1",
+            "dest_name": "montreal"
+        },
+        {
+            "src": "cleveland",
+            "dest": "100.0.12.1",
+            "dest_name": "nodeid11"
+        },
+        {
+            "src": "whiteplains",
+            "dest": "100.0.0.1",
+            "dest_name": "boston"
+        },
+        {
+            "src": "toronto",
+            "dest": "100.0.17.1",
+            "dest_name": "chicago"
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.6.1",
+            "dest_name": "charlotte"
+        },
+        {
+            "src": "albany",
+            "dest": "100.0.6.1",
+            "dest_name": "charlotte"
+        },
+        {
+            "src": "charlotte",
+            "dest": "100.0.4.1",
+            "dest_name": "ashburn"
+        },
+        {
+            "src": "pittsburgh",
+            "dest": "100.0.6.1",
+            "dest_name": "charlotte"
+        },
+        {
+            "src": "pittsburgh",
+            "dest": "100.0.9.1",
+            "dest_name": "mclean"
+        },
+        {
+            "src": "montreal",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh"
+        },
+        {
+            "src": "whiteplains",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh"
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.2.1",
+            "dest_name": "philadelphia"
+        },
+        {
+            "src": "newyork",
+            "dest": "100.0.20.1",
+            "dest_name": "albany"
+        },
+        {
             "src": "boston",
             "dest": "100.0.2.1",
             "dest_name": "philadelphia"
@@ -151,5 +301,252 @@
             "dest_name": "ashburn"
         }
     ],
-    "isolation": []
+    "isolation": [
+        {
+            "src": "halifax",
+            "dest": "100.0.5.1",
+            "dest_name": "newark",
+            "traps": [
+                "toronto",
+                "pittsburgh"
+            ]
+        },
+        {
+            "src": "stamford",
+            "dest": "100.0.16.1",
+            "dest_name": "cleveland",
+            "traps": [
+                "raleigh"
+            ]
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.21.1",
+            "dest_name": "montreal",
+            "traps": [
+                "boston"
+            ]
+        },
+        {
+            "src": "toronto",
+            "dest": "100.0.8.1",
+            "dest_name": "richmond",
+            "traps": [
+                "philadelphia"
+            ]
+        },
+        {
+            "src": "raleigh",
+            "dest": "100.0.20.1",
+            "dest_name": "albany",
+            "traps": [
+                "toronto"
+            ]
+        },
+        {
+            "src": "boston",
+            "dest": "100.0.7.1",
+            "dest_name": "raleigh",
+            "traps": [
+                "whiteplains"
+            ]
+        },
+        {
+            "src": "richmond",
+            "dest": "100.0.7.1",
+            "dest_name": "raleigh",
+            "traps": [
+                "atlanta"
+            ]
+        },
+        {
+            "src": "boston",
+            "dest": "100.0.4.1",
+            "dest_name": "ashburn",
+            "traps": [
+                "chicago"
+            ]
+        },
+        {
+            "src": "stamford",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh",
+            "traps": [
+                "albany"
+            ]
+        },
+        {
+            "src": "newark",
+            "dest": "100.0.18.1",
+            "dest_name": "toronto",
+            "traps": [
+                "chicago"
+            ]
+        },
+        {
+            "src": "richmond",
+            "dest": "100.0.19.1",
+            "dest_name": "buffalo",
+            "traps": [
+                "montreal"
+            ]
+        },
+        {
+            "src": "cleveland",
+            "dest": "100.0.8.1",
+            "dest_name": "richmond",
+            "traps": [
+                "newyork"
+            ]
+        },
+        {
+            "src": "newark",
+            "dest": "100.0.15.1",
+            "dest_name": "whiteplains",
+            "traps": [
+                "philadelphia",
+                "boston"
+            ]
+        },
+        {
+            "src": "charlotte",
+            "dest": "100.0.18.1",
+            "dest_name": "toronto",
+            "traps": [
+                "montreal"
+            ]
+        },
+        {
+            "src": "atlanta",
+            "dest": "100.0.8.1",
+            "dest_name": "richmond",
+            "traps": [
+                "mclean"
+            ]
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.0.1",
+            "dest_name": "boston",
+            "traps": [
+                "newark"
+            ]
+        },
+        {
+            "src": "mclean",
+            "dest": "100.0.20.1",
+            "dest_name": "albany",
+            "traps": [
+                "whiteplains",
+                "montreal"
+            ]
+        },
+        {
+            "src": "stamford",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh",
+            "traps": [
+                "albany"
+            ]
+        },
+        {
+            "src": "montreal",
+            "dest": "100.0.17.1",
+            "dest_name": "chicago",
+            "traps": [
+                "stamford"
+            ]
+        },
+        {
+            "src": "charlotte",
+            "dest": "100.0.8.1",
+            "dest_name": "richmond",
+            "traps": [
+                "cleveland"
+            ]
+        },
+        {
+            "src": "albany",
+            "dest": "100.0.13.1",
+            "dest_name": "nodeid10",
+            "traps": [
+                "newyork"
+            ]
+        },
+        {
+            "src": "chicago",
+            "dest": "100.0.3.1",
+            "dest_name": "pittsburgh",
+            "traps": [
+                "cleveland"
+            ]
+        },
+        {
+            "src": "nodeid11",
+            "dest": "100.0.11.1",
+            "dest_name": "atlanta",
+            "traps": [
+                "whiteplains"
+            ]
+        },
+        {
+            "src": "whiteplains",
+            "dest": "100.0.21.1",
+            "dest_name": "montreal",
+            "traps": [
+                "philadelphia"
+            ]
+        },
+        {
+            "src": "whiteplains",
+            "dest": "100.0.18.1",
+            "dest_name": "toronto",
+            "traps": [
+                "boston",
+                "charlotte"
+            ]
+        },
+        {
+            "src": "charlotte",
+            "dest": "100.0.0.1",
+            "dest_name": "boston",
+            "traps": [
+                "toronto"
+            ]
+        },
+        {
+            "src": "montreal",
+            "dest": "100.0.19.1",
+            "dest_name": "buffalo",
+            "traps": [
+                "boston"
+            ]
+        },
+        {
+            "src": "buffalo",
+            "dest": "100.0.17.1",
+            "dest_name": "chicago",
+            "traps": [
+                "toronto"
+            ]
+        },
+        {
+            "src": "mclean",
+            "dest": "100.0.10.1",
+            "dest_name": "newyork",
+            "traps": [
+                "whiteplains",
+                "boston"
+            ]
+        },
+        {
+            "src": "albany",
+            "dest": "100.0.16.1",
+            "dest_name": "cleveland",
+            "traps": [
+                "stamford",
+                "newyork"
+            ]
+        }
+    ]
 }

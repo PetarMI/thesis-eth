@@ -6,12 +6,16 @@ from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
 
 
 strategies_full = {"bfs": "BFS", "dfs": "DFS",
-                   "h": "Path heuristic", "nh": "Neighbor heuristic"}
+                   "ph": "Path heuristic", "nh": "Neighbor heuristic"}
 property_types = ["reach", "iso"]
 properties = {
     "ctree": {
         "reach": 30,
         "iso": 12
+    },
+    "hiberniaus": {
+        "reach": 60,
+        "iso": 30
     }
 }
 
@@ -147,8 +151,8 @@ def plot_topo_properties_difficulty(topo_name: str, prop_type: str, num_props: i
 
 
 def main():
-    topology = "ctree"
-    property_type = "reach"
+    topology = "hiberniaus"
+    property_type = "iso"
     num_props = properties[topology][property_type]
 
     plot_topo_violations(topology, property_type)
