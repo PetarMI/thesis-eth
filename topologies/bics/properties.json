@@ -505,7 +505,7 @@
             "dest": "100.0.7.1",
             "dest_name": "ljubjana",
             "traps": [
-                "bratislava"
+                "praha"
             ]
         },
         {
@@ -693,7 +693,7 @@
             "dest": "100.0.10.1",
             "dest_name": "strasbourg",
             "traps": [
-                "geneva"
+                "brussels"
             ]
         },
         {
