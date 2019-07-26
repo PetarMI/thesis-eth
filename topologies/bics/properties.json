@@ -1,73 +1,815 @@
 {
     "reachability": [
         {
-            "src": "lisbon",
-            "dest": "10.0.0.66"
+            "src": "roma",
+            "dest": "100.0.22.1",
+            "dest_name": "frankfurt"
+        },
+        {
+            "src": "budapest",
+            "dest": "100.0.9.1",
+            "dest_name": "rotterdam"
+        },
+        {
+            "src": "luxembourg",
+            "dest": "100.0.10.1",
+            "dest_name": "strasbourg"
         },
         {
             "src": "zagreb",
-            "dest": "100.0.17.1"
+            "dest": "100.0.20.1",
+            "dest_name": "roma"
         },
         {
-            "src": "zurich",
-            "dest": "100.0.9.1"
+            "src": "budapest",
+            "dest": "100.0.4.1",
+            "dest_name": "basel"
         },
         {
-            "src": "barcelona",
-            "dest": "10.0.0.83"
-        },
-        {
-            "src": "london",
-            "dest": "100.0.20.1"
-        },
-        {
-            "src": "paris",
-            "dest": "10.0.0.7"
+            "src": "zagreb",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon"
         },
         {
             "src": "bucharest",
-            "dest": "10.0.0.9"
+            "dest": "100.0.24.1",
+            "dest_name": "zurich"
         },
         {
-            "src": "warsaw",
-            "dest": "10.0.0.0"
-        },
-        {
-            "src": "lyon",
-            "dest": "10.0.0.57"
-        },
-        {
-            "src": "amsterdam",
-            "dest": "100.0.21.1"
-        },
-        {
-            "src": "marseille",
-            "dest": "10.0.0.64"
-        },
-        {
-            "src": "vaduz",
-            "dest": "10.0.0.77"
-        },
-        {
-            "src": "milan",
-            "dest": "10.0.0.53"
+            "src": "strasbourg",
+            "dest": "100.0.19.1",
+            "dest_name": "stockholm"
         },
         {
             "src": "ljubjana",
-            "dest": "100.0.14.1"
+            "dest": "100.0.21.1",
+            "dest_name": "marseille"
         },
         {
-            "src": "brussels",
-            "dest": "10.0.0.10"
+            "src": "strasbourg",
+            "dest": "100.0.29.1",
+            "dest_name": "london"
         },
         {
-            "src": "istanbul",
-            "dest": "100.0.25.1"
+            "src": "warsaw",
+            "dest": "100.0.8.1",
+            "dest_name": "vienna"
         },
         {
             "src": "madrid",
-            "dest": "100.0.10.1"
+            "dest": "100.0.29.1",
+            "dest_name": "london"
+        },
+        {
+            "src": "bratislava",
+            "dest": "100.0.2.1",
+            "dest_name": "istanbul"
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.11.1",
+            "dest_name": "geneva"
+        },
+        {
+            "src": "basel",
+            "dest": "100.0.5.1",
+            "dest_name": "athens"
+        },
+        {
+            "src": "madrid",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana"
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.1.1",
+            "dest_name": "kiev"
+        },
+        {
+            "src": "vienna",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon"
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.12.1",
+            "dest_name": "zagreb"
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.23.1",
+            "dest_name": "bucharest"
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.22.1",
+            "dest_name": "frankfurt"
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.15.1",
+            "dest_name": "budapest"
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.22.1",
+            "dest_name": "frankfurt"
+        },
+        {
+            "src": "vaduz",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam"
+        },
+        {
+            "src": "frankfurt",
+            "dest": "100.0.6.1",
+            "dest_name": "luxembourg"
+        },
+        {
+            "src": "kiev",
+            "dest": "100.0.11.1",
+            "dest_name": "geneva"
+        },
+        {
+            "src": "madrid",
+            "dest": "100.0.10.1",
+            "dest_name": "strasbourg"
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.22.1",
+            "dest_name": "frankfurt"
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.20.1",
+            "dest_name": "roma"
+        },
+        {
+            "src": "london",
+            "dest": "100.0.1.1",
+            "dest_name": "kiev"
+        },
+        {
+            "src": "stockholm",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon"
+        },
+        {
+            "src": "kiev",
+            "dest": "100.0.29.1",
+            "dest_name": "london"
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon"
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.27.1",
+            "dest_name": "milan"
+        },
+        {
+            "src": "strasbourg",
+            "dest": "100.0.20.1",
+            "dest_name": "roma"
+        },
+        {
+            "src": "sofia",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana"
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana"
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.29.1",
+            "dest_name": "london"
+        },
+        {
+            "src": "geneva",
+            "dest": "100.0.5.1",
+            "dest_name": "athens"
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid"
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam"
+        },
+        {
+            "src": "lyon",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid"
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.14.1",
+            "dest_name": "brussels"
+        },
+        {
+            "src": "stockholm",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana"
+        },
+        {
+            "src": "brussels",
+            "dest": "100.0.29.1",
+            "dest_name": "london"
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.29.1",
+            "dest_name": "london"
+        },
+        {
+            "src": "kiev",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon"
+        },
+        {
+            "src": "kiev",
+            "dest": "100.0.4.1",
+            "dest_name": "basel"
+        },
+        {
+            "src": "strasbourg",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid"
+        },
+        {
+            "src": "bratislava",
+            "dest": "100.0.6.1",
+            "dest_name": "luxembourg"
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.3.1",
+            "dest_name": "paris"
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid"
+        },
+        {
+            "src": "athens",
+            "dest": "100.0.15.1",
+            "dest_name": "budapest"
+        },
+        {
+            "src": "frankfurt",
+            "dest": "100.0.17.1",
+            "dest_name": "dublin"
+        },
+        {
+            "src": "athens",
+            "dest": "100.0.2.1",
+            "dest_name": "istanbul"
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.24.1",
+            "dest_name": "zurich"
+        },
+        {
+            "src": "frankfurt",
+            "dest": "100.0.4.1",
+            "dest_name": "basel"
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.15.1",
+            "dest_name": "budapest"
+        },
+        {
+            "src": "istanbul",
+            "dest": "100.0.17.1",
+            "dest_name": "dublin"
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam"
+        },
+        {
+            "src": "roma",
+            "dest": "100.0.5.1",
+            "dest_name": "athens"
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon"
+        },
+        {
+            "src": "geneva",
+            "dest": "100.0.12.1",
+            "dest_name": "zagreb"
+        },
+        {
+            "src": "athens",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam"
+        },
+        {
+            "src": "zurich",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid"
+        },
+        {
+            "src": "frankfurt",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon"
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon"
+        },
+        {
+            "src": "stockholm",
+            "dest": "100.0.32.1",
+            "dest_name": "warsaw"
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.18.1",
+            "dest_name": "barcelona"
+        },
+        {
+            "src": "lisbon",
+            "dest": "100.0.24.1",
+            "dest_name": "zurich"
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.18.1",
+            "dest_name": "barcelona"
+        },
+        {
+            "src": "frankfurt",
+            "dest": "100.0.21.1",
+            "dest_name": "marseille"
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.19.1",
+            "dest_name": "stockholm"
+        },
+        {
+            "src": "london",
+            "dest": "100.0.14.1",
+            "dest_name": "brussels"
+        },
+        {
+            "src": "lisbon",
+            "dest": "100.0.17.1",
+            "dest_name": "dublin"
+        },
+        {
+            "src": "geneva",
+            "dest": "100.0.15.1",
+            "dest_name": "budapest"
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.1.1",
+            "dest_name": "kiev"
+        },
+        {
+            "src": "milan",
+            "dest": "100.0.32.1",
+            "dest_name": "warsaw"
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.5.1",
+            "dest_name": "athens"
+        },
+        {
+            "src": "basel",
+            "dest": "100.0.9.1",
+            "dest_name": "rotterdam"
+        }
+    ],
+    "isolation": [
+        {
+            "src": "lyon",
+            "dest": "100.0.16.1",
+            "dest_name": "vaduz",
+            "traps": [
+                "basel"
+            ]
+        },
+        {
+            "src": "luxembourg",
+            "dest": "100.0.19.1",
+            "dest_name": "stockholm",
+            "traps": [
+                "bratislava",
+                "kiev"
+            ]
+        },
+        {
+            "src": "bratislava",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana",
+            "traps": [
+                "madrid"
+            ]
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.16.1",
+            "dest_name": "vaduz",
+            "traps": [
+                "brussels"
+            ]
+        },
+        {
+            "src": "paris",
+            "dest": "100.0.17.1",
+            "dest_name": "dublin",
+            "traps": [
+                "stockholm"
+            ]
+        },
+        {
+            "src": "geneva",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon",
+            "traps": [
+                "kiev"
+            ]
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.29.1",
+            "dest_name": "london",
+            "traps": [
+                "marseille"
+            ]
+        },
+        {
+            "src": "basel",
+            "dest": "100.0.26.1",
+            "dest_name": "sofia",
+            "traps": [
+                "rotterdam"
+            ]
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.1.1",
+            "dest_name": "kiev",
+            "traps": [
+                "barcelona"
+            ]
+        },
+        {
+            "src": "strasbourg",
+            "dest": "100.0.29.1",
+            "dest_name": "london",
+            "traps": [
+                "stockholm"
+            ]
+        },
+        {
+            "src": "zagreb",
+            "dest": "100.0.26.1",
+            "dest_name": "sofia",
+            "traps": [
+                "ljubjana"
+            ]
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam",
+            "traps": [
+                "geneva",
+                "budapest"
+            ]
+        },
+        {
+            "src": "milan",
+            "dest": "100.0.7.1",
+            "dest_name": "ljubjana",
+            "traps": [
+                "bratislava"
+            ]
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.14.1",
+            "dest_name": "brussels",
+            "traps": [
+                "london"
+            ]
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.22.1",
+            "dest_name": "frankfurt",
+            "traps": [
+                "warsaw"
+            ]
+        },
+        {
+            "src": "sofia",
+            "dest": "100.0.23.1",
+            "dest_name": "bucharest",
+            "traps": [
+                "frankfurt",
+                "kiev"
+            ]
+        },
+        {
+            "src": "geneva",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid",
+            "traps": [
+                "london"
+            ]
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.21.1",
+            "dest_name": "marseille",
+            "traps": [
+                "geneva"
+            ]
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.16.1",
+            "dest_name": "vaduz",
+            "traps": [
+                "milan"
+            ]
+        },
+        {
+            "src": "lyon",
+            "dest": "100.0.10.1",
+            "dest_name": "strasbourg",
+            "traps": [
+                "barcelona"
+            ]
+        },
+        {
+            "src": "basel",
+            "dest": "100.0.19.1",
+            "dest_name": "stockholm",
+            "traps": [
+                "marseille",
+                "luxembourg"
+            ]
+        },
+        {
+            "src": "vienna",
+            "dest": "100.0.26.1",
+            "dest_name": "sofia",
+            "traps": [
+                "roma"
+            ]
+        },
+        {
+            "src": "ljubjana",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon",
+            "traps": [
+                "geneva",
+                "luxembourg"
+            ]
+        },
+        {
+            "src": "luxembourg",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon",
+            "traps": [
+                "barcelona",
+                "basel"
+            ]
+        },
+        {
+            "src": "madrid",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam",
+            "traps": [
+                "geneva"
+            ]
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.23.1",
+            "dest_name": "bucharest",
+            "traps": [
+                "strasbourg"
+            ]
+        },
+        {
+            "src": "istanbul",
+            "dest": "100.0.18.1",
+            "dest_name": "barcelona",
+            "traps": [
+                "lisbon"
+            ]
+        },
+        {
+            "src": "athens",
+            "dest": "100.0.15.1",
+            "dest_name": "budapest",
+            "traps": [
+                "milan"
+            ]
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.14.1",
+            "dest_name": "brussels",
+            "traps": [
+                "geneva"
+            ]
+        },
+        {
+            "src": "luxembourg",
+            "dest": "100.0.27.1",
+            "dest_name": "milan",
+            "traps": [
+                "athens"
+            ]
+        },
+        {
+            "src": "bucharest",
+            "dest": "100.0.6.1",
+            "dest_name": "luxembourg",
+            "traps": [
+                "amsterdam"
+            ]
+        },
+        {
+            "src": "praha",
+            "dest": "100.0.18.1",
+            "dest_name": "barcelona",
+            "traps": [
+                "athens"
+            ]
+        },
+        {
+            "src": "lyon",
+            "dest": "100.0.28.1",
+            "dest_name": "praha",
+            "traps": [
+                "london"
+            ]
+        },
+        {
+            "src": "london",
+            "dest": "100.0.6.1",
+            "dest_name": "luxembourg",
+            "traps": [
+                "bratislava"
+            ]
+        },
+        {
+            "src": "milan",
+            "dest": "100.0.19.1",
+            "dest_name": "stockholm",
+            "traps": [
+                "kiev"
+            ]
+        },
+        {
+            "src": "lyon",
+            "dest": "100.0.10.1",
+            "dest_name": "strasbourg",
+            "traps": [
+                "geneva"
+            ]
+        },
+        {
+            "src": "amsterdam",
+            "dest": "100.0.30.1",
+            "dest_name": "lisbon",
+            "traps": [
+                "ljubjana",
+                "bratislava"
+            ]
+        },
+        {
+            "src": "lyon",
+            "dest": "100.0.18.1",
+            "dest_name": "barcelona",
+            "traps": [
+                "stockholm"
+            ]
+        },
+        {
+            "src": "lisbon",
+            "dest": "100.0.10.1",
+            "dest_name": "strasbourg",
+            "traps": [
+                "barcelona",
+                "bratislava"
+            ]
+        },
+        {
+            "src": "warsaw",
+            "dest": "100.0.11.1",
+            "dest_name": "geneva",
+            "traps": [
+                "roma"
+            ]
+        },
+        {
+            "src": "budapest",
+            "dest": "100.0.0.1",
+            "dest_name": "lyon",
+            "traps": [
+                "strasbourg"
+            ]
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.13.1",
+            "dest_name": "bratislava",
+            "traps": [
+                "paris"
+            ]
+        },
+        {
+            "src": "bratislava",
+            "dest": "100.0.31.1",
+            "dest_name": "amsterdam",
+            "traps": [
+                "rotterdam"
+            ]
+        },
+        {
+            "src": "luxembourg",
+            "dest": "100.0.25.1",
+            "dest_name": "madrid",
+            "traps": [
+                "ljubjana"
+            ]
+        },
+        {
+            "src": "lisbon",
+            "dest": "100.0.20.1",
+            "dest_name": "roma",
+            "traps": [
+                "zagreb"
+            ]
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.1.1",
+            "dest_name": "kiev",
+            "traps": [
+                "basel"
+            ]
+        },
+        {
+            "src": "vaduz",
+            "dest": "100.0.8.1",
+            "dest_name": "vienna",
+            "traps": [
+                "barcelona"
+            ]
+        },
+        {
+            "src": "marseille",
+            "dest": "100.0.8.1",
+            "dest_name": "vienna",
+            "traps": [
+                "luxembourg"
+            ]
+        },
+        {
+            "src": "barcelona",
+            "dest": "100.0.3.1",
+            "dest_name": "paris",
+            "traps": [
+                "stockholm",
+                "zurich"
+            ]
+        },
+        {
+            "src": "rotterdam",
+            "dest": "100.0.23.1",
+            "dest_name": "bucharest",
+            "traps": [
+                "sofia"
+            ]
         }
     ]
 }
-
