@@ -16,12 +16,16 @@ properties = {
     "hiberniaus": {
         "reach": 60,
         "iso": 30
+    },
+    "bics": {
+        "reach": 80,
+        "iso": 50
     }
 }
 
 
 def parse_prop_difficulty(raw_violations: dict, num_props: int) -> OrderedDict:
-    all_violations = raw_violations["BFS"]
+    all_violations = raw_violations["DFS"]
     prop_difficulties = OrderedDict()
 
     for prop_id in range(1, num_props + 1):
@@ -30,6 +34,14 @@ def parse_prop_difficulty(raw_violations: dict, num_props: int) -> OrderedDict:
     for iter_props in all_violations.values():
         for prop_id in iter_props:
             prop_difficulties[prop_id] += 1
+
+    not_violated = 0
+
+    for num_violated in prop_difficulties.values():
+        if num_violated == 0:
+            not_violated += 1
+
+    print("Number of properties not violated: {}".format(not_violated))
 
     return prop_difficulties
 
@@ -151,12 +163,12 @@ def plot_topo_properties_difficulty(topo_name: str, prop_type: str, num_props: i
 
 
 def main():
-    topology = "hiberniaus"
-    property_type = "iso"
+    topology = "bics"
+    property_type = "reach"
     num_props = properties[topology][property_type]
 
-    plot_topo_violations(topology, property_type)
-    # plot_topo_properties_difficulty(topology, property_type, num_props)
+    # plot_topo_violations(topology, property_type)
+    plot_topo_properties_difficulty(topology, property_type, num_props)
 
 
 main()
