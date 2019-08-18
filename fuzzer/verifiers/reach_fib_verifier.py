@@ -11,7 +11,7 @@ def verify_fib_reachability(properties: dict, fib, fuzz_data, failed_nets: list)
 
     # remember the properties that failed
     for prop_id, prop in properties.items():
-        print("Verifying property {}".format(prop_id))
+        # print("Verifying property {}".format(prop_id))
         reachability_res = verify_fib_property(prop, fib, fuzz_data, failed_nets)
 
         if reachability_res["status"] != 0:

@@ -9,7 +9,7 @@ def verify_fib_isolation(iso_props: dict, fib, fuzz_data, failed_nets: list) -> 
     no_reach_props = dict()
 
     for prop_id, prop in iso_props.items():
-        print("Verifying property {}".format(prop_id))
+        # print("Verifying property {}".format(prop_id))
         iso_res = verify_fib_property(prop, fib, fuzz_data, failed_nets)
 
         if iso_res["status"] == 1:

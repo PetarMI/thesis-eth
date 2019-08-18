@@ -46,4 +46,4 @@ DROP = "drop"
 REACH_FUZZ = "reachability"
 ISO_FUZZ = "isolation"
 
-CONV_TIME = 10
+CONV_TIME = 5

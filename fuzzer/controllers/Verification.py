@@ -41,8 +41,8 @@ class Verification:
         print(clr("## Final verdict", 'cyan'))
         rfv.examine_violations(state, self.reach_iterations, property_failures)
 
-        # print(clr("## Applying changes to reachability properties", 'cyan'))
-        # remove_properties(property_failures, self.reach_props)
+        print(clr("## Applying changes to reachability properties", 'cyan'))
+        remove_properties(property_failures, self.reach_props)
 
     def _verify_fib_isolation(self, state):
         print(clr("## Isolation property checking", 'cyan'))
@@ -60,8 +60,8 @@ class Verification:
         print(clr("## Final verdict", 'cyan'))
         ifv.examine_violations(state, self.iso_iterations, property_failures)
 
-        # print(clr("## Applying changes to blacklist properties", 'cyan'))
-        # remove_properties(property_failures, self.iso_props)
+        print(clr("## Applying changes to blacklist properties", 'cyan'))
+        remove_properties(property_failures, self.iso_props)
 
     def stop_fuzzing(self) -> bool:
         if len(self.reach_props.keys()) == 0 and len(self.iso_props.keys()) == 0:
