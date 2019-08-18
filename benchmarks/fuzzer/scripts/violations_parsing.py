@@ -3,6 +3,7 @@ import json
 import matplotlib.pyplot as plt
 from collections import OrderedDict
 from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
+plt.rcParams.update({'font.size': 14})
 
 
 strategies_full = {"bfs": "BFS", "dfs": "DFS",
@@ -20,12 +21,16 @@ properties = {
     "bics": {
         "reach": 80,
         "iso": 50
+    },
+    "iris": {
+        "reach": 100,
+        "iso": 60
     }
 }
 
 
 def parse_prop_difficulty(raw_violations: dict, num_props: int) -> OrderedDict:
-    all_violations = raw_violations["DFS"]
+    all_violations = raw_violations["BFS"]
     prop_difficulties = OrderedDict()
 
     for prop_id in range(1, num_props + 1):
@@ -130,7 +135,7 @@ def make_violations_plot(violations: dict):
 
     plt.ylabel('Properties violated')
     plt.xlabel("Number of iterations")
-    ax.set_title('Property violations comparison')
+    # ax.set_title('Property violations comparison')
     plt.legend()
 
     plt.show()
@@ -138,13 +143,14 @@ def make_violations_plot(violations: dict):
 
 def make_difficulty_plot(difficulties: OrderedDict):
     fig, ax = plt.subplots()
-
-    plt.plot(list(difficulties.keys()), list(difficulties.values()),
-             marker='o')
+    diffs = list(difficulties.values())
+    diffs.sort()
+    plt.plot(list(difficulties.keys()), diffs,
+             marker='o', markersize=4)
 
     plt.ylabel('Number of violating states')
     plt.xlabel("Properties")
-    ax.set_title('Property violations comparison')
+    # ax.set_title('Property violations comparison')
 
     plt.show()
 
@@ -163,12 +169,12 @@ def plot_topo_properties_difficulty(topo_name: str, prop_type: str, num_props: i
 
 
 def main():
-    topology = "bics"
+    topology = "iris"
     property_type = "reach"
     num_props = properties[topology][property_type]
 
-    # plot_topo_violations(topology, property_type)
-    plot_topo_properties_difficulty(topology, property_type, num_props)
+    plot_topo_violations(topology, property_type)
+    #plot_topo_properties_difficulty(topology, property_type, num_props)
 
 
 main()

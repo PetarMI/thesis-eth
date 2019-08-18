@@ -135,11 +135,12 @@ class PlotOptimalVMs:
         ind = np.arange(4)  # the x locations for the groups
         width = 0.35  # the width of the bars: can also be len(x) sequence
 
-        p1 = plt.bar(ind, total_means, width, yerr=total_stds)
+        p1 = plt.bar(ind, total_means, width, yerr=total_stds,
+                     capsize=2)
 
         plt.ylabel('Seconds')
         plt.xlabel('Number of routers per VM')
-        plt.title('Optimal number of devices per VM')
+        plt.title('Overall deployment time')
         plt.xticks(ind, ('3', '5', '8', '10'))
         # plt.yticks(np.arange(200, 500, 100))
         # plt.legend((p1[0], p2[0]), ('Men', 'Women'))
@@ -210,6 +211,54 @@ class PlotOptimalVMs:
 
         plt.show()
 
+    @staticmethod
+    def plot_all_metrics():
+        dir_path = const.VM_LOGS_DIR
+        instance_dirs = ["vm_3", "vm_5", "vm_8", "vm_10"]
+
+        ovms_results: dict = parse_measurement(dir_path, instance_dirs)
+        # growing
+        setup_means = ovms_results["setup"]["means"]
+        setup_stds = ovms_results["setup"]["stds"]
+        # steady
+        phynet_means = ovms_results["phynet"]["means"]
+        phynet_stds = ovms_results["phynet"]["stds"]
+        restart_means = ovms_results["restart"]["means"]
+        restart_stds = ovms_results["restart"]["stds"]
+        # decreasing
+        upload_means = ovms_results["upload"]["means"]
+        upload_stds = ovms_results["upload"]["stds"]
+        download_means = ovms_results["download"]["means"]
+        download_stds = ovms_results["download"]["stds"]
+
+        ind = np.arange(4)  # the x locations for the groups
+        width = 0.15  # the width of the bars
+
+        fig, ax = plt.subplots()
+        rects1 = ax.bar(ind - 0.3, setup_means, width, yerr=setup_stds,
+                        label='L3 setup')
+        rects2 = ax.bar(ind - 0.15, phynet_means, width, yerr=phynet_stds,
+                        label='L2 setup')
+        rects3 = ax.bar(ind, restart_means, width, yerr=restart_stds,
+                        label='L3 config')
+        rects4 = ax.bar(ind + 0.15, upload_means, width, yerr=upload_stds,
+                        label='Upload')
+        rects5 = ax.bar(ind + 0.3, download_means, width, yerr=download_stds,
+                        label='Download')
+
+
+        # Add some text for labels, title and custom x-axis tick labels, etc.
+        ax.set_ylabel('Seconds')
+        ax.set_xlabel('Number of routers per VM')
+        #ax.set_title('All met')
+        ax.set_xticks(ind)
+        ax.set_xticklabels(('3', '5', '8', '10'))
+        ax.legend()
+
+        fig.tight_layout()
+
+        plt.show()
+
 
 class PlotTopoBenches:
     @staticmethod
@@ -226,12 +275,12 @@ class PlotTopoBenches:
         ind = np.arange(N)  # the x locations for the groups
         width = 0.35  # the width of the bars: can also be len(x) sequence
 
-        p1 = plt.bar(ind, total_means, width, yerr=total_stds)
+        p1 = plt.bar(ind, total_means, width, yerr=total_stds, capsize=2)
 
         plt.ylabel('Seconds')
         plt.xlabel("Number of routers in topology")
-        plt.title('Deployment times of different topologies')
-        plt.xticks(ind, ('11', '22', '33', '51', '70', '93', '125', '156'))
+        # plt.title('Deployment times of different topologies')
+        plt.xticks(ind, ('11/5', '22/6', '33/10', '51/10', '70/14', '93/15', '125/19', '156/21'))
 
         plt.show()
 
@@ -239,13 +288,16 @@ class PlotTopoBenches:
     def plot_metric_ratios():
         metric_ratios = parse_metric_ratios()
 
-        metrics = ["setup", "phynet", "others"]
+        metrics = ["Setup L3 containers", "L2 Docker Compose", "Others"]
         ratios = [metric_ratios["setup"], metric_ratios["phynet"],
                   100 - metric_ratios["setup"] - metric_ratios["phynet"]]
 
         fig1, ax1 = plt.subplots()
-        ax1.pie(ratios, labels=metrics, autopct='%1.1f%%', startangle=90)
+        patches, texts, autotexts = ax1.pie(ratios, labels=metrics, autopct='%1.1f%%', textprops={'fontsize': 14}, startangle=90)
         ax1.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+        texts[0].set_fontsize(20)
+        texts[1].set_fontsize(20)
+        texts[2].set_fontsize(20)
 
         plt.show()
 
@@ -266,17 +318,17 @@ class PlotTopoBenches:
 
         fig, ax = plt.subplots()
         rects1 = ax.bar(ind - width / 2, phynet_means, width, yerr=phynet_stds,
-                        label='Phynet')
+                        label='L2 Docker Compose', capsize=2)
         rects2 = ax.bar(ind + width / 2, setup_means, width, yerr=setup_stds,
-                        label='Setup')
+                        label='Setup L3 containers', capsize=2)
 
         # Add some text for labels, title and custom x-axis tick labels, etc.
         plt.ylabel('Seconds')
         plt.xlabel("Number of routers in topology")
-        ax.set_title('Biggest metrics')
+        # ax.set_title('Biggest metrics')
         ax.set_xticks(ind)
-        plt.xticks(ind, ('11', '22', '33', '51', '70', '93', '125', '156'))
-        ax.legend(loc=9)
+        plt.xticks(ind, ('11/5', '22/6', '33/10', '51/10', '70/14', '93/15', '125/19', '156/21'))
+        ax.legend(loc=2)
 
         fig.tight_layout()
 
@@ -287,11 +339,12 @@ if __name__ == "__main__":
     ovms = PlotOptimalVMs()
     tb = PlotTopoBenches()
 
-    # ovms.plot_optimal_vms("total")
+    #ovms.plot_optimal_vms("total")
     # ovms.plot_optimal_vms("setup")
     # ovms.plot_decreasing_metrics()
     # ovms.plot_steady_metrics()
+    # ovms.plot_all_metrics()
 
     # tb.plot_topos("total")
     # tb.plot_metric_ratios()
-    # tb.plot_topos_important_metrics()
+    tb.plot_topos_important_metrics()

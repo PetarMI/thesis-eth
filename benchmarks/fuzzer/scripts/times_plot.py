@@ -3,6 +3,7 @@ import json
 import numpy as np
 import matplotlib.pyplot as plt
 from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
+plt.rcParams.update({'font.size': 14})
 
 
 strategies_full = {"bfs": "BFS", "dfs": "DFS",
@@ -138,8 +139,8 @@ def plot_transition_times():
     p1 = plt.bar(ind, mean_times, width, yerr=std_err, capsize=3)
 
     plt.ylabel('Seconds')
-    plt.xlabel("Metrics")
-    plt.title('Times spent during state transition')
+    plt.xlabel("Stages")
+    # plt.title('Times spent during state transition')
     plt.xticks(ind, ("Fuzz Ops", "Link Drop", "Link Restore", "Neighbor\nadjacency", "Route\nconvergence"))
 
     plt.show()
@@ -151,13 +152,13 @@ def plot_ver_times():
 
     plt.errorbar(ver_times_dynamic["xaxis"], ver_times_dynamic["means"],
                  yerr=ver_times_dynamic["errs"], c='blue', ecolor='red',
-                 fmt='-o', markersize=5, capsize=2, label='Dynamic check')
+                 fmt='-o', markersize=5, capsize=2, label='Lazy check')
     plt.errorbar(ver_times_static["xaxis"], ver_times_static["means"],
                  yerr=ver_times_static["errs"], c='green', ecolor='red',
-                 fmt='-o', markersize=5, capsize=2, label='Static graph check')
+                 fmt='-o', markersize=5, capsize=2, label='Eager check')
     plt.ylabel('Seconds')
-    plt.xlabel("Properties")
-    plt.title('Reachability Verification')
+    plt.xlabel("Number of properties")
+    # plt.title('Reachability Verification')
     plt.legend()
 
     plt.show()
