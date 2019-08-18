@@ -12,7 +12,7 @@ function check_neighbor_discovery {
     for cont in "${restored_containers[@]}"
     do
         # the log file is updated after every drop in StateTransition.py
-        local prev_neighbors=$(cat ${NEIGHBOR_LOGS} | grep ${cont} | awk '{print $2}')
+        local prev_neighbors=$(cat ${NEIGHBOR_LOGS} | grep -w ${cont} | awk '{print $2}')
 
         # check that the container in the argument list belongs to this VM
         if [[ ${prev_neighbors} == "" ]]; then
