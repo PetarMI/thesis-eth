@@ -3,7 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from fuzzer.Fuzzer import Fuzzer
 from benchmarks.fuzzer.scripts import constants_fuzz_bench as const
-
+plt.rcParams.update({'font.size': 14})
 
 def get_search_strategy():
     fuzzer = Fuzzer()
@@ -117,13 +117,13 @@ def plot_op_stats():
 
     fig, ax = plt.subplots()
 
-    plt.plot(x_axis, fr_stats, marker='o', color='green', label='Full revert')
-    plt.plot(x_axis, bfs_pr_stats, color='red', label='Partial revert BFS')
-    plt.plot(x_axis, dfs_prs_stats, color='blue', label='Partial revert DFS')
+    plt.plot(x_axis, fr_stats, marker='o', color='red', label='Full revert')
+    # plt.plot(x_axis, bfs_pr_stats, color='red', label='Partial revert BFS')
+    plt.plot(x_axis, dfs_prs_stats, marker='o', color='blue', label='Partial revert')
 
-    plt.ylabel('Link operations')
-    plt.xlabel("Number of links in topology")
-    ax.set_title('Full vs Partial revert')
+    plt.ylabel('Number of Link operations')
+    plt.xlabel("Number of links in benchmark topology")
+    # ax.set_title('Full vs Partial revert')
     plt.legend()
 
     plt.show()
